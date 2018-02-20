@@ -88,7 +88,7 @@ contract car145_nextStep {
             }
             if confirmatons["step_304"] == 0 {
                 var role_name, title, page, params string
-                role_name = "Applicant"
+                role_name = "Applicat"
                 title = "Compliance Report upload"
                 page = "car145_documentAdd_304"
                 params = Sprintf("application_id=%v,stage=%v,stage_str=%v,stage_name=%v,role_name=%v", $application_id, "304", "3.04", title, role_name)
@@ -100,7 +100,7 @@ contract car145_nextStep {
             }
             if confirmatons["step_307"] == 0 {
                 var role_name, title, page, params string
-                role_name = "Applicant"
+                role_name = "Applicat"
                 title = "Provide Recommendation to the Manager"
                 page = "car145_textForm_307"
                 params = Sprintf("application_id=%v,stage=%v,stage_str=%v,stage_name=%v,role_name=%v", $application_id, "307", "3.07", title, role_name)

@@ -1,4 +1,4 @@
-contract car145_reject301 {
+contract car145_reject_301 {
     data {
         application_id int
         notific_id int
