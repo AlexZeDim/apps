@@ -1,6 +1,6 @@
 digraph G {
 fontsize="24.0";
-label="car145\nTuesday, 20-Feb-18 11:52:37 MSK";
+label="car145\nTuesday, 20-Feb-18 18:56:46 MSK";
 rankdir=LR;
 "car145_acceptApplication\ncontract" -> "car145_nextStep\ncontract"  [ color=red ]
 "car145_acceptApplication\ncontract" -> "car145_confirmations\ntable"  [ color="" ]
@@ -52,6 +52,7 @@ rankdir=LR;
 "car145_engineEdit\ncontract" -> "car145_enginerating\ntable"  [ color="" ]
 "car145_engineEdit\ncontract" -> "car145_applications\ntable"  [ color="" ]
 "car145_engineEdit\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"car145_nextStep\ncontract" -> "car145_documentAdd\ncontract"  [ color=red ]
 "car145_nextStep\ncontract" -> "car145_confirmations\ntable"  [ color="" ]
 "car145_nextStep\ncontract" -> "roles_list\ntable"  [ color="" ]
 "car145_nextStep\ncontract" -> "car145_applications\ntable"  [ color="" ]
@@ -62,6 +63,10 @@ rankdir=LR;
 "car145_otherEdit\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "car145_rejectApplication\ncontract" -> "car145_applications\ntable"  [ color="" ]
 "car145_rejectApplication\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"car145_reject_301\ncontract" -> "car145_nextStep\ncontract"  [ color=red ]
+"car145_reject_301\ncontract" -> "car145_confirmations\ntable"  [ color="" ]
+"car145_reject_301\ncontract" -> "car145_applications\ntable"  [ color="" ]
+"car145_reject_301\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "car145_resendApplication\ncontract" -> "car145_nextStep\ncontract"  [ color=red ]
 "car145_resendApplication\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "car145_serviceAdd\ncontract" -> "car145_specializedservices\ntable"  [ color="" ]
@@ -69,6 +74,10 @@ rankdir=LR;
 "car145_serviceAdd\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "car145_serviceDelete\ncontract" -> "car145_specializedservices\ntable"  [ color="" ]
 "car145_serviceDelete\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"car145_textForm_307\ncontract" -> "car145_nextStep\ncontract"  [ color=red ]
+"car145_textForm_307\ncontract" -> "car145_confirmations\ntable"  [ color="" ]
+"car145_textForm_307\ncontract" -> "car145_applications\ntable"  [ color="" ]
+"car145_textForm_307\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "car145_menu\nmenu" [color=blue, fontcolor=blue, group=menus, shape=record];
 "default_menu\nmenu" [color=blue, fontcolor=blue, group=menus, shape=record];
 "car145_adminView\npage" -> "car145_acceptApplication\ncontract"  [ color=red ]
@@ -83,6 +92,18 @@ rankdir=LR;
 "car145_documents\ntable" -> "car145_adminView\npage"  [ color="" ]
 "car145_adminView\npage" -> "notifications_roles\npage"  [ color=green ]
 "car145_adminView\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"car145_adminView_301\npage" -> "car145_acceptApplication\ncontract"  [ color=red ]
+"car145_adminView_301\npage" -> "car145_reject_301\ncontract"  [ color=red ]
+"car145_applications\ntable" -> "car145_adminView_301\npage"  [ color="" ]
+"car145_organizations\ntable" -> "car145_adminView_301\npage"  [ color="" ]
+"car145_aircraftrating\ntable" -> "car145_adminView_301\npage"  [ color="" ]
+"car145_aircraft\ntable" -> "car145_adminView_301\npage"  [ color="" ]
+"car145_enginerating\ntable" -> "car145_adminView_301\npage"  [ color="" ]
+"car145_componentrating\ntable" -> "car145_adminView_301\npage"  [ color="" ]
+"car145_specializedservices\ntable" -> "car145_adminView_301\npage"  [ color="" ]
+"car145_documents\ntable" -> "car145_adminView_301\npage"  [ color="" ]
+"car145_adminView_301\npage" -> "notifications_roles\npage"  [ color=green ]
+"car145_adminView_301\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "car145_aircraftrating\ntable" -> "car145_aircraft\npage"  [ color="" ]
 "car145_aircraft\ntable" -> "car145_aircraft\npage"  [ color="" ]
 "car145_aircraft\npage" -> "car145_applications\npage"  [ color=green ]
@@ -135,6 +156,9 @@ rankdir=LR;
 "car145_documentAdd\npage" -> "car145_documentAdd\ncontract"  [ color=red ]
 "car145_documentAdd\npage" -> "car145_view\npage"  [ color=green ]
 "car145_documentAdd\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"car145_documentAdd_304\npage" -> "car145_documentAdd\ncontract"  [ color=red ]
+"car145_documentAdd_304\npage" -> "notifications_roles\npage"  [ color=green ]
+"car145_documentAdd_304\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "car145_enginerating\ntable" -> "car145_engine\npage"  [ color="" ]
 "car145_engine\npage" -> "car145_applications\npage"  [ color=green ]
 "car145_engine\npage" -> "car145_engineAdd\npage"  [ color=green ]
@@ -173,6 +197,9 @@ rankdir=LR;
 "car145_rejected\npage" -> "car145_other\npage"  [ color=green ]
 "car145_rejected\npage" -> "default_page\npage"  [ color=green ]
 "car145_rejected\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"car145_textForm_307\npage" -> "car145_textForm_307\ncontract"  [ color=red ]
+"car145_textForm_307\npage" -> "notifications_roles\npage"  [ color=green ]
+"car145_textForm_307\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "car145_view\npage" -> "car145_aircraftDelete\ncontract"  [ color=red ]
 "car145_view\npage" -> "car145_engineDelete\ncontract"  [ color=red ]
 "car145_view\npage" -> "car145_componentDelete\ncontract"  [ color=red ]
