@@ -1,15 +1,11 @@
-
-
 contract car145_nextStep {
-    
     data {
         application_id int
     }
     
     conditions {}
-    
-    action {
         
+    action {
         var confirmatons map
         confirmatons = DBFind("car145_confirmations").Where("application_id = ?", $application_id).Row()
         
