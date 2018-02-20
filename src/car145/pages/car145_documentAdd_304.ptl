@@ -1,10 +1,11 @@
 Div(content-wrapper){
     Div(row df f-valign){
-        Div(col-md-6 col-md-offset-3){
+        Div(col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3){
             Div(panel panel-primary){
                 Div(panel-heading, Body: Upload Compliance Report)
                 Form(){
-                    Input(Name: application_id, Class: form-control hidden, Type: number, Value: #application_id#)
+                    Input(Name: application_id, Type:hidden, Value: #application_id#)
+                    Input(Name: notific_id, Type: hidden, Value: #notific_id#)
                     
                     Div(list-group-item){
                         Div(row df f-valign){
@@ -36,8 +37,8 @@ Div(content-wrapper){
                     
                     Div(panel-footer clearfix){
                         Div(pull-right){
-                            Select(Name: file_type, Value: 5, Type: hidden)
-                            Button(Body: Upload, Class: btn btn-primary, Contract: car145_documentAdd,Page: notifications_roles)
+                            Input(Name: file_type, Value: 5, Type: hidden)
+                            Button(Body: Upload, Class: btn btn-primary, Contract: car145_documentAdd_304,Page: notifications_roles)
                         }
                     }
                 }

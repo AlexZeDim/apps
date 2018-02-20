@@ -1,9 +1,6 @@
 
 
 contract car145_nextStep {
-    func roleSend(roleId int, body, page, params string){
-        Notifications_Roles_Send("role_id,closure_type,icon_name,text_header,text_body,page_name,params_val", roleId, 1, "fa-file-alt", "CAR-145", body, page, params)
-    }
     
     data {
         application_id int
@@ -82,44 +79,42 @@ contract car145_nextStep {
             }
             
             if(confirmatons["step_301"] == 0){
-                var role_name, title, page,role_id, params string
+                var role_name, title, page, params string
                 role_name = "Inspector"
                 title = "Demonstration of Compliance is not needed"
                 page = "car145_adminView_301"
-                
-                role_id = DBFind("roles_list").Where("role_name = ?", role_name).One("id")
-                
                 params = Sprintf("application_id=%v,stage=%v,stage_str=%v,stage_name=%v,role_name=%v", $application_id, "301", "3.01", title, role_name)
                 
-                roleSend(Int(role_id), title, page, params)
-                return
+                var role_id int
+                role_id = DBFind("roles_list").Where("role_name = ? and delete=0", role_name).One("id")
+                Notifications_Roles_Send("role_id,closure_type,icon_name,text_header,text_body,page_name,params_val", role_id, 1, "fa-file-alt", "CAR-145", title, page, params)
+                break
             }
             if confirmatons["step_304"] == 0 {
-                var role_name, title, page,role_id, params string
+                var role_name, title, page, params string
                 role_name = "Applicant"
                 title = "Compliance Report upload"
                 page = "car145_documentAdd_304"
-                
-                role_id = DBFind("roles_list").Where("role_name = ?", role_name).One("id")
-                
                 params = Sprintf("application_id=%v,stage=%v,stage_str=%v,stage_name=%v,role_name=%v", $application_id, "304", "3.04", title, role_name)
                 
-                roleSend(Int(role_id), title, page, params)
-                return
+                var role_id int
+                role_id = DBFind("roles_list").Where("role_name=? and delete=0", role_name).One("id")
+                Notifications_Roles_Send("role_id,closure_type,icon_name,text_header,text_body,page_name,params_val", role_id, 1, "fa-file-alt", "CAR-145", title, page, params)
+                break
             }
             if confirmatons["step_307"] == 0 {
-                var role_name, title, page,role_id, params string
+                var role_name, title, page, params string
                 role_name = "Applicant"
                 title = "Provide Recommendation to the Manager"
                 page = "car145_textForm_307"
-                
-                role_id = DBFind("roles_list").Where("role_name = ?", role_name).One("id")
-                
                 params = Sprintf("application_id=%v,stage=%v,stage_str=%v,stage_name=%v,role_name=%v", $application_id, "307", "3.07", title, role_name)
                 
-                roleSend(Int(role_id), title, page, params)
-                return
+                var role_id int
+                role_id = DBFind("roles_list").Where("role_name=? and delete=0", role_name).One("id")
+                Notifications_Roles_Send("role_id,closure_type,icon_name,text_header,text_body,page_name,params_val", role_id, 1, "fa-file-alt", "CAR-145", title, page, params)
+                break
             }
+            
             
             
             if(confirmatons["step_308"] == 0){

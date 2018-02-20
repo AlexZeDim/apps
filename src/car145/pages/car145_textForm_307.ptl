@@ -1,10 +1,11 @@
 Div(content-wrapper){
     Div(row df f-valign){
-        Div(col-md-6 col-md-offset-3){
+        Div(col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3){
             Div(panel panel-primary){
-                Div(panel-heading, Body: Upload Compliance Report)
+                Div(panel-heading, Body: #stage_name#)
                 Form(){
-                    Input(Name: application_id, Class: form-control hidden, Type: number, Value: #application_id#)
+                    Input(Name: application_id, Type:hidden, Value: #application_id#)
+                    Input(Name: notific_id, Type: hidden, Value: #notific_id#)
                     
                     Div(list-group-item){
                         Div(row df f-valign){
@@ -15,14 +16,14 @@ Div(content-wrapper){
                                 }
                             }
                             Div(col-md-9 mc-sm text-left){
-                                Input(Name: form_text, Class: form-control, Type: textarea)
+                                Input(Name: description, Class: form-control, Type: textarea)
                             }
                         }
                     }
                     
                     Div(panel-footer clearfix){
                         Div(pull-right){
-                            Button(Body: Upload, Class: btn btn-primary, Contract: car145_textForm_307,Page: notifications_roles)
+                            Button(Body: $send$, Class: btn btn-primary, Contract: car145_textForm_307,Page: notifications_roles)
                         }
                     }
                 }

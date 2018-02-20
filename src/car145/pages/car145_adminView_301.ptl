@@ -1,8 +1,9 @@
+SetTitle(#role_name#: CAR-145 Application)
 Div(content-wrapper){
     Div(row df f-valign){
-        Div(col-md-6 col-md-offset-3){
+        Div(col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3){
             Div(panel panel-primary){
-                Div(panel-heading, Body: CAR-145 Application: #stage_str# #stage_name# (#role_name#))
+                Div(panel-heading, Body: #stage_str# #stage_name#)
                 Form(){
                     Div(panel-body){
                         DBFind("car145_applications").Where(id = #application_id#).Limit(1).Vars("app")
@@ -208,9 +209,9 @@ Div(content-wrapper){
                         
                         Div(panel-footer clearfix){
                             Div(list-group-item){
-                                Div(Class: row df f-valign){
-                                    Div(h3){Is demonstration of Compliance needed?}
-                                    Div(Class: col-md-6 mt-sm text-right){
+                                Div(row df f-valign){
+                                    Div(h4 text-center col-md-12){Is demonstration of Compliance needed?}
+                                    Div(col-md-6 mt-sm text-right){
                                         Button(Class: btn btn-success, Body: $yes$, Contract: car145_acceptApplication, Params: "notific_id=#notific_id#,application_id=#application_id#,stage=#stage#", Page: notifications_roles)
                                     }
                                     Div(Class: col-md-6 mt-sm text-left){
