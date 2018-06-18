@@ -1,0 +1,33 @@
+{
+  
+    "contracts": [
+        {
+            "Conditions": "true",
+            "Name": "forex_NewOrder"
+        }
+    ],
+    "menus": [
+        {
+            "Conditions": "ContractConditions(\"MainCondition\")",
+            "Name": "admin_menu"
+        }
+    ],
+    "pages": [
+        {
+            "Conditions": "true",
+            "Name": "forex",
+            "Menu": "default_menu"
+        }
+    ],
+    "tables": [
+        {
+            "Name": "forex_history",
+            "Permissions": "{\"insert\": \"ContractConditions(\\\"MainCondition\\\")\", \"update\": \"ContractConditions(\\\"MainCondition\\\")\", \"new_column\": \"ContractConditions(\\\"MainCondition\\\")\"}"
+        },
+        {
+            "Name": "forex_orders",
+            "Permissions": "{\"insert\": \"true\", \"update\": \"true\", \"new_column\": \"true\"}"
+        }
+    ],
+    "name": "Forex"
+}

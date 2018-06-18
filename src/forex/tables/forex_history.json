@@ -1,0 +1,32 @@
+[
+    {
+        "name": "price",
+        "type": "money",
+        "conditions": "true"
+    },
+    {
+        "name": "total",
+        "type": "money",
+        "conditions": "true"
+    },
+    {
+        "name": "amount",
+        "type": "money",
+        "conditions": "true"
+    },
+    {
+        "name": "currency",
+        "type": "varchar",
+        "conditions": "true"
+    },
+    {
+        "name": "direction",
+        "type": "varchar",
+        "conditions": "true"
+    },
+    {
+        "name": "time",
+        "type": "datetime",
+        "conditions": "true"
+    }
+]

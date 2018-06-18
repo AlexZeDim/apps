@@ -1,0 +1,22 @@
+digraph G {
+graph [
+  fontsize="24";
+  label="forex\nMonday, 18-Jun-18 15:39:18 MSK";
+  nojustify=true;
+  ordering=out;
+  rankdir=LR;
+  size="30";
+];
+"default_menu\nmenu" -> "forex\npage"  [ color=green ]
+"default_menu\nmenu" [color=blue, fontcolor=blue, group=menus, shape=record];
+"forex\npage" -> "forex_NewOrder\ncontract"  [ color=red ]
+"forex_orders\ntable" -> "forex\npage"
+"forex_history\ntable" -> "forex\npage"
+"forex\npage" -> "forex\npage"  [ color=green ]
+"forex\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"forex_NewOrder\ncontract" -> "forex_orders\ntable"  [ color="" ]
+"forex_NewOrder\ncontract" -> "forex_history\ntable"  [ color="" ]
+"forex_NewOrder\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"forex_history\ntable" [color="", fontcolor="", group=tables, shape=""];
+"forex_orders\ntable" [color="", fontcolor="", group=tables, shape=""];
+}

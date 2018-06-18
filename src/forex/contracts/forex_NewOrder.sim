@@ -1,0 +1,90 @@
+contract newForexOrder {
+    data {
+        SellTable string
+        SellRate float
+        Amount money
+        BuyTable string
+        Direction string
+    }
+
+    conditions {
+        if $SellTable == $BuyTable {
+            warning "SellTable == BuyTable"
+        }
+        if $SellRate == 0 || $Amount == 0 {
+            warning "SellRate == 0"
+        }
+        if $Amount * $SellRate < 1 {
+            warning "<1"
+        }
+        var amount forexAmount money account_id int
+
+        amount = Money(DBFind($SellTable).Where("member_id=?", $key_id).One("amount"))
+        account_id = DBFind($SellTable).Where("id=?", $key_id).One("id")
+        forexAmount = DBFind("forex_orders").Where("sell_table = $ AND sell_table_account_id = $", $SellTable, account_id).One("sum(amount)")
+        if amount+forexAmount < $Amount {
+            warning "not enough money "
+        }
+
+    }
+
+    action {
+        var reverseRate float totalSellAmount money
+        reverseRate = 1.0 / $SellRate
+        totalSellAmount = $Amount
+
+        var list array data1 map i len int
+
+        list = DBFind("forex_orders").Order("id desc").Where("buy_table=$ AND sell_rate>=$ AND sell_table=$ AND (empty_block_id=0 OR empty_block_id is NULL)", $BuyTable, reverseRate, $SellTable)
+        len = Len(list)
+        while i < len {
+            data1 = list[i]
+            i = i + 1
+            var readyToBuy sellerSellAmount money
+            readyToBuy = totalSellAmount * data1["sell_rate"]
+            if readyToBuy >= data1["amount"] {
+                sellerSellAmount = data1["amount"] // ордер будет закрыт, а мы продолжим искать новые
+            } else {
+                sellerSellAmount = readyToBuy // данный ордер удовлетворяет наш запрос целиком
+            }
+            if data1["amount"] - sellerSellAmount < 1 { // ордер опустошили
+                DBUpdate("forex_orders", Int(data1["id"]), "amount,empty_block_id", "0", $block)
+                DBInsert("forex_history", "price,amount,total,direction,currency,timestamp time", data1["sell_rate"], data1["amount"], Money(data1["amount"])*Float(data1["sell_rate"]), $Direction, $BuyTable, $block_time)
+
+            } else {
+                // вычитаем забранную сумму из ордера
+                var rowAmount money
+                rowAmount = Money(DBFind("forex_orders").Where("id=?", data1["id"]).One("amount"))
+                DBUpdate("forex_orders", Int(data1["id"]), "amount", rowAmount - sellerSellAmount)
+                DBInsert("forex_history", "price,amount,total,direction,currency,timestamp time", data1["sell_rate"], sellerSellAmount, Money(sellerSellAmount)*Float(data1["sell_rate"]), $Direction, $BuyTable, $block_time)
+            }
+            var sellerBuyAmount money
+            sellerBuyAmount = sellerSellAmount * (1.0 / data1["sell_rate"])
+
+            var sender_id recipient_id int
+            
+			sender_id = data1["sell_table_account_id"]
+            recipient_id = Int(DBFind(data1["sell_table"]).Where("id=?", $key_id).One("id"))
+			TokenTransfer(Int(sender_id), recipient_id, sellerSellAmount)
+
+            sender_id = Int(DBFind(data1["buy_table"]).Where("id=?", $key_id).One("id"))
+            recipient_id = Int(data1["buy_table_account_id"])
+
+            TokenTransfer(sender_id, recipient_id, sellerBuyAmount)
+
+            // вычитаем с нашего баланса сумму, которую потратили на данный ордер
+            totalSellAmount = totalSellAmount - sellerBuyAmount
+            if totalSellAmount < 1 {
+                break // проход по ордерам прекращаем, т.к. наш запрос удовлетворен
+            }
+        }
+
+        if totalSellAmount >= 0.01 {
+            var sell_account_id buy_account_id int
+            sell_account_id = Int(DBFind($SellTable).Where("id=?", $key_id).One("id"))
+            buy_account_id = Int(DBFind($BuyTable).Where("id=?", $key_id).One("id"))
+			
+            DBInsert("forex_orders", "sell_rate,amount,sell_table_account_id,sell_table,buy_table_account_id,buy_table", $SellRate, totalSellAmount, sell_account_id, $SellTable, buy_account_id, $BuyTable)
+        }
+    }
+}

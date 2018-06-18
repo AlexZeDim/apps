@@ -1,0 +1,118 @@
+SetTitle(Forex)
+
+Div(content-wrapper){
+    SetVar(Table1,global_euro).(Table2,keys).(global,1).(Currency1,EURO).(Currency2,USD)
+
+    DBFind(#Table1#, amount).Columns(amount).Where("member_id=#key_id#").Vars(buy_items)
+    Form(panel panel-default){
+        Div(panel-body){
+            Label("BUY #Currency1#")
+            Input(Name: Direction, Type: hidden, Value: buy)
+            Input(Name: SellTable, Type: hidden, Value: #Table2#)
+            Input(Name: BuyTable, Type: hidden, Value: #Table1#)
+            Div(form-group){
+                Div(col-md-4 text-right){Your balance}
+                Div(col-md-4 text-left){#buy_items_amount#}
+                Div(col-md-4){#Currency2#}
+            }
+            Div(form-group){
+                Div(col-md-4 text-right){Amount #Currency1#}
+                Div(col-md-4){Input(Name:Amount)}
+            }
+
+            Div(form-group){
+                Div(col-md-4 text-right){Price per #Currency1#}
+                Div(col-md-4){
+                    Input(Name:SellRate, "form-control")
+                }
+                Div(col-md-4){#Currency2#}
+            }
+            Button(Contract: forex_NewOrder, Page: forex, PageParams: "global=1,Table1='global_euro',Table2='1_accounts',Currency1='EURO',Currency2='USD'")
+
+        }
+    }
+
+
+    DBFind(forex_orders,sell_orders).Order("sell_rate ASC").Where("sell_table='#Table2#' and (empty_block_id is NULL or empty_block_id=0)").Custom(Price){
+        #sell_rate#
+    }.Custom(Amount){
+        #amount# #Currency1#
+    }.Custom(Total){
+        Calculate(#amount#*#sell_rate#) #Currency2#
+    }
+    DBFind(#Table1#, amount).Columns(amount).Where("member_id=#key_id#").Vars(sell_items)
+    Form(panel panel-default){
+        Div(panel-heading){SELL #Currency1#}
+        Div(panel-body){
+            Input(Name: SellTable, Type: hidden, Value: #Table1#)
+            Input(Name: BuyTable, Type: hidden, Value: #Table2#)
+            Input(Name: Direction, Type: hidden, Value: sell)
+            Div(row form-group){
+                Div(col-md-4 text-right){Your balance}
+                Div(col-md-4 text-left){#sell_items_amount#}
+                Div(col-md-4){#Currency1#}
+            }
+
+            Div(row form-group){
+                Div(col-md-4 text-right){Amount #Currency1#}
+                Div(col-md-4){
+                    Input(Name:Amount)
+                }
+            }
+
+            Div(row form-group){
+                Div(col-md-4 text-right){Price per #Currency1#}
+                Div(col-md-4){
+                    Input(Name:SellRate)
+                }
+                Div(col-md-4){#Currency2#}
+                Button(Contract: forex_NewOrder, Page: forex, PageParams: "global=1,Table1='global_euro',Table2='1_accounts',Currency1='EURO',Currency2='USD'")
+
+            }
+        }
+    }
+
+    Div(panel panel-default){
+        Div(panel-heading){Sell orders}
+        Div(panel-body){
+            Table(sell_orders, "Price,Amount,Total")
+        }
+    }
+
+
+    DBFind(forex_orders, buy_orders).Order("sell_rate DESC").Where("sell_table='#Table1#' and (empty_block_id is NULL or empty_block_id=0)").Custom(Price){
+        #sell_rate#
+    }.Custom(Amount){
+        #amount# #Currency1#
+    }.Custom(Total){
+        Calculate(#amount#*#sell_rate#) #Currency2#
+    }
+    Div(panel panel-default){
+        Div(panel-heading){"Buy orders"}
+        Div(panel-body){
+            Table(buy_orders, "Price,Amount,Total")
+        }
+    }
+
+    DBFind(forex_history, history).Order("time DESC").Where("currency='#Table1#' or currency='#Table2#'").Custom(Time){
+        DateTime(#time#)
+    }.Custom(Type){
+        If(#direction#=="sell"){
+            Div(text-bold text-danger){sell}
+        }.Else{
+            Div(text-bold text-success){buy}
+        }
+    }.Custom(Price){
+        #price# #Currency2#
+    }.Custom(Amount){
+        #amount# #Currency1#
+    }.Custom(Total){
+        #total# #Currency2#
+    }
+    Div(panel panel-default){
+        Div(panel-heading){Trade history}
+        Div(panel-body){
+            Table(history, "Time,Type,Price,Amount,Total")
+        }
+    }
+}
