@@ -15,6 +15,6 @@ contract land_registry_UpdateAdmin{
     
     func action { 
         DBUpdate("land_registry", $LandId, "legal_status,encumbrance_certificate", $LegalStatus, $EncumbranceCertificate)
-        Notifications_Single_Close("notific_id", $NotificId)
+        notifications_Close("notific_id", $NotificId)
     }
 }

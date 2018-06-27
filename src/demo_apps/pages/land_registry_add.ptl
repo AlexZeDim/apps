@@ -1,3 +1,22 @@
+DBFind(applications,src_app).Columns("name,id").Where("name='Demo apps'").Vars(application)
+DBFind(members,src_owners).Custom(name){#member_name#}
+AppParam(App:#application_id#, Name: land_nature, Source: src_nature)
+AppParam(App:#application_id#, Name: land_buildings_use_class, Source: src_class)
+SetVar(defaultCoords,`{"zoom":8, "center":{"lat":51.500,"lng":-0.125}}`)
+Data(part1, "Name,Type,Res,Val"){
+    Coords,map,address,#defaultCoords#
+}
+Data(part2, "Name,Type,Res,Val"){
+    OwnerId,select,owner,src_owners
+    LandNature,select,land_nature,src_nature
+    BuildingsUseClass,select,buildings_use_class,src_class
+    RegistrationDate,date,registration_date,
+}
+Data(parts, "Part"){
+    part1
+    part2
+}
+SetTitle($department_of_land_resources$)
 Div(content-wrapper){
     Div(breadcrumb){
         Div(){
@@ -6,62 +25,34 @@ Div(content-wrapper){
             Span(LangRes(land_records_add), text-muted)
         }
     }
-    SetTitle($department_of_land_resources$)
-    
-    Div(row df f-valign){
-        Div(col-sm-8 col-sm-offset-2 text-left){
-            Div(panel panel-primary){
-                Div(panel-heading, Body: LangRes(add_new_record))
-                Form(){
-                    Div(list-group-item){
-                        Div(row df f-valign){
-                            Div(col-md-3 mt-sm text-right){
-                                Strong(LangRes(address))
-                            }
-                            Div(col-md-9 mc-sm text-center){
-                                InputMap(Name: Coords,Type: polygon, MapType: hybrid, Value: `{"zoom":8, "center":{"lat":51.500,"lng":-0.125}}`)
-                            }
-                        }
-                    }
-                    Div(list-group-item){
-                        Div(row df f-valign){
-                            Div(col-md-3 mt-sm text-right){
-                                Strong(LangRes(owner))
-                            }
-                            Div(col-md-9 mb-sm text-left){
-                                DBFind(Name: members, Source: src_owners)
-                                Select(Name: OwnerId, Source: src_owners, ValueColumn: id, NameColumn: member_name, Class: form-control m-b)
-                            }
-                        }
-                        Div(row df f-valign){
-                            Div(col-md-3 mt-sm text-right){
-                                Strong(LangRes(land_nature))
-                            }
-                            Div(col-md-9 mb-sm text-left){
-                                EcosysParam(Name: land_nature, Source: src_nature)
-                                Select(Name: LandNature, Source: src_nature, Class: form-control, ValueColumn: id, NameColumn: name)
-                            }
-                        }
-                        Div(row df f-valign){
-                            Div(col-md-3 mt-sm text-right){
-                                Strong(LangRes(buildings_use_class))
-                            }
-                            Div(col-md-9 mc-sm text-left){
-                                EcosysParam(Name: land_buildings_use_class, Source: use_class)
-                                Select(Name: BuildingsUseClass, Source: use_class, Class: form-control, ValueColumn: id, NameColumn: name)
-                            }
-                        }
-                    }
-                    Div(panel-footer){
-                        Div(clearfix){
-                            Div(pull-right){
-                                Div(btn-group){
-                                    Input(Name: RegistrationDate, Type: hidden, Value: Now(datetime))
-                                    Button(Page: land_registry_records, Body: LangRes(back), Class: btn btn-default btn-pill-left)
-                                    Button(Body: LangRes(add), Class: btn btn-primary btn-pill-right, Contract: land_registry_Add, Page: land_registry_records)
+    Div(container){
+        Div(row){
+            Div(col-sm-8 col-sm-offset-2 text-left){
+                Form(panel panel-primary){
+                    Div(panel-heading){LangRes(add_new_record)}
+                    ForList(parts){
+                        Div(list-group-item){
+                            ForList(#Part#){
+                                Div(row mt-sm){
+                                    Div(col-md-3 text-right){
+                                        Strong(LangRes(#Res#))
+                                    }
+                                    Div(col-md-9 text-center){
+                                        If(#Type#==map){
+                                            InputMap(Name: #Name#, Type: polygon, MapType: hybrid, Value:#Val#)
+                                        }.ElseIf(#Type#==select){
+                                            Select(Name: #Name#, Source: #Val#, ValueColumn: id, NameColumn: name)
+                                        }.Else{
+                                            Input(Name: #Name#, Type: #Type#)
+                                        }
+                                    }
                                 }
                             }
                         }
+                    }
+                    Div(panel-footer text-right){
+                        Button(Page: land_registry_records, Body: LangRes(back), Class: btn btn-default pull-left)
+                        Button(Body: LangRes(add), Class: btn btn-primary, Contract: land_registry_Add, Page: land_registry_records)
                     }
                 }
             }

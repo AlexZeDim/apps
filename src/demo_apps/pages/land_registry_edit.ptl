@@ -1,1 +1,2 @@
+DBFind(applications,src_app).Columns("name,id").Where("name='Demo apps'").Vars(application)
 Include(land_registry_edit)

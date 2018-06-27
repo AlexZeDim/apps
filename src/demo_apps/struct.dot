@@ -1,142 +1,174 @@
 digraph G {
-fontsize="20.0";
-label="demo_apps Saturday, 14-Apr-18 03:00:10 +10";
-rankdir=LR;
-"demo_block_sendContract\nblock" -> "DemoContract\ncontract"  [ color=red ]
-"demo_block_sendContract\nblock" -> "parameters\ntable"
-"demo_block_sendContract\nblock" -> "demo_page_table\ntable"
-"demo_block_sendContract\nblock" -> "blocks\ntable"
-"demo_block_sendContract\nblock" -> "demo_page_sendContract\nblock"  [ color=green ]
-"demo_block_sendContract\nblock" [fontcolor=green, group=blocks];
-"demo_block_sendMessage\nblock" -> "DemoNotificationSingle\ncontract"  [ color=red ]
-"demo_block_sendMessage\nblock" -> "parameters\ntable"
-"demo_block_sendMessage\nblock" -> "members\ntable"
-"demo_block_sendMessage\nblock" -> "blocks\ntable"
-"demo_block_sendMessage\nblock" [fontcolor=green, group=blocks];
-"demo_block_sendPage\nblock" -> "parameters\ntable"
-"demo_block_sendPage\nblock" -> "blocks\ntable"
-"demo_block_sendPage\nblock" -> "demo_page_sendPage\nblock"  [ color=green ]
-"demo_block_sendPage\nblock" [fontcolor=green, group=blocks];
-"land_registry_edit\nblock" -> "land_registry_UpdateAdmin\ncontract"  [ color=red ]
-"land_registry_edit\nblock" -> "land_registry_UpdateOwner\ncontract"  [ color=red ]
-"land_registry_edit\nblock" -> "land_registry\ntable"
-"land_registry_edit\nblock" -> "members\ntable"
-"land_registry_edit\nblock" -> "land_registry_records\nblock"  [ color=green ]
-"land_registry_edit\nblock" [fontcolor=green, group=blocks];
-"land_registry_records\nblock" -> "land_registry_Delete\ncontract"  [ color=red ]
-"land_registry_records\nblock" -> "land_registry\ntable"
-"land_registry_records\nblock" -> "members\ntable"
-"land_registry_records\nblock" -> "profile_view\nblock"  [ color=green ]
-"land_registry_records\nblock" -> "land_registry_view\nblock"  [ color=green ]
-"land_registry_records\nblock" -> "land_registry_add\nblock"  [ color=green ]
-"land_registry_records\nblock" [fontcolor=green, group=blocks];
-"DemoContract\ncontract" -> "members\ntable"
-"DemoContract\ncontract" -> "demo_page_table\ntable"
-"DemoContract\ncontract" [fontcolor=red, group=contracts];
-"DemoNotificationSingle\ncontract" [fontcolor=red, group=contracts];
-"MembersAutoreg\ncontract" -> "keys\ntable"
-"MembersAutoreg\ncontract" -> "members\ntable"
-"MembersAutoreg\ncontract" [fontcolor=red, group=contracts];
-"Notifications_Single_Close\ncontract" -> "notifications\ntable"
-"Notifications_Single_Close\ncontract" [fontcolor=red, group=contracts];
-"Notifications_Single_Send\ncontract" -> "members\ntable"
-"Notifications_Single_Send\ncontract" -> "notifications\ntable"
-"Notifications_Single_Send\ncontract" [fontcolor=red, group=contracts];
-"Profile_Edit\ncontract" -> "members\ntable"
-"Profile_Edit\ncontract" [fontcolor=red, group=contracts];
-"extractLocales\ncontract" -> "pages\ntable"
-"extractLocales\ncontract" -> "log\ntable"
-"extractLocales\ncontract" [fontcolor=red, group=contracts];
-"land_registry_Add\ncontract" -> "members\ntable"
-"land_registry_Add\ncontract" -> "land_registry\ntable"
-"land_registry_Add\ncontract" -> "land_registry_ownership\ntable"
-"land_registry_Add\ncontract" -> "keys\ntable"
-"land_registry_Add\ncontract" [fontcolor=red, group=contracts];
-"land_registry_Delete\ncontract" -> "land_registry\ntable"
-"land_registry_Delete\ncontract" [fontcolor=red, group=contracts];
-"land_registry_SecondRequest\ncontract" [fontcolor=red, group=contracts];
-"land_registry_UpdateAdmin\ncontract" -> "land_registry\ntable"
-"land_registry_UpdateAdmin\ncontract" -> "members\ntable"
-"land_registry_UpdateAdmin\ncontract" [fontcolor=red, group=contracts];
-"land_registry_UpdateOwner\ncontract" -> "land_registry\ntable"
-"land_registry_UpdateOwner\ncontract" [fontcolor=red, group=contracts];
-"referendums_accept\ncontract" -> "referendums\ntable"
-"referendums_accept\ncontract" -> "referendums_participants\ntable"
-"referendums_accept\ncontract" -> "notifications\ntable"
-"referendums_accept\ncontract" [fontcolor=red, group=contracts];
-"referendums_add\ncontract" -> "referendums\ntable"
-"referendums_add\ncontract" -> "members\ntable"
-"referendums_add\ncontract" [fontcolor=red, group=contracts];
-"referendums_reject\ncontract" -> "referendums\ntable"
-"referendums_reject\ncontract" -> "referendums_participants\ntable"
-"referendums_reject\ncontract" -> "notifications\ntable"
-"referendums_reject\ncontract" [fontcolor=red, group=contracts];
+graph [
+  fontsize="24";
+  label="demo_apps\nWednesday, 27-Jun-18 20:38:06 MSK";
+  nojustify=true;
+  ordering=out;
+  rankdir=LR;
+  size="30";
+];
 "Applications\nmenu" -> "referendums_list\npage"  [ color=green ]
 "Applications\nmenu" -> "land_registry_records\npage"  [ color=green ]
-"Applications\nmenu" [fontcolor=blue, group=menus];
+"Applications\nmenu" [color=blue, fontcolor=blue, group=menus, shape=record];
 "default_menu\nmenu" -> "demo_page_sendPage\npage"  [ color=green ]
 "default_menu\nmenu" -> "demo_page_sendContract\npage"  [ color=green ]
 "default_menu\nmenu" -> "demo_page_sendMessage\npage"  [ color=green ]
 "default_menu\nmenu" -> "demo_notifications\npage"  [ color=green ]
 "default_menu\nmenu" -> "profile_edit\npage"  [ color=green ]
 "default_menu\nmenu" -> "applications_list\npage"  [ color=green ]
-"default_menu\nmenu" [fontcolor=blue, group=menus];
+"default_menu\nmenu" [color=blue, fontcolor=blue, group=menus, shape=record];
 "applications_list\npage" -> "referendums_list\npage"  [ color=green ]
 "applications_list\npage" -> "land_registry_records\npage"  [ color=green ]
-"applications_list\npage" [fontcolor=green, group=pages];
-"demo_notifications\npage" -> "notifications\ntable"
-"demo_notifications\npage" [fontcolor=green, group=pages];
-"demo_page_message\npage" -> "Notifications_Single_Close\ncontract"  [ color=red ]
+"applications_list\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"default_ecosystem_page\npage" -> "demo_block_sendContract\nblock"  [ color=green, label=include ]
+"default_ecosystem_page\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"notifications\ntable" -> "demo_notifications\npage"
+"demo_notifications\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"demo_page_message\npage" -> "notifications_Close\ncontract"  [ color=red ]
 "demo_page_message\npage" -> "demo_page_sendMessage\npage"  [ color=green ]
-"demo_page_message\npage" [fontcolor=green, group=pages];
-"demo_page_sendContract\npage" -> "demo_block_sendContract\nblock"  [ color=green, label=Include ]
-"demo_page_sendContract\npage" [fontcolor=green, group=pages];
-"demo_page_sendMessage\npage" -> "demo_block_sendMessage\nblock"  [ color=green, label=Include ]
-"demo_page_sendMessage\npage" [fontcolor=green, group=pages];
-"demo_page_sendPage\npage" -> "demo_block_sendPage\nblock"  [ color=green, label=Include ]
-"demo_page_sendPage\npage" [fontcolor=green, group=pages];
+"demo_page_message\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"demo_page_sendContract\npage" -> "demo_block_sendContract\nblock"  [ color=green, label=include ]
+"demo_page_sendContract\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"demo_page_sendMessage\npage" -> "demo_block_sendMessage\nblock"  [ color=green, label=include ]
+"demo_page_sendMessage\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"demo_page_sendPage\npage" -> "demo_block_sendPage\nblock"  [ color=green, label=include ]
+"demo_page_sendPage\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "land_registry_add\npage" -> "land_registry_Add\ncontract"  [ color=red ]
-"land_registry_add\npage" -> "members\ntable"
+"applications\ntable" -> "land_registry_add\npage"
+"members\ntable" -> "land_registry_add\npage"
 "land_registry_add\npage" -> "land_registry_records\npage"  [ color=green ]
-"land_registry_add\npage" [fontcolor=green, group=pages];
-"land_registry_edit\npage" -> "land_registry_edit\nblock"  [ color=green, label=Include ]
-"land_registry_edit\npage" [fontcolor=green, group=pages];
-"land_registry_records\npage" -> "land_registry_records\nblock"  [ color=green, label=Include ]
-"land_registry_records\npage" [fontcolor=green, group=pages];
+"land_registry_add\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"applications\ntable" -> "land_registry_edit\npage"
+"land_registry_edit\npage" -> "land_registry_edit\nblock"  [ color=green, label=include ]
+"land_registry_edit\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"applications\ntable" -> "land_registry_records\npage"
+"land_registry_records\npage" -> "land_registry_records\nblock"  [ color=green, label=include ]
+"land_registry_records\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "land_registry_view\npage" -> "land_registry_SecondRequest\ncontract"  [ color=red ]
-"land_registry_view\npage" -> "land_registry\ntable"
-"land_registry_view\npage" -> "land_registry_ownership\ntable"
-"land_registry_view\npage" -> "members\ntable"
-"land_registry_view\npage" -> "notifications\ntable"
+"applications\ntable" -> "land_registry_view\npage"
+"land_registry\ntable" -> "land_registry_view\npage"
+"land_registry_ownership\ntable" -> "land_registry_view\npage"
+"members\ntable" -> "land_registry_view\npage"
+"notifications\ntable" -> "land_registry_view\npage"
 "land_registry_view\npage" -> "land_registry_records\npage"  [ color=green ]
 "land_registry_view\npage" -> "land_registry_view\npage"  [ color=green ]
 "land_registry_view\npage" -> "land_registry_edit\npage"  [ color=green ]
-"land_registry_view\npage" [fontcolor=green, group=pages];
-"notifications\npage" -> "notifications\ntable"
-"notifications\npage" -> "roles_assign\ntable"
-"notifications\npage" [fontcolor=green, group=pages];
+"land_registry_view\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"notifications\ntable" -> "notifications\npage"
+"roles_assign\ntable" -> "notifications\npage"
+"notifications\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "profile_edit\npage" -> "Profile_Edit\ncontract"  [ color=red ]
-"profile_edit\npage" -> "members\ntable"
+"members\ntable" -> "profile_edit\npage"
 "profile_edit\npage" -> "profile_view\npage"  [ color=green ]
-"profile_edit\npage" [fontcolor=green, group=pages];
-"profile_view\npage" -> "members\ntable"
+"profile_edit\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"members\ntable" -> "profile_view\npage"
 "profile_view\npage" -> "profile_edit\npage"  [ color=green ]
-"profile_view\npage" [fontcolor=green, group=pages];
+"profile_view\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "referendums_add\npage" -> "referendums_add\ncontract"  [ color=red ]
 "referendums_add\npage" -> "referendums_list\npage"  [ color=green ]
-"referendums_add\npage" [fontcolor=green, group=pages];
+"referendums_add\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "referendums_list\npage" -> "referendums_reject\ncontract"  [ color=red ]
 "referendums_list\npage" -> "referendums_accept\ncontract"  [ color=red ]
-"referendums_list\npage" -> "referendums\ntable"
-"referendums_list\npage" -> "referendums_participants\ntable"
+"referendums\ntable" -> "referendums_list\npage"
+"referendums_participants\ntable" -> "referendums_list\npage"
 "referendums_list\npage" -> "referendums_view\npage"  [ color=green ]
 "referendums_list\npage" -> "referendums_list\npage"  [ color=green ]
 "referendums_list\npage" -> "referendums_add\npage"  [ color=green ]
-"referendums_list\npage" [fontcolor=green, group=pages];
+"referendums_list\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "referendums_view\npage" -> "referendums_accept\ncontract"  [ color=red ]
 "referendums_view\npage" -> "referendums_reject\ncontract"  [ color=red ]
-"referendums_view\npage" -> "referendums\ntable"
-"referendums_view\npage" -> "referendums_participants\ntable"
+"referendums\ntable" -> "referendums_view\npage"
+"referendums_participants\ntable" -> "referendums_view\npage"
 "referendums_view\npage" -> "referendums_view\npage"  [ color=green ]
-"referendums_view\npage" [fontcolor=green, group=pages];
+"referendums_view\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"demo_block_sendContract\nblock" -> "DemoContract\ncontract"  [ color=red ]
+"parameters\ntable" -> "demo_block_sendContract\nblock"
+"demo_page_table\ntable" -> "demo_block_sendContract\nblock"
+"blocks\ntable" -> "demo_block_sendContract\nblock"
+"demo_block_sendContract\nblock" -> "demo_page_sendContract\npage"  [ color=green ]
+"demo_block_sendContract\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
+"demo_block_sendMessage\nblock" -> "DemoNotificationSingle\ncontract"  [ color=red ]
+"parameters\ntable" -> "demo_block_sendMessage\nblock"
+"members\ntable" -> "demo_block_sendMessage\nblock"
+"blocks\ntable" -> "demo_block_sendMessage\nblock"
+"demo_block_sendMessage\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
+"parameters\ntable" -> "demo_block_sendPage\nblock"
+"blocks\ntable" -> "demo_block_sendPage\nblock"
+"demo_block_sendPage\nblock" -> "demo_page_sendPage\npage"  [ color=green ]
+"demo_block_sendPage\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
+"land_registry_edit\nblock" -> "land_registry_UpdateAdmin\ncontract"  [ color=red ]
+"land_registry_edit\nblock" -> "land_registry_UpdateOwner\ncontract"  [ color=red ]
+"notifications\ntable" -> "land_registry_edit\nblock"
+"land_registry\ntable" -> "land_registry_edit\nblock"
+"members\ntable" -> "land_registry_edit\nblock"
+"land_registry_edit\nblock" -> "land_registry_records\npage"  [ color=green ]
+"land_registry_edit\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
+"land_registry_records\nblock" -> "land_registry_Delete\ncontract"  [ color=red ]
+"land_registry\ntable" -> "land_registry_records\nblock"
+"members\ntable" -> "land_registry_records\nblock"
+"land_registry_records\nblock" -> "profile_view\npage"  [ color=green ]
+"land_registry_records\nblock" -> "land_registry_view\npage"  [ color=green ]
+"land_registry_records\nblock" -> "land_registry_add\npage"  [ color=green ]
+"land_registry_records\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
+"DemoContract\ncontract" -> "demo_page_table\ntable"  [ color="" ]
+"members\ntable" -> "DemoContract\ncontract"
+"DemoContract\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"DemoNotificationSingle\ncontract" -> "notifications_Send\ncontract"  [ color=red ]
+"DemoNotificationSingle\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"MembersAutoreg\ncontract" -> "Profile_Edit\ncontract"  [ color=red ]
+"keys\ntable" -> "MembersAutoreg\ncontract"
+"members\ntable" -> "MembersAutoreg\ncontract"
+"MembersAutoreg\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Profile_Edit\ncontract" -> "members\ntable"  [ color="" ]
+"Profile_Edit\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"extractLocales\ncontract" -> "log\ntable"  [ color="" ]
+"pages\ntable" -> "extractLocales\ncontract"
+"extractLocales\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"land_registry_Add\ncontract" -> "notifications_Send\ncontract"  [ color=red ]
+"land_registry_Add\ncontract" -> "land_registry\ntable"  [ color="" ]
+"land_registry_Add\ncontract" -> "land_registry_ownership\ntable"  [ color="" ]
+"members\ntable" -> "land_registry_Add\ncontract"
+"land_registry_Add\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"land_registry_Delete\ncontract" -> "land_registry\ntable"  [ color="" ]
+"land_registry_Delete\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"land_registry_SecondRequest\ncontract" -> "notifications_Send\ncontract"  [ color=red ]
+"land_registry_SecondRequest\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"land_registry_UpdateAdmin\ncontract" -> "notifications_Close\ncontract"  [ color=red ]
+"land_registry_UpdateAdmin\ncontract" -> "land_registry\ntable"  [ color="" ]
+"members\ntable" -> "land_registry_UpdateAdmin\ncontract"
+"land_registry_UpdateAdmin\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"land_registry_UpdateOwner\ncontract" -> "notifications_Close\ncontract"  [ color=red ]
+"land_registry_UpdateOwner\ncontract" -> "land_registry\ntable"  [ color="" ]
+"land_registry_UpdateOwner\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"notifications_Close\ncontract" -> "notifications_Process\ncontract"  [ color=red ]
+"notifications_Close\ncontract" -> "notifications\ntable"  [ color="" ]
+"notifications_Close\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"notifications_Process\ncontract" -> "notifications\ntable"  [ color="" ]
+"roles_participants\ntable" -> "notifications_Process\ncontract"
+"members\ntable" -> "notifications_Process\ncontract"
+"notifications_Process\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"notifications_Send\ncontract" -> "notifications\ntable"  [ color="" ]
+"members\ntable" -> "notifications_Send\ncontract"
+"roles\ntable" -> "notifications_Send\ncontract"
+"roles_participants\ntable" -> "notifications_Send\ncontract"
+"notifications_Send\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"referendums_accept\ncontract" -> "notifications_Close\ncontract"  [ color=red ]
+"referendums_accept\ncontract" -> "referendums\ntable"  [ color="" ]
+"referendums_accept\ncontract" -> "referendums_participants\ntable"  [ color="" ]
+"notifications\ntable" -> "referendums_accept\ncontract"
+"referendums_accept\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"referendums_add\ncontract" -> "notifications_Send\ncontract"  [ color=red ]
+"referendums_add\ncontract" -> "referendums\ntable"  [ color="" ]
+"members\ntable" -> "referendums_add\ncontract"
+"referendums_add\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"referendums_reject\ncontract" -> "notifications_Close\ncontract"  [ color=red ]
+"referendums_reject\ncontract" -> "referendums\ntable"  [ color="" ]
+"referendums_reject\ncontract" -> "referendums_participants\ntable"  [ color="" ]
+"notifications\ntable" -> "referendums_reject\ncontract"
+"referendums_reject\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"demo_page_table\ntable" [color="", fontcolor="", group=tables, shape=""];
+"land_registry\ntable" [color="", fontcolor="", group=tables, shape=""];
+"land_registry_ownership\ntable" [color="", fontcolor="", group=tables, shape=""];
+"referendums\ntable" [color="", fontcolor="", group=tables, shape=""];
+"referendums_participants\ntable" [color="", fontcolor="", group=tables, shape=""];
 }

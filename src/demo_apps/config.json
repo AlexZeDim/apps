@@ -1,4 +1,5 @@
 {
+    "name":"Demo apps",
     "blocks": [
         {
             "Name": "land_registry_records",
@@ -23,11 +24,11 @@
     ],
     "contracts": [
         {
-            "Name": "Notifications_Single_Close",
+            "Name": "notifications_Close",
             "Conditions": "ContractConditions(\"MainCondition\")"
         },
         {
-            "Name": "Notifications_Single_Send",
+            "Name": "notifications_Send",
             "Conditions": "ContractConditions(\"MainCondition\")"
         },
         {

@@ -16,7 +16,7 @@ If(#notific_id#>0){
                     }
                     Div(panel-footer clearfix){
                         Div(pull-right text-right){
-                            Button(Page: demo_page_sendMessage, Class: btn btn-primary, Contract:Notifications_Single_Close, Params:"notific_id=#notific_id#", Body: $close$)
+                            Button(Page: demo_page_sendMessage, Class: btn btn-primary, Contract:notifications_Close, Params:"notific_id=#notific_id#", Body: $close$)
                         }
                     }
                 }

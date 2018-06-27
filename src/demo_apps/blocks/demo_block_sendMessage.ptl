@@ -22,7 +22,7 @@ Div(content-wrapper){
                     }
                 }
             }
-            
+
             Div(h4){LangRes(code)}
             Div(panel panel-primary){
                 Div(panel-body){
@@ -58,7 +58,7 @@ Code(
                         }
                     }.Else{
                         Div(h5 text-bold){$contract_code$}
-                        
+
                     }
 Code(
     contract DemoNotificationSingle {
@@ -66,23 +66,24 @@ Code(
             MemberId int
             SomeText string
         }
-        
-        conditions {
-            $iconName = "fa-bell"
-            $textHeader="You got a message"
-            $pageName="demo_page_message"
-            $paramsVal= Sprintf("SomeText=%v", $SomeText)
-            $textBody = $SomeText
-        }
-        
+
+        conditions {}
+
         action {
-            Notifications_Single_Send("MemberId,IconName,TextHeader,TextBody,PageName,ParamsVal", $MemberId, $iconName, $textHeader, $textBody, $pageName, $paramsVal)
+            var icon, header, body, page, params string
+            icon = "fa-bell"
+            header = "You have got a message"
+            body = $SomeText
+            page = "demo_page_message"
+            params = Sprintf("SomeText=%v", $SomeText)
+
+            notifications_Send("member_id,icon_name,text_header,text_body,page_name,params_val", $MemberId, icon, header, body, page, params)
         }
     }
 )
                 }
             }
-            
+
             Div(h4){LangRes(description)}
             Div(panel panel-primary){
                 Div(panel-body){

@@ -18,7 +18,7 @@ contract land_registry_UpdateOwner{
     func action{
         DBUpdate("land_registry", $LandId, "price,timestamp modification_date", $Price, $block_time)
         if $NotificId > 0{
-            Notifications_Single_Close("notific_id", $NotificId)
+            notifications_Close("notific_id", $NotificId)
         }
     }
 }
