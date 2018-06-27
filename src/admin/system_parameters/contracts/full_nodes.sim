@@ -1,52 +1,46 @@
 contract full_nodes {
-  data {
-    Value string
-  }
-
-  conditions {
-    if Size($Value) == 0 {
-      warning "Value was not received"
+    data {
+        Value string
     }
 
-    var full_nodes_arr array
-    full_nodes_arr = JSONDecode($Value)
+    conditions {
+        if Size($Value) == 0 {
+            warning "Value was not received"
+        }
 
-    var len_arr int
-    len_arr = Len(full_nodes_arr)
+        var fullNodes keys array lenFullNodes lenKeys int
+        if !HasPrefix($Value, "[") {
+            warning "Wrong array structure"
+        }
+        fullNodes = JSONDecode($Value)
 
-    if len_arr == 0 {
-        warning "Wrong array structure"
+        lenFullNodes = Len(fullNodes)
+        if lenFullNodes == 0 {
+            warning "Empty array"
+        }
+        keys[0] = "public_key"
+        keys[1] = "tcp_address"
+        keys[2] = "api_address"
+        keys[3] = "key_id"
+        lenKeys = Len(keys)
+        var i int
+        while i < lenFullNodes {
+            var node map errs array k int
+            node = fullNodes[i]
+            while k < lenKeys {
+                if !node[keys[k]] {
+                    errs = Append(errs, keys[k])
+                }else{
+                    if Size(node[keys[k]]) < 2 {
+                        errs = Append(errs, keys[k])
+                    }
+                }
+                k=k+1
+            }
+            if Len(errs) > 0{
+                warning Sprintf("node%v: %v invalid", i, Join(errs, ", "))
+            }
+            i = i + 1
+        }
     }
-
-    var i int
-    while(i < len_arr){
-        var node_map map 
-        node_map = full_nodes_arr[i]
-
-        var public_key string
-        var tcp_address string
-        var api_address string
-        var key_id string
-
-        public_key = node_map["public_key"]
-        tcp_address = node_map["tcp_address"]
-        api_address = node_map["api_address"]
-        key_id = node_map["key_id"]
-
-        if Size(public_key) == 0 {
-            warning "Public key was not received"
-        }
-        if Size(tcp_address) == 0 {
-            warning "TCP address was not received"
-        }
-        if Size(api_address) == 0 {
-            warning "API address was not received"
-        }
-        if Size(key_id) == 0 {
-            warning "Key ID was not received"
-        }
-
-        i = i + 1
-    }
-  }
 }
