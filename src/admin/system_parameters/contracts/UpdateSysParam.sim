@@ -6,13 +6,31 @@ contract UpdateSysParam {
     }
 
     conditions {
-        if GetContractByName($Name){
-            var params map
-            params["Value"] = $Value
-            CallContract($Name, params)
-        } else {
+        if !GetContractByName($Name){
             warning "System parameter not found"
         }
+        if $Name == "full_nodes" {
+            var nodes string
+            nodes = SysParamString($Name)
+            if Size(nodes) > 100 {
+                warning "Direct change this parameter is not allowed"
+            }
+        }else{
+            var prev string stack allows array
+            allows = Append(allows, "@1sysparams_RemoveNode")
+            allows = Append(allows, "@1voting_CheckDecision")
+            stack = JSONDecode(JSONEncode($stack))
+            prev = stack[0]
+            if Len(stack)>2{
+                prev = stack[Len(stack)-2]
+            }
+            if !allows[prev] {
+                warning "This contract starts not allowed"
+            }
+        }
+        var params map
+        params["Value"] = $Value
+        CallContract($Name, params)
     }
 
     action {
