@@ -21,8 +21,18 @@ contract voting_TemplateRun{
         }
         return value
     }
-
+    checkSysparamTemplatePermissions(){
+        var tid int
+        tid = Int(AppParam($appId,"voting_sysparams_template_id"))
+        if tid == 0 {
+            error "Template id not found"
+        }
+        if $TemplateId != tid {
+            error "Incorrect template id"
+        }
+    }
     conditions{
+        $appId = Int(DBFind("applications").Columns("name,id").Where("name='Basic application'").One("id"))
         var template map
         template = DBFind("voting_templates").Where("id=?",$TemplateId).Row()
         if !template{
@@ -37,7 +47,7 @@ contract voting_TemplateRun{
         if $Duration <= 0{
             $Duration = 3
         }
- 
+
         var initContract string
         initContract = template["init_contract"]
         $voters = template["voters"]
@@ -93,6 +103,7 @@ contract voting_TemplateRun{
             checkInput($ColumnName, "ColumnName")
             checkInput($NewValue, "NewValue")
             if $type_voting == 2{
+                checkSysparamTemplatePermissions()
                 $desc = Sprintf("Parameter: %v, Value: %v", $ColumnName, $NewValue)
             }
 
