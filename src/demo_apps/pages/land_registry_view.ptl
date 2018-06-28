@@ -74,9 +74,9 @@ Div(content-wrapper){
                                 If(#Type#==map){
                                     Map(MapType: hybrid, Hmap:300, Value: #Val#)
                                 }.Else{
-                                    Div(row mt-sm){
+                                    Div(row mt-sm flex){
                                         Div(col-md-5 text-right h5 m0 text-bold){#Res#:}
-                                        Div(col-md-6 text-left h5 m0){
+                                        Div(col-md-7 text-left h5 m0){
                                             #Val#
                                             If(#ReqBtn#==1){
                                                 Button(Contract: land_registry_SecondRequest, Body:$send_request$, Params: "LandId=#LandId#", Class: ml btn btn-default, Page: land_registry_view, PageParams: "LandId=#LandId#").Alert(Text:$ask_request_second$, ConfirmButton:$confirm$, CancelButton:$cancel$)
@@ -93,6 +93,7 @@ Div(content-wrapper){
             }
         }.Style(
             .sup {vertical-align: super;font-size:small;display: inline-block;}
+            .flex {display: flex;align-items: center;}
         )
     }
 }
