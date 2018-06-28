@@ -63,65 +63,63 @@ DBFind(Name: land_registry, Source: src_land_registry).Where(#Where#).Order(#Ord
 }.Count(reg_count)
 
 Div(content-wrapper){
-    Div(panel panel-primary data-sweet-alert){
-        Form(){
-            Div(list-group-item){
-                Div(row){
-                    Div(col-md-9 text-left){
-                        Div(input-group){
-                            Div(input-group-addon){
-                                $buildings_use_class$
-                            }
-                            AppParam(App:#application_id#, Name: buildings_use_class, Source:src_search)
-                            Select(Name: BuildingUse, Source: src_search, NameColumn: name, ValueColumn: id, Value: #Search#)
-
-                            Div(input-group-btn){
-                                Button(Page: #this#, PageParams: "Search=Val(BuildingUse),Order=#Order#", Class: btn btn-default fa fa-search)
-                            }
+    Form(panel panel-primary){
+        Div(list-group-item){
+            Div(row){
+                Div(col-md-9 text-left){
+                    Div(input-group){
+                        Div(input-group-addon){
+                            $buildings_use_class$
                         }
-                    }
-                    Div(col-md-3 text-center text-nowrap){
-                        Div(btn-group){
-                            If(#Order#=="price"){
-                                Button(Page: #this#, Class: ml-sm btn bg-gray, PageParams: "Order=price desc,Search=#Search#", Body: Em(Class:fa fa-sort-numeric-asc) $price$)
-                            }.ElseIf(#Order#=="price desc"){
-                                Button(Page: #this#, Class: ml-sm btn bg-gray, PageParams: "Order=price,Search=#Search#", Body: Em(Class:fa fa-sort-numeric-desc) $price$)
-                            }.Else{
-                                Button(Page: #this#, Class: ml-sm btn bg-gray-lighter, PageParams: "Order=price,Search=#Search#", Body: $price$)
-                            }
+                        AppParam(App:#application_id#, Name: buildings_use_class, Source:src_search)
+                        Select(Name: BuildingUse, Source: src_search, NameColumn: name, ValueColumn: id, Value: #Search#)
 
-                            If(#Order#=="area"){
-                                Button(Page: #this#, Class: ml-sm btn bg-gray, PageParams: "Order=area desc,Search=#Search#", Body: Em(Class:fa fa-sort-numeric-asc) $area_size$)
-                            }.ElseIf(#Order#=="area desc"){
-                                Button(Page: #this#, Class: ml-sm btn bg-gray, PageParams: "Order=area,Search=#Search#", Body: Em(Class:fa fa-sort-numeric-desc) $area_size$)
-                            }.Else{
-                                Button(Page: #this#, Class: ml-sm btn bg-gray-lighter, PageParams: "Order=area desc,Search=#Search#", Body: $area_size$)
-                            }
-                        }
-
-
-                    }
-                }
-            }
-            Div(list-group-item){
-                If(#reg_count#>0){
-                    Table(Source:src_land_registry, Columns: "ID=_id,$owner$=_owner,$area_size$=_area,$address$=_address,$consideration_value$(INR)=_cons,$legal_status$=_legal,$encumbrance_certificate$=_encumberance,=_actions")
-                }.Else{
-                    Div(text-center h3){
-                        records not found
-                    }
-                }
-                If(GetVar(Search)){
-                    Form(text-center){
-                        Button(Page: #this#, Class: btn btn-primary btn-oval){
-                            LangRes(view_all)
+                        Div(input-group-btn){
+                            Button(Page: #this#, PageParams: "Search=Val(BuildingUse),Order=#Order#", Class: btn btn-default fa fa-search)
                         }
                     }
                 }
+                Div(col-md-3 text-center){
+                    Div(btn-group text-nowrap){
+                        If(#Order#=="price"){
+                            Button(Page: #this#, Class: ml-sm btn bg-gray, PageParams: "Order=price desc,Search=#Search#", Body: Em(Class:fa fa-sort-numeric-asc) $price$)
+                        }.ElseIf(#Order#=="price desc"){
+                            Button(Page: #this#, Class: ml-sm btn bg-gray, PageParams: "Order=price,Search=#Search#", Body: Em(Class:fa fa-sort-numeric-desc) $price$)
+                        }.Else{
+                            Button(Page: #this#, Class: ml-sm btn bg-gray-lighter, PageParams: "Order=price,Search=#Search#", Body: $price$)
+                        }
+
+                        If(#Order#=="area"){
+                            Button(Page: #this#, Class: ml-sm btn bg-gray, PageParams: "Order=area desc,Search=#Search#", Body: Em(Class:fa fa-sort-numeric-asc) $area_size$)
+                        }.ElseIf(#Order#=="area desc"){
+                            Button(Page: #this#, Class: ml-sm btn bg-gray, PageParams: "Order=area,Search=#Search#", Body: Em(Class:fa fa-sort-numeric-desc) $area_size$)
+                        }.Else{
+                            Button(Page: #this#, Class: ml-sm btn bg-gray-lighter, PageParams: "Order=area desc,Search=#Search#", Body: $area_size$)
+                        }
+                    }
+
+
+                }
             }
-            Div(panel-footer text-right){
-                Button(Page: land_registry_add, Class: btn btn-primary, Body: $add$)
+        }
+        Div(list-group-item){
+            If(#reg_count#>0){
+                Table(Source:src_land_registry, Columns: "ID=_id,$owner$=_owner,$area_size$=_area,$address$=_address,$consideration_value$(INR)=_cons,$legal_status$=_legal,$encumbrance_certificate$=_encumberance,=_actions")
+            }.Else{
+                Div(text-center h3){
+                    records not found
+                }
             }
+            If(GetVar(Search)){
+                Form(text-center){
+                    Button(Page: #this#, Class: btn btn-primary btn-oval){
+                        LangRes(view_all)
+                    }
+                }
+            }
+        }
+        Div(panel-footer text-right){
+            Button(Page: land_registry_add, Class: btn btn-primary, Body: $add$)
         }
     }
 }

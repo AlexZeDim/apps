@@ -18,11 +18,21 @@ If(GetVar(LandId)){
 DBFind(notifications).Where("page_params->LandId='#LandId#' and page_params->second_request='1' and closed=0").Vars(alert)
 
 SetVar(alert,0).(btn_legal,0).(btn_cert,0).(btn_price,0).(price,$undefined$)
-If(#alert_id#>0){SetVar(alert,1)}
-If(And(#entry_legal_status#!=1, #alert#==0)){SetVar(btn_legal,1)}
-If(And(#entry_encumbrance_certificate#!=1, #alert#==0)){SetVar(btn_cert,1)}
-If(#entry_price#>0){SetVar(price,"#entry_price# INR")}
-If(#ownership_owner_id#==#key_id#){SetVar(btn_price,1)}
+If(#alert_id#>0){
+    SetVar(alert,1)
+}
+If(And(#entry_legal_status#!=1, #alert#==0)){
+    SetVar(btn_legal,1)
+}
+If(And(#entry_encumbrance_certificate#!=1, #alert#==0)){
+    SetVar(btn_cert,1)
+}
+If(#entry_price#>0){
+    SetVar(price,"#entry_price# INR")
+}
+If(#ownership_owner_id#==#key_id#){
+    SetVar(btn_price,1)
+}
 
 Data(part1, "Type,Res,Val"){
     map,map,#entry_map_coords#
