@@ -1,7 +1,7 @@
 digraph G {
 graph [
   fontsize="24";
-  label="land_registry_demo\nSaturday, 30-Jun-18 13:41:54 MSK";
+  label="land_registry_demo\nSaturday, 30-Jun-18 13:54:12 MSK";
   nojustify=true;
   ordering=out;
   rankdir=LR;
@@ -13,11 +13,6 @@ graph [
 "default_menu\nmenu" -> "profile_edit\npage"  [ color=green ]
 "default_menu\nmenu" -> "applications_list\npage"  [ color=green ]
 "default_menu\nmenu" [color=blue, fontcolor=blue, group=menus, shape=record];
-"applications_list\npage" -> "referendums_list\npage"  [ color=green ]
-"applications_list\npage" -> "land_registry_records\npage"  [ color=green ]
-"applications_list\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"default_ecosystem_page\npage" -> "demo_block_sendContract\nblock"  [ color=green, label=include ]
-"default_ecosystem_page\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "notifications\ntable" -> "demo_notifications\npage"
 "demo_notifications\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "land_registry_add\npage" -> "land_registry_Add\ncontract"  [ color=red ]

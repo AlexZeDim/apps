@@ -44,16 +44,6 @@
     "pages": [
         {
             "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Name": "applications_list",
-            "Menu": "Applications"
-        },
-        {
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Name": "default_ecosystem_page",
-            "Menu": "default_menu"
-        },
-        {
-            "Conditions": "ContractAccess(\"@1EditPage\")",
             "Name": "demo_notifications",
             "Menu": "default_menu"
         },
@@ -99,10 +89,6 @@
         }
     ],
     "parameters": [
-        {
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Name": "buildings_use_class"
-        },
         {
             "Conditions": "ContractConditions(\"MainCondition\")",
             "Name": "land_buildings_use_class"
