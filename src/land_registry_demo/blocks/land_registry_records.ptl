@@ -18,7 +18,7 @@ DBFind(Name: land_registry, Source: src_land_registry).Where(#Where#).Order(#Ord
 }.Custom(_land){
     Span(AppParam(App:#application_id#, Name: land_use, Index: #land_use#))
 }.Custom(_buildings){
-    Span(AppParam(App:#application_id#, Name: buildings_use_class, Index: #buildings_use_class#))
+    Span(AppParam(App:#application_id#, Name: land_buildings_use_class, Index: #buildings_use_class#))
 }.Custom(_area){
     Span(#area#)
 }.Custom(_address){

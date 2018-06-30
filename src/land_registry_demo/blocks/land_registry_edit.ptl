@@ -24,7 +24,7 @@ Data(part1,"Res,Val"){
     $owner$,#owner_member_name#
     $address$,#entry_address#
     $record_add_date$,DateTime(#entry_date_create#)
-    $land_buildings_use_class$,"AppParam(App:#application_id#, Name: buildings_use_class, Index: #entry_buildings_use_class#)"
+    $buildings_use_class$,"AppParam(App:#application_id#, Name: land_buildings_use_class, Index: #entry_buildings_use_class#)"
     $land_nature$,"AppParam(App:#application_id#, Name: land_nature, Index: #entry_land_nature#)"
 }
 
