@@ -1,7 +1,7 @@
 digraph G {
 graph [
   fontsize="24";
-  label="demo_apps\nThursday, 28-Jun-18 09:48:51 MSK";
+  label="land_registry_demo\nSaturday, 30-Jun-18 13:41:54 MSK";
   nojustify=true;
   ordering=out;
   rankdir=LR;
@@ -47,21 +47,6 @@ graph [
 "members\ntable" -> "profile_view\npage"
 "profile_view\npage" -> "profile_edit\npage"  [ color=green ]
 "profile_view\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"demo_block_sendContract\nblock" -> "DemoContract\ncontract"  [ color=red ]
-"parameters\ntable" -> "demo_block_sendContract\nblock"
-"demo_page_table\ntable" -> "demo_block_sendContract\nblock"
-"blocks\ntable" -> "demo_block_sendContract\nblock"
-"demo_block_sendContract\nblock" -> "demo_page_sendContract\npage"  [ color=green ]
-"demo_block_sendContract\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
-"demo_block_sendMessage\nblock" -> "DemoNotificationSingle\ncontract"  [ color=red ]
-"parameters\ntable" -> "demo_block_sendMessage\nblock"
-"members\ntable" -> "demo_block_sendMessage\nblock"
-"blocks\ntable" -> "demo_block_sendMessage\nblock"
-"demo_block_sendMessage\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
-"parameters\ntable" -> "demo_block_sendPage\nblock"
-"blocks\ntable" -> "demo_block_sendPage\nblock"
-"demo_block_sendPage\nblock" -> "demo_page_sendPage\npage"  [ color=green ]
-"demo_block_sendPage\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
 "land_registry_edit\nblock" -> "land_registry_UpdateAdmin\ncontract"  [ color=red ]
 "land_registry_edit\nblock" -> "land_registry_UpdateOwner\ncontract"  [ color=red ]
 "notifications\ntable" -> "land_registry_edit\nblock"
@@ -76,36 +61,18 @@ graph [
 "land_registry_records\nblock" -> "land_registry_view\npage"  [ color=green ]
 "land_registry_records\nblock" -> "land_registry_add\npage"  [ color=green ]
 "land_registry_records\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
-"Profile_Edit\ncontract" -> "members\ntable"  [ color="" ]
-"Profile_Edit\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"land_registry_Add\ncontract" -> "notifications_Send\ncontract"  [ color=red ]
 "land_registry_Add\ncontract" -> "land_registry\ntable"  [ color="" ]
 "land_registry_Add\ncontract" -> "land_registry_ownership\ntable"  [ color="" ]
 "members\ntable" -> "land_registry_Add\ncontract"
 "land_registry_Add\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "land_registry_Delete\ncontract" -> "land_registry\ntable"  [ color="" ]
 "land_registry_Delete\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"land_registry_SecondRequest\ncontract" -> "notifications_Send\ncontract"  [ color=red ]
 "land_registry_SecondRequest\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"land_registry_UpdateAdmin\ncontract" -> "notifications_Close\ncontract"  [ color=red ]
 "land_registry_UpdateAdmin\ncontract" -> "land_registry\ntable"  [ color="" ]
 "members\ntable" -> "land_registry_UpdateAdmin\ncontract"
 "land_registry_UpdateAdmin\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"land_registry_UpdateOwner\ncontract" -> "notifications_Close\ncontract"  [ color=red ]
 "land_registry_UpdateOwner\ncontract" -> "land_registry\ntable"  [ color="" ]
 "land_registry_UpdateOwner\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"notifications_Close\ncontract" -> "notifications_Process\ncontract"  [ color=red ]
-"notifications_Close\ncontract" -> "notifications\ntable"  [ color="" ]
-"notifications_Close\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"notifications_Process\ncontract" -> "notifications\ntable"  [ color="" ]
-"roles_participants\ntable" -> "notifications_Process\ncontract"
-"members\ntable" -> "notifications_Process\ncontract"
-"notifications_Process\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"notifications_Send\ncontract" -> "notifications\ntable"  [ color="" ]
-"members\ntable" -> "notifications_Send\ncontract"
-"roles\ntable" -> "notifications_Send\ncontract"
-"roles_participants\ntable" -> "notifications_Send\ncontract"
-"notifications_Send\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "land_registry\ntable" [color="", fontcolor="", group=tables, shape=""];
 "land_registry_ownership\ntable" [color="", fontcolor="", group=tables, shape=""];
 }
