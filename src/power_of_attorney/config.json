@@ -1,0 +1,59 @@
+{
+    "blocks": null,
+    "contracts": [
+        {
+            "Conditions": "true",
+            "Name": "AttorneyAdd"
+        },
+        {
+            "Conditions": "true",
+            "Name": "AttorneyDel"
+        },
+        {
+            "Conditions": "true",
+            "Name": "AttorneyCheckAccess"
+        }
+    ],
+    "menus": [
+        {
+            "Conditions": "ContractConditions(\"MainCondition\")",
+            "Name": "default_menu"
+        }
+    ],
+    "pages": [
+        {
+            "Conditions": "true",
+            "Name": "attorney_add",
+            "Menu": "default_menu"
+        },
+        {
+            "Conditions": "true",
+            "Name": "attorney_list",
+            "Menu": "default_menu"
+        },
+        {
+            "Conditions": "true",
+            "Name": "attorney_edit",
+            "Menu": "default_menu"
+        },
+        {
+            "Conditions": "true",
+            "Name": "attorney_view",
+            "Menu": "default_menu"
+        }
+    ],
+    "tables": [
+        {
+            "Conditions": "ContractAccess(\"@1EditTable\")",
+            "Name": "power_of_attorney",
+            "Permissions": "{\"insert\": \"ContractAccess(\\\"attorney_Add\\\",\\\"MultiwalletCreate\\\")\", \"update\": \"ContractAccess(\\\"attorney_Add\\\",\\\"attorney_Del\\\",\\\"TokenTransferCheckAccess\\\")\", \"new_column\": \"ContractConditions(\\\"MainCondition\\\")\"}"
+        }
+    ],
+    "parameters": [
+        {
+            "Conditions": "true",
+            "Name": "attorney_contracts"
+        }
+    ],
+    "name": "Power of attorney"
+}
