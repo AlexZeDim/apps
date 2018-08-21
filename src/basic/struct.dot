@@ -1,7 +1,7 @@
 digraph G {
 graph [
   fontsize="24";
-  label="basic\nMonday, 20-Aug-18 14:03:58 MSK";
+  label="basic\nTuesday, 21-Aug-18 18:05:37 MSK";
   nojustify=true;
   ordering=out;
   rankdir=LR;
@@ -89,6 +89,11 @@ graph [
 "profile_avatar_edit\npage" -> "ProfileAvatarEdit\ncontract"  [ color=red ]
 "profile_avatar_edit\npage" -> "profile_edit\npage"  [ color=green ]
 "profile_avatar_edit\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"profile_convert\npage" -> "ProfileConvert\ncontract"  [ color=red ]
+"applications\ntable" -> "profile_convert\npage"
+"keys\ntable" -> "profile_convert\npage"
+"profile_convert\npage" -> "profile_view\npage"  [ color=green ]
+"profile_convert\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "profile_edit\npage" -> "ProfileEdit\ncontract"  [ color=red ]
 "members\ntable" -> "profile_edit\npage"
 "profile_edit\npage" -> "profile_avatar_edit\npage"  [ color=green ]
@@ -99,6 +104,7 @@ graph [
 "keys\ntable" -> "profile_view\npage"
 "roles\ntable" -> "profile_view\npage"
 "roles_participants\ntable" -> "profile_view\npage"
+"profile_view\npage" -> "profile_convert\npage"  [ color=green ]
 "profile_view\npage" -> "profile_edit\npage"  [ color=green ]
 "profile_view\npage" -> "roles_view\npage"  [ color=green ]
 "profile_view\npage" -> "roles_request\npage"  [ color=green ]

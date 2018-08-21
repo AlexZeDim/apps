@@ -163,6 +163,11 @@
             "Type": "languages"
         },
         {
+            "Name": "attention_already_multi",
+            "Trans": "{\"en\": \"This account already multiaccount\", \"ru\": \"Этот аккаунт уже многопользовательский\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "attention_not_validator",
             "Trans": "{\"en\": \"You are not a Validator\", \"ru\": \"Вы не валидатор\"}",
             "Type": "languages"
@@ -470,6 +475,11 @@
         {
             "Name": "contracts",
             "Trans": "{\"en\": \"Contracts\", \"ru\": \"Контракты\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "convert_to_multiaccount",
+            "Trans": "{\"en\": \"Convert to multiaccount\", \"ru\": \"Преобразовать в мультисчет\"}",
             "Type": "languages"
         },
         {
@@ -900,6 +910,26 @@
         {
             "Name": "message_input",
             "Trans": "{\"en\": \"Message input\", \"ru\": \"Ввод сообщения\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "multi_group_single",
+            "Trans": "{\"ru\":\"Группа. Одиночное подтверждение переводов\",\"en\":\"Group. Single confirmation of transfers\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "multi_group_voting",
+            "Trans": "{\"ru\":\"Группа. Подтверждение переводов голосованием\",\"en\":\"Group. Confirmation of transfers by voting\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "multi_role_single",
+            "Trans": "{\"ru\":\"Роль. Одиночное подтверждение переводов\",\"en\":\"Role. Single confirmation of transfers\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "multi_role_voting",
+            "Trans": "{\"ru\":\"Роль. Подтверждение переводов голосованием\",\"en\":\"Role. Confirmation of transfers by voting\"}",
             "Type": "languages"
         },
         {
@@ -2110,6 +2140,11 @@
         {
             "Name": "want_make_emission",
             "Trans": "{\"en\":\"Do you want to make an emission?\",\"ru\":\"Вы хотите выполнить эмиссию?\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "want_profile_convert",
+            "Trans": "{\"en\": \"Do you want to convert the user account to multiaccount?\", \"ru\": \"Вы хотите преобразовать эту учетную запись в многопользовательскую?\"}",
             "Type": "languages"
         },
         {

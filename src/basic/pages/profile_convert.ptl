@@ -1,0 +1,65 @@
+DBFind(applications).Columns("id").Where({name:"Basic application"}).Vars(application)
+AppParam(App: #application_id#, Name:multiaccount_types, Source:types)
+DBFind(keys).WhereId(#key_id#).Columns("id,multi").Vars(key)
+
+SetVar(this_page,profile_convert).(back_page,profile_view)
+
+If(#key_multi#==0){
+    If(GetVar(Type)){
+        SetTitle($profile_convert$)
+        Div(breadcrumb){
+            LinkPage(Body: $profile$, Page: profile_view)
+            Span(/,mh)
+            Span($profile_convert$,text-muted)
+        }
+        Div(content-wrapper){
+            Div(row){
+                Div(col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3){
+                    Form(panel panel-primary){
+                        Div(panel-body){
+                            If(Or(#Type#==1,#Type#==2)){
+                                TODO: select members to group
+                            }.ElseIf(Or(#Type#==3,#Type#==4)){
+                                TODO: select roles to group
+                            }
+                            Div(form-group){
+                                Label(For:)
+                                Input()
+                            }
+                        }
+                        Div(panel-footer text-left){
+                            Button(Body: LangRes(back), Class: btn btn-default, Page: #this_page#).Popup(45, $multi_types$)
+                            Button(Body: LangRes(convert), Class: btn btn-primary pull-right, Page: #back_page#, Contract: ProfileConvert).Alert(Text: $want_profile_convert$, ConfirmButton: $yes$, CancelButton: $no$, Icon: question)
+                        }
+                    }
+                }
+            }
+        }
+    }.Else{
+        Form(){
+            Div(form-group){
+                Select(Name: Type, Source: types, NameColumn: name, ValueColumn: id)
+            }
+            Div(){
+                Button(Body: LangRes(back), Class: btn btn-default, Page: #back_page#)
+                Button(Body: LangRes(next), Class: btn btn-primary pull-right, Page: #this_page#, PageParams: "Type=Val(Type)")
+            }
+        }
+    }
+}.Else{
+    Div(mt-lg alert alert-warning text-center){
+        LangRes(attention_already_multi)
+    }
+}
+список пользователей/кошельков или
+список ролей (выбор из списка имеющихся в текущей ЭС)
+лимиты на доверенность (без срока, чтобы не потерять средства)
+Создает (надо рассмотреть возможность сделать это на той же странице, где вводятся или с переходом на новую страницу)
+новый шаблон голосования для указанного списка или для ролей или
+выбирает имеющийся стандартный шаблон или
+выбирает "перевод одной подписью"
+При клике на кнопке Create
+в таблице 1_keys в колонку multi записывается
+id шаблона голосования
+-1, если выбрано "перевод одной подписью"
+пользователи и роли КМП заносятся в таблицу доверенностей с указанными лимитами
