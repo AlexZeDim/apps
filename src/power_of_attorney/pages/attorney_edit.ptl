@@ -1,17 +1,17 @@
-DBFind(Name:applications, Source:src_app).Columns("name,id").Where("name='Basic application'").Vars(application)
+DBFind(applications).Columns("name,id").Where({name:"Power of attorney"}).Vars(application)
 AppParam(App:#application_id#, Name: attorney_contracts, Source: src_contracts)
 
 SetTitle($attorney_edit$)
 
-DBFind(Name: "roles", Source: src_roles)
-DBFind(Name:power_of_attorney).WhereId(#attorney_id#).Vars(power_of_attorney)
-JsonToSource(Source: src_params, Data: #power_of_attorney_params#)
+DBFind(roles, src_roles)
+DBFind(power_of_attorney).WhereId(#AttorneyId#).Vars(poa)
+JsonToSource(src_params, #poa_params#)
 
 Div(content-wrapper){
     Div(breadcrumb){
-        LinkPage($attorney_list$, attorney_list)
-        Span(/).Style(margin-right: 10px; margin-left: 10px;)
-        Span(Class: text-muted, Body: $attorney_edit$)
+        LinkPage(Body: $attorney_list$, Page: attorney_list)
+        Span(/, mh)
+        Span($attorney_edit$, text-muted)
     }
     Form(row){
         Div(col-md-6){
@@ -26,17 +26,17 @@ Div(content-wrapper){
                                 Label(LangRes(role))
                             }
                             Div(col-md-9 text-left){
-                                Select(Source: src_roles, NameColumn: "role_name", ValueColumn: "id", Value: #power_of_attorney_role_id_attorney#)
+                                Select(Source: src_roles, NameColumn: role_name, ValueColumn: id, Value: #poa_role_id_attorney#)
                             }
                         }
                     }
                     Div(list-group-item){
                         Div(row){
                             Div(col-md-3 text-right){
-                                Label(LangRes(attorney_id))
+                                Label(LangRes(AttorneyId))
                             }
                             Div(col-md-9 text-left){
-                                Input(Name: AttorneyId, Value: #power_of_attorney_key_id_attorney#)
+                                Input(Name: AttorneyId, Value: #poa_key_id_attorney#)
                             }
                         }
                     }
@@ -46,7 +46,7 @@ Div(content-wrapper){
                                 Label(LangRes(contract))
                             }
                             Div(col-md-9 text-left){
-                                Select(Name: ContractName, Source: src_contracts, NameColumn: "name", ValueColumn: "name", Value: #power_of_attorney_contract#)
+                                Select(Name: Name, Source: src_contracts, NameColumn: name, ValueColumn: name, Value: #poa_contract#)
                             }
                         }
                     }
@@ -56,13 +56,13 @@ Div(content-wrapper){
                                 Label(LangRes(expiration_date))
                             }
                             Div(col-md-9 text-left){
-                                Input(Type:date, Name: DateExpiration, Value: DateTime(#power_of_attorney_date_expiration#, "YYYY-MM-DD"))
+                                Input(Type:date, Name: ExpireAt, Value: DateTime(#poa_date_expiration#, "YYYY-MM-DD"))
                             }
                         }
                     }
                 }
             }
-            
+
         }
         Div(col-md-6){
             Div(panel panel-primary){
@@ -78,67 +78,56 @@ Div(content-wrapper){
                             Label(LangRes(value))
                         }
                     }
-                    If(GetVar(max_filled_params) == ""){
-                        ForList(Source: src_params, Index: cur_param){
-                            SetVar(max_filled_params, #cur_param#)
-                        }
-                    }
-                    If(GetVar(params_count) == ""){
-                        SetVar(params_count, #max_filled_params#)
-                    }
-                    If(#flag_del_last_param# == 1){
-                        SetVar(params_count, Calculate(Exp: #params_count# - 1, Type: int))
-                    }.ElseIf(#flag_del_last_param# > 1){
-                        SetVar(max_filled_params, #flag_del_last_param#)
-                        SetVar(params_count, #flag_del_last_param#)
-                    }
-                    SetVar(next_params_count, Calculate(Exp: #params_count# + 1, Type: int))
-
-                    ForList(Source: src_params, Index: cur_param){
-                        If(And(#cur_param# <= #max_filled_params#, #cur_param# <= #params_count#)){
-                            Div(list-group-item){
-                                Div(row){
-                                    Div(col-md-3){
-                                        Input(Name: ParamsNames, Value: #key#)
-                                    }
-                                    Div(col-md-7){
-                                        Input(Name: ParamsValues, Value: #value#)
-                                    }
-                                    Div(col-md-2){
-                                        If(And(#cur_param# > 1, #cur_param# == #params_count#)){
-                                            Button(Body: Em(Class: fa fa-trash), Class: btn btn-default, PageParams: "attorney_id=#attorney_id#,params_count=#params_count#,flag_del_last_param=#cur_param#,max_filled_params=#max_filled_params#", Page: attorney_edit)
-                                        }
-                                    }
+                    ForList(src_params){
+                        Div(list-group-item){
+                            Div(row){
+                                Div(col-md-3){
+                                    Input(Name: Params, Value: #key#)
+                                }
+                                Div(col-md-7){
+                                    Input(Name: Values, Value: #value#)
+                                }
+                                Div(col-md-2){
+                                    Button(Class: fa fa-trash btn btn-link, PageParams: "AttorneyId=#AttorneyId#,current_index=#current_index#", Page: attorney_edit, Contract: AttorneyParamDelete, Params: "AttorneyId=#AttorneyId#,Param=#key#")
                                 }
                             }
                         }
                     }
-                    Range(params_range, #max_filled_params#, #params_count#)
-                    ForList(Source: params_range, Index: cur_param){
+                    If(GetVar(current_index)==""){
+                        SetVar(current_index, 1)
+                    }
+                    SetVar(prev_index, Calculate(#current_index#-1))
+                    SetVar(next_index, Calculate(#current_index#+1))
+                    SetVar(hidden,"hidden")
+                    If(#current_index#>1){
+                        SetVar(hidden,)
+                    }
+                    Range(params_range, 0, #current_index#)
+                    ForList(params_range){
                         Div(list-group-item){
                             Div(row){
                                 Div(col-md-3){
-                                    Input(Name:ParamsNames)
+                                    Input(Name: Params)
                                 }
                                 Div(col-md-7){
-                                    Input(Name:ParamsValues)
+                                    Input(Name: Values)
                                 }
                                 Div(col-md-2){
-                                    If(And(#cur_param# > 0, Calculate(#cur_param# + 1) == #params_count#)){
-                                        Button(Body: Em(Class: fa fa-trash), Class: btn btn-default, Page: attorney_edit, PageParams: "attorney_id=#attorney_id#,params_count=#params_count#,flag_del_last_param=1,max_filled_params=#max_filled_params#")
+                                    If(And(#index# > 0, Calculate(#index# + 1)==#current_index#)){
                                     }
                                 }
                             }
                         }
                     }
                     Div(text-right){
-                        LinkPage(Body: LangRes(add_parameter), Page: attorney_edit, PageParams: "attorney_id=#attorney_id#,params_count=#next_params_count#,max_filled_params=#max_filled_params#")
+                        Button(Class: fa fa-minus btn btn-default #hidden#, Page: attorney_edit, PageParams: "AttorneyId=#AttorneyId#,current_index=#prev_index#")
+                        LinkPage(Class:fa fa-plus btn btn-info, Page: attorney_edit, PageParams: "AttorneyId=#AttorneyId#,current_index=#next_index#")
                     }
                 }
                 Div(panel-footer text-right){
-                    Button(Body: LangRes(save), Class: btn btn-primary, Page: attorney_list, Contract: attorney_Add, Params: "Id=#attorney_id#")    
+                    Button(Body: LangRes(save), Class: btn btn-primary, Page: attorney_list, Contract: AttorneyStore, Params: "Id=#AttorneyId#")
                 }
-            }  
+            }
         }
     }
 }

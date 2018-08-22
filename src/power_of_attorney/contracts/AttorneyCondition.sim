@@ -1,0 +1,15 @@
+contract AttorneyCondition {
+    data {
+        Name string
+        Wallet int
+    }
+
+    conditions {
+        var attorney_id int
+        attorney_id = Int(DBFind("power_of_attorney").Where({delete:0, "contract":$Name, "address":$Wallet, "$or":[{key_id_attorney:$key_id}, {rid:$role_id}]}).One("id"))
+        if attorney_id == 0{
+            warning Sprintf("You don't have access to wallet %s", $Wallet)
+        }
+        $result = attorney_id
+    }
+}

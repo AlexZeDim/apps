@@ -1,0 +1,27 @@
+contract AttorneyParamDelete {
+    data {
+        AttorneyId int
+        Param string
+    }
+    conditions {
+        $attorney = DBFind("power_of_attorney").Where({id:$AttorneyId, "address":$key_id}).Row()
+        if !$attorney {
+            warning "Power of attorney does not exists"
+        }
+    }
+    action {
+        var params newParams map keys array i lenKeys int key string
+        params = JSONDecode($attorney["params"])
+        keys = GetMapKeys(params)
+        lenKeys = Len(keys)
+        while i < lenKeys{
+            key = keys[i]
+            if key != $Param{
+                newParams[key] = params[key]
+            }
+            i = i + 1
+        }
+        DBUpdate("power_of_attorney", $AttorneyId, {params:"{}"})
+        DBUpdate("power_of_attorney", $AttorneyId, {params:newParams})
+    }
+}

@@ -1,0 +1,54 @@
+contract AttorneyStore {
+    data {
+        Id string "optional"
+        MemberId int
+        Name string
+        ExpireAt string "optional"
+        Params array "optional"
+        Values array "optional"
+    }
+    conditions {
+        $Id = Int($Id)
+        if $Id > 0 {
+            if !DBFind("power_of_attorney").Where({id:$Id, "address":$key_id, delete:0}).One("id") {
+                warning "Power of attorney does not exists"
+            }
+        }
+        if !DBFind("keys").WhereId($MemberId).One("id") {
+            warning "Attorney not found"
+        }
+        if !DBFind("contracts").Where({name:$Name}).One("id") {
+            warning "Contract not found"
+        }
+        if Len($Params) > Len($Values) {
+            error "Incorrect params list"
+        }
+    }
+    action {
+        var params map i id lenKeys int
+        lenKeys = Len($Params)
+        while i < lenKeys {
+            params[$Params[i]] = $Values[i]
+            i = i + 1
+        }
+        var m map
+        m["key_id_attorney"] = $MemberId
+        m["contract"] = $Name
+        m["date_expiration"] = $ExpireAt
+        m["params"] = JSONEncode(params)
+        if $Id > 0 {
+            DBUpdate("power_of_attorney", $Id, m)
+        }else{
+            m["address"] = $key_id
+            id = DBInsert("power_of_attorney", m)
+
+            var n map
+            n["member_id"] = $MemberId
+            n["sender"] = 1
+            n["text_header"] = "You got new power of attorney"
+            n["page_name"] = "attorney_add"
+            n["params_map"] = Sprintf(`{"id":"%v"}`, id)
+            CallContract("notifications_Send", n)
+        }
+    }
+}

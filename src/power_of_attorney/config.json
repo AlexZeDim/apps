@@ -3,15 +3,15 @@
     "contracts": [
         {
             "Conditions": "true",
-            "Name": "AttorneyAdd"
+            "Name": "AttorneyStore"
         },
         {
             "Conditions": "true",
-            "Name": "AttorneyDel"
+            "Name": "AttorneyDelete"
         },
         {
             "Conditions": "true",
-            "Name": "AttorneyCheckAccess"
+            "Name": "AttorneyCondition"
         }
     ],
     "menus": [
@@ -46,7 +46,7 @@
         {
             "Conditions": "ContractAccess(\"@1EditTable\")",
             "Name": "power_of_attorney",
-            "Permissions": "{\"insert\": \"ContractAccess(\\\"attorney_Add\\\",\\\"MultiwalletCreate\\\")\", \"update\": \"ContractAccess(\\\"attorney_Add\\\",\\\"attorney_Del\\\",\\\"TokenTransferCheckAccess\\\")\", \"new_column\": \"ContractConditions(\\\"MainCondition\\\")\"}"
+            "Permissions": "{\"insert\": \"ContractAccess(\\\"AttorneyStore\\\",\\\"MultiwalletCreate\\\")\", \"update\": \"ContractAccess(\\\"AttorneyStore\\\",\\\"attorney_Del\\\",\\\"TokenTransferCheckAccess\\\")\", \"new_column\": \"ContractConditions(\\\"MainCondition\\\")\"}"
         }
     ],
     "parameters": [

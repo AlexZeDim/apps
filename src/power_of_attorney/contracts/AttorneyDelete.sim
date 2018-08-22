@@ -1,0 +1,13 @@
+contract AttorneyDelete {
+    data {
+        AttorneyId int
+    }
+    conditions {
+        if !DBFind("power_of_attorney").Where({id:$AttorneyId, "address":$key_id}).One("id") {
+            warning "Power of attorney does not exists"
+        }
+    }
+    action {
+        DBUpdate("power_of_attorney", $AttorneyId, {delete:$time})
+    }
+}
