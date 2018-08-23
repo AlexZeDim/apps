@@ -628,6 +628,11 @@
             "Type": "languages"
         },
         {
+            "Name": "ecosystems",
+            "Trans": "{\"en\":\"Ecosystems\",\"ru\":\"Экосистемы\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "edit",
             "Trans": "{\"en\":\"Edit\",\"ru\":\"Редактировать\"}",
             "Type": "languages"
@@ -929,7 +934,11 @@
         },
         {
             "Name": "multi_role_voting",
-            "Trans": "{\"ru\":\"Роль. Подтверждение переводов голосованием\",\"en\":\"Role. Confirmation of transfers by voting\"}",
+            "Trans": "{\"ru\":\"Роль. Подтверждение переводов голосованием\",\"en\":\"Role. Confirmation of transfers by voting\"}"
+        },
+        {
+            "Name": "metrics",
+            "Trans": "{\"en\":\"Metrics\",\"ru\":\"Метрики\"}",
             "Type": "languages"
         },
         {
