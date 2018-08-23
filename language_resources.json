@@ -13,6 +13,11 @@
             "Type": "languages"
         },
         {
+            "Name": "Attorney",
+            "Trans": "{\"en\":\"Attorney\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "NewValue",
             "Trans": "{\"en\": \"New value\", \"ru\": \"Новое значение\"}",
             "Type": "languages"
@@ -108,6 +113,16 @@
             "Type": "languages"
         },
         {
+            "Name": "amount_max",
+            "Trans": "{\"en\": \"Maximum amount\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "amount_max_day",
+            "Trans": "{\"en\": \"Maximum amount per day\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "api_address",
             "Trans": "{\"en\": \"API address\", \"ru\": \"АПИ адрес\"}",
             "Type": "languages"
@@ -175,36 +190,6 @@
         {
             "Name": "attention_not_validator",
             "Trans": "{\"en\": \"You are not a Validator\", \"ru\": \"Вы не валидатор\"}",
-            "Type": "languages"
-        },
-        {
-            "Name": "attorney",
-            "Trans": "{\"en\":\"Attorney\"}",
-            "Type": "languages"
-        },
-        {
-            "Name": "attorney_add",
-            "Trans": "{\"en\":\"Add attorney\"}",
-            "Type": "languages"
-        },
-        {
-            "Name": "attorney_id",
-            "Trans": "{\"en\":\"Attorney wallet\"}",
-            "Type": "languages"
-        },
-        {
-            "Name": "attorney_info",
-            "Trans": "{\"en\":\"Attorney info\"}",
-            "Type": "languages"
-        },
-        {
-            "Name": "attorney_list",
-            "Trans": "{\"en\":\"Attorney list\"}",
-            "Type": "languages"
-        },
-        {
-            "Name": "attorney_view",
-            "Trans": "{\"en\":\"View power of attorney\"}",
             "Type": "languages"
         },
         {
@@ -1213,13 +1198,73 @@
             "Type": "languages"
         },
         {
-            "Name": "possible",
-            "Trans": "{\"en\": \"Possible\", \"ru\": \"Возможно\"}",
+            "Name": "poa",
+            "Trans": "{\"en\":\"Power of attorney\"}",
             "Type": "languages"
         },
         {
-            "Name": "power_of_attorney_params",
+            "Name": "poa_add",
+            "Trans": "{\"en\":\"Add attorney\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_contract",
+            "Trans": "{\"en\":\"The contract is running for attorney\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_contract_select",
+            "Trans": "{\"en\":\"Select contract\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_date_expiration",
+            "Trans": "{\"en\":\"Expire at\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_info",
+            "Trans": "{\"en\":\"Attorney info\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_issue",
+            "Trans": "{\"en\":\"Issue power of attorney\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_key_id_attorney",
+            "Trans": "{\"en\":\"Attorney wallet\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_list",
+            "Trans": "{\"en\":\"Attorney list\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_params",
             "Trans": "{\"en\":\"Power of attorney parameters\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_role_id_attorney",
+            "Trans": "{\"en\":\"Attorney role\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_unlimited",
+            "Trans": "{\n    \"en\": \"unlimited\",\n    \"ru\": \"неограниченно\"\n}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_view",
+            "Trans": "{\"en\":\"View power of attorney\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "possible",
+            "Trans": "{\"en\": \"Possible\", \"ru\": \"Возможно\"}",
             "Type": "languages"
         },
         {

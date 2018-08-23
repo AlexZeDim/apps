@@ -1,1 +1,1 @@
-MenuItem(Title:Attorney list, Page:poa_list, Icon:"icon-list")
+MenuItem(Title:$poa_list$, Page:poa_list, Icon:"icon-list")

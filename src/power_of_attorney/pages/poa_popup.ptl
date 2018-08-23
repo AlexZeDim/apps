@@ -1,0 +1,22 @@
+DBFind(applications).Columns("name,id").Where({name:"Power of attorney"}).Vars(application)
+AppParam(App:#application_id#, Name: attorney_contracts, Source: src_contracts)
+SetVar(this_page,poa_popup)
+If(GetVar(back_page)==""){
+    SetVar(back_page,poa_store)
+}
+Form(){
+    If(#Select#=="contract"){
+        Div(row){
+            Div(col-sm-4 text-right){
+                Label(LangRes(poa_contract))
+            }
+            Div(col-sm-8 text-left){
+                Select(Name: Name, Source: src_contracts, NameColumn: name, ValueColumn: name)
+            }
+        }
+        Div(){
+            Button(Body: LangRes(back), Class: btn btn-default, Page: #back_page#)
+            Button(Body: LangRes(done), Class: btn btn-primary pull-right, Page: #back_page#, PageParams: "poa_contract=Val(Name)")
+        }
+    }
+}

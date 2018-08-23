@@ -2,24 +2,32 @@ contract PoaStore {
     data {
         Id string "optional"
         MemberId int
-        NameContract string
+        NameContract string "optional" // manual catch
         ExpireAt string "optional"
         Params array "optional"
         Values array "optional"
     }
+    func dateAddTime(d string) string {
+        if Size(d) == 10{
+            return d + " 00:00:00"
+        }
+        return d
+    }
     conditions {
         $Id = Int($Id)
         if $Id > 0 {
-            if !DBFind("power_of_attorney").Where({id:$Id, "address":$key_id, delete:0}).One("id") {
+            if !DBFind("power_of_attorney").Where({id:$Id, "address":$key_id, deleted:0}).One("id") {
                 warning "Power of attorney does not exists"
             }
         }
         if !DBFind("keys").WhereId($MemberId).One("id") {
             warning "Attorney not found"
         }
-
+        Println("NameContract",$NameContract)
+        Println("ExpireAt",$ExpireAt)
+        $ExpireAt = dateAddTime($ExpireAt)
         if GetContractByName($NameContract) == 0{
-            warning "Contract not found"
+            warning "Contract for power of attorney not found"
         }
         if Len($Params) > Len($Values) {
             error "Incorrect params list"
@@ -33,7 +41,7 @@ contract PoaStore {
         // amount_max_month - максимальная сумма для перевода в месяц
         // amount_month переведено в текущий месяц
         // date_month - учетный месяц
-        
+
         var params map i id lenKeys int
         lenKeys = Len($Params)
         while i < lenKeys {
@@ -49,6 +57,7 @@ contract PoaStore {
             DBUpdate("power_of_attorney", $Id, m)
         }else{
             m["address"] = $key_id
+            m["deleted"] = 0
             id = DBInsert("power_of_attorney", m)
 
             var n map

@@ -4,7 +4,9 @@ If(#notific_id#>0){
 }
 
 SetTitle($poa_view$ ##Id#)
-
+If(GetVar(back_page)==""){
+    SetVar(back_page,poa_list)
+}
 DBFind(power_of_attorney).WhereId(#Id#).Vars(poa)
 JsonToSource(src_params, #poa_params#)
 SetVar(params_count,0)
@@ -13,20 +15,20 @@ ForList(src_params){
 }
 Div(content-wrapper){
     Div(breadcrumb){
-        LinkPage($attorney$, poa_list)
+        LinkPage(Body: $poa_list$, Page: #back_page#)
         Span(/,mh)
         Span($poa_view$, text-muted)
     }
     Form(row){
-        Div(col-md-10 col-lg-offset-1){
+        Div(col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3){
             Div(panel panel-primary){
                 Div(panel-heading){
-                    LangRes(attorney_info)
+                    LangRes(poa_info)
                 }
                 Div(panel-body){
                     Div(row mb){
                         Div(col-sm-4 text-right){
-                            Label(LangRes(attorney))
+                            Label(LangRes(poa_key_id_attorney))
                         }
                         Div(col-sm-8 text-left){
                             #poa_key_id_attorney#
@@ -34,7 +36,7 @@ Div(content-wrapper){
                     }
                     Div(row mb){
                         Div(col-sm-4 text-right){
-                            Label(LangRes(contract))
+                            Label(LangRes(poa_contract))
                         }
                         Div(col-sm-8 text-left){
                             #poa_contract#
@@ -42,7 +44,7 @@ Div(content-wrapper){
                     }
                     Div(row mb){
                         Div(col-sm-4 text-right){
-                            Label(LangRes(expiration_date))
+                            Label(LangRes(poa_date_expiration))
                         }
                         Div(col-sm-8 text-left){
                             DateTime(#poa_date_expiration#, "YYYY-MM-DD")
@@ -50,39 +52,42 @@ Div(content-wrapper){
                     }
                     If(#params_count#>0){
                         Div(h4){
-                            LangRes(power_of_attorney_params)
+                            LangRes(poa_params)
                         }
-                        Div(row text-muted text-center){
-                            Div(col-sm-4 mt-lg){
+                        Div(row text-muted text-center mt-lg){
+                            Div(col-sm-4){
                                 Label(LangRes(name))
                             }
-                            Div(col-sm-8 mt-lg){
+                            Div(col-sm-8){
                                 Label(LangRes(value))
                             }
                         }
                         ForList(src_params){
-                            Div(col-sm-4 mt-lg){
-                                #key#
-                            }
-                            Div(col-sm-8 mt-lg){
-                                #value#
+                            Div(row text-muted mt-lg){
+                                Div(col-sm-3 col-sm-offset-1){
+                                    #key#
+                                }
+                                Div(col-sm-8 text-center){
+                                    #value#
+                                }
                             }
                         }
                     }
                 }
                 Div(panel-footer text-left){
-                    Button(Body: LangRes(back), Class: btn, Page: poa_list)
+                    Button(Body: LangRes(back), Class: btn, Page: #back_page#)
                     Div(pull-right){
                         If(#notific_id#>0){
-                            Button(Body: LangRes(informed), Class: btn btn-success, Contract: notifications_Close, Params: "notific_id=#notific_id#")
+                            Button(Body: LangRes(informed), Class: btn btn-success, Contract: NotificationsClose, Params: "notific_id=#notific_id#")
                         }
                         If(#poa_address#==#key_id#){
+                            Button(Body: LangRes(delete), Class: btn btn-danger, Contract: PoaDelete, Params: "Id=#Id#", Page: #back_page#).Alert(Text: $sure_want_delete$, ConfirmButton: $yes$, CancelButton: $no$, Icon: question)
                             Button(Body: LangRes(edit), Class: btn btn-primary, Page: poa_store, PageParams: "Id=#Id#")
-                            Button(Body: LangRes(delete), Class: btn btn-danger, Contract: PoaDelete, Params: "Id=#Id#", Page: poa_list)
+                        }.ElseIf(#poa_key_id_attorney#==#key_id#){
+                            Button(Body: LangRes(poa_delete_my_attorney), Class: btn btn-danger, Contract: PoaDelete, Params: "Id=#Id#", Page: #back_page#).Alert(Text: $sure_want_delete$, ConfirmButton: $yes$, CancelButton: $no$, Icon: question)
                         }
                     }
                 }
             }
         }
     }
-}

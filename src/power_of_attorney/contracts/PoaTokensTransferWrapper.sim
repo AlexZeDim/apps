@@ -1,0 +1,57 @@
+contract PoaTokensTransferWrapper {
+    data {
+        Amount money
+        Sender_AccountId int
+        Recipient_AccountId int
+        Comment string "optional"
+    }
+    func checkLimit(num, lim int, s string){
+        if num > lim {
+            warning Sprintf("Maximum %v transfer limit exceeded", s)
+        }
+    }
+    conditions {
+        var attorney ap map
+        if $Sender_AccountId != $key_id{
+            attorney = PoaCondition("Name,Wallet", "TokensTransfer", $Sender_AccountId)
+        }
+        ap = JSONDecode(attorney["params"])
+        ap["amount_max"] = Int(ap["amount_max"])
+        ap["amount_max_day"] = Int(ap["amount_max_day"])
+        ap["amount_day"] = Int(ap["amount_day"])
+        ap["date_day"] = Int(ap["date_day"])
+        ap["amount_max_month"] = Int(ap["amount_max_month"])
+        ap["amount_month"] = Int(ap["amount_month"])
+        ap["date_month"] = Int(ap["date_month"])
+
+        var curMonth curDay int bt string
+        bt = BlockTime()
+        curMonth = Int(Substr(bt, 5, 2))
+        curDay = Int(Substr(bt, 8, 2))
+        
+        if ap["date_day"] != curDay {
+            ap["amount_day"] = 0
+        }
+        if ap["date_month"] != curMonth {
+            ap["amount_month"] = 0
+        }
+
+        checkLimit($Amount, ap["amount_max"], "")
+        checkLimit($Amount + ap["amount_day"], ap["amount_max_day"], "day")
+        checkLimit($Amount + ap["amount_month"], ap["amount_max_month"], "month")
+
+        ap["amount_day"] = ap["amount_day"] + $Amount
+        ap["amount_month"] = ap["amount_month"] + $Amount
+        ap["date_day"] = curDay
+        ap["date_month"] = curMonth
+
+        $params = JSONEncode(ap)
+        $id = Int(attorney["id"])
+    }
+
+    action {
+        return
+        TokensTransfer("Amount,Sender_AccountId,Recipient_AccountId,Comment", $Amount, $Sender_AccountId, $Recipient_AccountId, $Comment)
+        DBUpdate("power_of_attorney", $id, {params:$params, date_last_transaction:$time})
+    }
+}

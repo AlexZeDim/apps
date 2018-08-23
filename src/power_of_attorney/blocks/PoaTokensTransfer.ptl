@@ -1,0 +1,57 @@
+DBFind(power_of_attorney,src_poa).Where({key_id_attorney:#key_id#, deleted:0}).Columns("address").Count(poa_count).Custom(_id){
+    #address#
+}.Custom(_name){
+    DBFind(keys).WhereId(#address#).Columns("amount").Vars(key)
+    Address(#address#) (#key_amount#)
+}
+If(GetVar(this_page)==""){
+    SetVar(this_page,"profile_view")
+}
+If(#poa_count#>0){
+    Div(list-group-item mb){
+        Div(text-center text-bold h4 m0){
+            LangRes(poa_tokens_transfer)
+        }
+        Div(form-group){
+            Div(row){
+                Div(col-md-12 text-center){
+                    Div(text-muted m0 h5){
+                        LangRes(tokens)
+                    }
+                    Strong(Class: h5, Body: Money(#key_amount#) APL)
+                }
+            }
+            Div(row){
+                Div(col-md-12 mt-lg text-center){
+                    Div(text-muted m0 h5){
+                        LangRes(wallet_address)
+                    }
+                    Span(Class: h5, Body: Address(#member_id#))
+                }
+            }
+        }
+        Div(text-center){
+            Div(row){
+                Div(col-md-3 mt-sm text-right){
+                    Strong(Class: h6, Body: LangRes(recipient))
+                }
+                Div(col-md-9 mb-sm text-left){
+                    Input(Name: Recipient_Account, Placeholder: "xxxx-xxxx-xxxx-xxxx-xxxx")
+                }
+            }
+            Div(row){
+                Div(col-md-3 mt-sm text-right){
+                    Strong(Class: h6, Body: LangRes(amount))
+                }
+                Div(col-md-9 text-left){
+                    Input(Name: Amount, Type: Number)
+                }
+            }
+        }
+        Div(row){
+            Div(col-md-12 text-right){
+                Button(Body: LangRes(poa_send_tokens), Class: btn btn-default, Page: #this_page#, Contract: PoaTokensTransferWrapper).Alert(Text: $want_send_tokens$, ConfirmButton: $yes$, CancelButton: $no$, Icon: question)
+            }
+        }
+    }
+}

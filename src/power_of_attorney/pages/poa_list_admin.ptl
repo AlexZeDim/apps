@@ -1,0 +1,126 @@
+SetTitle($poa_list$)
+SetVar(this_page,poa_list_admin)
+SetVar(where,{id:{"$gt":0}})
+If(GetVar(Search)!=""){
+    If(GetVar(SearchFor)!=""){
+        SetVar(where,{#SearchFor#:{"$like":#Search#}})
+    }
+}.Else{
+    SetVar(Search,).(SearchFor,)
+}
+SetVar(order,{deleted:"-1", id:"1"})
+If(GetVar(OldOrder)==""){
+    SetVar(OldOrder,)
+}.Else{
+    SetVar(Order,).(OldOrder,)
+}
+If(GetVar(Dir)==""){
+    SetVar(Dir,"1")
+}
+If(GetVar(Order)!=""){
+    If(#Order#==#OldOrder#){
+        If(#Dir#>0){
+            SetVar(Dir,-1)
+        }.Else{
+            SetVar(Dir,1)
+        }
+    }
+    SetVar(order,{#Order#:#Dir#})
+}
+
+Data(src_select, "id,name"){
+    ,"Search for ..."
+    address,"Address"
+    key_id_attorney,"Attorney"
+    contract,"Contract"
+}
+Data(src_order, "id,name"){
+    ,"Order by ..."
+    deleted,"Deleted"
+    address,"Address"
+    key_id_attorney,"Attorney"
+    contract,"Contract"
+    date_expiration,"Expiration date"
+}
+
+DBFind(power_of_attorney, src_attorney).Where(#where#).Order(#order#).Count(attorney_count).Custom(_date_expiration){
+    SetVar(DeletedClass,)
+    If(#deleted#>0){
+        SetVar(DeletedClass,"text-muted")
+    }
+    Div(#DeletedClass#){
+        If(#date_expiration#>0){
+            DateTime(#date_expiration#,"YYYY-MM-DD")
+        }.Else{
+            LangRes(poa_unlimited)
+        }
+    }
+}.Custom(_action){
+    Div(text-right #DeletedClass#){
+        Button(Class: btn btn-primary icon-eye, Page: poa_view, PageParams: "back_page=#this_page#,Id=#id#")
+    }
+}.Custom(_key_id_attorney){
+    Div(#DeletedClass#){
+        LinkPage(Body: #key_id_attorney#, Page: profile_view, PageParams: "back_page=#this_page#,v_member_id=#key_id_attorney#")
+    }
+}.Custom(_address){
+    Div(#DeletedClass#){
+        LinkPage(Body: #address#, Page: profile_view, PageParams: "back_page=#this_page#,v_member_id=#address#")
+    }
+}.Custom(_deleted){
+    Div(#DeletedClass#){
+        If(#deleted#>0){
+            DateTime(#deleted#,"YYYY-MM-DD HH:MI")
+        }
+    }
+}.Custom(_contract){
+    Div(#DeletedClass#){
+        #contract#
+    }
+}
+
+Div(content-wrapper){
+    Form(input-group mb){
+        Div(input-group-addon){
+            LangRes(search)
+        }
+        Div(){
+            Input(Name:Search)
+            Select(Name:SearchFor, Source: src_select, NameColumn: name, ValueColumn: id)
+            Select(Name:Order, Source: src_order, NameColumn: name, ValueColumn: id)
+        }.Style(
+            display:flex;
+        )
+
+        Div(input-group-btn){
+            If(#Dir#>0){
+                Button(Class: btn btn-default fa fa-sort-amount-desc, Page: poa_list_admin, PageParams: "Search=#Search#,SearchFor=#SearchFor#,Order=Val(Order),OldOrder=#Order#,Dir=#Dir#")
+            }.Else{
+                Button(Class: btn btn-default fa fa-sort-amount-asc, Page: poa_list_admin, PageParams: "Search=#Search#,SearchFor=#SearchFor#,Order=Val(Order),OldOrder=#Order#,Dir=#Dir#")
+            }
+            Button(Class: btn btn-primary icon-magnifier, Page: poa_list_admin, PageParams: "Search=Val(Search),SearchFor=Val(SearchFor),Order=#Order#,OldOrder=#OldOrder#,Dir=#Dir#")
+            If(GetVar(Search)!=""){
+                Button(Class: btn btn-info icon-close, Page: poa_list_admin)
+            }
+        }
+    }
+    Form(panel panel-primary){
+        Div(panel-body){
+            If(#attorney_count#>0){
+                Div(table-responsive){
+                    Table(src_attorney, "Contract=_contract,Address=_address,Attorney=_key_id_attorney,Expiration date=_date_expiration,Deleted=_deleted,=_action")
+                }
+            }.Else{
+                Div(h3 text-center){
+                    $not_found$
+                }
+            }
+        }
+    }
+}
+If(){
+    TODO: Доверенность может быть отозвана (del):
+    1. на странице владельца кошелька, на который выписана доверенность
+    2. в списке доверенностей
+    2. на странице кошелька пользователя с доверенностью (кнопка "Delete my power of attorney")
+}

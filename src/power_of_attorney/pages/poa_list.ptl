@@ -1,10 +1,16 @@
 SetTitle($poa_list$)
-AddToolButton(Page: poa_store, Title:$attorney_add$)
+AddToolButton(Page: poa_store, Title:$poa_add$)
 
-DBFind(power_of_attorney, src_attorney).Where({address:#key_id#, delete:0}).Custom(_date_expiration){
-    DateTime(#date_expiration#,"YYYY-MM-DD")
+DBFind(power_of_attorney, src_attorney).Where({address:#key_id#, deleted:0}).Count(attorney_count).Custom(_date_expiration){
+    If(#date_expiration#>0){
+        DateTime(#date_expiration#,"YYYY-MM-DD")
+    }.Else{
+        LangRes(poa_unlimited)
+    }
 }.Custom(_action){
-    Button(Body: View, Class: btn btn-primary, Page: poa_view, PageParams: "Id=#id#")
+    Div(text-right){
+        Button(Body: View, Class: btn btn-primary, Page: poa_view, PageParams: "Id=#id#")
+    }
 }.Custom(_key_id_attorney){
     LinkPage(Body: Address(#key_id_attorney#), Page: profile_view, PageParams: "v_member_id=#key_id_attorney#")
 }
@@ -12,8 +18,14 @@ DBFind(power_of_attorney, src_attorney).Where({address:#key_id#, delete:0}).Cust
 Div(content-wrapper){
     Form(panel panel-primary){
         Div(panel-body){
-            Div(table-responsive){
-                Table(src_attorney, "Contract=contract,Attorney=_key_id_attorney,Expiration date=_date_expiration,=_action")
+            If(#attorney_count#>0){
+                Div(table-responsive){
+                    Table(src_attorney, "Contract=contract,Attorney=_key_id_attorney,Expiration date=_date_expiration,=_action")
+                }
+            }.Else{
+                Div(h3 text-center){
+                    $not_found$
+                }
             }
         }
     }

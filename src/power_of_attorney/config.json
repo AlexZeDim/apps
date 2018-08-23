@@ -1,59 +1,84 @@
 {
-    "blocks": null,
+    "name": "Power of attorney",
+    "blocks": [
+        {
+            "Name": "PoaParamsTokensTransfer",
+            "Conditions": "ContractConditions(\"MainCondition\")"
+        },
+        {
+            "Name": "PoaTokensTransfer",
+            "Conditions": "ContractConditions(\"MainCondition\")"
+        }
+    ],
     "contracts": [
         {
-            "Conditions": "true",
-            "Name": "PoaStore"
+            "Name": "PoaCondition",
+            "Conditions": "ContractConditions(\"MainCondition\")"
         },
         {
-            "Conditions": "true",
-            "Name": "PoaDelete"
+            "Name": "PoaDelete",
+            "Conditions": "ContractConditions(\"MainCondition\")"
         },
         {
-            "Conditions": "true",
-            "Name": "PoaCondition"
+            "Name": "PoaParamDelete",
+            "Conditions": "ContractConditions(\"MainCondition\")"
+        },
+        {
+            "Name": "PoaStore",
+            "Conditions": "ContractConditions(\"MainCondition\")"
+        },
+        {
+            "Name": "PoaTokensTransferWrapper",
+            "Conditions": "ContractConditions(\"MainCondition\")"
         }
     ],
     "menus": [
         {
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Name": "default_menu"
+            "Name": "admin_menu",
+            "Conditions": "ContractConditions(\"MainCondition\")"
+        },
+        {
+            "Name": "default_menu",
+            "Conditions": "ContractConditions(\"MainCondition\")"
         }
     ],
     "pages": [
         {
-            "Conditions": "true",
-            "Name": "attorney_add",
-            "Menu": "default_menu"
-        },
-        {
-            "Conditions": "true",
             "Name": "poa_list",
+            "Conditions": "true",
             "Menu": "default_menu"
         },
         {
-            "Conditions": "true",
-            "Name": "attorney_edit",
+            "Name": "poa_list_admin",
+            "Conditions": "ContractConditions(\"MainCondition\")",
+            "Menu": "admin_menu"
+        },
+        {
+            "Name": "poa_popup",
+            "Conditions": "ContractConditions(\"MainCondition\")",
             "Menu": "default_menu"
         },
         {
-            "Conditions": "true",
+            "Name": "poa_store",
+            "Conditions": "ContractConditions(\"MainCondition\")",
+            "Menu": "default_menu"
+        },
+        {
             "Name": "poa_view",
+            "Conditions": "true",
             "Menu": "default_menu"
         }
     ],
     "tables": [
         {
-            "Conditions": "ContractAccess(\"@1EditTable\")",
             "Name": "power_of_attorney",
-            "Permissions": "{\"insert\": \"ContractAccess(\\\"PoaStore\\\",\\\"MultiwalletCreate\\\")\", \"update\": \"ContractAccess(\\\"PoaStore\\\",\\\"attorney_Del\\\",\\\"TokenTransferCheckAccess\\\")\", \"new_column\": \"ContractConditions(\\\"MainCondition\\\")\"}"
+            "Permissions": "{\"insert\": \"ContractAccess(\\\"PoaStore\\\")\", \"update\": \"ContractAccess(\\\"PoaStore\\\",\\\"PoaDelete\\\", \\\"PoaTokensTransferWrapper\\\")\", \"new_column\": \"ContractConditions(\\\"MainCondition\\\")\"}"
         }
     ],
     "parameters": [
         {
-            "Conditions": "true",
-            "Name": "attorney_contracts"
+            "Name": "attorney_contracts",
+            "Conditions": "ContractConditions(\"MainCondition\")"
         }
-    ],
-    "name": "Power of attorney"
+    ]
 }

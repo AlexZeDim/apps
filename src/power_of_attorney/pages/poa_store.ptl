@@ -14,10 +14,18 @@ DBFind(keys, src_keys).Where({id:{"$neq":#key_id#}}).Custom(_name){
 
 SetVar(this_page,poa_store)
 
-SetTitle($attorney_add$)
-SetVar(poa_params,).(poa_role_id_attorney,).(poa_key_id_attorney,#key_id#).(poa_contract,).(poa_date_expiration)
+SetTitle($poa_add$)
+If(GetVar(poa_contract)==""){
+    SetVar(poa_contract,)
+}
+If(GetVar(poa_date_expiration)!=""){
+    SetVar(poa_date_expiration, DateTime(#poa_date_expiration#, "YYYY-MM-DD"))
+}.Else{
+    SetVar(poa_date_expiration,)
+}
+SetVar(poa_params,).(poa_role_id_attorney,).(poa_key_id_attorney,#key_id#)
 If(#Id#>0){
-    SetTitle($attorney_edit$)
+    SetTitle($poa_edit$)
     DBFind(power_of_attorney).WhereId(#Id#).Vars(poa)
     JsonToSource(src_params, #poa_params#)
 }.Else{
@@ -34,13 +42,13 @@ Div(content-wrapper){
         Div(col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3){
             Form(panel panel-primary){
                 Div(panel-heading){
-                    LangRes(issue_power_of_attorney)
+                    LangRes(poa_issue)
                 }
                 Div(panel-body){
                     If(){
                         Div(form-group){
                             Div(row){
-                                Div(col-sm-4 text-right){
+                                Div(col-sm-4 text-right mt-sm){
                                     Label(LangRes(role))
                                 }
                                 Div(col-sm-8 text-left){
@@ -51,8 +59,8 @@ Div(content-wrapper){
                     }
                     Div(form-group){
                         Div(row){
-                            Div(col-sm-4 text-right){
-                                Label(LangRes(attorney_id))
+                            Div(col-sm-4 text-right mt-sm){
+                                Label(LangRes(poa_key_id_attorney))
                             }
                             Div(col-sm-8 text-left){
                                 Select(Name: MemberId, Source: src_keys, NameColumn: _name, ValueColumn: id, Value: #poa_key_id_attorney#)
@@ -61,21 +69,27 @@ Div(content-wrapper){
                     }
                     Div(form-group){
                         Div(row){
-                            Div(col-sm-4 text-right){
-                                Label(LangRes(contract))
+                            Div(col-sm-4 text-right mt-sm){
+                                Label(LangRes(poa_contract))
                             }
-                            Div(col-sm-8 text-left){
-                                Select(Name: NameContract, Source: src_contracts, NameColumn: name, ValueColumn: name, Value: #poa_contract#)
+                            Div(col-sm-8 clearfix){
+                                Div(pull-left mt-sm){
+                                    #poa_contract#
+                                    Input(Name: NameContract, Value:#poa_contract#, Type:hidden)
+                                }
+                                Div(pull-right){
+                                    Button(Body: LangRes(poa_contract_select), Class: btn btn-default, Page: poa_popup, PageParams: "Select=contract").Popup(50, $poa_contract_select$)
+                                }
                             }
                         }
                     }
                     Div(form-group){
                         Div(row){
-                            Div(col-sm-4 text-right){
+                            Div(col-sm-4 text-right mt-sm){
                                 Label(LangRes(expiration_date))
                             }
                             Div(col-sm-8 text-left){
-                                Input(Type:date, Name: ExpireAt, Value: DateTime(#poa_date_expiration#, "YYYY-MM-DD"))
+                                Input(Name: ExpireAt, Type:date, Value: #poa_date_expiration#)
                             }
                         }
                     }
@@ -91,7 +105,7 @@ Div(content-wrapper){
                     Div(list-group-item){
                         Div(clearfix){
                             Div(h4 pull-left){
-                                LangRes(PoaParamsTokensTransfer)
+                                LangRes(poa_params)
                             }
                             Div(pull-right){
                                 Button(Class: fa fa-minus btn btn-default #hidden#, Page: #this_page#, PageParams: "Id=#Id#,current_index=#prev_index#")
@@ -113,7 +127,9 @@ Div(content-wrapper){
                                 }
                             }
                         }.Else{
-                            Include(attorney_default_params)
+                            If(#poa_contract#=="TokensTransfer"){
+                                Include(PoaParamsTokensTransfer)
+                            }
                         }
                         Div(row text-muted text-center #hidden#){
                             Div(col-sm-4){
@@ -137,7 +153,7 @@ Div(content-wrapper){
                     }
                 }
                 Div(panel-footer text-right){
-                    Button(Body: LangRes(issue), Class: btn btn-primary, Page: poa_list, Contract: PoaStore, Params: "Id=#Id#")
+                    Button(Body: LangRes(issue), Class: btn btn-primary, Page: poa_list, Contract: PoaStore, Params: "Id=#Id#,NameContract=#poa_contract#")
                 }
             }
         }
