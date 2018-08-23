@@ -3,15 +3,15 @@
     "contracts": [
         {
             "Conditions": "true",
-            "Name": "AttorneyStore"
+            "Name": "PoaStore"
         },
         {
             "Conditions": "true",
-            "Name": "AttorneyDelete"
+            "Name": "PoaDelete"
         },
         {
             "Conditions": "true",
-            "Name": "AttorneyCondition"
+            "Name": "PoaCondition"
         }
     ],
     "menus": [
@@ -28,7 +28,7 @@
         },
         {
             "Conditions": "true",
-            "Name": "attorney_list",
+            "Name": "poa_list",
             "Menu": "default_menu"
         },
         {
@@ -38,7 +38,7 @@
         },
         {
             "Conditions": "true",
-            "Name": "attorney_view",
+            "Name": "poa_view",
             "Menu": "default_menu"
         }
     ],
@@ -46,7 +46,7 @@
         {
             "Conditions": "ContractAccess(\"@1EditTable\")",
             "Name": "power_of_attorney",
-            "Permissions": "{\"insert\": \"ContractAccess(\\\"AttorneyStore\\\",\\\"MultiwalletCreate\\\")\", \"update\": \"ContractAccess(\\\"AttorneyStore\\\",\\\"attorney_Del\\\",\\\"TokenTransferCheckAccess\\\")\", \"new_column\": \"ContractConditions(\\\"MainCondition\\\")\"}"
+            "Permissions": "{\"insert\": \"ContractAccess(\\\"PoaStore\\\",\\\"MultiwalletCreate\\\")\", \"update\": \"ContractAccess(\\\"PoaStore\\\",\\\"attorney_Del\\\",\\\"TokenTransferCheckAccess\\\")\", \"new_column\": \"ContractConditions(\\\"MainCondition\\\")\"}"
         }
     ],
     "parameters": [

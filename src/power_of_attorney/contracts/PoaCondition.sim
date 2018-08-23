@@ -1,4 +1,4 @@
-contract AttorneyCondition {
+contract PoaCondition {
     data {
         Name string
         Wallet int

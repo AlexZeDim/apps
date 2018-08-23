@@ -1,46 +1,46 @@
 digraph G {
 graph [
   fontsize="24";
-  label="power_of_attorney\nThursday, 23-Aug-18 12:34:19 MSK";
+  label="power_of_attorney\nThursday, 23-Aug-18 15:27:34 MSK";
   nojustify=true;
   ordering=out;
   rankdir=LR;
   size="30";
 ];
-"default_menu\nmenu" -> "attorney_list\npage"  [ color=green ]
+"default_menu\nmenu" -> "poa_list\npage"  [ color=green ]
 "default_menu\nmenu" [color=blue, fontcolor=blue, group=menus, shape=record];
-"power_of_attorney\ntable" -> "attorney_list\npage"
-"attorney_list\npage" -> "attorney_store\npage"  [ color=green ]
-"attorney_list\npage" -> "attorney_view\npage"  [ color=green ]
-"attorney_list\npage" -> "profile_view\npage"  [ color=green ]
-"attorney_list\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"attorney_store\npage" -> "AttorneyParamDelete\ncontract"  [ color=red ]
-"attorney_store\npage" -> "AttorneyStore\ncontract"  [ color=red ]
-"applications\ntable" -> "attorney_store\npage"
-"roles\ntable" -> "attorney_store\npage"
-"keys\ntable" -> "attorney_store\npage"
-"members\ntable" -> "attorney_store\npage"
-"power_of_attorney\ntable" -> "attorney_store\npage"
-"attorney_store\npage" -> "attorney_list\npage"  [ color=green ]
-"attorney_store\npage" -> "attorney_default_params\nblock"  [ color=green, label=include ]
-"attorney_store\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"attorney_view\npage" -> "notifications_Close\ncontract"  [ color=red ]
-"attorney_view\npage" -> "AttorneyDelete\ncontract"  [ color=red ]
-"notifications\ntable" -> "attorney_view\npage"
-"power_of_attorney\ntable" -> "attorney_view\npage"
-"attorney_view\npage" -> "attorney_list\npage"  [ color=green ]
-"attorney_view\npage" -> "attorney_store\npage"  [ color=green ]
-"attorney_view\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"attorney_default_params\nblock" -> "AttorneyParamDelete\ncontract"  [ color=red ]
-"attorney_default_params\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
-"power_of_attorney\ntable" -> "AttorneyCondition\ncontract"
-"AttorneyCondition\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"AttorneyDelete\ncontract" -> "power_of_attorney\ntable"  [ color="" ]
-"AttorneyDelete\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"AttorneyParamDelete\ncontract" -> "power_of_attorney\ntable"  [ color="" ]
-"AttorneyParamDelete\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"AttorneyStore\ncontract" -> "power_of_attorney\ntable"  [ color="" ]
-"keys\ntable" -> "AttorneyStore\ncontract"
-"AttorneyStore\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"power_of_attorney\ntable" -> "poa_list\npage"
+"poa_list\npage" -> "poa_store\npage"  [ color=green ]
+"poa_list\npage" -> "poa_view\npage"  [ color=green ]
+"poa_list\npage" -> "profile_view\npage"  [ color=green ]
+"poa_list\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"poa_store\npage" -> "PoaParamDelete\ncontract"  [ color=red ]
+"poa_store\npage" -> "PoaStore\ncontract"  [ color=red ]
+"applications\ntable" -> "poa_store\npage"
+"roles\ntable" -> "poa_store\npage"
+"keys\ntable" -> "poa_store\npage"
+"members\ntable" -> "poa_store\npage"
+"power_of_attorney\ntable" -> "poa_store\npage"
+"poa_store\npage" -> "poa_list\npage"  [ color=green ]
+"poa_store\npage" -> "attorney_default_params\nblock"  [ color=green, label=include ]
+"poa_store\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"poa_view\npage" -> "notifications_Close\ncontract"  [ color=red ]
+"poa_view\npage" -> "PoaDelete\ncontract"  [ color=red ]
+"notifications\ntable" -> "poa_view\npage"
+"power_of_attorney\ntable" -> "poa_view\npage"
+"poa_view\npage" -> "poa_list\npage"  [ color=green ]
+"poa_view\npage" -> "poa_store\npage"  [ color=green ]
+"poa_view\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"PoaParamsTokensTransfer\nblock" -> "PoaParamDelete\ncontract"  [ color=red ]
+"PoaParamsTokensTransfer\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
+"power_of_attorney\ntable" -> "PoaCondition\ncontract"
+"PoaCondition\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"PoaDelete\ncontract" -> "power_of_attorney\ntable"  [ color="" ]
+"PoaDelete\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"PoaParamDelete\ncontract" -> "power_of_attorney\ntable"  [ color="" ]
+"PoaParamDelete\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"PoaStore\ncontract" -> "power_of_attorney\ntable"  [ color="" ]
+"keys\ntable" -> "PoaStore\ncontract"
+"PoaStore\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "power_of_attorney\ntable" [color="", fontcolor="", group=tables, shape=""];
 }

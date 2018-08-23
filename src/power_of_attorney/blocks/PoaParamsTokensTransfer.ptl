@@ -7,7 +7,7 @@ Div(mb row){
         Input(Name: Values)
     }
     Div(col-sm-2){
-        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: AttorneyParamDelete, Params: "Id=#Id#,Param=#key#")
+        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: PoaParamDelete, Params: "Id=#Id#,Param=#key#")
     }
 }
 Div(mb row){
@@ -19,7 +19,7 @@ Div(mb row){
         Input(Name: Values)
     }
     Div(col-sm-2){
-        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: AttorneyParamDelete, Params: "Id=#Id#,Param=#key#")
+        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: PoaParamDelete, Params: "Id=#Id#,Param=#key#")
     }
 }
 Div(mb row){
@@ -31,7 +31,7 @@ Div(mb row){
         Input(Name: Values)
     }
     Div(col-sm-2){
-        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: AttorneyParamDelete, Params: "Id=#Id#,Param=#key#")
+        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: PoaParamDelete, Params: "Id=#Id#,Param=#key#")
     }
 }
 Div(mb row){
@@ -43,7 +43,7 @@ Div(mb row){
         Input(Name: Values)
     }
     Div(col-sm-2){
-        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: AttorneyParamDelete, Params: "Id=#Id#,Param=#key#")
+        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: PoaParamDelete, Params: "Id=#Id#,Param=#key#")
     }
 }
 Div(mb row){
@@ -55,7 +55,7 @@ Div(mb row){
         Input(Name: Values)
     }
     Div(col-sm-2){
-        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: AttorneyParamDelete, Params: "Id=#Id#,Param=#key#")
+        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: PoaParamDelete, Params: "Id=#Id#,Param=#key#")
     }
 }
 Div(mb row){
@@ -67,7 +67,7 @@ Div(mb row){
         Input(Name: Values)
     }
     Div(col-sm-2){
-        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: AttorneyParamDelete, Params: "Id=#Id#,Param=#key#")
+        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: PoaParamDelete, Params: "Id=#Id#,Param=#key#")
     }
 }
 Div(mb row){
@@ -79,6 +79,6 @@ Div(mb row){
         Input(Name: Values)
     }
     Div(col-sm-2){
-        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: AttorneyParamDelete, Params: "Id=#Id#,Param=#key#")
+        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: PoaParamDelete, Params: "Id=#Id#,Param=#key#")
     }
 }

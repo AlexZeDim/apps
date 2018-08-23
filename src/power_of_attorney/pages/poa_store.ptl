@@ -12,7 +12,7 @@ DBFind(keys, src_keys).Where({id:{"$neq":#key_id#}}).Custom(_name){
 }
 
 
-SetVar(this_page,attorney_store)
+SetVar(this_page,poa_store)
 
 SetTitle($attorney_add$)
 SetVar(poa_params,).(poa_role_id_attorney,).(poa_key_id_attorney,#key_id#).(poa_contract,).(poa_date_expiration)
@@ -26,7 +26,7 @@ If(#Id#>0){
 
 Div(content-wrapper){
     Div(breadcrumb){
-        LinkPage(Body: $attorney_list$, Page: attorney_list)
+        LinkPage(Body: $poa_list$, Page: poa_list)
         Span(/, mh)
         Span(#this_page#, text-muted)
     }
@@ -91,7 +91,7 @@ Div(content-wrapper){
                     Div(list-group-item){
                         Div(clearfix){
                             Div(h4 pull-left){
-                                LangRes(power_of_attorney_params)
+                                LangRes(PoaParamsTokensTransfer)
                             }
                             Div(pull-right){
                                 Button(Class: fa fa-minus btn btn-default #hidden#, Page: #this_page#, PageParams: "Id=#Id#,current_index=#prev_index#")
@@ -108,7 +108,7 @@ Div(content-wrapper){
                                         Input(Name: Values, Value: #value#)
                                     }
                                     Div(col-sm-2){
-                                        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: AttorneyParamDelete, Params: "Id=#Id#,Param=#key#")
+                                        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: PoaParamDelete, Params: "Id=#Id#,Param=#key#")
                                     }
                                 }
                             }
@@ -137,7 +137,7 @@ Div(content-wrapper){
                     }
                 }
                 Div(panel-footer text-right){
-                    Button(Body: LangRes(issue), Class: btn btn-primary, Page: attorney_list, Contract: AttorneyStore, Params: "Id=#Id#")
+                    Button(Body: LangRes(issue), Class: btn btn-primary, Page: poa_list, Contract: PoaStore, Params: "Id=#Id#")
                 }
             }
         }

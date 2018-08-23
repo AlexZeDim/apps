@@ -1,4 +1,4 @@
-contract AttorneyStore {
+contract PoaStore {
     data {
         Id string "optional"
         MemberId int

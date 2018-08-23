@@ -1,7 +1,7 @@
 digraph G {
 graph [
   fontsize="24";
-  label="basic\nTuesday, 21-Aug-18 18:05:37 MSK";
+  label="basic\nThursday, 23-Aug-18 14:02:45 MSK";
   nojustify=true;
   ordering=out;
   rankdir=LR;
@@ -89,9 +89,12 @@ graph [
 "profile_avatar_edit\npage" -> "ProfileAvatarEdit\ncontract"  [ color=red ]
 "profile_avatar_edit\npage" -> "profile_edit\npage"  [ color=green ]
 "profile_avatar_edit\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"profile_convert\npage" -> "ProfileConvert\ncontract"  [ color=red ]
+"profile_convert\npage" -> "MultiaccountUnits\ncontract"  [ color=red ]
+"profile_convert\npage" -> "MultiaccountSet\ncontract"  [ color=red ]
 "applications\ntable" -> "profile_convert\npage"
 "keys\ntable" -> "profile_convert\npage"
+"buffer_data\ntable" -> "profile_convert\npage"
+"roles\ntable" -> "profile_convert\npage"
 "profile_convert\npage" -> "profile_view\npage"  [ color=green ]
 "profile_convert\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "profile_edit\npage" -> "ProfileEdit\ncontract"  [ color=red ]
@@ -298,6 +301,10 @@ graph [
 "AttorneyEdit\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "BufferManager\ncontract" -> "buffer_data\ntable"  [ color="" ]
 "BufferManager\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"buffer_data\ntable" -> "MultiaccountSet\ncontract"
+"MultiaccountSet\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"MultiaccountUnits\ncontract" -> "buffer_data\ntable"  [ color="" ]
+"MultiaccountUnits\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "members\ntable" -> "NotificationsBroadcast\ncontract"
 "keys\ntable" -> "NotificationsBroadcast\ncontract"
 "ecosystems\ntable" -> "NotificationsBroadcast\ncontract"
@@ -468,7 +475,6 @@ graph [
 "VotingUpdate\ncontract" -> "VotingDecisionCheck\ncontract"  [ color=red ]
 "VotingUpdate\ncontract" -> "votings\ntable"  [ color="" ]
 "VotingUpdate\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"power_of_attorney\ntable" [color="", fontcolor="", group=tables, shape=""];
 "voting_templates\ntable" [color="", fontcolor="", group=tables, shape=""];
 "votings\ntable" [color="", fontcolor="", group=tables, shape=""];
 "votings_participants\ntable" [color="", fontcolor="", group=tables, shape=""];

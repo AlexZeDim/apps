@@ -1,10 +1,10 @@
-SetTitle($attorney_list$)
-AddToolButton(Page: attorney_store, Title:$attorney_add$)
+SetTitle($poa_list$)
+AddToolButton(Page: poa_store, Title:$attorney_add$)
 
 DBFind(power_of_attorney, src_attorney).Where({address:#key_id#, delete:0}).Custom(_date_expiration){
     DateTime(#date_expiration#,"YYYY-MM-DD")
 }.Custom(_action){
-    Button(Body: View, Class: btn btn-primary, Page: attorney_view, PageParams: "Id=#id#")
+    Button(Body: View, Class: btn btn-primary, Page: poa_view, PageParams: "Id=#id#")
 }.Custom(_key_id_attorney){
     LinkPage(Body: Address(#key_id_attorney#), Page: profile_view, PageParams: "v_member_id=#key_id_attorney#")
 }

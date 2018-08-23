@@ -3,7 +3,7 @@ If(#notific_id#>0){
     SetVar(Id, #notific_page_params_id#)
 }
 
-SetTitle($attorney_view$ ##Id#)
+SetTitle($poa_view$ ##Id#)
 
 DBFind(power_of_attorney).WhereId(#Id#).Vars(poa)
 JsonToSource(src_params, #poa_params#)
@@ -13,9 +13,9 @@ ForList(src_params){
 }
 Div(content-wrapper){
     Div(breadcrumb){
-        LinkPage($attorney$, attorney_list)
+        LinkPage($attorney$, poa_list)
         Span(/,mh)
-        Span($attorney_view$, text-muted)
+        Span($poa_view$, text-muted)
     }
     Form(row){
         Div(col-md-10 col-lg-offset-1){
@@ -71,14 +71,14 @@ Div(content-wrapper){
                     }
                 }
                 Div(panel-footer text-left){
-                    Button(Body: LangRes(back), Class: btn, Page: attorney_list)
+                    Button(Body: LangRes(back), Class: btn, Page: poa_list)
                     Div(pull-right){
                         If(#notific_id#>0){
                             Button(Body: LangRes(informed), Class: btn btn-success, Contract: notifications_Close, Params: "notific_id=#notific_id#")
                         }
                         If(#poa_address#==#key_id#){
-                            Button(Body: LangRes(edit), Class: btn btn-primary, Page: attorney_store, PageParams: "Id=#Id#")
-                            Button(Body: LangRes(delete), Class: btn btn-danger, Contract: AttorneyDelete, Params: "Id=#Id#", Page: attorney_list)
+                            Button(Body: LangRes(edit), Class: btn btn-primary, Page: poa_store, PageParams: "Id=#Id#")
+                            Button(Body: LangRes(delete), Class: btn btn-danger, Contract: PoaDelete, Params: "Id=#Id#", Page: poa_list)
                         }
                     }
                 }

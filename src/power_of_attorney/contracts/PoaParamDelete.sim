@@ -1,4 +1,4 @@
-contract AttorneyParamDelete {
+contract PoaParamDelete {
     data {
         Id int
         Param string

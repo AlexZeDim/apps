@@ -1,4 +1,4 @@
-contract AttorneyDelete {
+contract PoaDelete {
     data {
         Id int
     }

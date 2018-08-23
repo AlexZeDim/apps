@@ -143,6 +143,11 @@
             "Type": "languages"
         },
         {
+            "Name": "assign_group",
+            "Trans": "{\"en\": \"Assign group\", \"ru\": \"Определить группу\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "assigned",
             "Trans": "{\"en\": \"Assigned\", \"ru\": \"Назначен\"}",
             "Type": "languages"
@@ -918,6 +923,11 @@
             "Type": "languages"
         },
         {
+            "Name": "metrics",
+            "Trans": "{\"en\":\"Metrics\",\"ru\":\"Метрики\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "multi_group_single",
             "Trans": "{\"ru\":\"Группа. Одиночное подтверждение переводов\",\"en\":\"Group. Single confirmation of transfers\"}",
             "Type": "languages"
@@ -934,11 +944,12 @@
         },
         {
             "Name": "multi_role_voting",
-            "Trans": "{\"ru\":\"Роль. Подтверждение переводов голосованием\",\"en\":\"Role. Confirmation of transfers by voting\"}"
+            "Trans": "{\"ru\":\"Роль. Подтверждение переводов голосованием\",\"en\":\"Role. Confirmation of transfers by voting\"}",
+            "Type": "languages"
         },
         {
-            "Name": "metrics",
-            "Trans": "{\"en\":\"Metrics\",\"ru\":\"Метрики\"}",
+            "Name": "multi_types",
+            "Trans": "{\"ru\":\"Тип мультисчета\",\"en\":\"Multiaccount type\"}",
             "Type": "languages"
         },
         {
@@ -1037,6 +1048,11 @@
             "Type": "languages"
         },
         {
+            "Name": "not_assigned",
+            "Trans": "{\"en\": \"Not assigned\", \"ru\": \"Не задано\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "not_enough_votes",
             "Trans": "{\"en\": \"Not enough votes\", \"ru\": \"Недостаточно голосов\"}",
             "Type": "languages"
@@ -1044,6 +1060,11 @@
         {
             "Name": "not_filled",
             "Trans": "{\"ru\":\"Не заполнено\",\"en\":\"Not filled\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "not_found",
+            "Trans": "{\"en\": \"Not found\", \"ru\": \"Не найдено\"}",
             "Type": "languages"
         },
         {
@@ -1444,6 +1465,11 @@
         {
             "Name": "status",
             "Trans": "{\"en\": \"Status\", \"ru\": \"Статус\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "store",
+            "Trans": "{\"en\": \"Store\", \"ru\": \"Сохранить\"}",
             "Type": "languages"
         },
         {
