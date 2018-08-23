@@ -1,6 +1,6 @@
 contract AttorneyDelete {
     data {
-        AttorneyId int
+        Id int
     }
     conditions {
         if !DBFind("power_of_attorney").Where({id:$AttorneyId, "address":$key_id}).One("id") {

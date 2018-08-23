@@ -12,7 +12,7 @@
     {
         "conditions": "true",
         "name": "date_expiration",
-        "type": "datetime"
+        "type": "number"
     },
     {
         "conditions": "true",

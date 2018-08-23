@@ -2,7 +2,7 @@ contract AttorneyStore {
     data {
         Id string "optional"
         MemberId int
-        Name string
+        NameContract string
         ExpireAt string "optional"
         Params array "optional"
         Values array "optional"
@@ -17,7 +17,8 @@ contract AttorneyStore {
         if !DBFind("keys").WhereId($MemberId).One("id") {
             warning "Attorney not found"
         }
-        if !DBFind("contracts").Where({name:$Name}).One("id") {
+
+        if GetContractByName($NameContract) == 0{
             warning "Contract not found"
         }
         if Len($Params) > Len($Values) {
@@ -25,6 +26,14 @@ contract AttorneyStore {
         }
     }
     action {
+        // amount_max - максимальная сумма для одноразового перевода
+        // amount_max_day - максимальная сумма для перевода в день
+        // amount_day - переведено в текущий день
+        // date_day - учетный день
+        // amount_max_month - максимальная сумма для перевода в месяц
+        // amount_month переведено в текущий месяц
+        // date_month - учетный месяц
+        
         var params map i id lenKeys int
         lenKeys = Len($Params)
         while i < lenKeys {
@@ -33,8 +42,8 @@ contract AttorneyStore {
         }
         var m map
         m["key_id_attorney"] = $MemberId
-        m["contract"] = $Name
-        m["date_expiration"] = $ExpireAt
+        m["contract"] = $NameContract
+        m["date_expiration"] = UnixDateTime($ExpireAt)
         m["params"] = JSONEncode(params)
         if $Id > 0 {
             DBUpdate("power_of_attorney", $Id, m)
@@ -48,7 +57,7 @@ contract AttorneyStore {
             n["text_header"] = "You got new power of attorney"
             n["page_name"] = "attorney_add"
             n["params_map"] = Sprintf(`{"id":"%v"}`, id)
-            CallContract("notifications_Send", n)
+            CallContract("NotificationsSend", n)
         }
     }
 }

@@ -1,0 +1,145 @@
+DBFind(applications).Columns("name,id").Where({name:"Power of attorney"}).Vars(application)
+AppParam(App:#application_id#, Name: attorney_contracts, Source: src_contracts)
+DBFind(roles, src_roles)
+DBFind(keys, src_keys).Where({id:{"$neq":#key_id#}}).Custom(_name){
+    DBFind(members).WhereId(#id#).Columns("member_name").Vars(member)
+    If(Or(#member_id#>0,#member_id#<0)){
+        #id# (#member_member_name#)
+    }.Else{
+        #id# (Address(#id#))
+    }
+
+}
+
+
+SetVar(this_page,attorney_store)
+
+SetTitle($attorney_add$)
+SetVar(poa_params,).(poa_role_id_attorney,).(poa_key_id_attorney,#key_id#).(poa_contract,).(poa_date_expiration)
+If(#Id#>0){
+    SetTitle($attorney_edit$)
+    DBFind(power_of_attorney).WhereId(#Id#).Vars(poa)
+    JsonToSource(src_params, #poa_params#)
+}.Else{
+    SetVar(Id,0)
+}
+
+Div(content-wrapper){
+    Div(breadcrumb){
+        LinkPage(Body: $attorney_list$, Page: attorney_list)
+        Span(/, mh)
+        Span(#this_page#, text-muted)
+    }
+    Div(row){
+        Div(col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3){
+            Form(panel panel-primary){
+                Div(panel-heading){
+                    LangRes(issue_power_of_attorney)
+                }
+                Div(panel-body){
+                    If(){
+                        Div(form-group){
+                            Div(row){
+                                Div(col-sm-4 text-right){
+                                    Label(LangRes(role))
+                                }
+                                Div(col-sm-8 text-left){
+                                    Select(Name: RoleId, Source: src_roles, NameColumn: role_name, ValueColumn: id, Value: #poa_role_id_attorney#)
+                                }
+                            }
+                        }
+                    }
+                    Div(form-group){
+                        Div(row){
+                            Div(col-sm-4 text-right){
+                                Label(LangRes(attorney_id))
+                            }
+                            Div(col-sm-8 text-left){
+                                Select(Name: MemberId, Source: src_keys, NameColumn: _name, ValueColumn: id, Value: #poa_key_id_attorney#)
+                            }
+                        }
+                    }
+                    Div(form-group){
+                        Div(row){
+                            Div(col-sm-4 text-right){
+                                Label(LangRes(contract))
+                            }
+                            Div(col-sm-8 text-left){
+                                Select(Name: NameContract, Source: src_contracts, NameColumn: name, ValueColumn: name, Value: #poa_contract#)
+                            }
+                        }
+                    }
+                    Div(form-group){
+                        Div(row){
+                            Div(col-sm-4 text-right){
+                                Label(LangRes(expiration_date))
+                            }
+                            Div(col-sm-8 text-left){
+                                Input(Type:date, Name: ExpireAt, Value: DateTime(#poa_date_expiration#, "YYYY-MM-DD"))
+                            }
+                        }
+                    }
+                    If(GetVar(current_index)==""){
+                        SetVar(current_index,0)
+                    }
+                    SetVar(prev_index, Calculate(#current_index#-1))
+                    SetVar(next_index, Calculate(#current_index#+1))
+                    SetVar(hidden,"hidden")
+                    If(#current_index#>0){
+                        SetVar(hidden,)
+                    }
+                    Div(list-group-item){
+                        Div(clearfix){
+                            Div(h4 pull-left){
+                                LangRes(power_of_attorney_params)
+                            }
+                            Div(pull-right){
+                                Button(Class: fa fa-minus btn btn-default #hidden#, Page: #this_page#, PageParams: "Id=#Id#,current_index=#prev_index#")
+                                LinkPage(Class:fa fa-plus btn btn-info, Page: #this_page#, PageParams: "Id=#Id#,current_index=#next_index#")
+                            }
+                        }
+                        If(#Id#>0){
+                            ForList(src_params){
+                                Div(mb row){
+                                    Div(col-sm-4){
+                                        Input(Name: Params, Value: #key#)
+                                    }
+                                    Div(col-sm-6){
+                                        Input(Name: Values, Value: #value#)
+                                    }
+                                    Div(col-sm-2){
+                                        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: AttorneyParamDelete, Params: "Id=#Id#,Param=#key#")
+                                    }
+                                }
+                            }
+                        }.Else{
+                            Include(attorney_default_params)
+                        }
+                        Div(row text-muted text-center #hidden#){
+                            Div(col-sm-4){
+                                Label(LangRes(name))
+                            }
+                            Div(col-sm-6){
+                                Label(LangRes(value))
+                            }
+                        }
+                        Range(params_range, 0, #current_index#)
+                        ForList(params_range){
+                            Div(mb row){
+                                Div(col-sm-4){
+                                    Input(Name: Params)
+                                }
+                                Div(col-sm-6){
+                                    Input(Name: Values)
+                                }
+                            }
+                        }
+                    }
+                }
+                Div(panel-footer text-right){
+                    Button(Body: LangRes(issue), Class: btn btn-primary, Page: attorney_list, Contract: AttorneyStore, Params: "Id=#Id#")
+                }
+            }
+        }
+    }
+}

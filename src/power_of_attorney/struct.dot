@@ -1,7 +1,7 @@
 digraph G {
 graph [
   fontsize="24";
-  label="power_of_attorney\nWednesday, 22-Aug-18 16:18:20 MSK";
+  label="power_of_attorney\nThursday, 23-Aug-18 12:34:19 MSK";
   nojustify=true;
   ordering=out;
   rankdir=LR;
@@ -9,33 +9,30 @@ graph [
 ];
 "default_menu\nmenu" -> "attorney_list\npage"  [ color=green ]
 "default_menu\nmenu" [color=blue, fontcolor=blue, group=menus, shape=record];
-"attorney_add\npage" -> "AttorneyStore\ncontract"  [ color=red ]
-"applications\ntable" -> "attorney_add\npage"
-"roles\ntable" -> "attorney_add\npage"
-"power_of_attorney\ntable" -> "attorney_add\npage"
-"attorney_add\npage" -> "attorney_list\npage"  [ color=green ]
-"attorney_add\npage" -> "attorney_add\npage"  [ color=green ]
-"attorney_add\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"attorney_edit\npage" -> "AttorneyParamDelete\ncontract"  [ color=red ]
-"attorney_edit\npage" -> "AttorneyStore\ncontract"  [ color=red ]
-"applications\ntable" -> "attorney_edit\npage"
-"roles\ntable" -> "attorney_edit\npage"
-"power_of_attorney\ntable" -> "attorney_edit\npage"
-"attorney_edit\npage" -> "attorney_list\npage"  [ color=green ]
-"attorney_edit\npage" -> "attorney_edit\npage"  [ color=green ]
-"attorney_edit\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "power_of_attorney\ntable" -> "attorney_list\npage"
-"attorney_list\npage" -> "attorney_add\npage"  [ color=green ]
+"attorney_list\npage" -> "attorney_store\npage"  [ color=green ]
 "attorney_list\npage" -> "attorney_view\npage"  [ color=green ]
 "attorney_list\npage" -> "profile_view\npage"  [ color=green ]
 "attorney_list\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"attorney_store\npage" -> "AttorneyParamDelete\ncontract"  [ color=red ]
+"attorney_store\npage" -> "AttorneyStore\ncontract"  [ color=red ]
+"applications\ntable" -> "attorney_store\npage"
+"roles\ntable" -> "attorney_store\npage"
+"keys\ntable" -> "attorney_store\npage"
+"members\ntable" -> "attorney_store\npage"
+"power_of_attorney\ntable" -> "attorney_store\npage"
+"attorney_store\npage" -> "attorney_list\npage"  [ color=green ]
+"attorney_store\npage" -> "attorney_default_params\nblock"  [ color=green, label=include ]
+"attorney_store\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "attorney_view\npage" -> "notifications_Close\ncontract"  [ color=red ]
-"attorney_view\npage" -> "AttorneyDel\ncontract"  [ color=red ]
+"attorney_view\npage" -> "AttorneyDelete\ncontract"  [ color=red ]
 "notifications\ntable" -> "attorney_view\npage"
 "power_of_attorney\ntable" -> "attorney_view\npage"
-"attorney_view\npage" -> "attorney_edit\npage"  [ color=green ]
 "attorney_view\npage" -> "attorney_list\npage"  [ color=green ]
+"attorney_view\npage" -> "attorney_store\npage"  [ color=green ]
 "attorney_view\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"attorney_default_params\nblock" -> "AttorneyParamDelete\ncontract"  [ color=red ]
+"attorney_default_params\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
 "power_of_attorney\ntable" -> "AttorneyCondition\ncontract"
 "AttorneyCondition\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "AttorneyDelete\ncontract" -> "power_of_attorney\ntable"  [ color="" ]
@@ -44,7 +41,6 @@ graph [
 "AttorneyParamDelete\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "AttorneyStore\ncontract" -> "power_of_attorney\ntable"  [ color="" ]
 "keys\ntable" -> "AttorneyStore\ncontract"
-"contracts\ntable" -> "AttorneyStore\ncontract"
 "AttorneyStore\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "power_of_attorney\ntable" [color="", fontcolor="", group=tables, shape=""];
 }

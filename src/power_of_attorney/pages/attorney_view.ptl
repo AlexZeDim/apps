@@ -1,86 +1,86 @@
 If(#notific_id#>0){
-    DBFind(Name: notifications, Source: src_notifications).Columns("id,page_params->id").Where("id=#notific_id#").Vars(notific)
-    SetVar(attorney_id, #notific_page_params_id#)
+    DBFind(notifications).Columns("id,page_params->id").Where("id=#notific_id#").Vars(notific)
+    SetVar(Id, #notific_page_params_id#)
 }
 
-SetTitle($attorney_view$)
+SetTitle($attorney_view$ ##Id#)
 
-DBFind(Name:power_of_attorney).WhereId(#attorney_id#).Vars(power_of_attorney)
-JsonToSource(Source: src_params, Data: #power_of_attorney_params#)
-
+DBFind(power_of_attorney).WhereId(#Id#).Vars(poa)
+JsonToSource(src_params, #poa_params#)
+SetVar(params_count,0)
+ForList(src_params){
+    SetVar(params_count,Calculate(#params_count#+1))
+}
 Div(content-wrapper){
     Div(breadcrumb){
         LinkPage($attorney$, attorney_list)
-        Span(/).Style(margin-right: 10px; margin-left: 10px;)
-        Span(Class: text-muted, Body: $attorney_view$)
+        Span(/,mh)
+        Span($attorney_view$, text-muted)
     }
     Form(row){
         Div(col-md-10 col-lg-offset-1){
             Div(panel panel-primary){
                 Div(panel-heading){
-                    LangRes(attorney_general_info)
+                    LangRes(attorney_info)
                 }
                 Div(panel-body){
-                    Div(list-group-item){
-                        Div(row){
-                            Div(col-md-3 text-right){
-                                Label(LangRes(attorney))
-                            }
-                            Div(col-md-9 text-left){
-                                #power_of_attorney_key_id_attorney#
-                            }
+                    Div(row mb){
+                        Div(col-sm-4 text-right){
+                            Label(LangRes(attorney))
+                        }
+                        Div(col-sm-8 text-left){
+                            #poa_key_id_attorney#
                         }
                     }
-                    Div(list-group-item){
-                        Div(row){
-                            Div(col-md-3 text-right){
-                                Label(LangRes(contract))
-                            }
-                            Div(col-md-9 text-left){
-                                #power_of_attorney_contract#
-                            }
+                    Div(row mb){
+                        Div(col-sm-4 text-right){
+                            Label(LangRes(contract))
+                        }
+                        Div(col-sm-8 text-left){
+                            #poa_contract#
                         }
                     }
-                    Div(list-group-item){
-                        Div(row){
-                            Div(col-md-3 text-right){
-                                Label(LangRes(expiration_date))
-                            }
-                            Div(col-md-9 text-left){
-                                DateTime(#power_of_attorney_date_expiration#, "YYYY-MM-DD")
-                            }
+                    Div(row mb){
+                        Div(col-sm-4 text-right){
+                            Label(LangRes(expiration_date))
+                        }
+                        Div(col-sm-8 text-left){
+                            DateTime(#poa_date_expiration#, "YYYY-MM-DD")
                         }
                     }
-                }
-            }
-            Div(panel panel-primary){
-                Div(panel-heading){
-                    LangRes(attorney_params)
-                }
-                Div(panel-body){
-                    Div(row text-muted){
-                        Div(col-md-3 mt-lg){
-                            Label(LangRes(name))
+                    If(#params_count#>0){
+                        Div(h4){
+                            LangRes(power_of_attorney_params)
                         }
-                        Div(col-md-8 mt-lg){
-                            Label(LangRes(value))
+                        Div(row text-muted text-center){
+                            Div(col-sm-4 mt-lg){
+                                Label(LangRes(name))
+                            }
+                            Div(col-sm-8 mt-lg){
+                                Label(LangRes(value))
+                            }
                         }
-                    }
-                    ForList(Source: src_params){
-                        Div(col-md-3 mt-lg){
-                            #key#
-                        }
-                        Div(col-md-8 mt-lg){
-                            #value#
+                        ForList(src_params){
+                            Div(col-sm-4 mt-lg){
+                                #key#
+                            }
+                            Div(col-sm-8 mt-lg){
+                                #value#
+                            }
                         }
                     }
                 }
-                Div(panel-footer text-right){
-                    If(#notific_id#>0){
-                        Button(Body: LangRes(informed), Class: btn btn-success, Contract: notifications_Close, Params: "notific_id=#notific_id#")
+                Div(panel-footer text-left){
+                    Button(Body: LangRes(back), Class: btn, Page: attorney_list)
+                    Div(pull-right){
+                        If(#notific_id#>0){
+                            Button(Body: LangRes(informed), Class: btn btn-success, Contract: notifications_Close, Params: "notific_id=#notific_id#")
+                        }
+                        If(#poa_address#==#key_id#){
+                            Button(Body: LangRes(edit), Class: btn btn-primary, Page: attorney_store, PageParams: "Id=#Id#")
+                            Button(Body: LangRes(delete), Class: btn btn-danger, Contract: AttorneyDelete, Params: "Id=#Id#", Page: attorney_list)
+                        }
                     }
-                    Button(Body: LangRes(edit), Class: btn btn-primary, Page: attorney_edit, PageParams: "attorney_id=#attorney_id#")
-                    Button(Body: LangRes(delete), Class: btn btn-danger, Contract: AttorneyDel, Params: "Id=#attorney_id#", Page: attorney_list)
                 }
             }
         }

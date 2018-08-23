@@ -1,0 +1,84 @@
+Div(mb row){
+    Div(col-sm-4 mt-sm){
+        LangRes(amount_max)
+        Input(Name: Params, Value: amount_max, Type:hidden)
+    }
+    Div(col-sm-6){
+        Input(Name: Values)
+    }
+    Div(col-sm-2){
+        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: AttorneyParamDelete, Params: "Id=#Id#,Param=#key#")
+    }
+}
+Div(mb row){
+    Div(col-sm-4 mt-sm){
+        LangRes(amount_max_day)
+        Input(Name: Params, Value: amount_max_day, Type:hidden)
+    }
+    Div(col-sm-6){
+        Input(Name: Values)
+    }
+    Div(col-sm-2){
+        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: AttorneyParamDelete, Params: "Id=#Id#,Param=#key#")
+    }
+}
+Div(mb row){
+    Div(col-sm-4 mt-sm){
+        LangRes(amount_day)
+        Input(Name: Params, Value: amount_day, Type:hidden)
+    }
+    Div(col-sm-6){
+        Input(Name: Values)
+    }
+    Div(col-sm-2){
+        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: AttorneyParamDelete, Params: "Id=#Id#,Param=#key#")
+    }
+}
+Div(mb row){
+    Div(col-sm-4 mt-sm){
+        LangRes(date_day)
+        Input(Name: Params, Value: date_day, Type:hidden)
+    }
+    Div(col-sm-6){
+        Input(Name: Values)
+    }
+    Div(col-sm-2){
+        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: AttorneyParamDelete, Params: "Id=#Id#,Param=#key#")
+    }
+}
+Div(mb row){
+    Div(col-sm-4 mt-sm){
+        LangRes(amount_max_month)
+        Input(Name: Params, Value: amount_max_month, Type:hidden)
+    }
+    Div(col-sm-6){
+        Input(Name: Values)
+    }
+    Div(col-sm-2){
+        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: AttorneyParamDelete, Params: "Id=#Id#,Param=#key#")
+    }
+}
+Div(mb row){
+    Div(col-sm-4 mt-sm){
+        LangRes(amount_month)
+        Input(Name: Params, Value: amount_month, Type:hidden)
+    }
+    Div(col-sm-6){
+        Input(Name: Values)
+    }
+    Div(col-sm-2){
+        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: AttorneyParamDelete, Params: "Id=#Id#,Param=#key#")
+    }
+}
+Div(mb row){
+    Div(col-sm-4 mt-sm){
+        LangRes(date_month)
+        Input(Name: Params, Value: date_month, Type:hidden)
+    }
+    Div(col-sm-6){
+        Input(Name: Values)
+    }
+    Div(col-sm-2){
+        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: AttorneyParamDelete, Params: "Id=#Id#,Param=#key#")
+    }
+}
