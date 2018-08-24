@@ -1,0 +1,29 @@
+{
+    "name": "Multiwallet",
+    "blocks": null,
+    "contracts": [
+        {
+            "Name": "MultiwalletCreate",
+            "Conditions": "ContractConditions(\"MainCondition\")"
+        },
+        {
+            "Name": "MultiwalletUnits",
+            "Conditions": "ContractConditions(\"MainCondition\")"
+        }
+    ],
+    "menus": null,
+    "pages": [
+        {
+            "Name": "multiwallet",
+            "Conditions": "ContractConditions(\"MainCondition\")",
+            "Menu": "default_menu"
+        }
+    ],
+    "tables": null,
+    "parameters": [
+        {
+            "Name": "multiwallet_types",
+            "Conditions": "ContractConditions(\"MainCondition\")"
+        }
+    ]
+}

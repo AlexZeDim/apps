@@ -2,7 +2,7 @@ DBFind(applications).Columns("id").Where({name:"Basic application"}).Vars(applic
 AppParam(App: #application_id#, Name:multiaccount_types, Source:types)
 DBFind(keys).WhereId(#key_id#).Columns("id,multi").Vars(key)
 
-SetVar(this_page,profile_convert).(back_page,profile_view).(cols,2)
+SetVar(this_page,multiwallet).(back_page,profile_view).(cols,2)
 DBFind(buffer_data).Where({member_id:#key_id#, key:multiaccount_units}).Columns("id,value->type,value->units").Vars(buf)
 DBFind(roles,src_roles).Columns("id,role_name")
 Div(content-wrapper){
@@ -40,7 +40,7 @@ Div(content-wrapper){
             }
             Div(text-left){
                 Button(Body: $back$, Class: btn btn-default, Page: #this_page#, PageParams: "Type=#Type#")
-                Button(Body: $confirm$, Class: btn btn-primary pull-right, Page: #this_page#, Contract: MultiaccountUnits, PageParams: "Type=#Type#", Params:"Action=set,Type=#Type#,Vals=Val(Vals),Units=Val(Units)")
+                Button(Body: $confirm$, Class: btn btn-primary pull-right, Page: #this_page#, Contract: MultiwalletUnits, PageParams: "Type=#Type#", Params:"Action=set,Type=#Type#,Vals=Val(Vals),Units=Val(Units)")
             }
         }
     }.Else{
@@ -98,7 +98,7 @@ Div(content-wrapper){
                             }
                             Div(panel-footer text-left){
                                 Button(Body: LangRes(back), Class: btn btn-default, Page: #this_page#).Popup(50, $multi_types$)
-                                Button(Body: LangRes(convert), Class: btn btn-primary pull-right, Page: #back_page#, Contract: MultiaccountSet, Params: "BufferId=#buf_id#").Alert(Text: $want_profile_convert$, ConfirmButton: $yes$, CancelButton: $no$, Icon: question)
+                                Button(Body: LangRes(convert), Class: btn btn-primary pull-right, Page: #back_page#, Contract: MultiwalletSet, Params: "BufferId=#buf_id#").Alert(Text: $want_profile_convert$, ConfirmButton: $yes$, CancelButton: $no$, Icon: question)
                             }
                         }
                     }

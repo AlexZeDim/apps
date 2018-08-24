@@ -1,4 +1,4 @@
-contract MultiaccountUnits {
+contract MultiwalletUnits {
     data {
         Action string
         Units array

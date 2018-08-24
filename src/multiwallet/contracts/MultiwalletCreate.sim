@@ -1,4 +1,4 @@
-contract MultiaccountSet {
+contract MultiwalletCreate {
     data {
         BufferId int
     }

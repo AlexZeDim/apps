@@ -9,11 +9,6 @@ If(Or(#member_id#>0,#member_id#<0)){
 }.Else{
     SetVar(member_member_name,)
 }
-If(And(#key_multi#==0,#member_id#==#key_id#)){
-    Div(text-right){
-        Button(Body: Span(Class: fa fa-users) $convert_to_multiaccount$, Page: profile_convert, Class: btn btn-link).Popup(45, $multi_types$)
-    }
-}
 
 Div(content-wrapper){
     Div(row){
@@ -132,6 +127,10 @@ Div(content-wrapper){
                                 }
                             }
                         }
+                    }
+                    DBFind(blocks).Where({name:PoaTokensTransfer}).Columns("id").Vars(poa_block)
+                    If(#poa_block_id#>0){
+                        Include(PoaTokensTransfer)
                     }
                 }
             }
