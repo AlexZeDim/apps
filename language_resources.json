@@ -934,7 +934,7 @@
         },
         {
             "Name": "multi_types",
-            "Trans": "{\"ru\":\"Тип мультисчета\",\"en\":\"Multiaccount type\"}",
+            "Trans": "{\"ru\":\"Тип мультисчета\",\"en\":\"Multiwallet type\"}",
             "Type": "languages"
         },
         {
@@ -1209,12 +1209,17 @@
         },
         {
             "Name": "poa_contract",
-            "Trans": "{\"en\":\"The contract is running for attorney\"}",
+            "Trans": "{\"en\":\"Contract of trust\",\"ru\":\"Контракт выполняющийся по доверенности\"}",
             "Type": "languages"
         },
         {
             "Name": "poa_contract_select",
             "Trans": "{\"en\":\"Select contract\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_creating",
+            "Trans": "{\"en\":\"Creatnig\",\"ru\":\"Создание\"}",
             "Type": "languages"
         },
         {
@@ -1225,6 +1230,11 @@
         {
             "Name": "poa_delete_my_attorney",
             "Trans": "{\n    \"en\": \"Delete my power of attorney\",\n    \"ru\": \"Удалить мою доверенность\"\n}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_editing",
+            "Trans": "{\"en\":\"Editing\",\"ru\":\"Редактирование\"}",
             "Type": "languages"
         },
         {
@@ -1258,6 +1268,21 @@
             "Type": "languages"
         },
         {
+            "Name": "poa_sender_wallet",
+            "Trans": "{\"en\":\"Wallet\",\"ru\":\"Кошелек\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_store",
+            "Trans": "{\"en\": \"Accepted\", \"ru\": \"Принят\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_tokens_transfer",
+            "Trans": "{\"en\": \"Tokens transfer by Power of attorney\", \"ru\": \"Перевод токенов через доверенность\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "poa_unlimited",
             "Trans": "{\n    \"en\": \"unlimited\",\n    \"ru\": \"неограниченно\"\n}",
             "Type": "languages"
@@ -1265,6 +1290,11 @@
         {
             "Name": "poa_view",
             "Trans": "{\"en\":\"View power of attorney\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_withdraw",
+            "Trans": "{\"en\":\"Revoke a power of attorney\",\"ru\":\"Отозвать доверенность\"}",
             "Type": "languages"
         },
         {

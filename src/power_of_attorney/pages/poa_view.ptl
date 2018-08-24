@@ -80,12 +80,6 @@ Div(content-wrapper){
                         If(#notific_id#>0){
                             Button(Body: LangRes(informed), Class: btn btn-success, Contract: NotificationsClose, Params: "notific_id=#notific_id#")
                         }
-                        If(#poa_address#==#key_id#){
-                            Button(Body: LangRes(delete), Class: btn btn-danger, Contract: PoaDelete, Params: "Id=#Id#", Page: #back_page#).Alert(Text: $sure_want_delete$, ConfirmButton: $yes$, CancelButton: $no$, Icon: question)
-                            Button(Body: LangRes(edit), Class: btn btn-primary, Page: poa_store, PageParams: "Id=#Id#")
-                        }.ElseIf(#poa_key_id_attorney#==#key_id#){
-                            Button(Body: LangRes(poa_delete_my_attorney), Class: btn btn-danger, Contract: PoaDelete, Params: "Id=#Id#", Page: #back_page#).Alert(Text: $sure_want_delete$, ConfirmButton: $yes$, CancelButton: $no$, Icon: question)
-                        }
                     }
                 }
             }

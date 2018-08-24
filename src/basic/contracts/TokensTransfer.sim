@@ -34,15 +34,16 @@ contract TokensTransfer {
     }
 
     action {
+        Println($Sender_AccountId, $Recipient_AccountId, $Amount)
         DBUpdate("keys", $Sender_AccountId, {"-amount":$Amount})
         DBUpdate("keys", $Recipient_AccountId, {"+amount":$Amount})
-        var m map
-        m["sender_id"] = $Sender_AccountId
-        m["recipient_id"] = $Recipient_AccountId
-        m["amount"] = $Amount
-        m["comment"] = $Comment
-        m["block_id"] = $block
-        m["txhash"] = $txhash
-        DBInsert("history", m)
+        // var m map
+        // m["sender_id"] = $Sender_AccountId
+        // m["recipient_id"] = $Recipient_AccountId
+        // m["amount"] = $Amount
+        // m["comment"] = $Comment
+        // m["block_id"] = $block
+        // m["txhash"] = $txhash
+        // DBInsert("history", m)
     }
 }

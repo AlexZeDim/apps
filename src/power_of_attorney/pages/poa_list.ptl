@@ -1,6 +1,6 @@
 SetTitle($poa_list$)
 AddToolButton(Page: poa_store, Title:$poa_add$)
-
+SetVar(this_page,poa_list)
 DBFind(power_of_attorney, src_attorney).Where({address:#key_id#, deleted:0}).Count(attorney_count).Custom(_date_expiration){
     If(#date_expiration#>0){
         DateTime(#date_expiration#,"YYYY-MM-DD")
@@ -9,7 +9,18 @@ DBFind(power_of_attorney, src_attorney).Where({address:#key_id#, deleted:0}).Cou
     }
 }.Custom(_action){
     Div(text-right){
-        Button(Body: View, Class: btn btn-primary, Page: poa_view, PageParams: "Id=#id#")
+        Button(Class: btn btn-default icon-eye, Page: poa_view, PageParams: "Id=#id#")
+
+        If(#address#==#key_id#){
+            If(#deleted#==0){
+                Button(Class: btn btn-danger icon-trash, Contract: PoaDelete, Params: "Id=#id#", Page: #this_page#).Alert(Text: $sure_want_delete$, ConfirmButton: $yes$, CancelButton: $no$, Icon: question)
+            }
+            Button(Class: btn btn-primary icon-settings, Page: poa_store, PageParams: "back_page=#this_page#,Id=#id#")
+        }.ElseIf(#key_id_attorney#==#key_id#){
+            If(#deleted#==0){
+                Button(Class: btn btn-danger icon-trash, Contract: PoaDelete, Params: "Id=#id#", Page: #this_page#).Alert(Text: $sure_want_delete$, ConfirmButton: $yes$, CancelButton: $no$, Icon: question)
+            }
+        }
     }
 }.Custom(_key_id_attorney){
     LinkPage(Body: Address(#key_id_attorney#), Page: profile_view, PageParams: "v_member_id=#key_id_attorney#")

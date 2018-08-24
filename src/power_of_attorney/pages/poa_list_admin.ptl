@@ -55,7 +55,18 @@ DBFind(power_of_attorney, src_attorney).Where(#where#).Order(#order#).Count(atto
     }
 }.Custom(_action){
     Div(text-right #DeletedClass#){
-        Button(Class: btn btn-primary icon-eye, Page: poa_view, PageParams: "back_page=#this_page#,Id=#id#")
+        Button(Class: btn btn-default icon-eye, Page: poa_view, PageParams: "back_page=#this_page#,Id=#id#")
+
+        If(#address#==#key_id#){
+            If(#deleted#==0){
+                Button(Class: btn btn-danger icon-trash, Contract: PoaDelete, Params: "Id=#id#", Page: #this_page#).Alert(Text: $sure_want_delete$, ConfirmButton: $yes$, CancelButton: $no$, Icon: question)
+            }
+            Button(Class: btn btn-primary icon-settings, Page: poa_store, PageParams: "back_page=#this_page#,Id=#id#")
+        }.ElseIf(#key_id_attorney#==#key_id#){
+            If(#deleted#==0){
+                Button(Class: btn btn-danger icon-trash, Contract: PoaDelete, Params: "Id=#id#", Page: #this_page#).Alert(Text: $sure_want_delete$, ConfirmButton: $yes$, CancelButton: $no$, Icon: question)
+            }
+        }
     }
 }.Custom(_key_id_attorney){
     Div(#DeletedClass#){
@@ -88,9 +99,11 @@ Div(content-wrapper){
         }
         Div(input-group-btn){
             Button(Class: btn btn-primary icon-magnifier, Page: poa_list_admin, PageParams: "Search=Val(Search),SearchFor=Val(SearchFor),Order=#Order#,O2=#O2#,Dir=#Dir#")
+            SetVar(close,"invisible")
             If(GetVar(Search)!=""){
-                Button(Class: btn btn-default icon-close, Page: poa_list_admin)
+                SetVar(close,)
             }
+            Button(Class: btn btn-default icon-close #close#, Page: poa_list_admin)
         }
         Div(flex ml-lg){
             Select(Name:Order, Source: src_order, NameColumn: name, ValueColumn: id)
@@ -115,7 +128,7 @@ Div(content-wrapper){
         Div(panel-body){
             If(#attorney_count#>0){
                 Div(table-responsive){
-                    Table(src_attorney, "Contract=_contract,Address=_address,Attorney=_key_id_attorney,Expiration date=_date_expiration,Deleted=_deleted,=_action")
+                    Table(src_attorney, "$contract$=_contract,$address$=_address,$poa_key_id_attorney$=_key_id_attorney,$poa_date_expiration$=_date_expiration,$deleted$=_deleted,=_action")
                 }
             }.Else{
                 Div(h3 text-center){
@@ -124,10 +137,4 @@ Div(content-wrapper){
             }
         }
     }
-}
-If(){
-    TODO: Доверенность может быть отозвана (del):
-    1. на странице владельца кошелька, на который выписана доверенность
-    2. в списке доверенностей
-    2. на странице кошелька пользователя с доверенностью (кнопка "Delete my power of attorney")
 }

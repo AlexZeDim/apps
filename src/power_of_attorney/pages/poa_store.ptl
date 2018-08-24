@@ -13,8 +13,11 @@ DBFind(keys, src_keys).Where({id:{"$neq":#key_id#}}).Custom(_name){
 
 
 SetVar(this_page,poa_store)
+If(GetVar(back_page)==""){
+    SetVar(back_page,poa_list)
+}
 
-SetTitle($poa_add$)
+SetTitle($poa_creating$)
 If(GetVar(poa_contract)==""){
     SetVar(poa_contract,)
 }
@@ -25,7 +28,7 @@ If(GetVar(poa_date_expiration)!=""){
 }
 SetVar(poa_params,).(poa_role_id_attorney,).(poa_key_id_attorney,#key_id#)
 If(#Id#>0){
-    SetTitle($poa_edit$)
+    SetTitle($poa_editing$ ##Id#)
     DBFind(power_of_attorney).WhereId(#Id#).Vars(poa)
     JsonToSource(src_params, #poa_params#)
 }.Else{
@@ -34,9 +37,9 @@ If(#Id#>0){
 
 Div(content-wrapper){
     Div(breadcrumb){
-        LinkPage(Body: $poa_list$, Page: poa_list)
+        LinkPage(Body: $poa_list$, Page: #back_page#)
         Span(/, mh)
-        Span(#this_page#, text-muted)
+        Span(LangRes(poa), text-muted)
     }
     Div(row){
         Div(col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3){
@@ -152,8 +155,9 @@ Div(content-wrapper){
                         }
                     }
                 }
-                Div(panel-footer text-right){
-                    Button(Body: LangRes(issue), Class: btn btn-primary, Page: poa_list, Contract: PoaStore, Params: "Id=#Id#,NameContract=#poa_contract#")
+                Div(panel-footer text-left){
+                    Button(Body: LangRes(back), Class: btn, Page: #back_page#)
+                    Button(Body: LangRes(issue), Class: btn btn-primary pull-right, Page: #back_page#, Contract: PoaStore, Params: "Id=#Id#,NameContract=#poa_contract#")
                 }
             }
         }

@@ -1,56 +1,96 @@
 contract PoaTokensTransferWrapper {
     data {
         Amount money
-        Sender_AccountId int
+        AttorneyId int
         Recipient_AccountId int
         Comment string "optional"
     }
-    func checkLimit(num, lim int, s string){
-        if num > lim {
+    func convertToMoney(n int) money{
+        var i int res dec money
+        res = Money(Str(n))
+        dec = Money("10")
+        while i < $money_digit {
+            res = res * dec
+            i = i + 1
+        }
+        return res
+    }
+
+    func checkLimit(num money, lim int, s string){
+        if num > convertToMoney(lim) {
             warning Sprintf("Maximum %v transfer limit exceeded", s)
         }
     }
-    conditions {
-        var attorney ap map
-        if $Sender_AccountId != $key_id{
-            attorney = PoaCondition("Name,Wallet", "TokensTransfer", $Sender_AccountId)
+    func safeMoney(n ...) money{
+        var res money
+        if n[0]{
+            res = Money(Str(n[0]))
         }
-        ap = JSONDecode(attorney["params"])
-        ap["amount_max"] = Int(ap["amount_max"])
-        ap["amount_max_day"] = Int(ap["amount_max_day"])
-        ap["amount_day"] = Int(ap["amount_day"])
-        ap["date_day"] = Int(ap["date_day"])
-        ap["amount_max_month"] = Int(ap["amount_max_month"])
-        ap["amount_month"] = Int(ap["amount_month"])
-        ap["date_month"] = Int(ap["date_month"])
-
-        var curMonth curDay int bt string
+        return res
+    }
+    func checkDateAmount(m map){
+        var curYear curMonth curDay int bt string zero money
         bt = BlockTime()
+        curYear = Int(Substr(bt, 0, 4))
         curMonth = Int(Substr(bt, 5, 2))
         curDay = Int(Substr(bt, 8, 2))
+        if m["date_year"] != curYear {
+            m["amount_month"] = zero
+            m["amount_day"] = zero
+        }
+        if m["date_month"] != curMonth {
+            m["amount_month"] = zero
+            m["amount_day"] = zero
+        }
+        if m["date_day"] != curDay {
+            m["amount_day"] = zero
+        }
+        m["date_year"] = curYear
+        m["date_month"] = curMonth
+        m["date_day"] = curDay
+    }
+    conditions {
+        var attorney ap map
+        attorney = DBFind("power_of_attorney").Where({id:$AttorneyId, deleted:0, "contract":"TokensTransfer", key_id_attorney:$key_id}).Row()
+
+        if !attorney{
+            // feature for role attorney
+            // attorney = DBFind("power_of_attorney").Where({deleted:0, "contract":$Name, "address":$Wallet, rid:$role_id}).Row()
+            if !attorney{
+                warning Sprintf("You don't have access to wallet %s", $Wallet)
+            }
+        }
+        if attorney["date_expiration"] != 0{
+            if attorney["date_expiration"] < $time{
+                warning "The power of attorney expired"
+            }
+        }
+        $Sender_AccountId = Int(attorney["address"])
         
-        if ap["date_day"] != curDay {
-            ap["amount_day"] = 0
-        }
-        if ap["date_month"] != curMonth {
-            ap["amount_month"] = 0
-        }
+        $money_digit = Int(EcosysParam("money_digit"))
 
-        checkLimit($Amount, ap["amount_max"], "")
-        checkLimit($Amount + ap["amount_day"], ap["amount_max_day"], "day")
-        checkLimit($Amount + ap["amount_month"], ap["amount_max_month"], "month")
+        ap = JSONDecode(attorney["params"])
 
+        ap["amount_max"] = Int(ap["amount_max"])
+        ap["amount_max_day"] = Int(ap["amount_max_day"])
+        ap["amount_max_month"] = Int(ap["amount_max_month"])
+        ap["amount_day"] = safeMoney(ap["amount_day"])
+        ap["amount_month"] = safeMoney(ap["amount_month"])
+
+        checkDateAmount(ap)
         ap["amount_day"] = ap["amount_day"] + $Amount
         ap["amount_month"] = ap["amount_month"] + $Amount
-        ap["date_day"] = curDay
-        ap["date_month"] = curMonth
+
+        checkLimit($Amount, ap["amount_max"], "")
+        checkLimit(ap["amount_day"], ap["amount_max_day"], "day")
+        checkLimit(ap["amount_month"], ap["amount_max_month"], "month")
+
 
         $params = JSONEncode(ap)
         $id = Int(attorney["id"])
     }
 
     action {
-        return
         TokensTransfer("Amount,Sender_AccountId,Recipient_AccountId,Comment", $Amount, $Sender_AccountId, $Recipient_AccountId, $Comment)
         DBUpdate("power_of_attorney", $id, {params:$params, date_last_transaction:$time})
     }

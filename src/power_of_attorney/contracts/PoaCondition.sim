@@ -6,9 +6,14 @@ contract PoaCondition {
 
     conditions {
         var attorney map
-        attorney = DBFind("power_of_attorney").Where({deleted:0, "$or":[{date_expiration:0}, {"$gt":{date_expiration:$time}}], "contract":$Name, "address":$Wallet, "$or":[{key_id_attorney:$key_id}, {rid:$role_id}]}).Row()
+        attorney = DBFind("power_of_attorney").Where({deleted:0, "contract":$Name, "address":$Wallet, key_id_attorney:$key_id}).Row()
+
         if !attorney{
-            warning Sprintf("You don't have access to wallet %s", $Wallet)
+            // feature for role attorney
+            // attorney = DBFind("power_of_attorney").Where({deleted:0, "contract":$Name, "address":$Wallet, rid:$role_id}).Row()
+            if !attorney{
+                warning Sprintf("You don't have access to wallet %s", $Wallet)
+            }
         }
         if attorney["date_expiration"] != 0{
             if attorney["date_expiration"] < $time{

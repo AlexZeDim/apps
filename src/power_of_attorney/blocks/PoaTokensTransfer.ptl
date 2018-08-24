@@ -1,47 +1,52 @@
-DBFind(power_of_attorney,src_poa).Where({key_id_attorney:#key_id#, deleted:0}).Columns("address").Count(poa_count).Custom(_id){
-    #address#
-}.Custom(_name){
-    DBFind(keys).WhereId(#address#).Columns("amount").Vars(key)
-    Address(#address#) (#key_amount#)
-}
 If(GetVar(this_page)==""){
     SetVar(this_page,"profile_view")
 }
-If(#poa_count#>0){
-    Div(list-group-item mb){
-        Div(text-center text-bold h4 m0){
+
+DBFind(keys,src_recipients).Where({deleted:0, blocked:0}).Columns("id,amount").Custom(_name){
+    If(#id#==#key_id#){
+        Address(#id#) (my)
+    }.Else{
+        Address(#id#)
+    }
+}
+DBFind(power_of_attorney,src_attorney).Where({key_id_attorney:#key_id#, deleted:0}).Columns("id,address,params->amount_max").Count(principals_count).Custom(_name){
+    DBFind(keys).WhereId(#address#).Columns("id,amount").Vars(k)
+    Address(#address#) (Money(#k_amount#), ##id#, max:#params.amount_max#)
+}
+
+If(#principals_count#>0){
+    Form(list-group-item mb){
+        Div(h4){
             LangRes(poa_tokens_transfer)
         }
-        Div(form-group){
-            Div(row){
-                Div(col-md-12 text-center){
-                    Div(text-muted m0 h5){
-                        LangRes(tokens)
-                    }
-                    Strong(Class: h5, Body: Money(#key_amount#) APL)
-                }
-            }
-            Div(row){
-                Div(col-md-12 mt-lg text-center){
-                    Div(text-muted m0 h5){
-                        LangRes(wallet_address)
-                    }
-                    Span(Class: h5, Body: Address(#member_id#))
-                }
-            }
-        }
+        Input(Name: Comment, Type: hidden, Value: "PoA tokens transfer")
+
         Div(text-center){
-            Div(row){
+            Div(row mb-sm){
                 Div(col-md-3 mt-sm text-right){
-                    Strong(Class: h6, Body: LangRes(recipient))
+                    Label(For: AttorneyId){
+                        LangRes(poa_sender_wallet)
+                    }
                 }
-                Div(col-md-9 mb-sm text-left){
-                    Input(Name: Recipient_Account, Placeholder: "xxxx-xxxx-xxxx-xxxx-xxxx")
+                Div(col-md-9 text-left){
+                    Select(Name: AttorneyId, Source: src_attorney, NameColumn: _name, ValueColumn: id)
                 }
             }
-            Div(row){
+            Div(row mb-sm){
                 Div(col-md-3 mt-sm text-right){
-                    Strong(Class: h6, Body: LangRes(amount))
+                    Label(For: Recipient_AccountId){
+                        LangRes(recipient)
+                    }
+                }
+                Div(col-md-9 text-left){
+                    Select(Name: Recipient_AccountId, Source: src_recipients, NameColumn: _name, ValueColumn: id)
+                }
+            }
+            Div(row mb-sm){
+                Div(col-md-3 mt-sm text-right){
+                    Label(For: Amount){
+                        LangRes(amount)
+                    }
                 }
                 Div(col-md-9 text-left){
                     Input(Name: Amount, Type: Number)
@@ -50,8 +55,29 @@ If(#poa_count#>0){
         }
         Div(row){
             Div(col-md-12 text-right){
-                Button(Body: LangRes(poa_send_tokens), Class: btn btn-default, Page: #this_page#, Contract: PoaTokensTransferWrapper).Alert(Text: $want_send_tokens$, ConfirmButton: $yes$, CancelButton: $no$, Icon: question)
+                Button(Body: LangRes(send), Class: btn btn-default, Page: #this_page#, Contract: PoaTokensTransferWrapper).Alert(Text: $want_send_tokens$, ConfirmButton: $yes$, CancelButton: $no$, Icon: question)
             }
         }
+    }
+}
+
+DBFind(power_of_attorney,src_fiduciary).Where({address:#key_id#, deleted:0}).Columns("id,key_id_attorney").Count(fiduciary_count).Custom(_name){
+    SetVar(m_member_name,)
+    DBFind(members).Where({id:#key_id_attorney#}).Columns("id,member_name").Vars(m)
+    Address(#key_id_attorney#)
+    If(#m_member_name#!=""){
+        Span("(#m_member_name#)", ml)
+    }
+}.Custom(_actions){
+    Div(text-right){
+        Button(Body: LangRes(poa_withdraw), Class: btn btn-default, Contract: PoaDelete, Params: "Id=#id#", Page: #this_page#).Alert(Text: $sure_want_delete$, ConfirmButton: $yes$, CancelButton: $no$, Icon: question)
+    }
+}
+If(#fiduciary_count#>0){
+    Form(list-group-item mb){
+        Div(h4){
+            The issued powers of attorney
+        }
+        Table(src_fiduciary, "Fiduciary=_name,=_actions")
     }
 }
