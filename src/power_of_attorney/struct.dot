@@ -1,7 +1,7 @@
 digraph G {
 graph [
   fontsize="24";
-  label="power_of_attorney\nThursday, 23-Aug-18 20:34:40 MSK";
+  label="power_of_attorney\nFriday, 24-Aug-18 08:25:36 MSK";
   nojustify=true;
   ordering=out;
   rankdir=LR;
@@ -38,7 +38,6 @@ graph [
 "poa_view\npage" -> "PoaDelete\ncontract"  [ color=red ]
 "notifications\ntable" -> "poa_view\npage"
 "power_of_attorney\ntable" -> "poa_view\npage"
-"poa_view\npage" -> "poa_list\npage"  [ color=green ]
 "poa_view\npage" -> "poa_store\npage"  [ color=green ]
 "poa_view\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "PoaParamsTokensTransfer\nblock" -> "PoaParamDelete\ncontract"  [ color=red ]

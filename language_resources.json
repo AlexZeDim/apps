@@ -1223,6 +1223,11 @@
             "Type": "languages"
         },
         {
+            "Name": "poa_delete_my_attorney",
+            "Trans": "{\n    \"en\": \"Delete my power of attorney\",\n    \"ru\": \"Удалить мою доверенность\"\n}",
+            "Type": "languages"
+        },
+        {
             "Name": "poa_info",
             "Trans": "{\"en\":\"Attorney info\"}",
             "Type": "languages"
@@ -1430,6 +1435,11 @@
         {
             "Name": "save",
             "Trans": "{\"en\": \"Save\", \"ru\": \"Сохранить\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "search",
+            "Trans": "{\"en\": \"Search\", \"ru\": \"Поиск\"}",
             "Type": "languages"
         },
         {

@@ -9,16 +9,14 @@ If(GetVar(Search)!=""){
     SetVar(Search,).(SearchFor,)
 }
 SetVar(order,{deleted:"-1", id:"1"})
-If(GetVar(OldOrder)==""){
-    SetVar(OldOrder,)
-}.Else{
-    SetVar(Order,).(OldOrder,)
+If(GetVar(Order)==""){
+    SetVar(Order,)
 }
 If(GetVar(Dir)==""){
     SetVar(Dir,"1")
 }
 If(GetVar(Order)!=""){
-    If(#Order#==#OldOrder#){
+    If(#Order#==#O2#){
         If(#Dir#>0){
             SetVar(Dir,-1)
         }.Else{
@@ -29,7 +27,7 @@ If(GetVar(Order)!=""){
 }
 
 Data(src_select, "id,name"){
-    ,"Search for ..."
+    ,"for ..."
     address,"Address"
     key_id_attorney,"Attorney"
     contract,"Contract"
@@ -84,26 +82,35 @@ Div(content-wrapper){
         Div(input-group-addon){
             LangRes(search)
         }
-        Div(){
+        Div(flex){
             Input(Name:Search)
             Select(Name:SearchFor, Source: src_select, NameColumn: name, ValueColumn: id)
-            Select(Name:Order, Source: src_order, NameColumn: name, ValueColumn: id)
-        }.Style(
-            display:flex;
-        )
-
+        }
         Div(input-group-btn){
-            If(#Dir#>0){
-                Button(Class: btn btn-default fa fa-sort-amount-desc, Page: poa_list_admin, PageParams: "Search=#Search#,SearchFor=#SearchFor#,Order=Val(Order),OldOrder=#Order#,Dir=#Dir#")
-            }.Else{
-                Button(Class: btn btn-default fa fa-sort-amount-asc, Page: poa_list_admin, PageParams: "Search=#Search#,SearchFor=#SearchFor#,Order=Val(Order),OldOrder=#Order#,Dir=#Dir#")
-            }
-            Button(Class: btn btn-primary icon-magnifier, Page: poa_list_admin, PageParams: "Search=Val(Search),SearchFor=Val(SearchFor),Order=#Order#,OldOrder=#OldOrder#,Dir=#Dir#")
+            Button(Class: btn btn-primary icon-magnifier, Page: poa_list_admin, PageParams: "Search=Val(Search),SearchFor=Val(SearchFor),Order=#Order#,O2=#O2#,Dir=#Dir#")
             If(GetVar(Search)!=""){
-                Button(Class: btn btn-info icon-close, Page: poa_list_admin)
+                Button(Class: btn btn-default icon-close, Page: poa_list_admin)
             }
         }
-    }
+        Div(flex ml-lg){
+            Select(Name:Order, Source: src_order, NameColumn: name, ValueColumn: id)
+        }
+        Div(input-group-btn){
+            If(#Dir#>0){
+                Button(Class: btn btn-primary fa fa-sort-amount-desc, Page: poa_list_admin, PageParams: "Search=#Search#,SearchFor=#SearchFor#,Order=Val(Order),O2=#Order#,Dir=1")
+            }.Else{
+                Button(Class: btn btn-primary fa fa-sort-amount-asc, Page: poa_list_admin, PageParams: "Search=#Search#,SearchFor=#SearchFor#,Order=Val(Order),O2=#Order#,Dir=-1")
+            }
+        }
+    }.Style(
+        max-width: 800px;
+        .flex {
+            display:flex;
+        }
+        input {
+            padding: 6px;
+        }
+    )
     Form(panel panel-primary){
         Div(panel-body){
             If(#attorney_count#>0){
