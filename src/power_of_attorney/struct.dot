@@ -1,7 +1,7 @@
 digraph G {
 graph [
   fontsize="24";
-  label="power_of_attorney\nFriday, 24-Aug-18 17:09:24 MSK";
+  label="power_of_attorney\nSaturday, 25-Aug-18 12:40:19 MSK";
   nojustify=true;
   ordering=out;
   rankdir=LR;
@@ -26,7 +26,6 @@ graph [
 "poa_list_admin\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "applications\ntable" -> "poa_popup\npage"
 "poa_popup\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"poa_store\npage" -> "PoaParamDelete\ncontract"  [ color=red ]
 "poa_store\npage" -> "PoaStore\ncontract"  [ color=red ]
 "applications\ntable" -> "poa_store\npage"
 "roles\ntable" -> "poa_store\npage"
@@ -39,6 +38,8 @@ graph [
 "poa_view\npage" -> "NotificationsClose\ncontract"  [ color=red ]
 "notifications\ntable" -> "poa_view\npage"
 "power_of_attorney\ntable" -> "poa_view\npage"
+"poa_view\npage" -> "poa_list\npage"  [ color=green ]
+"poa_view\npage" -> "profile_view\npage"  [ color=green ]
 "poa_view\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "PoaParamsTokensTransfer\nblock" -> "PoaParamDelete\ncontract"  [ color=red ]
 "PoaParamsTokensTransfer\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
@@ -47,6 +48,7 @@ graph [
 "keys\ntable" -> "PoaTokensTransfer\nblock"
 "power_of_attorney\ntable" -> "PoaTokensTransfer\nblock"
 "members\ntable" -> "PoaTokensTransfer\nblock"
+"PoaTokensTransfer\nblock" -> "poa_view\npage"  [ color=green ]
 "PoaTokensTransfer\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
 "power_of_attorney\ntable" -> "PoaCondition\ncontract"
 "PoaCondition\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
