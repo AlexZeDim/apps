@@ -117,15 +117,16 @@ Div(content-wrapper){
                         }
                         If(#Id#>0){
                             ForList(src_params){
-                                Div(mb row){
-                                    Div(col-sm-4){
-                                        Input(Name: Params, Value: #key#)
+                                Div(row text-muted mt-lg){
+                                    Div(col-sm-6 text-right){
+                                        #key#
                                     }
-                                    Div(col-sm-6){
-                                        Input(Name: Values, Value: #value#)
-                                    }
-                                    Div(col-sm-2){
-                                        Button(Class: fa fa-trash btn btn-link, PageParams: "Id=#Id#,current_index=#current_index#", Page: #this_page#, Contract: PoaParamDelete, Params: "Id=#Id#,Param=#key#")
+                                    Div(col-sm-6 text-left){
+                                        If(Or(#key#=="amount_day",#key#=="amount_month")){
+                                            Money(#value#)
+                                        }.Else{
+                                            #value#
+                                        }
                                     }
                                 }
                             }
