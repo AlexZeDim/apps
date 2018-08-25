@@ -6,7 +6,7 @@ If(GetVar(back_page)==""){
 }
 Form(){
     If(#Select#=="contract"){
-        Div(row){
+        Div(row form-group){
             Div(col-sm-4 text-right){
                 Label(LangRes(poa_contract))
             }

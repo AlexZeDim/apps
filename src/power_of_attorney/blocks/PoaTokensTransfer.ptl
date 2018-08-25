@@ -11,7 +11,7 @@ DBFind(keys,src_recipients).Where({deleted:0, blocked:0}).Columns("id,amount").C
 }
 DBFind(power_of_attorney,src_attorney).Where({key_id_attorney:#key_id#, deleted:0}).Columns("id,address,params->amount_max").Count(principals_count).Custom(_name){
     DBFind(keys).WhereId(#address#).Columns("id,amount").Vars(k)
-    Address(#address#) (Money(#k_amount#), ##id#, max:#params.amount_max#)
+    Address(#address#) (Money(#k_amount#), max:#params.amount_max#)
 }
 
 If(#principals_count#>0){
@@ -69,8 +69,9 @@ DBFind(power_of_attorney,src_fiduciary).Where({address:#key_id#, deleted:0}).Col
         Span("(#m_member_name#)", ml)
     }
 }.Custom(_actions){
-    Div(text-right){
-        Button(Body: LangRes(poa_withdraw), Class: btn btn-default, Contract: PoaDelete, Params: "Id=#id#", Page: #this_page#).Alert(Text: $sure_want_delete$, ConfirmButton: $yes$, CancelButton: $no$, Icon: question)
+    Div(text-right flex){
+        Button(Class: btn btn-default icon-eye, Page: poa_view, PageParams: "back_page=#this_page#,Id=#id#")
+        Button(Body: LangRes(poa_withdraw), Class: btn btn-info ph-sm, Contract: PoaDelete, Params: "Id=#id#", Page: #this_page#).Alert(Text: $sure_want_delete$, ConfirmButton: $yes$, CancelButton: $no$, Icon: question)
     }
 }
 If(#fiduciary_count#>0){
@@ -79,5 +80,9 @@ If(#fiduciary_count#>0){
             The issued powers of attorney
         }
         Table(src_fiduciary, "Fiduciary=_name,=_actions")
-    }
+    }.Style(
+        .flex {
+            display:flex;
+        }
+    )
 }

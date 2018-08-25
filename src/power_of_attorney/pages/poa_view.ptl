@@ -1,5 +1,5 @@
 If(#notific_id#>0){
-    DBFind(notifications).Columns("id,page_params->id").Where("id=#notific_id#").Vars(notific)
+    DBFind(notifications).Columns("id,page_params->id").WhereId(#notific_id#).Vars(notific)
     SetVar(Id, #notific_page_params_id#)
 }
 
@@ -15,7 +15,7 @@ ForList(src_params){
 }
 Div(content-wrapper){
     Div(breadcrumb){
-        LinkPage(Body: $poa_list$, Page: #back_page#)
+        LinkPage(Body: $poa_list$, Page: poa_list)
         Span(/,mh)
         Span($poa_view$, text-muted)
     }
@@ -26,49 +26,59 @@ Div(content-wrapper){
                     LangRes(poa_info)
                 }
                 Div(panel-body){
-                    Div(row mb){
-                        Div(col-sm-4 text-right){
-                            Label(LangRes(poa_key_id_attorney))
+                    Div(form-group){
+                        Div(row mb){
+                            Div(col-sm-6 text-right){
+                                Label(LangRes(address))
+                            }
+                            Div(col-sm-6 text-left){
+                                LinkPage(Page: profile_view, PageParams: "v_member_id=#poa_address#"){
+                                    Address(#poa_address#)
+                                }
+                            }
                         }
-                        Div(col-sm-8 text-left){
-                            #poa_key_id_attorney#
+                        Div(row mb){
+                            Div(col-sm-6 text-right){
+                                Label(LangRes(poa_key_id_attorney))
+                            }
+                            Div(col-sm-6 text-left){
+                                LinkPage(Page: profile_view, PageParams: "v_member_id=#poa_key_id_attorney#"){
+                                    Address(#poa_key_id_attorney#)
+                                }
+                            }
                         }
-                    }
-                    Div(row mb){
-                        Div(col-sm-4 text-right){
-                            Label(LangRes(poa_contract))
+                        Div(row mb){
+                            Div(col-sm-6 text-right){
+                                Label(LangRes(poa_contract))
+                            }
+                            Div(col-sm-6 text-left){
+                                #poa_contract#
+                            }
                         }
-                        Div(col-sm-8 text-left){
-                            #poa_contract#
-                        }
-                    }
-                    Div(row mb){
-                        Div(col-sm-4 text-right){
-                            Label(LangRes(poa_date_expiration))
-                        }
-                        Div(col-sm-8 text-left){
-                            DateTime(#poa_date_expiration#, "YYYY-MM-DD")
+                        Div(row mb){
+                            Div(col-sm-6 text-right){
+                                Label(LangRes(poa_date_expiration))
+                            }
+                            Div(col-sm-6 text-left){
+                                DateTime(#poa_date_expiration#, "YYYY-MM-DD")
+                            }
                         }
                     }
                     If(#params_count#>0){
-                        Div(h4){
+                        Div(h4 text-center){
                             LangRes(poa_params)
-                        }
-                        Div(row text-muted text-center mt-lg){
-                            Div(col-sm-4){
-                                Label(LangRes(name))
-                            }
-                            Div(col-sm-8){
-                                Label(LangRes(value))
-                            }
                         }
                         ForList(src_params){
                             Div(row text-muted mt-lg){
-                                Div(col-sm-3 col-sm-offset-1){
+                                Div(col-sm-6 text-right){
                                     #key#
                                 }
-                                Div(col-sm-8 text-center){
-                                    #value#
+                                Div(col-sm-6 text-left){
+                                    If(Or(#key#=="amount_day",#key#=="amount_month")){
+                                        Money(#value#)
+                                    }.Else{
+                                        #value#
+                                    }
                                 }
                             }
                         }
@@ -78,7 +88,7 @@ Div(content-wrapper){
                     Button(Body: LangRes(back), Class: btn, Page: #back_page#)
                     Div(pull-right){
                         If(#notific_id#>0){
-                            Button(Body: LangRes(informed), Class: btn btn-success, Contract: NotificationsClose, Params: "notific_id=#notific_id#")
+                            Button(Body: LangRes(informed), Class: btn btn-success, Contract: NotificationsClose, Params: "notific_id=#notific_id#", Page: #back_page#)
                         }
                     }
                 }
