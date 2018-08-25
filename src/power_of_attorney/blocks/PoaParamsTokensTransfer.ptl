@@ -1,6 +1,6 @@
 Div(mb row){
     Div(col-sm-4 mt-sm){
-        LangRes(amount_max)
+        LangRes(poa_amount_max)
         Input(Name: Params, Value: amount_max, Type:hidden)
     }
     Div(col-sm-6){
@@ -12,7 +12,7 @@ Div(mb row){
 }
 Div(mb row){
     Div(col-sm-4 mt-sm){
-        LangRes(amount_max_day)
+        LangRes(poa_amount_max_day)
         Input(Name: Params, Value: amount_max_day, Type:hidden)
     }
     Div(col-sm-6){
@@ -24,7 +24,7 @@ Div(mb row){
 }
 Div(mb row){
     Div(col-sm-4 mt-sm){
-        LangRes(amount_max_month)
+        LangRes(poa_amount_max_month)
         Input(Name: Params, Value: amount_max_month, Type:hidden)
     }
     Div(col-sm-6){

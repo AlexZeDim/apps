@@ -1208,6 +1208,26 @@
             "Type": "languages"
         },
         {
+            "Name": "poa_amount",
+            "Trans": "{\"en\": \"Amount\", \"ru\": \"Сумма\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_amount_max",
+            "Trans": "{\"en\": \"Maximum amount at a time\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_amount_max_day",
+            "Trans": "{\"en\": \"Maximum amount per day\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "poa_amount_max_month",
+            "Trans": "{\"en\": \"Maximum amount per month\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "poa_contract",
             "Trans": "{\"en\":\"Contract of trust\",\"ru\":\"Контракт выполняющийся по доверенности\"}",
             "Type": "languages"
