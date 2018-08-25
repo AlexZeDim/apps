@@ -8,7 +8,7 @@ DBFind(power_of_attorney, src_attorney).Where({address:#key_id#, deleted:0}).Cou
         LangRes(poa_unlimited)
     }
 }.Custom(_action){
-    Div(text-right){
+    Div(text-right text-nowrap){
         Button(Class: btn btn-default icon-eye, Page: poa_view, PageParams: "Id=#id#")
 
         If(#address#==#key_id#){

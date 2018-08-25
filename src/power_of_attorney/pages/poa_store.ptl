@@ -21,11 +21,6 @@ SetTitle($poa_creating$)
 If(GetVar(poa_contract)==""){
     SetVar(poa_contract,)
 }
-If(GetVar(poa_date_expiration)!=""){
-    SetVar(poa_date_expiration, DateTime(#poa_date_expiration#, "YYYY-MM-DD"))
-}.Else{
-    SetVar(poa_date_expiration,)
-}
 SetVar(poa_params,).(poa_role_id_attorney,).(poa_key_id_attorney,#key_id#)
 If(#Id#>0){
     SetTitle($poa_editing$ ##Id#)
@@ -33,6 +28,11 @@ If(#Id#>0){
     JsonToSource(src_params, #poa_params#)
 }.Else{
     SetVar(Id,0)
+}
+If(GetVar(poa_date_expiration)!=""){
+    SetVar(poa_date_expiration, DateTime(#poa_date_expiration#, "YYYY-MM-DD"))
+}.Else{
+    SetVar(poa_date_expiration,)
 }
 
 Div(content-wrapper){
