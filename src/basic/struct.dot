@@ -1,7 +1,7 @@
 digraph G {
 graph [
   fontsize="24";
-  label="basic\nThursday, 23-Aug-18 14:02:45 MSK";
+  label="basic\nSaturday, 25-Aug-18 13:20:42 MSK";
   nojustify=true;
   ordering=out;
   rankdir=LR;
@@ -13,31 +13,6 @@ graph [
 "default_menu\nmenu" -> "roles_list\npage"  [ color=green ]
 "default_menu\nmenu" -> "voting_list\npage"  [ color=green ]
 "default_menu\nmenu" [color=blue, fontcolor=blue, group=menus, shape=record];
-"attorney_add\npage" -> "AttorneyAdd\ncontract"  [ color=red ]
-"applications\ntable" -> "attorney_add\npage"
-"roles\ntable" -> "attorney_add\npage"
-"attorney_add\npage" -> "attorney_add\npage"  [ color=green ]
-"attorney_add\npage" -> "attorney_list\npage"  [ color=green ]
-"attorney_add\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"attorney_edit\npage" -> "AttorneyEdit\ncontract"  [ color=red ]
-"applications\ntable" -> "attorney_edit\npage"
-"roles\ntable" -> "attorney_edit\npage"
-"power_of_attorney\ntable" -> "attorney_edit\npage"
-"attorney_edit\npage" -> "attorney_edit\npage"  [ color=green ]
-"attorney_edit\npage" -> "attorney_list\npage"  [ color=green ]
-"attorney_edit\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"power_of_attorney\ntable" -> "attorney_list\npage"
-"attorney_list\npage" -> "attorney_add\npage"  [ color=green ]
-"attorney_list\npage" -> "attorney_view\npage"  [ color=green ]
-"attorney_list\npage" -> "profile_view\npage"  [ color=green ]
-"attorney_list\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"attorney_view\npage" -> "NotificationsClose\ncontract"  [ color=red ]
-"attorney_view\npage" -> "AttorneyDelete\ncontract"  [ color=red ]
-"notifications\ntable" -> "attorney_view\npage"
-"power_of_attorney\ntable" -> "attorney_view\npage"
-"attorney_view\npage" -> "attorney_edit\npage"  [ color=green ]
-"attorney_view\npage" -> "attorney_list\npage"  [ color=green ]
-"attorney_view\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "default_page\npage" -> "params_list\npage"  [ color=green ]
 "default_page\npage" -> "admin_dashboard\npage"  [ color=green ]
 "default_page\npage" -> "import_upload\npage"  [ color=green ]
@@ -89,14 +64,6 @@ graph [
 "profile_avatar_edit\npage" -> "ProfileAvatarEdit\ncontract"  [ color=red ]
 "profile_avatar_edit\npage" -> "profile_edit\npage"  [ color=green ]
 "profile_avatar_edit\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"profile_convert\npage" -> "MultiaccountUnits\ncontract"  [ color=red ]
-"profile_convert\npage" -> "MultiaccountSet\ncontract"  [ color=red ]
-"applications\ntable" -> "profile_convert\npage"
-"keys\ntable" -> "profile_convert\npage"
-"buffer_data\ntable" -> "profile_convert\npage"
-"roles\ntable" -> "profile_convert\npage"
-"profile_convert\npage" -> "profile_view\npage"  [ color=green ]
-"profile_convert\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "profile_edit\npage" -> "ProfileEdit\ncontract"  [ color=red ]
 "members\ntable" -> "profile_edit\npage"
 "profile_edit\npage" -> "profile_avatar_edit\npage"  [ color=green ]
@@ -107,11 +74,12 @@ graph [
 "keys\ntable" -> "profile_view\npage"
 "roles\ntable" -> "profile_view\npage"
 "roles_participants\ntable" -> "profile_view\npage"
-"profile_view\npage" -> "profile_convert\npage"  [ color=green ]
+"blocks\ntable" -> "profile_view\npage"
 "profile_view\npage" -> "profile_edit\npage"  [ color=green ]
 "profile_view\npage" -> "roles_view\npage"  [ color=green ]
 "profile_view\npage" -> "roles_request\npage"  [ color=green ]
 "profile_view\npage" -> "profile_view\npage"  [ color=green ]
+"profile_view\npage" -> "PoaTokensTransfer\nblock"  [ color=green, label=include ]
 "profile_view\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "roles_assign\npage" -> "RolesAssign\ncontract"  [ color=red ]
 "applications\ntable" -> "roles_assign\npage"
@@ -286,25 +254,8 @@ graph [
 "notifications_single\nblock" -> "roles_view\npage"  [ color=green ]
 "notifications_single\nblock" -> "notifications_list\npage"  [ color=green ]
 "notifications_single\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
-"AttorneyAdd\ncontract" -> "NotificationsSend\ncontract"  [ color=red ]
-"AttorneyAdd\ncontract" -> "power_of_attorney\ntable"  [ color="" ]
-"keys\ntable" -> "AttorneyAdd\ncontract"
-"contracts\ntable" -> "AttorneyAdd\ncontract"
-"AttorneyAdd\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"power_of_attorney\ntable" -> "AttorneyCheckAccess\ncontract"
-"AttorneyCheckAccess\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"AttorneyDelete\ncontract" -> "power_of_attorney\ntable"  [ color="" ]
-"AttorneyDelete\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"AttorneyEdit\ncontract" -> "power_of_attorney\ntable"  [ color="" ]
-"keys\ntable" -> "AttorneyEdit\ncontract"
-"contracts\ntable" -> "AttorneyEdit\ncontract"
-"AttorneyEdit\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "BufferManager\ncontract" -> "buffer_data\ntable"  [ color="" ]
 "BufferManager\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"buffer_data\ntable" -> "MultiaccountSet\ncontract"
-"MultiaccountSet\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"MultiaccountUnits\ncontract" -> "buffer_data\ntable"  [ color="" ]
-"MultiaccountUnits\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "members\ntable" -> "NotificationsBroadcast\ncontract"
 "keys\ntable" -> "NotificationsBroadcast\ncontract"
 "ecosystems\ntable" -> "NotificationsBroadcast\ncontract"
