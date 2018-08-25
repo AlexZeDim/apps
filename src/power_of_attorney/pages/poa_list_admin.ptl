@@ -8,7 +8,7 @@ If(GetVar(Search)!=""){
 }.Else{
     SetVar(Search,).(SearchFor,)
 }
-SetVar(order,{deleted:"-1", id:"1"})
+SetVar(order,{deleted:"1", id:"1"})
 If(GetVar(Order)==""){
     SetVar(Order,)
 }
