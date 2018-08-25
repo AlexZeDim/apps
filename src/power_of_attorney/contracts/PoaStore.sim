@@ -64,7 +64,7 @@ contract PoaStore {
             n["member_id"] = $MemberId
             n["sender"] = 1
             n["text_header"] = "You got new power of attorney"
-            n["page_name"] = "attorney_add"
+            n["page_name"] = "poa_view"
             n["params_map"] = Sprintf(`{"id":"%v"}`, id)
             CallContract("NotificationsSend", n)
         }
