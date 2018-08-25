@@ -1,7 +1,7 @@
 digraph G {
 graph [
   fontsize="24";
-  label="power_of_attorney\nSaturday, 25-Aug-18 13:48:48 MSK";
+  label="power_of_attorney\nSaturday, 25-Aug-18 14:05:23 MSK";
   nojustify=true;
   ordering=out;
   rankdir=LR;

@@ -18,7 +18,7 @@ contract PoaTokensTransferWrapper {
 
     func checkLimit(num money, lim int, s string){
         if num > convertToMoney(lim) {
-            warning Sprintf("Maximum %v transfer limit exceeded (% APL)", s, lim)
+            warning Sprintf("Maximum %v transfer limit exceeded (%v APL)", s, lim)
         }
     }
     func safeMoney(n ...) money{
