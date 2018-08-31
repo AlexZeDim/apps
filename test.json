@@ -1,0 +1,32 @@
+{
+    "name": "System",
+    "conditions": "ContractConditions(\"MainCondition\")",
+    "data": [
+        {
+            "Name": "tbl",
+            "Columns": "[{\"conditions\":\"true\",\"name\":\"clm\",\"type\":\"number\"}]",
+            "Permissions": "{\"read\": \"true\", \"insert\": \"ContractConditions(\\\"MainCondition\\\")\", \"update\": \"ContractConditions(\\\"MainCondition\\\")\", \"new_column\": \"ContractConditions(\\\"MainCondition\\\")\"}",
+            "Type": "tables"
+        },
+        {
+            "Name": "default_page",
+            "Conditions": "ContractConditions(\"MainCondition\")",
+            "Value": "Div(content-wrapper){\r\n\tDiv(panel panel-primary){\r\n\t\tForm(){\r\n\t\t\tInput(Name: Amount)\r\n\t\t\tButton(Body: Import, Class: btn btn-primary, Contract: top_contract)\r\n\t\t}\r\n\t}\r\n}",
+            "Menu": "default_menu",
+            "Type": "pages"
+        },
+        {
+            "Name": "original_contract",
+            "Confirmation": "{\"title\": \"Are you agree to send money?\", \"params\": [{\"name\": \"Amount\", \"text\": \"text Amount\"}]}",
+            "Conditions": "true",
+            "Value": "contract original_contract {\r\n    data {\r\n        Amount int\r\n\t\tSignature string \"optional hidden\"\r\n    }\r\n    conditions {\r\n\r\n    }\r\n    action {\r\n\t\tDBInsert(\"tbl\", {clm:$Amount})\r\n    }\r\n}",
+            "Type": "contracts"
+        },
+        {
+            "Name": "top_contract",
+            "Conditions": "true",
+            "Value": "contract top_contract {\r\n    data {\r\n        Amount int\r\n        Signature string \"signature:original_contract\"\r\n    }\r\n    conditions {\r\n\r\n    }\r\n    action {\r\n\t\toriginal_contract(\"Amount,Signature\", $Amount, $Signature)\r\n    }\r\n}",
+            "Type": "contracts"
+        }
+    ]
+}
