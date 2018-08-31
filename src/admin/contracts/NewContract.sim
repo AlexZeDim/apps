@@ -5,6 +5,7 @@ contract NewContract {
         Conditions string
         Wallet string "optional"
         TokenEcosystem int "optional"
+		Confirmation string "optional"
     }
 
     conditions {
@@ -38,6 +39,6 @@ contract NewContract {
     }
 
     action {
-        $result = CreateContract($contract_name, $Value, $Conditions, $walletContract, $TokenEcosystem, $ApplicationId)
+        $result = CreateContract($contract_name, $Value, $Conditions, $Conditions, $walletContract, $TokenEcosystem, $ApplicationId)
     }
 }
