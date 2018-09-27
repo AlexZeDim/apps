@@ -22,7 +22,7 @@ contract ProfileEdit {
     action {
         if $image_id > 0 {
             $Data = DBFind("@1binaries").Where({ecosystem:$ecosystem_id, id:$image_id}).One("data")
-            $image_id = @1UploadBinary("Name,Data,ApplicationId", "avatar", $Data, Int($app_id))
+            //$image_id = @1UploadBinary("Name,Data,ApplicationId", "avatar", $Data, Int($app_id))
         }
 
         var m map

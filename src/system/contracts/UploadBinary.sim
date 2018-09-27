@@ -5,7 +5,6 @@ contract UploadBinary {
         Data file
     }
 
-
     conditions {
         $Id = Int(DBFind("@1binaries").Columns("id").Where({app_id: $ApplicationId,
             member_id: $key_id, name: $Name, ecosystem: $ecosystem_id}).One("id"))
