@@ -9,16 +9,16 @@ contract EditTable {
 
     conditions {
         if !$InsertPerm {
-            info LangRes("@1insert_condition_empty", $Lang)
+            info LangRes("@1insert_condition_empty", "en")
         }
         if !$UpdatePerm {
-            info LangRes("@1update_condition_empty", $Lang)
+            info LangRes("@1update_condition_empty", "en")
         }
         if !$ReadPerm {
-            info LangRes("@1read_condition_empty", $Lang)
+            info LangRes("@1read_condition_empty", "en")
         }
         if !$NewColumnPerm {
-            info LangRes("@1new_column_condition_empty", $Lang)
+            info LangRes("@1new_column_condition_empty", "en")
         }
 
         var permissions map

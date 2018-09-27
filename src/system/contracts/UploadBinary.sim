@@ -11,7 +11,7 @@ contract UploadBinary {
 
         if $Id == 0 {
             if $ApplicationId == 0 {
-                warning LangRes("@1aid_cannot_zero", $Lang)
+                warning LangRes("@1aid_cannot_zero", "en")
             }
         }
     }

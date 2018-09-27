@@ -7,7 +7,7 @@ contract NewTable {
     }
     conditions {
         if $ApplicationId == 0 {
-            warning LangRes("@1aid_cannot_zero", $Lang)
+            warning LangRes("@1aid_cannot_zero", "en")
         }
         TableConditions($Name, $Columns, $Permissions)
     }

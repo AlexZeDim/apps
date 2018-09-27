@@ -45,7 +45,7 @@ contract RolesInstall {
         MainCondition()
         $appId = Int(DBFind("@1applications").Where({ecosystem:1, name:"Basic", deleted:0}).One("id"))
         if $appId == 0{
-            warning LangRes("@1app_not_found", $Lang)
+            warning LangRes("@1app_not_found", "en")
         }
     }
 

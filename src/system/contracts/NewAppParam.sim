@@ -10,11 +10,11 @@ contract NewAppParam {
         ValidateCondition($Conditions, $ecosystem_id)
 
         if $ApplicationId == 0 {
-            warning LangRes("@1aid_cannot_zero", $Lang)
+            warning LangRes("@1aid_cannot_zero", "en")
         }
 
         if DBFind("@1app_params").Columns("id").Where({"name":$Name, ecosystem: $ecosystem_id}).One("id") {
-            warning Sprintf(LangRes("@1template_appparam_exists", $Lang), $Name)
+            warning Sprintf(LangRes("@1template_appparam_exists", "en"), $Name)
         }
     }
 

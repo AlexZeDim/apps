@@ -7,7 +7,7 @@ contract TokensRefund {
 
     conditions {
         if !($SenderId == $key_id || (Size($SenderId) > 0 && ($original_contract == "VotingDecisionAccept" || $original_contract == "TokensRefundAccept"))) {
-            error LangRes("@1sender_id_invalid", $Lang)
+            error LangRes("@1sender_id_invalid", "en")
         }
         var addressLen int
         addressLen = 24
@@ -17,7 +17,7 @@ contract TokensRefund {
             $SenderId = Sprintf("%v", $key_id)
         }
         if $amount <= 0 {
-            error LangRes("@1amount_less_equal_zero", $Lang)
+            error LangRes("@1amount_less_equal_zero", "en")
         }
 
         if !HasPrefix($SenderId, "-") && Contains($SenderId, "-"){
@@ -41,16 +41,16 @@ contract TokensRefund {
         var sender recipient map
         sender = DBFind("@1keys").Where({ecosystem:$ecosystem_id, id:$SenderId}).Row()
         if !sender{
-            error LangRes("@1sender_invalid", $Lang)
+            error LangRes("@1sender_invalid", "en")
         }
         if !DBFind("@1keys").Where({ecosystem:$ecosystem_id, id:$RecipientId}).Row(){
-            error LangRes("@1recipient_invalid", $Lang)
+            error LangRes("@1recipient_invalid", "en")
         }
         if sender["blocked"] == 1 {
-            error LangRes("@1sender_blocked", $Lang)
+            error LangRes("@1sender_blocked", "en")
         }
         if sender["amount"] < $amount{
-            error Sprintf(LangRes("@1sender_amount_not_enough", $Lang), sender["amount"])
+            error Sprintf(LangRes("@1sender_amount_not_enough", "en"), sender["amount"])
         }
     }
 

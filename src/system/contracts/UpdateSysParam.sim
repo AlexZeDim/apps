@@ -7,7 +7,7 @@ contract UpdateSysParam {
 
     conditions {
         if GetContractByName($Name) == 0{
-            warning LangRes("@1system_parameter_not found", $Lang)
+            warning LangRes("@1system_parameter_not found", "en")
         }
     }
 

@@ -7,7 +7,7 @@ contract ProfileEditAvatar {
         $app_id = DBFind("@1applications").Where({ecosystem:1, name:"Basic", deleted:0}).One("id")
         
         if !$app_id {
-            warning LangRes("@1app_not_found", $Lang)
+            warning LangRes("@1app_not_found", "en")
         }
     }
 

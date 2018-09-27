@@ -8,10 +8,10 @@ contract VotingTokensRefundCreate {
     
     func blockAccounts(victimId, attackerId int) {
         if victimId == 0 {
-            error LangRes("@1victim_key_invalid", $Lang)
+            error LangRes("@1victim_key_invalid", "en")
         }
         if attackerId == 0{
-            error LangRes("@1attacker_key_invalid", $Lang)
+            error LangRes("@1attacker_key_invalid", "en")
         }
         if !DBFind("@1keys").Where({ecosystem:$ecosystem_id, blocked:1, id:victimId}).One("id"){
             DBUpdate("@1keys", victimId, {blocked:1})
@@ -35,19 +35,19 @@ contract VotingTokensRefundCreate {
 
     conditions {
         if $Amount <= 0 {
-            error LangRes("@1amount_invalid", $Lang)
+            error LangRes("@1amount_invalid", "en")
         }
         if Size($Note) == 0 {
-            error LangRes("@1add_description", $Lang)
+            error LangRes("@1add_description", "en")
         }
         var victim attacker int
         victim = getKeyId($VictimAccount)
         attacker = getKeyId($SuspectAccount)
         if victim == 0{
-            error LangRes("@1victim_address_invalid", $Lang)
+            error LangRes("@1victim_address_invalid", "en")
         }
         if attacker == 0 {
-            error LangRes("@1suspect_address_invalid", $Lang)
+            error LangRes("@1suspect_address_invalid", "en")
         }
         $victimId = victim
         $attackerId = attacker
@@ -56,7 +56,7 @@ contract VotingTokensRefundCreate {
         app_id = Int(DBFind("@1applications").Where({ecosystem:1, name:"Basic"}).Columns("name,id").One("id"))
         template_id = Int(AppParam(app_id,"voting_tokenrefund_template_id", 1))
         if template_id <= 0 {
-            warning LangRes("@1template_id_not_found", $Lang)
+            warning LangRes("@1template_id_not_found", "en")
         }
 
         $template = DBFind("@1voting_templates").Where({ecosystem:$ecosystem_id, id:template_id}).Row()
@@ -70,10 +70,10 @@ contract VotingTokensRefundCreate {
         $contractAccept = $template["contract_accept"]
         $contractReject = $template["contract_reject"]
 
-        $desc = Sprintf("%v (" + LangRes("@1tokenrefund_victim", $Lang) + ": %v, " + LangRes("@1tokenrefund_attacker", $Lang) + ": %v, " + LangRes("@1amount", $Lang) + ": %v)", $votingName, $victimId, $attackerId, $Amount)
+        $desc = Sprintf("%v (" + LangRes("@1tokenrefund_victim", "en") + ": %v, " + LangRes("@1tokenrefund_attacker", "en") + ": %v, " + LangRes("@1amount", "en") + ": %v)", $votingName, $victimId, $attackerId, $Amount)
 
         if !DBFind("@1roles_participants").Where({ecosystem:$ecosystem_id, "role->id":$votersRoleId, deleted:0}).One("id") {
-            warning Sprintf(LangRes("@1role_id_no_members", $Lang), $votersRoleId)
+            warning Sprintf(LangRes("@1role_id_no_members", "en"), $votersRoleId)
         }
     }
 

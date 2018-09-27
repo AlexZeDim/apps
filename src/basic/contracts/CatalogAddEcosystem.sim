@@ -23,14 +23,14 @@ contract CatalogAddEcosystem {
             var emailParts int
             emailParts = Split($Email, "@")
             if Len(emailParts) != 2 {
-                warning LangRes("@1email_invalid", $Lang)
+                warning LangRes("@1email_invalid", "en")
             }
         }
 
         var ecoExists map
         ecoExists = DBFind("catalog_ecosystems").Where({ecosystem_number:$Ecosystem_number, deleted:0}).Row()
         if ecoExists {
-            info LangRes("@1ecosystem_number_exist", $Lang)
+            info LangRes("@1ecosystem_number_exist", "en")
         }
 
         var isFounder, isDelegate bool
@@ -43,7 +43,7 @@ contract CatalogAddEcosystem {
             isDelegate = delegate["value"] == $key_id
         }
         if !(isFounder || isDelegate) {
-            warning LangRes("@1ecosystem_can_not_add", $Lang)
+            warning LangRes("@1ecosystem_can_not_add", "en")
         }
     }
 
