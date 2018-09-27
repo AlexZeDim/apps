@@ -5,7 +5,6 @@ contract EditTable {
         UpdatePerm string
         ReadPerm string
         NewColumnPerm string
-        Lang string "optional"
     }
 
     conditions {

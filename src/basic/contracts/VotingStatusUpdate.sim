@@ -1,7 +1,5 @@
 contract VotingStatusUpdate {
-    data {
-        Lang string "optional"
-    }
+    data {}
     
     func notificationSend(voting map) {
         var title string id i lenVoters int voters array

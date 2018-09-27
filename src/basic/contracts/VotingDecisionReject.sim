@@ -1,7 +1,6 @@
 contract VotingDecisionReject {
     data {
         votingID int
-        Lang string "optional"
         RoleId int
     }
     

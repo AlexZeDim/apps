@@ -1,7 +1,6 @@
 contract NotificationsClose {
     data {
         notific_id int
-        Lang string "optional"
     }
 
     func getPermission() int {

@@ -3,7 +3,6 @@ contract TokensRefund {
         SenderId string "optional"
         RecipientId string
         Amount string
-        Lang string "optional"
     }
 
     conditions {

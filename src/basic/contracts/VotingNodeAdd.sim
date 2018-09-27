@@ -5,7 +5,6 @@ contract VotingNodeAdd {
         KeyId int
         PubKey string
         Duration int
-        Lang string "optional"
     }
     
     func warn(name, detail string) {

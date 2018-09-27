@@ -1,7 +1,6 @@
 contract RolesUnassign {
     data {
         row_id int
-        Lang string "optional"
     }
 
     conditions {

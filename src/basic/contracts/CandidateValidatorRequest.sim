@@ -5,7 +5,6 @@ contract CandidateValidatorRequest {
         CommissionAddress string
         Description string "optional"
         Comment string "optional"
-        Lang string "optional"
     }
 
     func isNotValidIp(ip string) bool {

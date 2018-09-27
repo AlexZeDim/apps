@@ -5,7 +5,6 @@ contract TokensTransfer {
         Recipient_AccountId int
         Comment string "optional"
         //Signature string "optional hidden"
-        Lang string "optional"
     }
 
     conditions {

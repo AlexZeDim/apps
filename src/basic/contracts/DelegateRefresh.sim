@@ -1,7 +1,5 @@
 contract DelegateRefresh {
-    data {
-        Lang string "optional"
-    }
+    data {}
     
     func notInArray(val string, arr array) bool {
         var i int

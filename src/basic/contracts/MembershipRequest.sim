@@ -1,7 +1,6 @@
 contract MembershipRequest {
     data {
         ecosystem_num int
-        Lang string "optional"
     }
 
     conditions {

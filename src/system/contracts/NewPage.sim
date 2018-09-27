@@ -7,7 +7,6 @@ contract NewPage {
         Conditions string
         ValidateCount int "optional"
         ValidateMode string "optional"
-        Lang string "optional"
     }
     func preparePageValidateCount(count int) int {
         var min, max int

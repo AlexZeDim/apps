@@ -2,7 +2,6 @@ contract EditLang {
     data {
         Id int
         Trans string
-        Lang string "optional"
     }
 
     conditions {

@@ -1,7 +1,6 @@
 contract VotingValidatorInit {
     data {
         KeyId int
-        Lang string "optional"
     }
 
     conditions {

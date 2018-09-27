@@ -15,7 +15,6 @@ contract VotingCreate {
         start_time string "optional"
         end_date string "optional"
         end_time string "optional"
-        Lang string "optional"
     }
     
     func trimZeroTime(s string) string {

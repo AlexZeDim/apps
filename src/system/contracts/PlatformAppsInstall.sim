@@ -1,7 +1,6 @@
 contract PlatformAppsInstall {
     data {
         Name string
-        Lang string "optional"
     }
     func appendOnce(ar array, menu, page, item string) array{
         if !Contains(menu, page) {

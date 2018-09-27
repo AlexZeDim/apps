@@ -1,7 +1,6 @@
 contract TokensRefundAccept {
     data {
         Id string
-        Lang string "optional"
     }
     
     func closeNotes() {

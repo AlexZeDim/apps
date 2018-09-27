@@ -4,7 +4,6 @@ contract NewMenu {
         Value string
         Title string "optional"
         Conditions string
-        Lang string "optional"
     }
 
     conditions {

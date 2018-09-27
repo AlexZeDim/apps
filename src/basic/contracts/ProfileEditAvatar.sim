@@ -1,7 +1,6 @@
 contract ProfileEditAvatar {
     data {
         member_image file
-        Lang string "optional"
     }
 
     conditions {

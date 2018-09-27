@@ -16,7 +16,6 @@ contract VotingTemplateCreate {
         ContractReject string "optional"
         ParamsReject string "optional"
         CountTypeVoters int
-        Lang string "optional"
     }
 
     conditions {

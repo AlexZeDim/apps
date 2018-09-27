@@ -9,7 +9,6 @@ contract VotingTemplateRun {
         ColumnName string "optional"
         NewValue string "optional"
         TextDocument string "optional"
-        Lang string "optional"
     }
     
     func checkInput(value, name string) {

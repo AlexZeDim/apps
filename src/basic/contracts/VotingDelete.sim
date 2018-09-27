@@ -1,7 +1,6 @@
 contract VotingDelete {
     data {
         votingID int
-        Lang string "optional"
     }
 
     conditions {

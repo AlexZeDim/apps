@@ -4,7 +4,6 @@ contract VotingTokensRefundCreate {
         SuspectAccount string
         Amount int
         Note string
-        Lang string "optional"
     }
     
     func blockAccounts(victimId, attackerId int) {

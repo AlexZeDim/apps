@@ -1,7 +1,6 @@
 contract NewUser {
     data {
         NewPubkey string
-        Lang string "optional"
     }
     conditions {
         $newId = PubToID($NewPubkey)

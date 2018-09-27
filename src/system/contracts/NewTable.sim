@@ -4,7 +4,6 @@ contract NewTable {
         Name string
         Columns string
         Permissions string
-        Lang string "optional"
     }
     conditions {
         if $ApplicationId == 0 {

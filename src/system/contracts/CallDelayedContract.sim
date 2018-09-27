@@ -1,8 +1,8 @@
 contract CallDelayedContract {
     data {
         Id int
-        Lang string "optional"
     }
+	
     conditions {
         var rows array
         rows = DBFind("@1delayed_contracts").Where({id: $Id, deleted: "false"})

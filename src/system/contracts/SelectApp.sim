@@ -1,7 +1,6 @@
 contract SelectApp {
     data {
         ApplicationId int
-        Lang string "optional"
     }
 
     conditions {

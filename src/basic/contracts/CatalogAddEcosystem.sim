@@ -12,7 +12,6 @@ contract CatalogAddEcosystem {
         Web_page string "optional"
         Email string "optional"
         Phone string "optional"
-        Lang string "optional"
     }
     
     conditions {

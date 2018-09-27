@@ -1,7 +1,6 @@
 contract RoleConditions {
     data {
         role string
-        Lang string "optional"
     }
     
     conditions {

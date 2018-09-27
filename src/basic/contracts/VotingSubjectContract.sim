@@ -7,7 +7,6 @@ contract VotingSubjectContract {
 
         contract_reject string
         contract_reject_params string "optional"
-        Lang string "optional"
     }
     
     func safeJsonToMap(m string) map {

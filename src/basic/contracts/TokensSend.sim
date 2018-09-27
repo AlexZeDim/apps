@@ -3,7 +3,6 @@ contract TokensSend {
         Amount money
         Recipient_Account string
         //Signature string "signature:TokensTransfer"
-        Lang string "optional"
     }
 
     conditions {

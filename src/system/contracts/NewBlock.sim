@@ -4,7 +4,6 @@ contract NewBlock {
         Name string
         Value string
         Conditions string
-        Lang string "optional"
     }
 
     conditions {

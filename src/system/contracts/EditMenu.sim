@@ -4,7 +4,6 @@ contract EditMenu {
         Value string "optional"
         Title string "optional"
         Conditions string "optional"
-        Lang string "optional"
     }
     func onlyConditions() bool {
         return $Conditions && !$Value && !$Title

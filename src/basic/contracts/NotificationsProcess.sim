@@ -1,7 +1,6 @@
 contract NotificationsProcess {
     data {
         notific_id int
-        Lang string "optional"
     }
     
     func getMemberInfo(kid int) map {

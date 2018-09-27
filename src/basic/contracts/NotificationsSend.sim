@@ -10,7 +10,6 @@ contract NotificationsSend {
         text_body string "optional"
         page_name string
         params_map string // json encoded expected
-        Lang string "optional"
         current_role_id string "optional"
     }
     

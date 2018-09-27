@@ -1,7 +1,6 @@
 contract RolesRequest {
     data {
         rid int
-        Lang string "optional"
     }
 
     conditions {

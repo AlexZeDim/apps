@@ -3,7 +3,6 @@ contract NewLangJoint {
         Name string
         ValueArr array
         LocaleArr array
-        Lang string "optional"
     }
 
     conditions {

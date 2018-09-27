@@ -3,7 +3,6 @@ contract ProfileEdit {
         member_name string
         information string "optional"
         image_id string "optional"
-        Lang string "optional"
     }
 
     conditions {

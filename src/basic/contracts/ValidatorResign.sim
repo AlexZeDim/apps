@@ -1,7 +1,5 @@
 contract ValidatorResign {
-    data {
-        Lang string "optional"
-    }
+    data {}
     
     func getParamInt(id int, name string) int {
         var param int

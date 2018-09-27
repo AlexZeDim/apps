@@ -3,7 +3,6 @@ contract VotingValidatorAccept {
         VotingTemplateId string
         KeyId string
         VotingId string
-        Lang string "optional"
     }
     
     func getAppRoleId(id int, name string, warn bool) int {

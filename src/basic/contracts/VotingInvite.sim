@@ -2,7 +2,6 @@ contract VotingInvite {
     data {
         votingID int
         var_id int //0, member_id, role_id
-        Lang string "optional"
     }
 
     func addVotingKey(key map, votingId int) {

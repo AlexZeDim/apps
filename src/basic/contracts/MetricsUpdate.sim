@@ -2,7 +2,6 @@ contract MetricsUpdate {
     data {
         Interval string
         Aggregate string
-        Lang string "optional"
     }
     
     func mapping(items array) map {

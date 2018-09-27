@@ -1,7 +1,5 @@
 contract Export {
-    data {
-        Lang string "optional"
-    }
+    data {}
 
     func createExport(items array) string {
         var res map

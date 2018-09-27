@@ -7,7 +7,6 @@ contract EditDelayedContract {
         BlockID int "optional"
         Limit int "optional"
         Deleted int "optional"
-        Lang string "optional"
     }
     conditions {
         ConditionById("delayed_contracts", true)

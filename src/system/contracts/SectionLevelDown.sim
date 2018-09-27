@@ -1,7 +1,6 @@
 contract SectionLevelDown {
        data {
         id int
-        Lang string "optional"
     }
     
     conditions {

@@ -6,7 +6,6 @@ contract EditPage {
         Conditions string "optional"
         ValidateCount int "optional"
         ValidateMode string "optional"
-        Lang string "optional"
     }
     func onlyConditions() bool {
         return $Conditions && !$Value && !$Menu && !$ValidateCount

@@ -1,7 +1,6 @@
 contract VotingTemplatesInstall {
     data {
         fill_ids string "optional"
-        Lang string "optional"
     }
 
     func applyTemplate(m map) {

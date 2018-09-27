@@ -3,7 +3,6 @@ contract Restore {
         Id int
         Type string
         IdHistory int
-        Lang string "optional"
     }
     conditions {
         var allowed map

@@ -2,7 +2,6 @@ contract EditApplication {
     data {
         ApplicationId int
         Conditions string "optional"
-        Lang string "optional"
     }
     func onlyConditions() bool {
         return $Conditions && false

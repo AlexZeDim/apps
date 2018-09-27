@@ -3,7 +3,6 @@ contract NotificationsBroadcast {
         RoleId int
         Header string
         Body string
-        Lang string "optional"
     }
     
     func getMemberInfo(kid int) map {

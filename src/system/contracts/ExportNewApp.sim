@@ -1,7 +1,6 @@
 contract ExportNewApp {
     data {
         ApplicationId int
-        Lang string "optional"
     }
 
     conditions {

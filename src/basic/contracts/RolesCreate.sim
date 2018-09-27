@@ -2,7 +2,6 @@ contract RolesCreate {
     data {
         role_name string
         role_type int
-        Lang string "optional"
     }
     
     func getMemberInfo(kid int) map {

@@ -2,7 +2,6 @@ contract MembershipDecide {
     data {
         notific_id int
         Accept int
-        Lang string "optional"
     }
     
     conditions {

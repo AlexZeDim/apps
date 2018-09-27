@@ -1,7 +1,6 @@
 contract CandidateValidatorDelete {
     data {
         Id int
-        Lang string "optional"
     }
     
     conditions {

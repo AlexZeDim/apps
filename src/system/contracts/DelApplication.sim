@@ -2,7 +2,6 @@ contract DelApplication {
     data {
         ApplicationId int
         Value int "optional"
-        Lang string "optional"
     }
 
     conditions {

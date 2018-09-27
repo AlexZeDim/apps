@@ -1,7 +1,5 @@
 contract NodeRemoveByKey {
-    data {
-        Lang string "optional"
-    }
+    data {}
     
     func nodesRemove(keyId int) array {
         var nodesJSON string nodes res array

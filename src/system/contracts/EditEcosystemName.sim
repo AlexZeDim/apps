@@ -2,7 +2,6 @@ contract EditEcosystemName {
     data {
         EcosystemID int
         NewName string
-        Lang string "optional"
     }
     conditions {
         var rows array

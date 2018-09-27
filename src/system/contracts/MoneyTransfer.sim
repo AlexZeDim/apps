@@ -1,9 +1,8 @@
 contract MoneyTransfer {
     data {
         Recipient string
-        Amount    string
-        Comment     string "optional"
-        Lang string "optional"
+        Amount string
+        Comment string "optional"
     }
     conditions {
         $recipient = AddressToId($Recipient)

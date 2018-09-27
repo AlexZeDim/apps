@@ -2,7 +2,6 @@ contract VotingSubjectCandidates {
     data {
         votingID int
         memberID int
-        Lang string "optional"
     }
     
     func getMemberInfo(kid int) map {

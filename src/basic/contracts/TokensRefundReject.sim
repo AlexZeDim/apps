@@ -1,7 +1,6 @@
 contract TokensRefundReject {
     data {
         Id string
-        Lang string "optional"
     }
 
     func unblockAccounts(victimId, attackerId string) {

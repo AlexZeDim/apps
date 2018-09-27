@@ -2,7 +2,6 @@ contract NewLang {
     data {
         Name string
         Trans string
-        Lang string "optional"
     }
 
     conditions {

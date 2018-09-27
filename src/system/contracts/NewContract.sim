@@ -5,7 +5,6 @@ contract NewContract {
         Conditions string
         Wallet string "optional"
         TokenEcosystem int "optional"
-        Lang string "optional"
     }
 
     conditions {

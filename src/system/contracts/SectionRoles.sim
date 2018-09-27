@@ -3,7 +3,6 @@ contract SectionRoles {
         id int
         rid int
         operation string
-        Lang string "optional"
     }
 
     conditions {

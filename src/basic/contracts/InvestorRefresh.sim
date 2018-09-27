@@ -1,7 +1,6 @@
 contract InvestorRefresh {
     data {
         RoleId int
-        Lang string "optional"
     }
     
     func notInArray(val string, arr array) bool {

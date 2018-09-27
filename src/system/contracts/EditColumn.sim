@@ -4,7 +4,6 @@ contract EditColumn {
         Name string
         UpdatePerm string
         ReadPerm string
-        Lang string "optional"
     }
 
     conditions {

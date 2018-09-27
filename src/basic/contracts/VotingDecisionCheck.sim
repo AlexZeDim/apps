@@ -1,7 +1,6 @@
 contract VotingDecisionCheck {
     data {
         votingID int
-        Lang string "optional"
     }
     
     func runContract(cont, p string) {

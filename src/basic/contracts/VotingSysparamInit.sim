@@ -2,7 +2,6 @@ contract VotingSysparamInit {
     data {
         Name string
         Value string
-        Lang string "optional"
     }
 
     conditions {

@@ -5,7 +5,6 @@ contract EditSection {
         status int
         urlname string
         page string
-        Lang string "optional"
     }
 
     conditions {

@@ -1,7 +1,6 @@
 contract VotingNotificationSend {
     data {
         votingID int
-        Lang string "optional"
     }
     
     func safeJsonToMap(m string) map {

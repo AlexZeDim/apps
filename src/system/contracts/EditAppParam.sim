@@ -3,7 +3,6 @@ contract EditAppParam {
         Id int
         Value string "optional"
         Conditions string "optional"
-        Lang string "optional"
     }
     func onlyConditions() bool {
         return $Conditions && !$Value
