@@ -628,7 +628,7 @@
         {
             "Name": "ProfileEditAvatar",
             "Conditions": "ContractConditions(\"MainCondition\")",
-            "Value": "contract ProfileEditAvatar {\r\n    data {\r\n        member_image bytes \"file\"\r\n        Lang string \"optional\"\r\n    }\r\n\r\n    conditions {\r\n        $app_id = DBFind(\"@1applications\").Where({ecosystem:1, name:\"Basic\", deleted:0}).One(\"id\")\r\n        \r\n        if !$app_id {\r\n            warning LangRes(\"@1app_not_found\", $Lang)\r\n        }\r\n    }\r\n\r\n    action {\r\n        var m map\r\n        m[\"image_id\"] = @1UploadBinary(\"Name,Data,ApplicationId\", \"new_avatar\", $member_image, Int($app_id))\r\n        @1BufferManager(\"Action,Key,Val\", \"set\", \"avatar\", JSONEncode(m))\r\n    }\r\n}",
+            "Value": "contract ProfileEditAvatar {\r\n    data {\r\n        member_image file\r\n        Lang string \"optional\"\r\n    }\r\n\r\n    conditions {\r\n        $app_id = DBFind(\"@1applications\").Where({ecosystem:1, name:\"Basic\", deleted:0}).One(\"id\")\r\n        \r\n        if !$app_id {\r\n            warning LangRes(\"@1app_not_found\", $Lang)\r\n        }\r\n    }\r\n\r\n    action {\r\n        var m map\r\n        m[\"image_id\"] = @1UploadBinary(\"Name,Data,ApplicationId\", \"new_avatar\", $member_image, Int($app_id))\r\n        @1BufferManager(\"Action,Key,Val\", \"set\", \"avatar\", JSONEncode(m))\r\n    }\r\n}",
             "Type": "contracts"
         },
         {

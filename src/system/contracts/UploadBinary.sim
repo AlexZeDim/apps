@@ -2,10 +2,9 @@ contract UploadBinary {
     data {
         ApplicationId int
         Name string
-        Data bytes "file"
-        DataMimeType string "optional"
-        Lang string "optional"
+        Data file
     }
+
 
     conditions {
         $Id = Int(DBFind("@1binaries").Columns("id").Where({app_id: $ApplicationId,
@@ -18,18 +17,22 @@ contract UploadBinary {
         }
     }
     action {
-        var hash string
-        hash = Hash($Data)
+        var hash, mimeType string
+        var body bytes
 
-        if $DataMimeType == "" {
-            $DataMimeType = "application/octet-stream"
+        body = $Data["Body"]
+        hash = Hash(data)
+        mimeType = $Data["MimeType"]
+
+        if mimeType == "" {
+            mimeType = "application/octet-stream"
         }
 
         if $Id != 0 {
-            DBUpdate("@1binaries", $Id, {"data": $Data,"hash": hash,"mime_type": $DataMimeType})
+            DBUpdate("@1binaries", $Id, {"data":body, "hash":hash, "mime_type":mimeType})
         } else {
-            $Id = DBInsert("@1binaries", {"app_id": $ApplicationId,"member_id": $key_id,
-               "name": $Name,"data": $Data,"hash": hash, "mime_type": $DataMimeType, "ecosystem":$ecosystem_id})
+            $Id = DBInsert("@1binaries", {"app_id":$ApplicationId, "member_id":$key_id,
+               "name":$Name, "data":body, "hash":hash, "mime_type": mimeType, "ecosystem":$ecosystem_id})
         }
 
         $result = $Id

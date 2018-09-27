@@ -1,6 +1,6 @@
 contract ProfileEditAvatar {
     data {
-        member_image bytes "file"
+        member_image file
         Lang string "optional"
     }
 
