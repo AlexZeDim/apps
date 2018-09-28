@@ -1,6 +1,6 @@
 digraph G {
 fontsize="24";
-label="basic\nFriday, 28-Sep-18 13:04:18 +10";
+label="basic\nFriday, 28-Sep-18 14:00:09 +10";
 nojustify=true;
 ordering=out;
 rankdir=LR;
@@ -145,6 +145,8 @@ size="30";
 "tokenrefund_create\npage" -> "@1VotingTokensRefundCreate\ncontract"  [ color=red ]
 "tokenrefund_create\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "1applications\ntable" -> "tokenrefund_list\npage"
+"1voting_templates\ntable" -> "tokenrefund_list\npage"
+"1roles\ntable" -> "tokenrefund_list\npage"
 "1tokenrefund\ntable" -> "tokenrefund_list\npage"
 "tokenrefund_list\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "tokens_transfer\npage" -> "@1TokensSend\ncontract"  [ color=red ]
@@ -502,6 +504,7 @@ size="30";
 "1keys\ntable" -> "VotingTokensRefundCreate\ncontract"
 "1applications\ntable" -> "VotingTokensRefundCreate\ncontract"
 "1voting_templates\ntable" -> "VotingTokensRefundCreate\ncontract"
+"1roles\ntable" -> "VotingTokensRefundCreate\ncontract"
 "1roles_participants\ntable" -> "VotingTokensRefundCreate\ncontract"
 "VotingTokensRefundCreate\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "VotingUpdate\ncontract" -> "VotingDecisionCheck\ncontract"  [ color=red ]
