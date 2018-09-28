@@ -169,7 +169,7 @@ Div(panel panel-primary){
         Div(list-group-item){
             Div(clearfix){
                 Div(pull-left){
-                    $@1tables$
+                    Span($@1tables$)
                 }
                 Div(pull-right){
                     If(#count_tables# > 0){
