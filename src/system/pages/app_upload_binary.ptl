@@ -29,7 +29,7 @@ Div(content-wrapper){
             Input(Name: Data, Type: file)
         }
         Div(form-group text-right){
-			Input(Name: ApplicationId, Value: #application_id#, Class: hidden)
+            Input(Name: ApplicationId, Value: #application_id#, Class: hidden)
             Button(Body: $@1button_upload$, Contract: @1UploadFile, Class: btn btn-primary, Page: @1app_binary)
         }
     }
