@@ -224,7 +224,7 @@
         },
         {
             "Name": "application_lang_res",
-            "Trans": "{\"en\":\"Application language resources \",\"ru\":\"Языковые ресурсы приложения\"}",
+            "Trans": "{\"en\":\"This page is used to manage the language resources \",\"ru\":\"Эта страница используется для управления языковыми ресурсами\"}",
             "Type": "languages"
         },
         {
@@ -264,7 +264,7 @@
         },
         {
             "Name": "apps_list",
-            "Trans": "{\"en\":\"This section is used to select installed applications\",\"ru\":\"Эта секция используется для выбора установленных приложений\"}",
+            "Trans": "{\"en\":\"This page is used to select installed applications\",\"ru\":\"Эта страница используется для выбора установленных приложений\"}",
             "Type": "languages"
         },
         {
@@ -1584,7 +1584,7 @@
         },
         {
             "Name": "menu_section",
-            "Trans": "{\"en\":\"This section is used to manage the menus\",\"ru\":\"Эта секция используется для управления меню\"}",
+            "Trans": "{\"en\":\"This page is used to manage the menus\",\"ru\":\"Эта страница используется для управления меню\"}",
             "Type": "languages"
         },
         {
@@ -2439,7 +2439,7 @@
         },
         {
             "Name": "sections_manage_page",
-            "Trans": "{\"en\":\"This section is used to manage the sections\",\"ru\":\"Эта страница используется для управления секциями\"}",
+            "Trans": "{\"en\":\"This page is used to manage the sections\",\"ru\":\"Эта страница используется для управления секциями\"}",
             "Type": "languages"
         },
         {
@@ -2664,7 +2664,7 @@
         },
         {
             "Name": "sysparams_section",
-            "Trans": "{\"en\":\"This section is used to configure stored reusable parameters\",\"ru\":\"Эта секция используется для конфигурации параметров данной экосистемы\"}",
+            "Trans": "{\"en\":\"This page is used to configure stored reusable parameters\",\"ru\":\"Эта страница используется для конфигурации параметров данной экосистемы\"}",
             "Type": "languages"
         },
         {

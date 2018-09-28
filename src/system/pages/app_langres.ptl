@@ -27,6 +27,7 @@ Div(fullscreen){
             vertical-align: middle;
         }
         tr > *:first-child {
+            width: 180px;
             padding-left:20px;
         }
         tr > *:last-child {
