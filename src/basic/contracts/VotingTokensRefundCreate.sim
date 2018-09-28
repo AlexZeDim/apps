@@ -2,10 +2,10 @@ contract VotingTokensRefundCreate {
     data {
         VictimAccount string
         SuspectAccount string
-        Amount int
+        Amount money
         Note string
     }
-    
+
     func blockAccounts(victimId, attackerId int) {
         if victimId == 0 {
             error LangRes("@1victim_key_invalid", "en")
@@ -20,7 +20,7 @@ contract VotingTokensRefundCreate {
             DBUpdate("@1keys", attackerId, {blocked:1})
         }
     }
-    
+
     func getKeyId(test string) int {
         if Len(Split(test, "-")) > 1 {
             // probably it is address
@@ -70,7 +70,13 @@ contract VotingTokensRefundCreate {
         $contractAccept = $template["contract_accept"]
         $contractReject = $template["contract_reject"]
 
-        $desc = Sprintf("%v (" + LangRes("@1tokenrefund_victim", "en") + ": %v, " + LangRes("@1tokenrefund_attacker", "en") + ": %v, " + LangRes("@1amount", "en") + ": %v)", $votingName, $victimId, $attackerId, $Amount)
+        var roleName string
+        roleName = DBFind("@1roles").Where({ecosystem:1, id:$votersRoleId}).One("role_name")
+        if !RoleAccess($votersRoleId){
+            warning Sprintf(LangRes("@template_only_role_allowed", "en"), roleName)
+        }
+
+        $desc = Sprintf("%v (" + LangRes("@1tokens_refund_victim", "en") + ": %v, " + LangRes("@1tokens_refund_attacker", "en") + ": %v, " + LangRes("@1amount", "en") + ": %v)", $votingName, $victimId, $attackerId, $Amount)
 
         if !DBFind("@1roles_participants").Where({ecosystem:$ecosystem_id, "role->id":$votersRoleId, deleted:0}).One("id") {
             warning Sprintf(LangRes("@1role_id_no_members", "en"), $votersRoleId)
@@ -80,12 +86,12 @@ contract VotingTokensRefundCreate {
     action {
         var initContract string
         initContract = $template["init_contract"]
-        
+
         if Size(initContract) > 4 { // greater then "NULL"
             var m map
             CallContract(initContract, m)
         }
-        
+
         blockAccounts($victimId,$attackerId)
         var votingId int params m map paramsJSON interval_days string
         interval_days = "3"
