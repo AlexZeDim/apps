@@ -1,0 +1,26 @@
+DBFind(@1applications).Where({ecosystem:#ecosystem_id#, name:"Trade APL"}).Columns("id").Vars(application)
+DBFind(wallets).Where({key_id_buyer:#key_id#, rejected_at:0}).Vars(wallet)
+
+SetVar(this_page, ta_buyer_contract)
+SetTitle("Страница с договором на которую покупатель переходит при заходе")
+Div(content-wrapper){
+    Div(row mt-sm){
+        Div(col-lg-10 col-lg-offset-1){
+            Form(panel panel-primary){
+                If(#wallet_id#>0){
+                    Div(panel-body){
+                        вы уже заключили договор с Apla
+                    }
+                }.Else{
+                    Div(panel-body){
+                        текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора текст договора
+                    }
+                    Div(panel-footer){
+                        Button(Body: $@1reject$, Class: btn btn-default, Page: #this_page#, Contract: TaBuyerAction, Params: "Action=reject")
+                        Button(Body: $@1accept$, Class: btn btn-primary pull-right, Page: #this_page#, Contract: TaBuyerAction, Params: "Action=accept")
+                    }
+                }
+            }
+        }
+    }
+}

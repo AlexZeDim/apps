@@ -1,0 +1,69 @@
+DBFind(@1applications).Where({ecosystem:#ecosystem_id#, name:"Trade APL"}).Columns("id").Vars(application)
+SetVar(sale_admin, AppParam(App:#application_id#, Name:role_sale_apl_manager, Ecosystem: #ecosystem_id#))
+AppParam(App:#application_id#, Name:ta_currency_type, Ecosystem: #ecosystem_id#, Source:currency_type)
+
+TODO: this page
+
+DBFind(@1notifications).Where({ecosystem:#ecosystem_id#, id:#notific_id#}).Columns("page_params->wallet_id").Vars(note)
+
+
+SetVar(this_page, ta_tokens_transfer)
+Div(content-wrapper){
+    Div(row mt-sm){
+        Div(col-lg-10 col-lg-offset-1){
+            Form(panel panel-primary){
+                DBFind(wallets, wallets).Where({key_id_buyer:{$neq:0}, key_id_signer:{$neq:0}, rejected_at:0}).Vars(wallet).Custom(_name){
+                    Address(#key_id_buyer#)
+                }
+                If(And(#sale_admin#>0,#role_id#==#sale_admin#)){
+                    SetVar(row,"row mt-sm").(col_left,"col-sm-4 text-right").(col_right,"col-sm-8 text-left")
+                    Div(panel-body){
+                        Div(#row#){
+                            Div(#col_left#){
+                                $@1wallet$
+                            }
+                            Div(#col_right#){
+                                Select(Name:WalletId, Source:wallets, NameColumn: _name, ValueColumn: key_id_buyer)
+                            }
+                        }
+                        Div(#row#){
+                            Div(#col_left#){
+                                $@1amount$
+                            }
+                            Div(#col_right#){
+                                Input(Name:Amount, Type:number)
+                            }
+                        }
+                        Div(#row#){
+                            Div(#col_left#){
+                                $@1amount$
+                            }
+                            Div(#col_right#){
+                                Select(Name:CurrencyType, Source:currency_type, NameColumn: name, ValueColumn: id)
+                            }
+                        }
+                        Div(#row#){
+                            Div(#col_left#){
+                                $@1amount_apl$
+                            }
+                            Div(#col_right#){
+                                Input(Name:AmountApl, Type:number)
+                            }
+                        }
+                    }
+                    Div(panel-footer text-center){
+                        Button(Body: $@1send_to_check$, Class: btn btn-primary, Page: #this_page#, Contract: TaSaleCheck)
+                    }
+                }.Else{
+                    Div(panel-body){
+                        If(#sale_admin#>0){}.Else{
+                            role_sale_apl_admin not setted
+                        }.ElseIf(#sale_admin#!=#role_id#){
+                            this page only for role from parameter 'role_sale_apl_admin'
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
