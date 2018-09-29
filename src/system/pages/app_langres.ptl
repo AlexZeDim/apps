@@ -7,7 +7,7 @@ SetVar(this_page,@1app_langres)
 
 Div(fullscreen){
     SetTitle("$@1lang_res$")
-    AddToolButton(Title: "$@1button_create$", Page: @1langres_add, Icon: icon-plus)
+    AddToolButton(Title: "$@1create$", Page: @1langres_add, Icon: icon-plus)
     DBFind(@1languages, src_languages).Where({ecosystem:#ecosystem_id#}).Vars(check)
     If(#check_id# > 0){
         Div(breadcrumb){

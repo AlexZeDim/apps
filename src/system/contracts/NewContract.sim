@@ -26,7 +26,7 @@ contract NewContract {
         $contract_name = ContractName($Value)
 
         if !$contract_name {
-            error LangRes("@1must_name", "en")"must be the name"
+            error LangRes("@1contract_name_missing", "en")
         }
 
         if !$TokenEcosystem {

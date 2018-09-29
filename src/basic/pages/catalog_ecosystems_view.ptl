@@ -2,7 +2,7 @@ Div(content-wrapper){
     DBFind(@1applications).Where({ecosystem:1, name:"Basic"}).Columns("name,id").Vars(app)
     DBFind(catalog_ecosystems,src_catalog).WhereId(#v_id#).Columns("id,ecosystem_name,ecosystem_type,ecosystem_number,image_id,flag_free,ecosystem_info->email,ecosystem_info->phone,ecosystem_info->description,ecosystem_info->conditions,url_address->vde_form_address,url_address->web_page,url_address->vde_page,url_address->web_form_address").Vars(prefix)
 
-    SetTitle($@1catalog_ecosystems_number$: #prefix_ecosystem_name#)
+    SetTitle($@1ecosystem$: #prefix_ecosystem_name#)
     Div(breadcrumb){
         LinkPage($@1catalog_ecosystems$, catalog_ecosystems)
         Span(/).Style(margin-right: 10px; margin-left: 10px;)

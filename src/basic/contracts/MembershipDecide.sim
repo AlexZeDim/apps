@@ -40,8 +40,8 @@ contract MembershipDecide {
         ecoId = $request["page_params.ecosystem_id"]
         ecoName = DBFind("@1ecosystems").Where({id:ecoId}).One("name")
         icon = "icon icon-user-follow"
-        header = LangRes("@1request_accepted", "en")
-        body = Sprintf(LangRes("@1ecosystem_request_accepted", "en"), ecoName, ecoId)
+        header = LangRes("@1request_approved", "en")
+        body = Sprintf(LangRes("@1ecosystem_request_approved", "en"), ecoName, ecoId)
         page = "membership_user_view"
 
         @1NotificationsSend("member_id,sender,icon_name,text_header,text_body,page_name,params_map", $request["sender.member_id"], 1, icon, header, body, page, params)

@@ -81,15 +81,15 @@ contract VotingCreate {
         }
         if $count_type_voters == 0 {
             if ($quorum < 5) || ($quorum > 100) {
-                warning Sprintf(LangRes("@1quorum_range_should_be", "en"), $quorum)
+                warning Sprintf(LangRes("@1quorum_range_must_be", "en"), $quorum)
             }
             if ($volume < 50) || ($volume > 100) {
-                warning Sprintf(LangRes("@1volume_range_should_be", "en"), $volume)
+                warning Sprintf(LangRes("@1volume_range_must_be", "en"), $volume)
             }
         }
         if $count_type_voters == 1 {
             if $volume <= 0 {
-                info LangRes("@1volume_less_one", "en")
+                info LangRes("@1voters_number_less_one", "en")
             }
             $quorum = 0
         }
