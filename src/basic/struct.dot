@@ -1,6 +1,6 @@
 digraph G {
 fontsize="24";
-label="basic\nSaturday, 29-Sep-18 14:29:13 +10";
+label="basic\nSaturday, 29-Sep-18 18:21:24 +10";
 nojustify=true;
 ordering=out;
 rankdir=LR;
@@ -120,9 +120,11 @@ size="30";
 "members\ntable" -> "sysparams_candidates_list\npage"
 "sysparams_candidates_list\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "1applications\ntable" -> "sysparams_list\npage"
-"1system_parameters\ntable" -> "sysparams_list\npage"
+"src_sysparams\ntable" -> "sysparams_list\npage"
 "1contracts\ntable" -> "sysparams_list\npage"
 "1roles_participants\ntable" -> "sysparams_list\npage"
+"sysparams_list\npage" -> "@1pager_header\nblock"  [ color=green, label=include ]
+"sysparams_list\npage" -> "@1pager\nblock"  [ color=green, label=include ]
 "sysparams_list\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "1metrics\ntable" -> "sysparams_metrics\npage"
 "sysparams_metrics\npage" [color=green, fontcolor=green, group=pages, shape=record];
