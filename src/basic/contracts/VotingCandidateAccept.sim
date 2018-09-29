@@ -35,7 +35,7 @@ contract VotingCandidateAccept {
         if $voting["status"] != $STARTED {
             warning LangRes("@1voting_not_started", "en")
         }
-        $subject_map = DBFind("@1votings_subject").Where({ecosystem:$ecosystem_id, voting_id:$votingID, "subject->member_id":$candidateID}).Row()
+        $subject_map = DBFind("@1votings_subject").Where({ecosystem:$ecosystem_id, voting_id:$votingID, "subject->member_id":$CandidateID}).Row()
         if !$subject_map {
             warning LangRes("@1voting_subject_not_found", "en")
         }
@@ -87,7 +87,7 @@ contract VotingCandidateAccept {
             // write the result of the voting
             var m map
             m["decision_date"] = bt
-            m["decision"] = $candidateID
+            m["decision"] = $CandidateID
             DBUpdate("@1votings_participants", Int($participant_id), m)
 
             // increment count of accept

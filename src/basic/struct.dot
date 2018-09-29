@@ -1,6 +1,6 @@
 digraph G {
 fontsize="24";
-label="basic\nFriday, 28-Sep-18 22:25:35 +10";
+label="basic\nSaturday, 29-Sep-18 12:59:25 +10";
 nojustify=true;
 ordering=out;
 rankdir=LR;
@@ -520,6 +520,8 @@ size="30";
 "1roles\ntable" -> "VotingValidatorAccept\ncontract"
 "VotingValidatorAccept\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "VotingValidatorInit\ncontract" -> "DelegateRefresh\ncontract"  [ color=red ]
+"1applications\ntable" -> "VotingValidatorInit\ncontract"
+"1roles_participants\ntable" -> "VotingValidatorInit\ncontract"
 "sysparams_candidate\ntable" -> "VotingValidatorInit\ncontract"
 "VotingValidatorInit\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "catalog_ecosystems\ntable" [color="", fontcolor="", group=tables, shape=""];
