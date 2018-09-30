@@ -17,7 +17,7 @@ Div(content-wrapper){
                 Label($@1name$)
             }
             If(#id# > 0){
-                Input(Name: name, Disabled: disabled, Value: #binary_name#)
+                Input(Name: Name, Disabled: disabled, Value: #binary_name#)
             }.Else{
                 Input(Name: Name)
             }

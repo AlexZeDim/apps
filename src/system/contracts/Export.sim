@@ -120,13 +120,12 @@ contract Export {
         items = exportTable("pages", items)
         items = exportTable("contracts", items)
         items = exportTable("blocks", items)
-        items = exportTable("languages", items)
+        //items = exportTable("languages", items)
         items = exportTable("app_params", items)
         items = exportTable("tables", items)
         items = exportTable("menu", items)
 
         exportJSON = createExport(items)
-        
         UploadBinary("Name,Data,ApplicationId,DataMimeType", "export", exportJSON, $AppID, "application/json")
     }
 }
