@@ -4,14 +4,14 @@ contract TaTransferManager {
     }
     func getRoleId(name string) int{
         var rid int
-        rid = Int(AppParam($appId, name, $ecosystem_id)
+        rid = Int(AppParam($appId, name, $ecosystem_id))
         if rid == 0{
             warning Sprintf(LangRes("@1role_not_set_application_parameter", "en"), name)
         }
         return rid
     }
     conditions{
-        $appId = Int(DBFind("@1applications").Where({ecosystem_id:#ecosystem_id#, name:"Trade APL"}).One("id"))
+        $appId = Int(DBFind("@1applications").Where({ecosystem:$ecosystem_id, name:"Trade APL"}).One("id"))
         if $appId == 0{
             warning LangRes("@1app_not_found", "en")
         }
@@ -33,8 +33,8 @@ contract TaTransferManager {
 
         // role Apla seller notification
         var params map title page string
-        title = Sprintf("Transfer sale id %v", saleId)
-        params["sale_id"] = saleId
+        title = Sprintf("Transfer sale id %v", $sale["id"])
+        params["sale_id"] = $sale["id"]
         page = "ta_transfer_seller"
         @1NotificationsSend("rid,sender,text_header,page_name,params_map,closure_type", $roleAplSeller, 2, title, page, params, 1)
 

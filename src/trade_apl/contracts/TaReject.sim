@@ -6,14 +6,14 @@ contract TaReject {
     }
     func getRoleId(name string) int{
         var rid int
-        rid = Int(AppParam($appId, name, $ecosystem_id)
+        rid = Int(AppParam($appId, name, $ecosystem_id))
         if rid == 0{
             warning Sprintf(LangRes("@1role_not_set_application_parameter", "en"), name)
         }
         return rid
     }
     conditions{
-        $appId = Int(DBFind("@1applications").Where({ecosystem_id:#ecosystem_id#, name:"Trade APL"}).One("id"))
+        $appId = Int(DBFind("@1applications").Where({ecosystem:$ecosystem_id, name:"Trade APL"}).One("id"))
         if $appId == 0{
             warning LangRes("@1app_not_found", "en")
         }
@@ -36,10 +36,9 @@ contract TaReject {
 
     action {
         var sale params map title body string prevKeyId int
-        sale["id"] = $saleId
         title = Sprintf("Sale %v rejected", $saleId)
         body = $Comment
-        params["sale_id"] = saleId
+        params["sale_id"] = $saleId
 
         if $RoleParam == "role_sale_apl_manager"{
             sale["key_id_sale_apl_manager"] = $key_id
@@ -54,7 +53,7 @@ contract TaReject {
             prevKeyId = Int($sale["key_id_sale_apl_manager"])
         }
 
-        DBUpdate("sales", sale)
+        DBUpdate("sales", $saleId, sale)
         @1NotificationsSend("member_id,sender,text_header,text_body,page_name,params_map,closure_type", prevKeyId, 1, title, body, "ta_notification", params, 1)
 
     }

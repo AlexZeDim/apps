@@ -4,14 +4,14 @@ contract TaTransferSeller {
     }
     func getRoleId(name string) int{
         var rid int
-        rid = Int(AppParam($appId, name, $ecosystem_id)
+        rid = Int(AppParam($appId, name, $ecosystem_id))
         if rid == 0{
             warning Sprintf(LangRes("@1role_not_set_application_parameter", "en"), name)
         }
         return rid
     }
     conditions{
-        $appId = Int(DBFind("@1applications").Where({ecosystem_id:#ecosystem_id#, name:"Trade APL"}).One("id"))
+        $appId = Int(DBFind("@1applications").Where({ecosystem:$ecosystem_id, name:"Trade APL"}).One("id"))
         if $appId == 0{
             warning LangRes("@1app_not_found", "en")
         }
@@ -29,7 +29,7 @@ contract TaTransferSeller {
     }
 
     action {
-        var sale transfer map saleId int
+        var sale transfer map
         sale["key_id_seller"] = $key_id
         sale["seller_transferred_at"] = $time
         DBUpdate("sales", Int($sale["id"]), sale)
