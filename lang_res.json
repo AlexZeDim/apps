@@ -4,12 +4,12 @@
     "data": [
         {
             "Name": "APL_not_required",
-            "Trans": "{\"en\":\"APL not required\",\"ru\":\"Не требуется наличие APL\"}",
+            "Trans": "{\"en\": \"APL not required\", \"ru\": \"Не требуется наличие APL\"}",
             "Type": "languages"
         },
         {
             "Name": "APL_required",
-            "Trans": "{\"en\":\"APL required\",\"ru\":\"Требуется наличие APL\"}",
+            "Trans": "{\"en\": \"APL required\", \"ru\": \"Требуется наличие APL\"}",
             "Type": "languages"
         },
         {
@@ -49,7 +49,7 @@
         },
         {
             "Name": "action",
-            "Trans": "{\"en\":\"Action\",\"ru\":\"Действие\"}",
+            "Trans": "{\"en\": \"Action\", \"ru\": \"Действие\"}",
             "Type": "languages"
         },
         {
@@ -94,7 +94,7 @@
         },
         {
             "Name": "address",
-            "Trans": "{\"en\":\"Address\",\"ru\":\"Адрес\"}",
+            "Trans": "{\"en\": \"Address\", \"ru\": \"Адрес\"}",
             "Type": "languages"
         },
         {
@@ -104,7 +104,7 @@
         },
         {
             "Name": "admin",
-            "Trans": "{\"en\":\"Administrator\",\"ru\":\"Администратор\"}",
+            "Trans": "{\"en\": \"Administrator\", \"ru\": \"Администратор\"}",
             "Type": "languages"
         },
         {
@@ -199,7 +199,7 @@
         },
         {
             "Name": "app_param",
-            "Trans": "{\"en\":\"Application parameter\",\"ru\":\"Параметр приложения\"}",
+            "Trans": "{\"en\": \"Application parameter\", \"ru\": \"Параметр приложения\"}",
             "Type": "languages"
         },
         {
@@ -209,7 +209,7 @@
         },
         {
             "Name": "application",
-            "Trans": "{\"en\":\"Application\",\"ru\":\"Приложение\"}",
+            "Trans": "{\"en\": \"Application\", \"ru\": \"Приложение\"}",
             "Type": "languages"
         },
         {
@@ -219,7 +219,7 @@
         },
         {
             "Name": "application_export_select",
-            "Trans": "{\"en\":\"Select an application that you want to export and proceed to the payload generation process\",\"ru\":\"Выберите приложение, которое вы хотите экспортировать, и ожидайте. Ваша ссылка вскоре будет готова\"}",
+            "Trans": "{\"en\": \"Select an application that you want to export and proceed to the payload generation process\", \"ru\": \"Выберите приложение, которое вы хотите экспортировать, и ожидайте. Ваша ссылка вскоре будет готова\"}",
             "Type": "languages"
         },
         {
@@ -234,7 +234,7 @@
         },
         {
             "Name": "applications",
-            "Trans": "{\"en\":\"Applications\",\"ru\":\"Приложения\"}",
+            "Trans": "{\"en\": \"Applications\", \"ru\": \"Приложения\"}",
             "Type": "languages"
         },
         {
@@ -259,12 +259,12 @@
         },
         {
             "Name": "apps_inactive",
-            "Trans": "{\"en\":\"Inactive applications\",\"ru\":\"Неиспользуемые приложения\"}",
+            "Trans": "{\"en\": \"Inactive applications\", \"ru\": \"Неиспользуемые приложения\"}",
             "Type": "languages"
         },
         {
             "Name": "apps_list",
-            "Trans": "{\"en\":\"This page is used to select installed applications\",\"ru\":\"Эта страница используется для выбора установленных приложений\"}",
+            "Trans": "{\"en\": \"This page is used to select installed applications\", \"ru\": \"Эта страница используется для выбора установленных приложений\"}",
             "Type": "languages"
         },
         {
@@ -344,7 +344,7 @@
         },
         {
             "Name": "available",
-            "Trans": "{\"en\":\"Available\",\"ru\":\"Доступно\"}",
+            "Trans": "{\"en\": \"Available\", \"ru\": \"Доступно\"}",
             "Type": "languages"
         },
         {
@@ -384,12 +384,12 @@
         },
         {
             "Name": "binary_upload",
-            "Trans": "{\"en\":\"Upload binary\",\"ru\":\"Загрузить файл\"}",
+            "Trans": "{\"en\": \"Upload binary\", \"ru\": \"Загрузить файл\"}",
             "Type": "languages"
         },
         {
             "Name": "bind",
-            "Trans": "{\"en\":\"Bind\",\"ru\":\"Привязать\"}",
+            "Trans": "{\"en\": \"Bind\", \"ru\": \"Привязать\"}",
             "Type": "languages"
         },
         {
@@ -399,7 +399,7 @@
         },
         {
             "Name": "block_history",
-            "Trans": "{\"en\":\"Block history\",\"ru\":\"История блока\"}",
+            "Trans": "{\"en\": \"Block history\", \"ru\": \"История блока\"}",
             "Type": "languages"
         },
         {
@@ -429,7 +429,7 @@
         },
         {
             "Name": "body_text",
-            "Trans": "{\"en\":\"Text\",\"ru\":\"Текст\"}",
+            "Trans": "{\"en\": \"Text\", \"ru\": \"Текст\"}",
             "Type": "languages"
         },
         {
@@ -439,12 +439,12 @@
         },
         {
             "Name": "business",
-            "Trans": "{\"en\":\"Business\",\"ru\":\"Бизнес\"}",
+            "Trans": "{\"en\": \"Business\", \"ru\": \"Бизнес\"}",
             "Type": "languages"
         },
         {
             "Name": "button_upload",
-            "Trans": "{\"en\":\"Upload\",\"ru\":\"Загрузить\"}",
+            "Trans": "{\"en\": \"Upload\", \"ru\": \"Загрузить\"}",
             "Type": "languages"
         },
         {
@@ -509,7 +509,7 @@
         },
         {
             "Name": "candidates_404",
-            "Trans": "{\"en\":\"Candidates is not found\",\"ru\":\"Кандидаты не найдены\"}",
+            "Trans": "{\"en\": \"Candidates is not found\", \"ru\": \"Кандидаты не найдены\"}",
             "Type": "languages"
         },
         {
@@ -519,12 +519,12 @@
         },
         {
             "Name": "catalog_ecosystems",
-            "Trans": "{\"en\":\"Catalog of ecosystems\",\"ru\":\"Каталог экосистем\"}",
+            "Trans": "{\"en\": \"Catalog of ecosystems\", \"ru\": \"Каталог экосистем\"}",
             "Type": "languages"
         },
         {
             "Name": "catalog_ecosystems_conditions",
-            "Trans": "{\"en\":\"Ecosystem conditions and procedure for accession\",\"ru\":\"Условия и порядок присоединения к экосистеме\"}",
+            "Trans": "{\"en\": \"Ecosystem conditions and procedure for accession\", \"ru\": \"Условия и порядок присоединения к экосистеме\"}",
             "Type": "languages"
         },
         {
@@ -534,7 +534,7 @@
         },
         {
             "Name": "catalog_ecosystems_contact_phone",
-            "Trans": "{\"en\":\"Contact phone\",\"ru\":\"Контактный телефон\"}",
+            "Trans": "{\"en\": \"Contact phone\", \"ru\": \"Контактный телефон\"}",
             "Type": "languages"
         },
         {
@@ -544,7 +544,7 @@
         },
         {
             "Name": "catalog_ecosystems_description",
-            "Trans": "{\"en\":\"Ecosystem hardware description\",\"ru\":\"Описание оборудования экосистемы\"}",
+            "Trans": "{\"en\": \"Ecosystem hardware description\", \"ru\": \"Описание оборудования экосистемы\"}",
             "Type": "languages"
         },
         {
@@ -554,12 +554,12 @@
         },
         {
             "Name": "catalog_ecosystems_freetype",
-            "Trans": "{\"en\":\"Availability of own funds for entry\",\"ru\":\"Наличие собственных средств для вступления\"}",
+            "Trans": "{\"en\": \"Availability of own funds for entry\", \"ru\": \"Наличие собственных средств для вступления\"}",
             "Type": "languages"
         },
         {
             "Name": "catalog_ecosystems_logo",
-            "Trans": "{\"en\":\"Logotype image\",\"ru\":\"Изображение логотипа\"}",
+            "Trans": "{\"en\": \"Logotype image\", \"ru\": \"Изображение логотипа\"}",
             "Type": "languages"
         },
         {
@@ -569,7 +569,7 @@
         },
         {
             "Name": "catalog_ecosystems_type",
-            "Trans": "{\"en\":\"Ecosystem type\",\"ru\":\"Тип экосистемы\"}",
+            "Trans": "{\"en\": \"Ecosystem type\", \"ru\": \"Тип экосистемы\"}",
             "Type": "languages"
         },
         {
@@ -579,7 +579,7 @@
         },
         {
             "Name": "change_conditions",
-            "Trans": "{\"en\":\"Change conditions\",\"ru\":\"Условия изменения\"}",
+            "Trans": "{\"en\": \"Change conditions\", \"ru\": \"Условия изменения\"}",
             "Type": "languages"
         },
         {
@@ -604,12 +604,12 @@
         },
         {
             "Name": "column",
-            "Trans": "{\"en\":\"Column\",\"ru\":\"Столбец\"}",
+            "Trans": "{\"en\": \"Column\", \"ru\": \"Столбец\"}",
             "Type": "languages"
         },
         {
             "Name": "column_add",
-            "Trans": "{\"en\":\"Add column\",\"ru\":\"Добавить столбец\"}",
+            "Trans": "{\"en\": \"Add column\", \"ru\": \"Добавить столбец\"}",
             "Type": "languages"
         },
         {
@@ -624,7 +624,7 @@
         },
         {
             "Name": "columns",
-            "Trans": "{\"en\":\"Columns\",\"ru\":\"Столбцы\"}",
+            "Trans": "{\"en\": \"Columns\", \"ru\": \"Столбцы\"}",
             "Type": "languages"
         },
         {
@@ -634,22 +634,22 @@
         },
         {
             "Name": "comment",
-            "Trans": "{\"en\": \"Comment\",\"ru\": \"Комментарий\"}",
+            "Trans": "{\"en\": \"Comment\", \"ru\": \"Комментарий\"}",
             "Type": "languages"
         },
         {
             "Name": "commission_address",
-            "Trans": "{\"en\":\"Account address\",\"ru\":\"Адрес аккаунта\"}",
+            "Trans": "{\"en\": \"Account address\", \"ru\": \"Адрес аккаунта\"}",
             "Type": "languages"
         },
         {
             "Name": "commission_pub",
-            "Trans": "{\"en\":\"Account public key\",\"ru\":\"Публичный ключ аккаунта\"}",
+            "Trans": "{\"en\": \"Account public key\", \"ru\": \"Публичный ключ аккаунта\"}",
             "Type": "languages"
         },
         {
             "Name": "companies",
-            "Trans": "{\"en\":\"Companies\",\"ru\":\"Компании\"}",
+            "Trans": "{\"en\": \"Companies\", \"ru\": \"Компании\"}",
             "Type": "languages"
         },
         {
@@ -659,32 +659,32 @@
         },
         {
             "Name": "company_add",
-            "Trans": "{\"en\":\"Add company\",\"ru\":\"Добавить компанию\"}",
+            "Trans": "{\"en\": \"Add company\", \"ru\": \"Добавить компанию\"}",
             "Type": "languages"
         },
         {
             "Name": "company_role",
-            "Trans": "{\"en\":\"Company role\",\"ru\":\"Роль компании\"}",
+            "Trans": "{\"en\": \"Company role\", \"ru\": \"Роль компании\"}",
             "Type": "languages"
         },
         {
             "Name": "conditions",
-            "Trans": "{\"en\":\"Conditions\",\"ru\":\"Условия\"}",
+            "Trans": "{\"en\": \"Conditions\", \"ru\": \"Условия\"}",
             "Type": "languages"
         },
         {
             "Name": "conditions_for_change",
-            "Trans": "{\"en\":\"Conditions for changing permissions\",\"ru\":\"Условия для изменения прав доступа\"}",
+            "Trans": "{\"en\": \"Conditions for changing permissions\", \"ru\": \"Условия для изменения прав доступа\"}",
             "Type": "languages"
         },
         {
             "Name": "confirm_button",
-            "Trans": "{\"en\":\"Confirm\",\"ru\":\"Подтвердить\"}",
+            "Trans": "{\"en\": \"Confirm\", \"ru\": \"Подтвердить\"}",
             "Type": "languages"
         },
         {
             "Name": "confirmation",
-            "Trans": "{\"en\":\"Confirmation\",\"ru\":\"Подтверждение\"}",
+            "Trans": "{\"en\": \"Confirmation\", \"ru\": \"Подтверждение\"}",
             "Type": "languages"
         },
         {
@@ -694,7 +694,7 @@
         },
         {
             "Name": "contract_404",
-            "Trans": "{\"en\":\"Contract is not found\",\"ru\":\"Контракт не найден\"}",
+            "Trans": "{\"en\": \"Contract is not found\", \"ru\": \"Контракт не найден\"}",
             "Type": "languages"
         },
         {
@@ -724,7 +724,7 @@
         },
         {
             "Name": "contract_history",
-            "Trans": "{\"en\":\"Contract history\",\"ru\":\"История контракта\"}",
+            "Trans": "{\"en\": \"Contract history\", \"ru\": \"История контракта\"}",
             "Type": "languages"
         },
         {
@@ -739,7 +739,7 @@
         },
         {
             "Name": "contract_params_des",
-            "Trans": "{\"ru\":\"Строка в формате JSON\",\"en\":\"String in JSON format\"}",
+            "Trans": "{\"en\": \"String in JSON format\", \"ru\": \"Строка в формате JSON\"}",
             "Type": "languages"
         },
         {
@@ -799,12 +799,12 @@
         },
         {
             "Name": "create_button",
-            "Trans": "{\"en\":\"CREATE\",\"ru\":\"СОЗДАТЬ\"}",
+            "Trans": "{\"en\": \"CREATE\", \"ru\": \"СОЗДАТЬ\"}",
             "Type": "languages"
         },
         {
             "Name": "create_cron_title",
-            "Trans": "{\"en\":\"The creation of a new block-timer\",\"ru\":\"Создание нового блок-таймера\"}",
+            "Trans": "{\"en\": \"The creation of a new block-timer\", \"ru\": \"Создание нового блок-таймера\"}",
             "Type": "languages"
         },
         {
@@ -844,7 +844,7 @@
         },
         {
             "Name": "date_created",
-            "Trans": "{\"en\": \"Date created\",\"ru\": \"Дата создания\"}",
+            "Trans": "{\"en\": \"Date created\", \"ru\": \"Дата создания\"}",
             "Type": "languages"
         },
         {
@@ -889,7 +889,7 @@
         },
         {
             "Name": "default_main",
-            "Trans": "{\"en_US\":\"Congratulations! You have created your own ecosystem\",\"ru\":\"Поздравляем! Вы создали свою собственную экосистему\"}",
+            "Trans": "{\"en_US\":\"Congratulations! You have created your own ecosystem\", \"ru\": \"Поздравляем! Вы создали свою собственную экосистему\"}",
             "Type": "languages"
         },
         {
@@ -899,7 +899,7 @@
         },
         {
             "Name": "delete",
-            "Trans": "{\"en\":\"Delete\",\"ru\":\"Удалить\"}",
+            "Trans": "{\"en\": \"Delete\", \"ru\": \"Удалить\"}",
             "Type": "languages"
         },
         {
@@ -944,7 +944,7 @@
         },
         {
             "Name": "discussion",
-            "Trans": "{\"en\": \"Discussion\",\"ru\": \"Обсуждение\"}",
+            "Trans": "{\"en\": \"Discussion\", \"ru\": \"Обсуждение\"}",
             "Type": "languages"
         },
         {
@@ -964,12 +964,12 @@
         },
         {
             "Name": "download_link",
-            "Trans": "{\"en_US\":\"Download link\",\"ru\":\"Ссылка для скачивания\"}",
+            "Trans": "{\"en_US\":\"Download link\", \"ru\": \"Ссылка для скачивания\"}",
             "Type": "languages"
         },
         {
             "Name": "duration",
-            "Trans": "{\"en\":\"Duration\",\"ru\":\"Продолжительность\"}",
+            "Trans": "{\"en\": \"Duration\", \"ru\": \"Продолжительность\"}",
             "Type": "languages"
         },
         {
@@ -1019,7 +1019,7 @@
         },
         {
             "Name": "ecosystems",
-            "Trans": "{\"en\":\"Ecosystems\",\"ru\":\"Экосистемы\"}",
+            "Trans": "{\"en\": \"Ecosystems\", \"ru\": \"Экосистемы\"}",
             "Type": "languages"
         },
         {
@@ -1029,47 +1029,47 @@
         },
         {
             "Name": "ecosystems_list",
-            "Trans": "{\"en\":\"Ecosystems list\",\"ru\":\"Список экосистем\"}",
+            "Trans": "{\"en\": \"Ecosystems list\", \"ru\": \"Список экосистем\"}",
             "Type": "languages"
         },
         {
             "Name": "edit",
-            "Trans": "{\"en\":\"Edit\",\"ru\":\"Редактировать\"}",
+            "Trans": "{\"en\": \"Edit\", \"ru\": \"Редактировать\"}",
             "Type": "languages"
         },
         {
             "Name": "edit_block",
-            "Trans": "{\"en\":\"Edit block\",\"ru\":\"Редактировать блок\"}",
+            "Trans": "{\"en\": \"Edit block\", \"ru\": \"Редактировать блок\"}",
             "Type": "languages"
         },
         {
             "Name": "edit_column",
-            "Trans": "{\"en\":\"Edit column\",\"ru\":\"Редактировать колонку\"}",
+            "Trans": "{\"en\": \"Edit column\", \"ru\": \"Редактировать колонку\"}",
             "Type": "languages"
         },
         {
             "Name": "edit_contract",
-            "Trans": "{\"en\":\"Edit contract\",\"ru\":\"Редактировать контракт\"}",
+            "Trans": "{\"en\": \"Edit contract\", \"ru\": \"Редактировать контракт\"}",
             "Type": "languages"
         },
         {
             "Name": "edit_link",
-            "Trans": "{\"en\":\"Edit link\",\"ru\":\"Редактировать\"}",
+            "Trans": "{\"en\": \"Edit link\", \"ru\": \"Редактировать\"}",
             "Type": "languages"
         },
         {
             "Name": "edit_menu",
-            "Trans": "{\"en\":\"Edit menu\",\"ru\":\"Редактировать меню\"}",
+            "Trans": "{\"en\": \"Edit menu\", \"ru\": \"Редактировать меню\"}",
             "Type": "languages"
         },
         {
             "Name": "edit_page",
-            "Trans": "{\"en\":\"Edit page\",\"ru\":\"Редактировать страницу\"}",
+            "Trans": "{\"en\": \"Edit page\", \"ru\": \"Редактировать страницу\"}",
             "Type": "languages"
         },
         {
             "Name": "edit_properties",
-            "Trans": "{\"en\":\"Edit properties\",\"ru\":\"Редактировать свойства\"}",
+            "Trans": "{\"en\": \"Edit properties\", \"ru\": \"Редактировать свойства\"}",
             "Type": "languages"
         },
         {
@@ -1079,7 +1079,7 @@
         },
         {
             "Name": "edit_table",
-            "Trans": "{\"en\":\"Edit table\",\"ru\":\"Редактировать таблицу\"}",
+            "Trans": "{\"en\": \"Edit table\", \"ru\": \"Редактировать таблицу\"}",
             "Type": "languages"
         },
         {
@@ -1119,7 +1119,7 @@
         },
         {
             "Name": "emission_account_not_found",
-            "Trans": "{\"en\":\"System emission account is not found\",\"ru\":\"Системный эмиссионный счёт не найден\"}",
+            "Trans": "{\"en\": \"System emission account is not found\", \"ru\": \"Системный эмиссионный счёт не найден\"}",
             "Type": "languages"
         },
         {
@@ -1169,7 +1169,7 @@
         },
         {
             "Name": "export",
-            "Trans": "{\"en\":\"Export\",\"ru\":\"Экспорт\"}",
+            "Trans": "{\"en\": \"Export\", \"ru\": \"Экспорт\"}",
             "Type": "languages"
         },
         {
@@ -1179,7 +1179,7 @@
         },
         {
             "Name": "file",
-            "Trans": "{\"en\":\"File\",\"ru\":\"Файл\"}",
+            "Trans": "{\"en\": \"File\", \"ru\": \"Файл\"}",
             "Type": "languages"
         },
         {
@@ -1189,7 +1189,7 @@
         },
         {
             "Name": "finance",
-            "Trans": "{\"en\":\"Finance\",\"ru\":\"Финансы\"}",
+            "Trans": "{\"en\": \"Finance\", \"ru\": \"Финансы\"}",
             "Type": "languages"
         },
         {
@@ -1209,7 +1209,7 @@
         },
         {
             "Name": "freetype",
-            "Trans": "{\"en\":\"Pay type\",\"ru\":\"Тип оплаты\"}",
+            "Trans": "{\"en\": \"Pay type\", \"ru\": \"Тип оплаты\"}",
             "Type": "languages"
         },
         {
@@ -1234,7 +1234,7 @@
         },
         {
             "Name": "host_ip",
-            "Trans": "{\"en\":\"IP\",\"ru\":\"IP\"}",
+            "Trans": "{\"en\": \"IP\", \"ru\": \"IP\"}",
             "Type": "languages"
         },
         {
@@ -1249,12 +1249,12 @@
         },
         {
             "Name": "image",
-            "Trans": "{\"ru\":\"Изображение\",\"en\":\"Image\"}",
+            "Trans": "{\"en\": \"Image\", \"ru\": \"Изображение\"}",
             "Type": "languages"
         },
         {
             "Name": "import",
-            "Trans": "{\"en\":\"Import\",\"ru\":\"Импорт\"}",
+            "Trans": "{\"en\": \"Import\", \"ru\": \"Импорт\"}",
             "Type": "languages"
         },
         {
@@ -1269,17 +1269,17 @@
         },
         {
             "Name": "inactive_warning",
-            "Trans": "{\"en\":\"You don't have any inactive applications\",\"ru\":\"У вас нет ни одного неиспользуемого приложения\"}",
+            "Trans": "{\"en\": \"You don't have any inactive applications\", \"ru\": \"У вас нет ни одного неиспользуемого приложения\"}",
             "Type": "languages"
         },
         {
             "Name": "information",
-            "Trans": "{\"en\":\"Information\",\"ru\":\"Информация\"}",
+            "Trans": "{\"en\": \"Information\", \"ru\": \"Информация\"}",
             "Type": "languages"
         },
         {
             "Name": "init_condition",
-            "Trans": "{\"en\": \"Condition for starting the process\",\"ru\": \"Условие для начала процесса\"}",
+            "Trans": "{\"en\": \"Condition for starting the process\", \"ru\": \"Условие для начала процесса\"}",
             "Type": "languages"
         },
         {
@@ -1304,12 +1304,12 @@
         },
         {
             "Name": "install",
-            "Trans": "{\"en\":\"Install\",\"ru\":\"Установить\"}",
+            "Trans": "{\"en\": \"Install\", \"ru\": \"Установить\"}",
             "Type": "languages"
         },
         {
             "Name": "install_default_roles",
-            "Trans": "{\"en\": \"Install default roles\",\"ru\": \"Установить стандартные роли\"}",
+            "Trans": "{\"en\": \"Install default roles\", \"ru\": \"Установить стандартные роли\"}",
             "Type": "languages"
         },
         {
@@ -1319,7 +1319,7 @@
         },
         {
             "Name": "institution",
-            "Trans": "{\"en\":\"Institution\",\"ru\":\"Учреждение\"}",
+            "Trans": "{\"en\": \"Institution\", \"ru\": \"Учреждение\"}",
             "Type": "languages"
         },
         {
@@ -1349,12 +1349,12 @@
         },
         {
             "Name": "ip_long",
-            "Trans": "{\"en\":\"IP-address length is too long\",\"ru\":\"Длина IP-адреса слишком велика\"}",
+            "Trans": "{\"en\": \"IP-address length is too long\", \"ru\": \"Длина IP-адреса слишком велика\"}",
             "Type": "languages"
         },
         {
             "Name": "ip_short",
-            "Trans": "{\"en\":\"IP-address length is too short\",\"ru\":\"Длина IP-адреса недостаточна\"}",
+            "Trans": "{\"en\": \"IP-address length is too short\", \"ru\": \"Длина IP-адреса недостаточна\"}",
             "Type": "languages"
         },
         {
@@ -1399,7 +1399,7 @@
         },
         {
             "Name": "languages",
-            "Trans": "{\"en\":\"Languages\",\"ru\":\"Языки\"}",
+            "Trans": "{\"en\": \"Languages\", \"ru\": \"Языки\"}",
             "Type": "languages"
         },
         {
@@ -1414,17 +1414,17 @@
         },
         {
             "Name": "link",
-            "Trans": "{\"en\":\"Link\",\"ru\":\"Ссылка\"}",
+            "Trans": "{\"en\": \"Link\", \"ru\": \"Ссылка\"}",
             "Type": "languages"
         },
         {
             "Name": "load",
-            "Trans": "{\"en\":\"Load\",\"ru\":\"Загрузить\"}",
+            "Trans": "{\"en\": \"Load\", \"ru\": \"Загрузить\"}",
             "Type": "languages"
         },
         {
             "Name": "locale_add",
-            "Trans": "{\"en\":\"Add localization\",\"ru\":\"Добавить локализацию\"}",
+            "Trans": "{\"en\": \"Add localization\", \"ru\": \"Добавить локализацию\"}",
             "Type": "languages"
         },
         {
@@ -1434,12 +1434,12 @@
         },
         {
             "Name": "localization",
-            "Trans": "{\"en\":\"Locale\",\"ru\":\"Локализация\"}",
+            "Trans": "{\"en\": \"Locale\", \"ru\": \"Локализация\"}",
             "Type": "languages"
         },
         {
             "Name": "logo",
-            "Trans": "{\"en\":\"Logo\",\"ru\":\"Лого\"}",
+            "Trans": "{\"en\": \"Logo\", \"ru\": \"Лого\"}",
             "Type": "languages"
         },
         {
@@ -1484,7 +1484,7 @@
         },
         {
             "Name": "member_name",
-            "Trans": "{\"en\":\"Member name\",\"ru\":\"Никнейм\"}",
+            "Trans": "{\"en\": \"Member name\", \"ru\": \"Никнейм\"}",
             "Type": "languages"
         },
         {
@@ -1514,7 +1514,7 @@
         },
         {
             "Name": "membership_request_accept",
-            "Trans": "{\"ru\":\"Вы хотите принять этот запрос?\",\"en\":\"Do you want to accept this request?\"}",
+            "Trans": "{\"en\": \"Do you want to accept this request?\", \"ru\": \"Вы хотите принять этот запрос?\"}",
             "Type": "languages"
         },
         {
@@ -1524,7 +1524,7 @@
         },
         {
             "Name": "membership_request_reject",
-            "Trans": "{\"en\":\"Do you want to reject this request?\",\"ru\":\"Вы хотите отклонить этот запрос?\"}",
+            "Trans": "{\"en\": \"Do you want to reject this request?\", \"ru\": \"Вы хотите отклонить этот запрос?\"}",
             "Type": "languages"
         },
         {
@@ -1539,27 +1539,27 @@
         },
         {
             "Name": "menu",
-            "Trans": "{\"en\":\"Menu\",\"ru\":\"Меню\"}",
+            "Trans": "{\"en\": \"Menu\", \"ru\": \"Меню\"}",
             "Type": "languages"
         },
         {
             "Name": "menu_history",
-            "Trans": "{\"en\":\"Menu history\",\"ru\":\"История меню\"}",
+            "Trans": "{\"en\": \"Menu history\", \"ru\": \"История меню\"}",
             "Type": "languages"
         },
         {
             "Name": "menu_section",
-            "Trans": "{\"en\":\"This page is used to manage the menus\",\"ru\":\"Эта страница используется для управления меню\"}",
+            "Trans": "{\"en\": \"This page is used to manage the menus\", \"ru\": \"Эта страница используется для управления меню\"}",
             "Type": "languages"
         },
         {
             "Name": "menu_title",
-            "Trans": "{\"en\":\"Menu title\",\"ru\":\"Заголовок меню\"}",
+            "Trans": "{\"en\": \"Menu title\", \"ru\": \"Заголовок меню\"}",
             "Type": "languages"
         },
         {
             "Name": "metrics",
-            "Trans": "{\"en\":\"Metrics\",\"ru\":\"Метрики\"}",
+            "Trans": "{\"en\": \"Metrics\", \"ru\": \"Метрики\"}",
             "Type": "languages"
         },
         {
@@ -1569,7 +1569,7 @@
         },
         {
             "Name": "more",
-            "Trans": "{\"en\":\"more\",\"ru\":\"ещё\"}",
+            "Trans": "{\"en\": \"more\", \"ru\": \"ещё\"}",
             "Type": "languages"
         },
         {
@@ -1604,7 +1604,7 @@
         },
         {
             "Name": "need_fuel",
-            "Trans": "{\"en\": \"Need APL\",\"ru\": \"Нужно APL\"}",
+            "Trans": "{\"en\": \"Need APL\", \"ru\": \"Нужно APL\"}",
             "Type": "languages"
         },
         {
@@ -1614,7 +1614,7 @@
         },
         {
             "Name": "new_column",
-            "Trans": "{\"en\":\"New column\",\"ru\":\"Новый столбец\"}",
+            "Trans": "{\"en\": \"New column\", \"ru\": \"Новый столбец\"}",
             "Type": "languages"
         },
         {
@@ -1629,7 +1629,7 @@
         },
         {
             "Name": "new_parameter",
-            "Trans": "{\"en\":\"New\",\"ru\":\"Новый параметр\"}",
+            "Trans": "{\"en\": \"New\", \"ru\": \"Новый параметр\"}",
             "Type": "languages"
         },
         {
@@ -1644,12 +1644,12 @@
         },
         {
             "Name": "new_section",
-            "Trans": "{\"en\":\"\\\"New section\\\"\",\"ru\":\"Новая секция\"}",
+            "Trans": "{\"en\": \"New section\", \"ru\": \"Новая секция\"}",
             "Type": "languages"
         },
         {
             "Name": "new_template",
-            "Trans": "{\"en\": \"New template\",\"ru\": \"Новый шаблон\"}",
+            "Trans": "{\"en\": \"New template\", \"ru\": \"Новый шаблон\"}",
             "Type": "languages"
         },
         {
@@ -1669,7 +1669,7 @@
         },
         {
             "Name": "no",
-            "Trans": "{\"en\":\"No\",\"ru\":\"Нет\"}",
+            "Trans": "{\"en\": \"No\", \"ru\": \"Нет\"}",
             "Type": "languages"
         },
         {
@@ -1689,12 +1689,12 @@
         },
         {
             "Name": "node_founder_key_id",
-            "Trans": "{\"en\": \"Key ID of the node founder\",\"ru\": \"Идентификатор ключа основателя узла\"}",
+            "Trans": "{\"en\": \"Key ID of the node founder\", \"ru\": \"Идентификатор ключа основателя узла\"}",
             "Type": "languages"
         },
         {
             "Name": "node_pub_key",
-            "Trans": "{\"en\": \"Node public key\",\"ru\": \"Публичный ключ узла\"}",
+            "Trans": "{\"en\": \"Node public key\", \"ru\": \"Публичный ключ узла\"}",
             "Type": "languages"
         },
         {
@@ -1704,7 +1704,7 @@
         },
         {
             "Name": "not_filled",
-            "Trans": "{\"ru\":\"Не заполнено\",\"en\":\"Not filled\"}",
+            "Trans": "{\"en\": \"Not filled\", \"ru\": \"Не заполнено\"}",
             "Type": "languages"
         },
         {
@@ -1714,22 +1714,22 @@
         },
         {
             "Name": "not_founded",
-            "Trans": "{\"en\":\"is not found\",\"ru\":\"не найдены\"}",
+            "Trans": "{\"en\": \"is not found\", \"ru\": \"не найдены\"}",
             "Type": "languages"
         },
         {
             "Name": "not_need_fuel",
-            "Trans": "{\"en\": \"Not need APL\",\"ru\": \"Не нужно APL\"}",
+            "Trans": "{\"en\": \"Not need APL\", \"ru\": \"Не нужно APL\"}",
             "Type": "languages"
         },
         {
             "Name": "not_participants",
-            "Trans": "{\"ru\":\"Не имеет участников\",\"en\":\"Not has participants\"}",
+            "Trans": "{\"en\": \"Not has participants\", \"ru\": \"Не имеет участников\"}",
             "Type": "languages"
         },
         {
             "Name": "not_started",
-            "Trans": "{\"ru\":\"Не начата\",\"en\":\"Not started\"}",
+            "Trans": "{\"en\": \"Not started\", \"ru\": \"Не начата\"}",
             "Type": "languages"
         },
         {
@@ -1739,7 +1739,7 @@
         },
         {
             "Name": "nothing_selected",
-            "Trans": "{\"en\":\"Nothing selected\",\"ru\":\"Ничего не выбрано\"}",
+            "Trans": "{\"en\": \"Nothing selected\", \"ru\": \"Ничего не выбрано\"}",
             "Type": "languages"
         },
         {
@@ -1774,12 +1774,12 @@
         },
         {
             "Name": "notification_sender_member",
-            "Trans": "{\"en\":\"Send from member\",\"ru\":\"Отправить от члена\"}",
+            "Trans": "{\"en\": \"Send from member\", \"ru\": \"Отправить от члена\"}",
             "Type": "languages"
         },
         {
             "Name": "notification_sender_role",
-            "Trans": "{\"en\":\"Send from role\",\"ru\":\"Отправить от роли\"}",
+            "Trans": "{\"en\": \"Send from role\", \"ru\": \"Отправить от роли\"}",
             "Type": "languages"
         },
         {
@@ -1859,7 +1859,7 @@
         },
         {
             "Name": "organization",
-            "Trans": "{\"en\":\"Organization\",\"ru\":\"Организация\"}",
+            "Trans": "{\"en\": \"Organization\", \"ru\": \"Организация\"}",
             "Type": "languages"
         },
         {
@@ -1869,12 +1869,12 @@
         },
         {
             "Name": "page",
-            "Trans": "{\"en\":\"Page\",\"ru\":\"Страница\"}",
+            "Trans": "{\"en\": \"Page\", \"ru\": \"Страница\"}",
             "Type": "languages"
         },
         {
             "Name": "page_history",
-            "Trans": "{\"en\":\"Page history\",\"ru\":\"История страницы\"}",
+            "Trans": "{\"en\": \"Page history\", \"ru\": \"История страницы\"}",
             "Type": "languages"
         },
         {
@@ -1894,7 +1894,7 @@
         },
         {
             "Name": "params",
-            "Trans": "{\"en\":\"Parameters\",\"ru\":\"Параметры\"}",
+            "Trans": "{\"en\": \"Parameters\", \"ru\": \"Параметры\"}",
             "Type": "languages"
         },
         {
@@ -1914,7 +1914,7 @@
         },
         {
             "Name": "payload_select",
-            "Trans": "{\"en\":\"Select payload that you want to import\",\"ru\":\"Укажите путь к файлу, который вы хотите импортировать\"}",
+            "Trans": "{\"en\": \"Select payload that you want to import\", \"ru\": \"Укажите путь к файлу, который вы хотите импортировать\"}",
             "Type": "languages"
         },
         {
@@ -1939,27 +1939,27 @@
         },
         {
             "Name": "platform_apps",
-            "Trans": "{\"en\":\"Platform applications\",\"ru\":\"Платформенные приложения\"}",
+            "Trans": "{\"en\": \"Platform applications\", \"ru\": \"Платформенные приложения\"}",
             "Type": "languages"
         },
         {
             "Name": "platform_apps_install",
-            "Trans": "{\"en\":\"Install platform apps\",\"ru\":\"Установить платформенные приложения\"}",
+            "Trans": "{\"en\": \"Install platform apps\", \"ru\": \"Установить платформенные приложения\"}",
             "Type": "languages"
         },
         {
             "Name": "platform_parameters",
-            "Trans": "{\"en\":\"Platform parameters\",\"ru\":\"Параметры платформы\"}",
+            "Trans": "{\"en\": \"Platform parameters\", \"ru\": \"Параметры платформы\"}",
             "Type": "languages"
         },
         {
             "Name": "platform_params_desc",
-            "Trans": "{\"en\":\"Parameters for configuring nodes, transactions, blocks and payment for network resources. It can only be changed through the voting process\",\"ru\":\"Параметры для конфигурирования нод, транзакций, блоков и проведения платежных операций. Параметры могут быть изменены только в результате голосования\"}",
+            "Trans": "{\"en\": \"Parameters for configuring nodes, transactions, blocks and payment for network resources. It can only be changed through the voting process\", \"ru\": \"Параметры для конфигурирования нод, транзакций, блоков и проведения платежных операций. Параметры могут быть изменены только в результате голосования\"}",
             "Type": "languages"
         },
         {
             "Name": "platform_section",
-            "Trans": "{\"en\":\"This section is used to install the platform applications\",\"ru\":\"Эта секция используется для установки платформенных приложений\"}",
+            "Trans": "{\"en\": \"This section is used to install the platform applications\", \"ru\": \"Эта секция используется для установки платформенных приложений\"}",
             "Type": "languages"
         },
         {
@@ -1994,7 +1994,7 @@
         },
         {
             "Name": "pub_key",
-            "Trans": "{\"en\":\"Public key\",\"ru\":\"Публичный ключ\"}",
+            "Trans": "{\"en\": \"Public key\", \"ru\": \"Публичный ключ\"}",
             "Type": "languages"
         },
         {
@@ -2004,7 +2004,7 @@
         },
         {
             "Name": "public_org",
-            "Trans": "{\"en\":\"Public organization\",\"ru\":\"Публичная организация\"}",
+            "Trans": "{\"en\": \"Public organization\", \"ru\": \"Публичная организация\"}",
             "Type": "languages"
         },
         {
@@ -2024,7 +2024,7 @@
         },
         {
             "Name": "reading",
-            "Trans": "{\"en\":\"Read\",\"ru\":\"Чтение\"}",
+            "Trans": "{\"en\": \"Read\", \"ru\": \"Чтение\"}",
             "Type": "languages"
         },
         {
@@ -2079,7 +2079,7 @@
         },
         {
             "Name": "remove_confirmation",
-            "Trans": "{\"en\":\"Do you want to remove this item from the application?\",\"ru\":\"Вы действительно хотите удалить этот элемент из приложения?\"}",
+            "Trans": "{\"en\": \"Do you want to remove this item from the application?\", \"ru\": \"Вы действительно хотите удалить этот элемент из приложения?\"}",
             "Type": "languages"
         },
         {
@@ -2094,17 +2094,17 @@
         },
         {
             "Name": "request_info",
-            "Trans": "{\"en\":\"Request info\",\"ru\":\"Информация о запросе\"}",
+            "Trans": "{\"en\": \"Request info\", \"ru\": \"Информация о запросе\"}",
             "Type": "languages"
         },
         {
             "Name": "request_membership",
-            "Trans": "{\"ru\":\"Запрос членства\",\"en\":\"Request for membership\"}",
+            "Trans": "{\"en\": \"Request for membership\", \"ru\": \"Запрос членства\"}",
             "Type": "languages"
         },
         {
             "Name": "request_not_sent",
-            "Trans": "{\"ru\":\"Запрос не отправлялся\",\"en\":\"Request not sent\"}",
+            "Trans": "{\"en\": \"Request not sent\", \"ru\": \"Запрос не отправлялся\"}",
             "Type": "languages"
         },
         {
@@ -2119,7 +2119,7 @@
         },
         {
             "Name": "request_rejected",
-            "Trans": "{\"en\":\"Request was rejected\",\"ru\":\"Запрос был отклонен\"}",
+            "Trans": "{\"en\": \"Request was rejected\", \"ru\": \"Запрос был отклонен\"}",
             "Type": "languages"
         },
         {
@@ -2139,12 +2139,12 @@
         },
         {
             "Name": "request_wating",
-            "Trans": "{\"en\":\"Request has been sent. Wait for administrator's decision\",\"ru\":\"Запрос отправлен. Ожидайте решение\"}",
+            "Trans": "{\"en\": \"Request has been sent. Wait for administrator's decision\", \"ru\": \"Запрос отправлен. Ожидайте решение\"}",
             "Type": "languages"
         },
         {
             "Name": "required_logo",
-            "Trans": "{\"en\":\"Required logo\",\"ru\":\"Требуется логотип\"}",
+            "Trans": "{\"en\": \"Required logo\", \"ru\": \"Требуется логотип\"}",
             "Type": "languages"
         },
         {
@@ -2154,12 +2154,12 @@
         },
         {
             "Name": "restore",
-            "Trans": "{\"en\":\"Restore\",\"ru\":\"Восстановить\"}",
+            "Trans": "{\"en\": \"Restore\", \"ru\": \"Восстановить\"}",
             "Type": "languages"
         },
         {
             "Name": "restore_select",
-            "Trans": "{\"en\":\"Select restore target application\",\"ru\":\"Выберите приложение, в которое вы хотите восстановить этот объект\"}",
+            "Trans": "{\"en\": \"Select restore target application\", \"ru\": \"Выберите приложение, в которое вы хотите восстановить этот объект\"}",
             "Type": "languages"
         },
         {
@@ -2169,17 +2169,17 @@
         },
         {
             "Name": "right_sign",
-            "Trans": "{\"en\":\"Signature right\",\"ru\":\"Право подписи\"}",
+            "Trans": "{\"en\": \"Signature right\", \"ru\": \"Право подписи\"}",
             "Type": "languages"
         },
         {
             "Name": "right_sign_no",
-            "Trans": "{\"en\":\"No signature right\",\"ru\":\"Нет права подписи\"}",
+            "Trans": "{\"en\": \"No signature right\", \"ru\": \"Нет права подписи\"}",
             "Type": "languages"
         },
         {
             "Name": "right_sign_yes",
-            "Trans": "{\"en\":\"Have signature rights\",\"ru\":\"Имеет право подписи\"}",
+            "Trans": "{\"en\": \"Have signature rights\", \"ru\": \"Имеет право подписи\"}",
             "Type": "languages"
         },
         {
@@ -2329,12 +2329,12 @@
         },
         {
             "Name": "section_access_rights",
-            "Trans": "{\"en\":\"Access Rights\",\"ru\":\"Права доступа\"}",
+            "Trans": "{\"en\": \"Access Rights\", \"ru\": \"Права доступа\"}",
             "Type": "languages"
         },
         {
             "Name": "section_add",
-            "Trans": "{\"en\":\"New section\",\"ru\":\"Новая секция\"}",
+            "Trans": "{\"en\": \"New section\", \"ru\": \"Новая секция\"}",
             "Type": "languages"
         },
         {
@@ -2349,32 +2349,32 @@
         },
         {
             "Name": "section_edit",
-            "Trans": "{\"en\":\"Edit section\",\"ru\":\"Редактировать секцию\"}",
+            "Trans": "{\"en\": \"Edit section\", \"ru\": \"Редактировать секцию\"}",
             "Type": "languages"
         },
         {
             "Name": "section_main_page",
-            "Trans": "{\"en\":\"Main page\",\"ru\":\"Главная страница\"}",
+            "Trans": "{\"en\": \"Main page\", \"ru\": \"Главная страница\"}",
             "Type": "languages"
         },
         {
             "Name": "section_page",
-            "Trans": "{\"en\":\"Section page\",\"ru\":\"Страница секции\"}",
+            "Trans": "{\"en\": \"Section page\", \"ru\": \"Страница секции\"}",
             "Type": "languages"
         },
         {
             "Name": "sections",
-            "Trans": "{\"en\":\"Sections\",\"ru\":\"Секции\"}",
+            "Trans": "{\"en\": \"Sections\", \"ru\": \"Секции\"}",
             "Type": "languages"
         },
         {
             "Name": "sections_manage_page",
-            "Trans": "{\"en\":\"This page is used to manage the sections\",\"ru\":\"Эта страница используется для управления секциями\"}",
+            "Trans": "{\"en\": \"This page is used to manage the sections\", \"ru\": \"Эта страница используется для управления секциями\"}",
             "Type": "languages"
         },
         {
             "Name": "select_application",
-            "Trans": "{\"en\":\"select application\",\"ru\":\"выберите приложение\"}",
+            "Trans": "{\"en\": \"select application\", \"ru\": \"выберите приложение\"}",
             "Type": "languages"
         },
         {
@@ -2394,7 +2394,7 @@
         },
         {
             "Name": "select_role_if_include",
-            "Trans": "{\"ru\":\"Выберите роль, если вы хотите включить члена в роль\",\"en\":\"Select a role if you want to include a member in the role\"}",
+            "Trans": "{\"en\": \"Select a role if you want to include a member in the role\", \"ru\": \"Выберите роль, если вы хотите включить члена в роль\"}",
             "Type": "languages"
         },
         {
@@ -2419,7 +2419,7 @@
         },
         {
             "Name": "sender_account",
-            "Trans": "{\"en\":\"Sender account\",\"ru\":\"Счёт отправителя\"}",
+            "Trans": "{\"en\": \"Sender account\", \"ru\": \"Счёт отправителя\"}",
             "Type": "languages"
         },
         {
@@ -2454,7 +2454,7 @@
         },
         {
             "Name": "sent",
-            "Trans": "{\"ru\":\"Отправлено\",\"en\":\"Sent\"}",
+            "Trans": "{\"en\": \"Sent\", \"ru\": \"Отправлено\"}",
             "Type": "languages"
         },
         {
@@ -2479,7 +2479,7 @@
         },
         {
             "Name": "start",
-            "Trans": "{\"en\": \"Start\",\"ru\": \"Начать\"}",
+            "Trans": "{\"en\": \"Start\", \"ru\": \"Начать\"}",
             "Type": "languages"
         },
         {
@@ -2489,7 +2489,7 @@
         },
         {
             "Name": "start_doc",
-            "Trans": "{\"en\":\"Documentation\",\"ru\":\"Документация\"}",
+            "Trans": "{\"en\": \"Documentation\", \"ru\": \"Документация\"}",
             "Type": "languages"
         },
         {
@@ -2544,12 +2544,12 @@
         },
         {
             "Name": "sure_want_delete",
-            "Trans": "{\"ru\":\"Вы уверены, что хотите удалить?\",\"en\":\"Do you really want to delete?\"}",
+            "Trans": "{\"en\": \"Do you really want to delete?\", \"ru\": \"Вы уверены, что хотите удалить?\"}",
             "Type": "languages"
         },
         {
             "Name": "sure_want_delete_member",
-            "Trans": "{\"ru\":\"Вы уверены, что хотите удалить этого члена?\",\"en\":\"Do you really want to delete this member?\"}",
+            "Trans": "{\"en\": \"Do you really want to delete this member?\", \"ru\": \"Вы уверены, что хотите удалить этого члена?\"}",
             "Type": "languages"
         },
         {
@@ -2559,17 +2559,17 @@
         },
         {
             "Name": "sys_emission",
-            "Trans": "{\"en\":\"sys-emission\",\"ru\":\"Эмиссия (системный)\"}",
+            "Trans": "{\"en\": \"sys-emission\", \"ru\": \"Эмиссия (системный)\"}",
             "Type": "languages"
         },
         {
             "Name": "sys_trash",
-            "Trans": "{\"en\":\"sys-trash\",\"ru\":\"Корзина (системный)\"}",
+            "Trans": "{\"en\": \"sys-trash\", \"ru\": \"Корзина (системный)\"}",
             "Type": "languages"
         },
         {
             "Name": "sysparams_candidate_validators_form",
-            "Trans": "{\"en\":\"Candidate for validators request form\",\"ru\":\"Форма запроса кандидата в валидаторы\"}",
+            "Trans": "{\"en\": \"Candidate for validators request form\", \"ru\": \"Форма запроса кандидата в валидаторы\"}",
             "Type": "languages"
         },
         {
@@ -2579,12 +2579,12 @@
         },
         {
             "Name": "sysparams_list",
-            "Trans": "{\"en\":\"System parameters list\",\"ru\":\"Список системных параметров\"}",
+            "Trans": "{\"en\": \"System parameters list\", \"ru\": \"Список системных параметров\"}",
             "Type": "languages"
         },
         {
             "Name": "sysparams_section",
-            "Trans": "{\"en\":\"This page is used to configure stored reusable parameters\",\"ru\":\"Эта страница используется для конфигурации параметров данной экосистемы\"}",
+            "Trans": "{\"en\": \"This page is used to configure stored reusable parameters\", \"ru\": \"Эта страница используется для конфигурации параметров данной экосистемы\"}",
             "Type": "languages"
         },
         {
@@ -2594,7 +2594,7 @@
         },
         {
             "Name": "system_param",
-            "Trans": "{\"en\":\"System parameter\",\"ru\":\"Системный параметр\"}",
+            "Trans": "{\"en\": \"System parameter\", \"ru\": \"Системный параметр\"}",
             "Type": "languages"
         },
         {
@@ -2604,12 +2604,12 @@
         },
         {
             "Name": "system_params",
-            "Trans": "{\"en\":\"System parameters\",\"ru\":\"Системные параметры\"}",
+            "Trans": "{\"en\": \"System parameters\", \"ru\": \"Системные параметры\"}",
             "Type": "languages"
         },
         {
             "Name": "system_role",
-            "Trans": "{\"en\":\"System\",\"ru\":\"Системная\"}",
+            "Trans": "{\"en\": \"System\", \"ru\": \"Системная\"}",
             "Type": "languages"
         },
         {
@@ -2639,7 +2639,7 @@
         },
         {
             "Name": "table_create",
-            "Trans": "{\"en\":\"Create table\",\"ru\":\"Создать таблицу\"}",
+            "Trans": "{\"en\": \"Create table\", \"ru\": \"Создать таблицу\"}",
             "Type": "languages"
         },
         {
@@ -2699,7 +2699,7 @@
         },
         {
             "Name": "template_create",
-            "Trans": "{\"en\": \"Creating template\",\"ru\": \"Создание шаблона\"}",
+            "Trans": "{\"en\": \"Creating template\", \"ru\": \"Создание шаблона\"}",
             "Type": "languages"
         },
         {
@@ -2724,7 +2724,7 @@
         },
         {
             "Name": "template_id",
-            "Trans": "{\"en\":\"Template ID\",\"ru\":\"ID шаблона\"}",
+            "Trans": "{\"en\": \"Template ID\", \"ru\": \"ID шаблона\"}",
             "Type": "languages"
         },
         {
@@ -2844,17 +2844,17 @@
         },
         {
             "Name": "tip_start_block",
-            "Trans": "{\"en\":\"If less than the current block will be equal to the current block\",\"ru\":\"Если меньше текущего блока то будет равно текущему блоку\"}",
+            "Trans": "{\"en\": \"If less than the current block will be equal to the current block\", \"ru\": \"Если меньше текущего блока то будет равно текущему блоку\"}",
             "Type": "languages"
         },
         {
             "Name": "title",
-            "Trans": "{\"en\": \"Title\",\"ru\": \"Название\"}",
+            "Trans": "{\"en\": \"Title\", \"ru\": \"Название\"}",
             "Type": "languages"
         },
         {
             "Name": "titleb",
-            "Trans": "{\"en\":\"Title\",\"ru\":\"Заголовок\"}",
+            "Trans": "{\"en\": \"Title\", \"ru\": \"Заголовок\"}",
             "Type": "languages"
         },
         {
@@ -2929,12 +2929,12 @@
         },
         {
             "Name": "tranche",
-            "Trans": "{\"en\":\"Tranche\",\"ru\":\"Транш\"}",
+            "Trans": "{\"en\": \"Tranche\", \"ru\": \"Транш\"}",
             "Type": "languages"
         },
         {
             "Name": "trash_account_not_found",
-            "Trans": "{\"en\":\"System trash account is not found\",\"ru\":\"Системный счёт корзины не найден\"}",
+            "Trans": "{\"en\": \"System trash account is not found\", \"ru\": \"Системный счёт корзины не найден\"}",
             "Type": "languages"
         },
         {
@@ -2954,17 +2954,17 @@
         },
         {
             "Name": "type_voting_custom",
-            "Trans": "{\"en\":\"Custom\",\"ru\":\"Пользовательское\"}",
+            "Trans": "{\"en\": \"Custom\", \"ru\": \"Пользовательское\"}",
             "Type": "languages"
         },
         {
             "Name": "type_voting_system",
-            "Trans": "{\"en\":\"System\",\"ru\":\"Системное\"}",
+            "Trans": "{\"en\": \"System\", \"ru\": \"Системное\"}",
             "Type": "languages"
         },
         {
             "Name": "unbind",
-            "Trans": "{\"en\":\"Unbind\",\"ru\":\"Отвязать\"}",
+            "Trans": "{\"en\": \"Unbind\", \"ru\": \"Отвязать\"}",
             "Type": "languages"
         },
         {
@@ -2979,7 +2979,7 @@
         },
         {
             "Name": "update",
-            "Trans": "{\"en\":\"Update\",\"ru\":\"Обновить\"}",
+            "Trans": "{\"en\": \"Update\", \"ru\": \"Обновить\"}",
             "Type": "languages"
         },
         {
@@ -2999,7 +2999,7 @@
         },
         {
             "Name": "use",
-            "Trans": "{\"en\": \"Use\",\"ru\": \"Использовать\"}",
+            "Trans": "{\"en\": \"Use\", \"ru\": \"Использовать\"}",
             "Type": "languages"
         },
         {
@@ -3039,7 +3039,7 @@
         },
         {
             "Name": "validate_member_name",
-            "Trans": "{\"en\":\"must be between 5 and 20 characters\",\"ru\":\"должно быть от 5 до 20 символов\"}",
+            "Trans": "{\"en\": \"must be between 5 and 20 characters\", \"ru\": \"должно быть от 5 до 20 символов\"}",
             "Type": "languages"
         },
         {
@@ -3049,7 +3049,7 @@
         },
         {
             "Name": "validate_role_name",
-            "Trans": "{\"en\":\"must be between 3 and 30 characters\",\"ru\":\"должно быть от 3 до 30 символов\"}",
+            "Trans": "{\"en\": \"must be between 3 and 30 characters\", \"ru\": \"должно быть от 3 до 30 символов\"}",
             "Type": "languages"
         },
         {
@@ -3069,7 +3069,7 @@
         },
         {
             "Name": "value",
-            "Trans": "{\"en\":\"Value\",\"ru\":\"Значение\"}",
+            "Trans": "{\"en\": \"Value\", \"ru\": \"Значение\"}",
             "Type": "languages"
         },
         {
@@ -3109,12 +3109,12 @@
         },
         {
             "Name": "vde_form",
-            "Trans": "{\"en\":\"VDE form address\",\"ru\":\"Адрес VDE-формы\"}",
+            "Trans": "{\"en\": \"VDE form address\", \"ru\": \"Адрес VDE-формы\"}",
             "Type": "languages"
         },
         {
             "Name": "vde_form_desc",
-            "Trans": "{\"en\":\"Address of the VDE form in VDE system for applying for membership (who do not yet have APL)\",\"ru\":\"Адрес VDE-формы для подачи заявки на членство (у кого еще нет APL)\"}",
+            "Trans": "{\"en\": \"Address of the VDE form in VDE system for applying for membership (who do not yet have APL)\", \"ru\": \"Адрес VDE-формы для подачи заявки на членство (у кого еще нет APL)\"}",
             "Type": "languages"
         },
         {
@@ -3134,7 +3134,7 @@
         },
         {
             "Name": "view_all",
-            "Trans": "{\"en\":\"View all\",\"ru\":\"Показать все\"}",
+            "Trans": "{\"en\": \"View all\", \"ru\": \"Показать все\"}",
             "Type": "languages"
         },
         {
@@ -3209,22 +3209,22 @@
         },
         {
             "Name": "voting_all_keys_added",
-            "Trans": "{\"en\":\"All members were added\",\"ru\":\"Все члены были добавлены\"}",
+            "Trans": "{\"en\": \"All members were added\", \"ru\": \"Все члены были добавлены\"}",
             "Type": "languages"
         },
         {
             "Name": "voting_all_members",
-            "Trans": "{\"en\":\"All members were added automatically\",\"ru\":\"Все члены были добавлены автоматически\"}",
+            "Trans": "{\"en\": \"All members were added automatically\", \"ru\": \"Все члены были добавлены автоматически\"}",
             "Type": "languages"
         },
         {
             "Name": "voting_contract_accept",
-            "Trans": "{\"en\": \"Run contract after accept decision\",\"ru\": \"Запуск контракта при полож. реш.\"}",
+            "Trans": "{\"en\": \"Run contract after accept decision\", \"ru\": \"Запуск контракта при полож. реш.\"}",
             "Type": "languages"
         },
         {
             "Name": "voting_contract_reject",
-            "Trans": "{\"en\": \"Run contract after reject decision\",\"ru\": \"Запуск контракта при отриц. реш.\"}",
+            "Trans": "{\"en\": \"Run contract after reject decision\", \"ru\": \"Запуск контракта при отриц. реш.\"}",
             "Type": "languages"
         },
         {
@@ -3304,7 +3304,7 @@
         },
         {
             "Name": "voting_init_condition_desc",
-            "Trans": "{\"en\": \"Contract for checking rights to start voting\",\"ru\": \"Контракт для проверки прав на запуск голосования\"}",
+            "Trans": "{\"en\": \"Contract for checking rights to start voting\", \"ru\": \"Контракт для проверки прав на запуск голосования\"}",
             "Type": "languages"
         },
         {
@@ -3374,7 +3374,7 @@
         },
         {
             "Name": "voting_precondition",
-            "Trans": "{\"en\": \"Initial condition for the subject of voting\",\"ru\": \"Начальное условие для предмета голосования\"}",
+            "Trans": "{\"en\": \"Initial condition for the subject of voting\", \"ru\": \"Начальное условие для предмета голосования\"}",
             "Type": "languages"
         },
         {
@@ -3394,7 +3394,7 @@
         },
         {
             "Name": "voting_start",
-            "Trans": "{\"en\": \"Voting start\",\"ru\": \"Начать голосование\"}",
+            "Trans": "{\"en\": \"Voting start\", \"ru\": \"Начать голосование\"}",
             "Type": "languages"
         },
         {
@@ -3449,7 +3449,7 @@
         },
         {
             "Name": "voting_type",
-            "Trans": "{\"en\": \"Voting type\",\"ru\": \"Тип голосования\"}",
+            "Trans": "{\"en\": \"Voting type\", \"ru\": \"Тип голосования\"}",
             "Type": "languages"
         },
         {
@@ -3524,7 +3524,7 @@
         },
         {
             "Name": "want_assign_member_to_role",
-            "Trans": "{\"en\":\"Do you want to assign this member of the ecosystem to role?\",\"ru\":\"Вы хотите назначить этого члена экосистемы на роль?\"}",
+            "Trans": "{\"en\": \"Do you want to assign this member of the ecosystem to role?\", \"ru\": \"Вы хотите назначить этого члена экосистемы на роль?\"}",
             "Type": "languages"
         },
         {
@@ -3559,17 +3559,17 @@
         },
         {
             "Name": "want_create_new_company",
-            "Trans": "{\"en\":\"Do you want to add a new company? The current account will become a multi-account. This action is not reversible.\",\"ru\":\"Вы хотите добавить новую компанию? Текущий аккаунт станет мульти-аккаунтом. Это действие не обратимо.\"}",
+            "Trans": "{\"en\": \"Do you want to add a new company? The current account will become a multi-account. This action is not reversible.\", \"ru\": \"Вы хотите добавить новую компанию? Текущий аккаунт станет мульти-аккаунтом. Это действие не обратимо.\"}",
             "Type": "languages"
         },
         {
             "Name": "want_create_new_role",
-            "Trans": "{\"en\":\"Do you want to create a new role?\",\"ru\":\"Вы хотите создать новую роль?\"}",
+            "Trans": "{\"en\": \"Do you want to create a new role?\", \"ru\": \"Вы хотите создать новую роль?\"}",
             "Type": "languages"
         },
         {
             "Name": "want_create_role_company",
-            "Trans": "{\"en\":\"Do you want to create a new role for the company?\",\"ru\":\"Вы хотите создать новую роль для компании?\"}",
+            "Trans": "{\"en\": \"Do you want to create a new role for the company?\", \"ru\": \"Вы хотите создать новую роль для компании?\"}",
             "Type": "languages"
         },
         {
@@ -3579,7 +3579,7 @@
         },
         {
             "Name": "want_delete_company",
-            "Trans": "{\"en\":\"Do you want to delete the company? All company roles will also be deleted\",\"ru\":\"Вы хотите удалить компанию? Также будут удалены все роли компании\"}",
+            "Trans": "{\"en\": \"Do you want to delete the company? All company roles will also be deleted\", \"ru\": \"Вы хотите удалить компанию? Также будут удалены все роли компании\"}",
             "Type": "languages"
         },
         {
@@ -3594,7 +3594,7 @@
         },
         {
             "Name": "want_delete_participant_company",
-            "Trans": "{\"en\":\"Do you want to remove a participant from the company?\",\"ru\":\"Вы хотите удалить участника из компании?\"}",
+            "Trans": "{\"en\": \"Do you want to remove a participant from the company?\", \"ru\": \"Вы хотите удалить участника из компании?\"}",
             "Type": "languages"
         },
         {
@@ -3629,7 +3629,7 @@
         },
         {
             "Name": "want_make_emission",
-            "Trans": "{\"en\":\"Do you want to make an emission?\",\"ru\":\"Вы хотите выполнить эмиссию?\"}",
+            "Trans": "{\"en\": \"Do you want to make an emission?\", \"ru\": \"Вы хотите выполнить эмиссию?\"}",
             "Type": "languages"
         },
         {
@@ -3674,7 +3674,7 @@
         },
         {
             "Name": "want_save_changes",
-            "Trans": "{\"en\":\"Do you want to save the changes?\",\"ru\":\"Вы хотите сохранить изменения?\"}",
+            "Trans": "{\"en\": \"Do you want to save the changes?\", \"ru\": \"Вы хотите сохранить изменения?\"}",
             "Type": "languages"
         },
         {
@@ -3694,7 +3694,7 @@
         },
         {
             "Name": "want_start_processing_notification",
-            "Trans": "{\"ru\":\"Вы хотите начать обработку уведомления?\",\"en\":\"Do you want to start processing the notification?\"}",
+            "Trans": "{\"en\": \"Do you want to start processing the notification?\", \"ru\": \"Вы хотите начать обработку уведомления?\"}",
             "Type": "languages"
         },
         {
@@ -3704,22 +3704,22 @@
         },
         {
             "Name": "web_form",
-            "Trans": "{\"en\":\"Web form address\",\"ru\":\"Адрес web-формы\"}",
+            "Trans": "{\"en\": \"Web form address\", \"ru\": \"Адрес web-формы\"}",
             "Type": "languages"
         },
         {
             "Name": "web_form_desc",
-            "Trans": "{\"en\":\"Web address of the form for applying for membership (who do not yet have APL)\",\"ru\":\"Адрес web-формы для подачи заявки на членство (у кого еще нет APL)\"}",
+            "Trans": "{\"en\": \"Web address of the form for applying for membership (who do not yet have APL)\", \"ru\": \"Адрес web-формы для подачи заявки на членство (у кого еще нет APL)\"}",
             "Type": "languages"
         },
         {
             "Name": "web_page",
-            "Trans": "{\"en\": \"Page web-address\",\"ru\": \"Вэб-адрес страницы\"}",
+            "Trans": "{\"en\": \"Page web-address\", \"ru\": \"Вэб-адрес страницы\"}",
             "Type": "languages"
         },
         {
             "Name": "write_permissions",
-            "Trans": "{\"en\":\"Write permissions\",\"ru\":\"Права доступа\"}",
+            "Trans": "{\"en\": \"Write permissions\", \"ru\": \"Права доступа\"}",
             "Type": "languages"
         },
         {
@@ -3764,7 +3764,7 @@
         },
         {
             "Name": "yes",
-            "Trans": "{\"en\":\"Yes\",\"ru\":\"Да\"}",
+            "Trans": "{\"en\": \"Yes\", \"ru\": \"Да\"}",
             "Type": "languages"
         }
     ]
