@@ -1,0 +1,27 @@
+contract TaKeyCheck {
+    data {
+        public_key int
+    }
+
+    conditions {
+        $salesID = Int(DBFind("sales").Where({key_id_buyer: $public_key}).One("id"))
+        if $salesID == 0 {
+            warning "Sorry, this public key is not valid"
+        }
+    }
+
+    action {
+        var start_balance snapswap_key_id int
+        start_balance = Money(1000000000000000)
+        snapswap_key_id = 1234567890123456789
+        
+        if DBFind("@1keys").Where({ecosystem: $ecosystem_id, id: $key_id}).One("id") == nil {
+            DBInsert("@1keys", {"id": $key_id, "amount": start_balance})
+            DBUpdate("@1keys", snapswap_key_id, {"-amount": start_balance})
+        } else {
+            warning "You are already registered"
+        }
+        
+        DBInsert("wallets", {"key_id_buyer": $key_id, "created_at": $block_time})
+    }
+}

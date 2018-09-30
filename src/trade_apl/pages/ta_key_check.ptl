@@ -1,0 +1,37 @@
+Div(content-wrapper){
+    Div(row){
+        Div(col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3){
+            Form(panel panel-primary){
+                Div(panel-body){
+                    Div(form-group){
+                        Div(text-center text-bold h4 m0){
+                            Span("Public key check")
+                        }
+                    }
+                    Div(form-group){
+                        Div(row){
+                            Div(col-md-9 mt-sm col-md-offset-3){
+                                Span(Body: "Enter public key provided by SnapSwap in the field below and press the Send button", Class: text-muted)
+                            }
+                        }
+                        Div(row){
+                            Div(col-md-3 mt-sm text-right){
+                                Label(For: public_key){
+                                    Span("SnapSwap public key")
+                                }
+                            }
+                            Div(col-md-9 mt-sm){
+                                Input(Name: public_key, Type: textarea)
+                            }
+                        }
+                    }
+                    Div(row){
+                        Div(col-md-12){
+                            Button(Body: LangRes(@1send), Class: btn btn-primary pull-right, Page: @1profile_view, Contract: @1TaKeyCheck).Alert(Text: "Are you sure your information is correct?", ConfirmButton: $@1yes$, CancelButton: $@1no$, Icon: question)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
