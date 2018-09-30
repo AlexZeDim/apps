@@ -1,0 +1,41 @@
+contract TaSettings {
+    data {
+        RoleAdmin int
+        RoleManager int
+        RoleSeller int
+    }
+    conditions{
+        MainCondition()
+        $appId = Int(DBFind("@1applications").Where({ecosystem_id:#ecosystem_id#, name:"Trade APL"}).One("id"))
+        if $appId == 0{
+            warning LangRes("@1app_not_found", "en")
+        }
+    }
+    action {
+        var params paramsNew map name string
+        if $RoleAdmin > 0{
+            name = "role_sale_apl_admin"
+            params = DBFind("@1app_params").Where({app_id:$appId, name:name, value:$Value, ecosystem:$ecosystem_id}).Row()
+            paramsNew["Id"] = Int(params["id"])
+            paramsNew["Value"] = Str($RoleAdmin)
+            paramsNew["Conditions"] = params["conditions"]
+            CallContract("@1EditAppParam", paramsNew)
+        }
+        if $RoleManager > 0{
+            name = "role_sale_apl_manager"
+            params = DBFind("@1app_params").Where({app_id:$appId, name:name, value:$Value, ecosystem:$ecosystem_id}).Row()
+            paramsNew["Id"] = Int(params["id"])
+            paramsNew["Value"] = Str($RoleAdmin)
+            paramsNew["Conditions"] = params["conditions"]
+            CallContract("@1EditAppParam", paramsNew)
+        }
+        if $RoleSeller > 0{
+            name = "role_seller_apl"
+            params = DBFind("@1app_params").Where({app_id:$appId, name:name, value:$Value, ecosystem:$ecosystem_id}).Row()
+            paramsNew["Id"] = Int(params["id"])
+            paramsNew["Value"] = Str($RoleAdmin)
+            paramsNew["Conditions"] = params["conditions"]
+            CallContract("@1EditAppParam", paramsNew)
+        }
+    }
+}

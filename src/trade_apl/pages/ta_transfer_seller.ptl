@@ -1,8 +1,13 @@
 DBFind(@1applications).Where({ecosystem:#ecosystem_id#, name:"Trade APL"}).Columns("id").Vars(application)
-SetVar(sale_admin, AppParam(App:#application_id#, Name:role_sale_apl_admin, Ecosystem: #ecosystem_id#))
+
+SetVar(this_page, ta_transfer_seller)
+SetVar(role_param, role_seller_apl))
+SetVar(row,"row mt-sm").(col_left,"col-sm-4 text-right").(col_right,"col-sm-8 text-left")
+SetVar(needed_role_id, AppParam(App:#application_id#, Name:#role_param#, Ecosystem: #ecosystem_id#))
+
+TODO: this page
 AppParam(App:#application_id#, Name:ta_currency_type, Ecosystem: #ecosystem_id#, Source:currency_type)
 
-SetVar(this_page, ta_tokens_transfer)
 Div(content-wrapper){
     Div(row mt-sm){
         Div(col-lg-10 col-lg-offset-1){
@@ -10,8 +15,7 @@ Div(content-wrapper){
                 DBFind(wallets, wallets).Where({key_id_buyer:{$neq:0}, key_id_signer:{$neq:0}, rejected_at:0}).Vars(wallet).Custom(_name){
                     Address(#key_id_buyer#)
                 }
-                If(And(#sale_admin#>0,#role_id#==#sale_admin#)){
-                    SetVar(row,"row mt-sm").(col_left,"col-sm-4 text-right").(col_right,"col-sm-8 text-left")
+                If(And(#needed_role_id#>0,#role_id#==#needed_role_id#)){
                     Div(panel-body){
                         Div(#row#){
                             Div(#col_left#){
@@ -45,16 +49,43 @@ Div(content-wrapper){
                                 Input(Name:AmountApl, Type:number)
                             }
                         }
+                        Div(#row# text-muted){
+                            Div(#col_left#){
+                                $@1created_at$
+                            }
+                            Div(#col_right#){
+                                DateTime(#sale_created_at#, Format: YYYY-MM-DD HH:MI:SS)
+                            }
+                        }
+                        Div(#row# text-muted){
+                            Div(#col_left#){
+                                $@1created_by$
+                            }
+                            Div(#col_right#){
+                                #sale_key_id_sale_apl_admin#
+                            }
+                        }
+                        Div(#row# text-muted){
+                            Div(#col_left#){
+                                $@1checked_by$
+                            }
+                            Div(#col_right#){
+                                #sale_key_id_sale_apl_manager#
+                            }
+                        }
                     }
-                    Div(panel-footer text-center){
-                        Button(Body: $@1send_to_check$, Class: btn btn-primary, Page: #this_page#, Contract: TaSaleCheck)
+                    Div(panel-footer){
+                        Button(Body: $@1reject$, Class: btn btn-danger, Page: ta_reject, PageParams: "RoleParam=#role_param#,notific_id=#notific_id#,back_page=#this_page#").Popup(50,"Rejected comment")
+                        Button(Body: $@1accept$, Class: btn btn-primary pull-right, Page: #this_page#, Contract: TaTransferSeller, Params: "SaleId=#sale_id#")
                     }
                 }.Else{
                     Div(panel-body){
-                        If(#sale_admin#>0){}.Else{
-                            role_sale_apl_admin not setted
-                        }.ElseIf(#sale_admin#!=#role_id#){
-                            this page only for role from parameter 'role_sale_apl_admin'
+                        If(#needed_role_id#>0){
+                            If(#needed_role_id#!=#role_id#){
+                                this page only for role from parameter #role_param#
+                            }
+                        }.Else{
+                            #role_param# not setted
                         }
                     }
                 }

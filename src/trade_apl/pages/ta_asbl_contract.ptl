@@ -3,7 +3,7 @@ DBFind(@1notifications).Where({ecosystem:#ecosystem_id#, id:#notific_id#}).Colum
 
 
 SetVar(this_page, ta_asbl_contract)
-SetTitle("Страница с договором на которую покупатель переходит при заходе")
+SetTitle("Страница подписи представителем роли Apla Consensus")
 Div(content-wrapper){
     Div(row mt-sm){
         Div(col-lg-10 col-lg-offset-1){

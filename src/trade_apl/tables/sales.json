@@ -31,16 +31,6 @@
     },
     {
         "conditions": "true",
-        "name": "admin_reject_comment",
-        "type": "text"
-    },
-    {
-        "conditions": "true",
-        "name": "admin_rejected_at",
-        "type": "number"
-    },
-    {
-        "conditions": "true",
         "name": "key_id_sale_apl_manager",
         "type": "number"
     },
@@ -56,6 +46,11 @@
     },
     {
         "conditions": "true",
+        "name": "key_id_seller",
+        "type": "number"
+    },
+    {
+        "conditions": "true",
         "name": "seller_reject_comment",
         "type": "text"
     },
@@ -67,6 +62,11 @@
     {
         "conditions": "true",
         "name": "seller_transferred_at",
+        "type": "number"
+    },
+    {
+        "conditions": "true",
+        "name": "created_at",
         "type": "number"
     }
 ]

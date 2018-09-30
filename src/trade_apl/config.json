@@ -1,263 +1,34 @@
 {
     "name": "Trade APL",
     "conditions": "ContractConditions(\"MainCondition\")",
-    "blocks": [
-        {
-            "Name": "basic_paginator",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "notifications_roles",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "notifications_single",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        }
-    ],
+    "blocks": null,
     "contracts": [
         {
-            "Name": "AttorneyAdd",
+            "Name": "TaAsblAction",
             "Conditions": "ContractConditions(\"MainCondition\")"
         },
         {
-            "Name": "AttorneyCheckAccess",
+            "Name": "TaBuyerAction",
             "Conditions": "ContractConditions(\"MainCondition\")"
         },
         {
-            "Name": "AttorneyDelete",
+            "Name": "TaReject",
             "Conditions": "ContractConditions(\"MainCondition\")"
         },
         {
-            "Name": "AttorneyEdit",
+            "Name": "TaSettings",
             "Conditions": "ContractConditions(\"MainCondition\")"
         },
         {
-            "Name": "BufferManager",
+            "Name": "TaTransferAdmin",
             "Conditions": "ContractConditions(\"MainCondition\")"
         },
         {
-            "Name": "NotificationsBroadcast",
+            "Name": "TaTransferManager",
             "Conditions": "ContractConditions(\"MainCondition\")"
         },
         {
-            "Name": "NotificationsProcess",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "NotificationsClose",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "NotificationsSend",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "ProfileEditAvatar",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "ProfileEdit",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "RoleConditions",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "RolesAccessCheck",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "RolesAccessManager",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "RolesAssign",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "RolesCreate",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "RolesUnassign",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "RolesInstall",
-            "Conditions": "false"
-        },
-        {
-            "Name": "RolesRequest",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "RolesRequestDecision",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "RolesRestore",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "RolesDelete",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "TokensTransfer",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "TokensSend",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingDecisionCheck",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingInvite",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingUpdate",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingCandidateAccept",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingDecisionAccept",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingDelete",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingCreate",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingNotificationSend",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingStatusUpdate",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingSubjectCandidates",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingSubjectCheck",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingSubjectContract",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingSubjectDocument",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingSubjectFormal",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingSubjectSettings",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingTemplateCreate",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingTemplateRun",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingTemplatesInstall",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingDecisionReject",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "CandidateValidatorDelete",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "CandidateValidatorRequest",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "CatalogAddEcosystem",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "DelegateRefresh",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "InvestorRefresh",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "MembershipDecide",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "MembershipRequest",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "MetricsUpdate",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "NodeRemoveByKey",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "TokensRefund",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "TokensRefundAccept",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "TokensRefundReject",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "ValidatorResign",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingNodeAdd",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingSysparamInit",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingTokensRefundCreate",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingValidatorAccept",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "VotingValidatorInit",
+            "Name": "TaTransferSeller",
             "Conditions": "ContractConditions(\"MainCondition\")"
         }
     ],
@@ -273,378 +44,76 @@
     ],
     "pages": [
         {
-            "Name": "attorney_add",
+            "Name": "ta_asbl_contract",
             "Conditions": "ContractConditions(\"MainCondition\")",
             "Menu": "default_menu"
         },
         {
-            "Name": "attorney_edit",
+            "Name": "ta_buyer_congratulation",
             "Conditions": "ContractConditions(\"MainCondition\")",
             "Menu": "default_menu"
         },
         {
-            "Name": "attorney_list",
+            "Name": "ta_buyer_contract",
             "Conditions": "ContractConditions(\"MainCondition\")",
             "Menu": "default_menu"
         },
         {
-            "Name": "attorney_view",
+            "Name": "ta_notification",
             "Conditions": "ContractConditions(\"MainCondition\")",
             "Menu": "default_menu"
         },
         {
-            "Name": "members_list",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "notifications",
+            "Name": "ta_reject",
             "Conditions": "ContractConditions(\"MainCondition\")",
             "Menu": "default_menu"
         },
         {
-            "Name": "notifications_broadcast",
+            "Name": "ta_settings",
             "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "notifications_list",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "notifications_roles_send",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "notifications_show",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "notifications_single_send",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "notifications_testpage",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "profile_avatar_edit",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "profile_edit",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "profile_view",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "roles_assign",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "roles_create",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "roles_list",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "roles_request",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "roles_request_view",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "roles_view",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "tokens_transfer",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "voting_create",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "voting_decision_candidates",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "voting_decision_contract",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "voting_decision_document",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "voting_decision_election",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "voting_decision_formal",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "voting_invite",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "voting_list",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "voting_template_create",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "voting_template_start",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "voting_templates_list",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "voting_view",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "catalog_ecosystems_create",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "catalog_ecosystems_list",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "catalog_ecosystems_view",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "ecosystem_new",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "membership_admin_view",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "ecosystems_list",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "ecosystems_metrics_update",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "membership_user_view",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "sysparams_candidate_validators_create",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "sysparams_candidates_list",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "sysparams_ecosystems_list",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "sysparams_list",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
             "Menu": "admin_menu"
         },
         {
-            "Name": "sysparams_metrics",
+            "Name": "ta_transfer_admin",
             "Conditions": "ContractConditions(\"MainCondition\")",
             "Menu": "default_menu"
         },
         {
-            "Name": "sysparams_voting",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "admin_menu"
-        },
-        {
-            "Name": "tokenrefund_accept",
+            "Name": "ta_transfer_manager",
             "Conditions": "ContractConditions(\"MainCondition\")",
             "Menu": "default_menu"
         },
         {
-            "Name": "tokenrefund_create",
+            "Name": "ta_transfer_seller",
             "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "tokenrefund_list",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
             "Menu": "default_menu"
         }
     ],
     "tables": [
         {
-            "Name": "power_of_attorney",
+            "Name": "sales",
             "Permissions": "{\"insert\":\"true\",\"update\":\"true\",\"new_column\":\"true\"}"
         },
         {
-            "Name": "voting_templates",
-            "Permissions": "{\"insert\":\"true\",\"update\":\"false\",\"new_column\":\"true\"}"
-        },
-        {
-            "Name": "votings",
-            "Permissions": "{\"insert\": \"true\", \"update\": \"true\", \"new_column\": \"true\"}"
-        },
-        {
-            "Name": "votings_participants",
-            "Permissions": "{\"insert\": \"ContractAccess(\\\"@1VotingInvite\\\")\", \"update\": \"ContractAccess(\\\"@1VotingDecisionReject\\\",\\\"@1VotingDecisionAccept\\\",\\\"@1VotingCandidateAccept\\\")\", \"new_column\": \"true\"}"
-        },
-        {
-            "Name": "votings_subject",
-            "Permissions": "{\"insert\": \"true\", \"update\": \"true\", \"new_column\": \"true\"}"
-        },
-        {
-            "Name": "catalog_ecosystems",
-            "Permissions": "{\"insert\": \"true\", \"update\": \"true\", \"new_column\": \"true\"}"
-        },
-        {
-            "Name": "sysparams_candidate",
-            "Permissions": "{\"insert\":\"true\",\"update\":\"true\",\"new_column\":\"true\"}"
-        },
-        {
-            "Name": "tokenrefund",
+            "Name": "wallets",
             "Permissions": "{\"insert\":\"true\",\"update\":\"true\",\"new_column\":\"true\"}"
         }
     ],
     "parameters": [
         {
-            "Name": "notification_closure",
+            "Name": "role_sale_apl_admin",
             "Conditions": "ContractConditions(\"MainCondition\")"
         },
         {
-            "Name": "notification_icon",
+            "Name": "role_sale_apl_manager",
             "Conditions": "ContractConditions(\"MainCondition\")"
         },
         {
-            "Name": "notification_sender",
+            "Name": "role_seller_apl",
             "Conditions": "ContractConditions(\"MainCondition\")"
         },
         {
-            "Name": "notification_type",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "roles_types",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "roles_types_selection",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "type_voting",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "type_voting_decisions",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "type_voting_participants",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "voting_statuses",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "voting_statuses_classes",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "voting_sysparams_template_id",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "voting_tokenrefund_template_id",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "voting_validators_template_id",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "voting_ves_template_id",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "catalog_ecosystems_freetype",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "catalog_ecosystems_type",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "first_node",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "investors_number",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "tokenrefund_result",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
-            "Name": "tokenrefund_status",
+            "Name": "ta_currency_type",
             "Conditions": "ContractConditions(\"MainCondition\")"
         }
     ]
