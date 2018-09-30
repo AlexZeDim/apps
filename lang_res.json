@@ -889,7 +889,7 @@
         },
         {
             "Name": "default_main",
-            "Trans": "{\"en_US\":\"Congratulations! You have created your own ecosystem\", \"ru\": \"Поздравляем! Вы создали свою собственную экосистему\"}",
+            "Trans": "{\"en\": \"Congratulations! You have created your own ecosystem\", \"ru\": \"Поздравляем! Вы создали свою собственную экосистему\"}",
             "Type": "languages"
         },
         {
@@ -964,7 +964,7 @@
         },
         {
             "Name": "download_link",
-            "Trans": "{\"en_US\":\"Download link\", \"ru\": \"Ссылка для скачивания\"}",
+            "Trans": "{\"en\": \"Download link\", \"ru\": \"Ссылка для скачивания\"}",
             "Type": "languages"
         },
         {
