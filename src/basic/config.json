@@ -259,6 +259,10 @@
         {
             "Name": "VotingValidatorInit",
             "Conditions": "ContractConditions(\"MainCondition\")"
+        },
+        {
+            "Name": "TokensLockoutMember",
+            "Conditions": "ContractConditions(\"MainCondition\")"
         }
     ],
     "menus": [

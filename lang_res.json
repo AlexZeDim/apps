@@ -713,6 +713,11 @@
             "Type": "languages"
         },
         {
+            "Name": "contract_chain_distorted",
+            "Trans": "{\"en\": \"Contract chain is distorted\", \"ru\": \"Искажена цепочка контрактов\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "contract_first_ecosystem_only",
             "Trans": "{\"en\": \"This contract can be started from the first ecosystem only\", \"ru\": \"Этот контракт может быть запущен только из первой экосистемы\"}",
             "Type": "languages"
@@ -755,6 +760,11 @@
         {
             "Name": "contract_run",
             "Trans": "{\"en\": \"Contract run\", \"ru\": \"Выполнение контракта\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "contract_start_tokensrefundaccept_only",
+            "Trans": "{\"en\": \"This contract can only be started from @1TokensRefundAccept\", \"ru\": \"Этот контракт может быть запущен только из @1TokensRefundAccept\"}",
             "Type": "languages"
         },
         {
@@ -3060,6 +3070,11 @@
         {
             "Name": "value",
             "Trans": "{\"en\":\"Value\",\"ru\":\"Значение\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "value_between_0_and_1",
+            "Trans": "{\"en\": \"Value must be between 0 and 1\", \"ru\": \"Значение может быть 0 и 1\"}",
             "Type": "languages"
         },
         {

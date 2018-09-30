@@ -1,6 +1,6 @@
 digraph G {
 fontsize="24";
-label="basic\nSunday, 30-Sep-18 11:20:28 +10";
+label="basic\nSunday, 30-Sep-18 19:23:10 +10";
 nojustify=true;
 ordering=out;
 rankdir=LR;
@@ -288,6 +288,7 @@ size="30";
 "NotificationsClose\ncontract" -> "NotificationsProcess\ncontract"  [ color=red ]
 "NotificationsClose\ncontract" -> "TokensRefund\ncontract"  [ color=red ]
 "NotificationsClose\ncontract" -> "TokensRefundAccept\ncontract"  [ color=red ]
+"NotificationsClose\ncontract" -> "TokensRefundReject\ncontract"  [ color=red ]
 "NotificationsClose\ncontract" -> "VotingDecisionCheck\ncontract"  [ color=red ]
 "NotificationsClose\ncontract" -> "VotingDelete\ncontract"  [ color=red ]
 "1notifications\ntable" -> "NotificationsClose\ncontract"
@@ -365,17 +366,28 @@ size="30";
 "1roles_participants\ntable" -> "RolesUnassign\ncontract"
 "1roles\ntable" -> "RolesUnassign\ncontract"
 "RolesUnassign\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"TokensLockoutMember\ncontract" -> "TokensRefund\ncontract"  [ color=red ]
+"TokensLockoutMember\ncontract" -> "TokensRefundAccept\ncontract"  [ color=red ]
+"TokensLockoutMember\ncontract" -> "TokensRefundReject\ncontract"  [ color=red ]
+"TokensLockoutMember\ncontract" -> "VotingTokensRefundCreate\ncontract"  [ color=red ]
+"1keys\ntable" -> "TokensLockoutMember\ncontract"
+"TokensLockoutMember\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "TokensRefund\ncontract" -> "TokensRefundAccept\ncontract"  [ color=red ]
-"TokensRefund\ncontract" -> "VotingDecisionAccept\ncontract"  [ color=red ]
 "1keys\ntable" -> "TokensRefund\ncontract"
 "TokensRefund\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "TokensRefundAccept\ncontract" -> "NotificationsClose\ncontract"  [ color=red ]
+"TokensRefundAccept\ncontract" -> "TokensLockoutMember\ncontract"  [ color=red ]
 "TokensRefundAccept\ncontract" -> "TokensRefund\ncontract"  [ color=red ]
+"TokensRefundAccept\ncontract" -> "VotingDecisionCheck\ncontract"  [ color=red ]
 "TokensRefundAccept\ncontract" -> "tokenrefund\ntable"  [ color="" ]
 "1notifications\ntable" -> "TokensRefundAccept\ncontract"
 "TokensRefundAccept\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"TokensRefundReject\ncontract" -> "NotificationsClose\ncontract"  [ color=red ]
+"TokensRefundReject\ncontract" -> "TokensLockoutMember\ncontract"  [ color=red ]
 "TokensRefundReject\ncontract" -> "TokensRefund\ncontract"  [ color=red ]
+"TokensRefundReject\ncontract" -> "VotingDecisionCheck\ncontract"  [ color=red ]
 "TokensRefundReject\ncontract" -> "tokenrefund\ntable"  [ color="" ]
+"1notifications\ntable" -> "TokensRefundReject\ncontract"
 "TokensRefundReject\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "TokensSend\ncontract" -> "TokensTransfer\ncontract"  [ color=red ]
 "TokensSend\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
@@ -498,6 +510,7 @@ size="30";
 "1app_params\ntable" -> "VotingTemplatesInstall\ncontract"
 "1voting_templates\ntable" -> "VotingTemplatesInstall\ncontract"
 "VotingTemplatesInstall\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"VotingTokensRefundCreate\ncontract" -> "TokensLockoutMember\ncontract"  [ color=red ]
 "VotingTokensRefundCreate\ncontract" -> "TokensRefund\ncontract"  [ color=red ]
 "VotingTokensRefundCreate\ncontract" -> "VotingCreate\ncontract"  [ color=red ]
 "VotingTokensRefundCreate\ncontract" -> "VotingInvite\ncontract"  [ color=red ]
