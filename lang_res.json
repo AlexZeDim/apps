@@ -2698,6 +2698,11 @@
             "Type": "languages"
         },
         {
+            "Name": "ta_key_check",
+            "Trans": "{\"en\": \"Registration key from SnapSwap\", \"ru\": \"Регистрация ключа от SnapSwap\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "ta_settings",
             "Trans": "{\"en\": \"Settings 'Trade APl'\", \"ru\": \"Настройки 'Trade APl'\"}",
             "Type": "languages"

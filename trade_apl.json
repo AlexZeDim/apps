@@ -11,7 +11,7 @@
         {
             "Name": "default_menu",
             "Conditions": "ContractAccess(\"@1EditMenu\")",
-            "Value": "MenuItem(Title:$@1ta_transfer_admin$, Page:ta_transfer_admin, Icon:\"icon-wallet\")",
+            "Value": "MenuItem(Title:$@1ta_key_check$, Page:ta_key_check, Icon:\"icon-wallet\")\nMenuItem(Title:$@1ta_transfer_admin$, Page:ta_transfer_admin, Icon:\"icon-wallet\")",
             "Type": "menu"
         },
         {
