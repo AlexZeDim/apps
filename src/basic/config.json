@@ -559,7 +559,8 @@
         },
         {
             "Name": "sysparams_candidate",
-            "Permissions": "{\"insert\":\"true\",\"update\":\"true\",\"new_column\":\"true\"}"
+            "Conditions": "ContractAccess(\"@1EditTable\")",
+            "Permissions": "{\"insert\": \"ContractAccess(\\\"@1CandidateValidatorRequest\\\")\", \"update\": \"ContractAccess(\\\"@1CandidateValidatorDelete\\\")\", \"new_column\": \"ContractConditions(\\\"MainCondition\\\")\"}"
         },
         {
             "Name": "tokenrefund",

@@ -46,8 +46,8 @@
         },
         {
             "Name": "sysparams_candidate",
-            "Columns": "[\r\n    {\r\n        \"name\": \"commission_address\",\r\n        \"type\": \"number\",\r\n        \"conditions\": \"true\"\r\n    },\r\n    {\r\n        \"name\": \"comment\",\r\n        \"type\": \"text\",\r\n        \"conditions\": \"true\"\r\n    },\r\n    {\r\n        \"name\": \"deleted\",\r\n        \"type\": \"number\",\r\n        \"conditions\": \"true\"\r\n    },\r\n    {\r\n        \"name\": \"host_ip\",\r\n        \"type\": \"varchar\",\r\n        \"conditions\": \"true\"\r\n    },\r\n    {\r\n        \"name\": \"description\",\r\n        \"type\": \"text\",\r\n        \"conditions\": \"true\"\r\n    },\r\n    {\r\n        \"name\": \"date_created\",\r\n        \"type\": \"datetime\",\r\n        \"conditions\": \"true\"\r\n    },\r\n    {\r\n        \"name\": \"commission_pub\",\r\n        \"type\": \"varchar\",\r\n        \"conditions\": \"true\"\r\n    },\r\n    {\r\n        \"name\": \"candidate_key_id\",\r\n        \"type\": \"number\",\r\n        \"conditions\": \"true\"\r\n    }\r\n]",
-            "Permissions": "{\"insert\":\"true\",\"update\":\"true\",\"new_column\":\"true\"}",
+            "Columns": "[{\"conditions\":\"false\",\"name\":\"date_created\",\"type\":\"datetime\"},{\"conditions\":\"false\",\"name\":\"commission_pub\",\"type\":\"varchar\"},{\"conditions\":\"false\",\"name\":\"candidate_key_id\",\"type\":\"number\"},{\"conditions\":\"false\",\"name\":\"commission_address\",\"type\":\"number\"},{\"conditions\":\"false\",\"name\":\"comment\",\"type\":\"text\"},{\"conditions\":\"ContractAccess(\\\"@1CandidateValidatorDelete\\\")\",\"name\":\"deleted\",\"type\":\"number\"},{\"conditions\":\"false\",\"name\":\"host_ip\",\"type\":\"varchar\"},{\"conditions\":\"false\",\"name\":\"description\",\"type\":\"text\"}]",
+            "Permissions": "{\"insert\": \"ContractAccess(\\\"@1CandidateValidatorRequest\\\")\", \"update\": \"ContractAccess(\\\"@1CandidateValidatorDelete\\\")\", \"new_column\": \"ContractConditions(\\\"MainCondition\\\")\"}",
             "Type": "tables"
         },
         {
