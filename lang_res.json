@@ -149,7 +149,7 @@
         },
         {
             "Name": "amount_apl",
-            "Trans": "{\"en\": \"Amount APL\", \"ru\": \"Количество АПЛ\"}",
+            "Trans": "{\"en\": \"Amount APL\", \"ru\": \"Сумма АПЛ\"}",
             "Type": "languages"
         },
         {
@@ -440,6 +440,11 @@
         {
             "Name": "broadcast_send",
             "Trans": "{\"en\": \"Broadcast send\", \"ru\": \"Отправить во все экосистемы\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "btc",
+            "Trans": "{\"en\": \"BTC\"}",
             "Type": "languages"
         },
         {
@@ -1165,6 +1170,16 @@
         {
             "Name": "enter_valid_ip",
             "Trans": "{\"en\": \"Please enter valid IP-address\", \"ru\": \"Пожалуйста, введите корректный IP-адрес\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "eth",
+            "Trans": "{\"en\": \"ETH\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "euro",
+            "Trans": "{\"en\": \"Euro\"}",
             "Type": "languages"
         },
         {
@@ -2458,6 +2473,11 @@
             "Type": "languages"
         },
         {
+            "Name": "send_to_check",
+            "Trans": "{\"en\": \"Send to check\", \"ru\": \"Отправить на проверку\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "sender",
             "Trans": "{\"en\": \"Sender\", \"ru\": \"Отправитель\"}",
             "Type": "languages"
@@ -3575,6 +3595,11 @@
         {
             "Name": "wallet_address",
             "Trans": "{\"en\": \"Wallet Address\", \"ru\": \"Адрес кошелька\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "wallets",
+            "Trans": "{\"en\": \"Wallets\", \"ru\": \"Кошельки\"}",
             "Type": "languages"
         },
         {

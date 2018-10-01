@@ -71,14 +71,23 @@ Div(content-wrapper){
                         Button(Body: $@1accept$, Class: btn btn-primary pull-right, Page: #this_page#, Contract: TaTransferManager, Params: "SaleId=#sale_id#")
                     }
                 }.Else{
-                    Div(panel-body){
+                    Div(panel-body text-center){
                         If(#needed_role_id#>0){
                             If(#needed_role_id#!=#role_id#){
-                                this page only for role from parameter #role_param#
+                                DBFind(@1app_params).Where({ecosystem:#ecosystem_id#, app_id:#application_id#, name:#role_param#}).Vars(param)
+                                Div(h4){
+                                    this page only for role from parameter LinkPage(Page: @1app_params_edit, PageParams: "id=#param_id#,back_page=#this_page#", Body:#role_param#)
+                                }
                             }
                         }.Else{
-                            #role_param# not setted
+                            Div(h4){
+                                #role_param# not setted
+                            }
+                            Div(h4){
+                                LinkPage(Body:$@1ta_settings$, Page:ta_settings)
+                            }
                         }
+
                         If(#note_id_page_params_sale_id#>0){
                             If(#sale_id#>0){}.Else{
                                 sale not found
