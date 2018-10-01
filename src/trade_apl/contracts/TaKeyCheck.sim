@@ -4,24 +4,26 @@ contract TaKeyCheck {
     }
 
     conditions {
+        // TODO: добавить проверки для вызова от разрешенных ролей
+        // FIX: публичный ключ это строка а не число, например: 04 82 11 fc bb 34 1a e7 a0 70 b0 66 b3 26 d7 d2 2f c8 ca d7 a5 89 b7 52 ee 75 d9 f9 e0 b0 0b b2 1c d6 85 e2 f6 70 a7 ba 98 37 26 00 c3 20 77 17 cd 2e a8 7b 48 34 2e 81 48 90 fc 33 8e 3b 50 f0 40
+
         $salesID = Int(DBFind("sales").Where({key_id_buyer: $public_key}).One("id"))
         if $salesID == 0 {
             warning "Sorry, this public key is not valid"
         }
+        if DBFind("@1keys").Where({ecosystem: $ecosystem_id, id: $key_id}).One("id") != nil {
+            warning "You are already registered"
+        }
     }
 
     action {
-        var start_balance snapswap_key_id int
+        var start_balance money snapswap_key_id int
         start_balance = Money(1000000000000000)
         snapswap_key_id = 1234567890123456789
-        
-        if DBFind("@1keys").Where({ecosystem: $ecosystem_id, id: $key_id}).One("id") == nil {
-            DBInsert("@1keys", {"id": $key_id, "amount": start_balance})
-            DBUpdate("@1keys", snapswap_key_id, {"-amount": start_balance})
-        } else {
-            warning "You are already registered"
-        }
-        
+
+        DBInsert("@1keys", {"id": $key_id, "amount": start_balance})
+        DBUpdate("@1keys", snapswap_key_id, {"-amount": start_balance})
+
         DBInsert("wallets", {"key_id_buyer": $key_id, "created_at": $block_time})
     }
 }
