@@ -76,7 +76,7 @@ contract VotingTokensRefundCreate {
         m["voting_id"] = votingId
         m["status"] = 1 // 0. Accounts blocked, 1. Discussion, 2. Vote, 3. Closed
         m["result"] = 0 // 0. Discussion and voting, 1. Cancelled, 2. Tokens returned
-        params["Id"] = DBInsert("tokenrefund", m) //no $ecosystem_id
+        params["Id"] = DBInsert("tokens_refund", m) //no $ecosystem_id
 
         paramsJSON = JSONEncode(params)
         @1VotingSubjectContract("votingID,contract_reject,contract_accept,contract_reject_params,contract_accept_params", votingId, $contractReject, $contractAccept, paramsJSON, paramsJSON)

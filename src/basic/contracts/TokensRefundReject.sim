@@ -27,7 +27,7 @@ contract TokensRefundReject {
         }
         
         $Id = Int($Id)
-        $tokenrefund = DBFind("tokenrefund").Where({"id":$Id}).Row()
+        $tokenrefund = DBFind("tokens_refund").Where({"id":$Id}).Row()
         if !$tokenrefund{
             error LangRes("@1tokens_refund_not_found", "en")
         }
@@ -50,6 +50,6 @@ contract TokensRefundReject {
         TokensLockoutMember("KeyId,Value", $victimId, 0)
         TokensLockoutMember("KeyId,Value", $attackerId, 0)
 
-        DBUpdate("tokenrefund", $Id, {status:3, result:1})
+        DBUpdate("tokens_refund", $Id, {status:3, result:1})
     }
 }
