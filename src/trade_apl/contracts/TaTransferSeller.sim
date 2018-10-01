@@ -1,6 +1,7 @@
 contract TaTransferSeller {
     data {
         SaleId int
+        NotificId int
     }
     func getRoleId(name string) int{
         var rid int
@@ -15,11 +16,9 @@ contract TaTransferSeller {
         if $appId == 0{
             warning LangRes("@1app_not_found", "en")
         }
-
-        var role int
-        role = getRoleId("role_seller_apl")
-        if !RoleAccess(role){
-            warning "this action allowed only for role id #" + role
+        $currentRole = getRoleId("role_seller_apl")
+        if !RoleAccess($currentRole){
+            warning "this action allowed only for role id #" + $currentRole
         }
 
         $sale = DBFind("sales").Where({id:$SaleId}).Row()
@@ -29,14 +28,15 @@ contract TaTransferSeller {
     }
 
     action {
-        var sale transfer map
-        sale["key_id_seller"] = $key_id
-        sale["seller_transferred_at"] = $time
-        DBUpdate("sales", Int($sale["id"]), sale)
+        @1NotificationsClose("notific_id", $NotificId)
+        var s transfer map
+        s["key_id_seller"] = $key_id
+        s["seller_transferred_at"] = $time
+        DBUpdate("sales", Int($sale["id"]), s)
 
-        transfer["Amount"] = sale["amount_apl"]
-        transfer["Sender_AccountId"] = $key_idsale["amount"]
-        transfer["Recipient_AccountId"] = sale["key_id_buyer"]
+        transfer["Amount"] = $sale["amount_apl"]
+        transfer["Sender_AccountId"] = $key_id
+        transfer["Recipient_AccountId"] = $sale["key_id_buyer"]
         CallContract("@1TokensTransfer", transfer)
     }
 }

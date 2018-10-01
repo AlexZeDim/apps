@@ -25,7 +25,11 @@ contract TaReject {
         if !RoleAccess(role){
             warning "this action allowed only for role id #" + role
         }
-        note = DBFind("@1notifications").Where({id:$NotificId}).Columns("page_params->sale_id").Row()
+        note = DBFind("@1notifications").Where({id:$NotificId}).Columns("page_params->sale_id,date_start_processing,notification->type").Row()
+        if !note{
+            warning "Notification not found"
+        }
+        $needProcessing = note["date_start_processing"] == ""
         noteSaleId = Int(note["page_params.sale_id"])
         $sale = DBFind("sales").Where({id:noteSaleId}).Row()
         if !$sale {
@@ -35,6 +39,10 @@ contract TaReject {
     }
 
     action {
+        if $needProcessing {
+            @1NotificationsProcess("notific_id", $NotificId)
+        }
+        @1NotificationsClose("notific_id", $NotificId)
         var sale params map title body string prevKeyId int
         title = Sprintf("Sale %v rejected", $saleId)
         body = $Comment

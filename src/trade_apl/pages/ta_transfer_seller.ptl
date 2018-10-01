@@ -6,6 +6,17 @@ SetVar(row,"row mt-sm").(col_left,"col-sm-4 text-right").(col_right,"col-sm-8 te
 SetVar(needed_role_id, AppParam(App:#application_id#, Name:#role_param#, Ecosystem: #ecosystem_id#))
 
 AppParam(App:#application_id#, Name:ta_currency_type, Ecosystem: #ecosystem_id#, Source:currency_type)
+SetVar(isStartProcessing,0)
+If(#notific_id#>0){
+    DBFind(@1notifications).Where({ecosystem:#ecosystem_id#, id:#notific_id#}).Columns("page_params->sale_id,date_start_processing,notification->type,processing_info->member_id").Vars(note)
+    If(#note_date_start_processing#!=""){
+        SetVar(isStartProcessing,1)
+    }
+}
+SetVar(sale_id,0)
+If(#note_page_params_sale_id#>0){
+    DBFind(sales).Where({id:#note_page_params_sale_id#}).Vars(sale)
+}
 
 SetTitle($@1ta_transfer_seller$)
 Div(content-wrapper){
@@ -15,14 +26,14 @@ Div(content-wrapper){
                 DBFind(wallets, wallets).Where({key_id_buyer:{$neq:0}, key_id_signer:{$neq:0}, rejected_at:0}).Vars(wallet).Custom(_name){
                     Address(#key_id_buyer#)
                 }
-                If(And(#needed_role_id#>0,#role_id#==#needed_role_id#)){
+                If(And(#needed_role_id#>0,#role_id#==#needed_role_id#,#sale_id#>0)){
                     Div(panel-body){
                         Div(#row#){
                             Div(#col_left#){
                                 $@1wallet$
                             }
                             Div(#col_right#){
-                                Select(Name:WalletId, Source:wallets, NameColumn: _name, ValueColumn: key_id_buyer)
+                                #sale_key_id_buyer#
                             }
                         }
                         Div(#row#){
@@ -30,15 +41,15 @@ Div(content-wrapper){
                                 $@1amount$
                             }
                             Div(#col_right#){
-                                Input(Name:Amount, Type:number)
+                                #sale_amount#
                             }
                         }
                         Div(#row#){
                             Div(#col_left#){
-                                $@1amount$
+                                $@1currency_type$
                             }
                             Div(#col_right#){
-                                Select(Name:CurrencyType, Source:currency_type, NameColumn: name, ValueColumn: id)
+                                AppParam(App:#application_id#, Name:ta_currency_type, Ecosystem: #ecosystem_id#, Index: #sale_currency_type#)
                             }
                         }
                         Div(#row#){
@@ -46,7 +57,7 @@ Div(content-wrapper){
                                 $@1amount_apl$
                             }
                             Div(#col_right#){
-                                Input(Name:AmountApl, Type:number)
+                                #sale_amount_apl#
                             }
                         }
                         Div(#row# text-muted){
@@ -62,7 +73,7 @@ Div(content-wrapper){
                                 $@1created_by$
                             }
                             Div(#col_right#){
-                                #sale_key_id_sale_apl_admin#
+                                Address(#sale_key_id_sale_apl_admin#)
                             }
                         }
                         Div(#row# text-muted){
@@ -70,13 +81,23 @@ Div(content-wrapper){
                                 $@1checked_by$
                             }
                             Div(#col_right#){
-                                #sale_key_id_sale_apl_manager#
+                                Address(#sale_key_id_sale_apl_manager#)
                             }
                         }
                     }
                     Div(panel-footer){
-                        Button(Body: $@1reject$, Class: btn btn-danger, Page: ta_reject, PageParams: "RoleParam=#role_param#,notific_id=#notific_id#,back_page=#this_page#").Popup(50,"Rejected comment")
-                        Button(Body: $@1accept$, Class: btn btn-primary pull-right, Page: #this_page#, Contract: TaTransferSeller, Params: "SaleId=#sale_id#")
+                        If(And(#note_processing_info_member_id#==#key_id#,#isStartProcessing#==1)){
+                            Button(Body: $@1reject$, Class: btn btn-danger, Page: ta_reject, PageParams: "RoleParam=#role_param#,notific_id=#notific_id#,back_page=#this_page#").Popup(50,"Rejected comment")
+                            Button(Body: $@1accept$, Class: btn btn-primary pull-right, Page: default_page, Contract: TaTransferSeller, Params: "SaleId=#sale_id#,NotificId=#notific_id#")
+                        }.ElseIf(#isStartProcessing#==1){
+                            Div(text-muted text-center){
+                                process begin another seller
+                            }
+                        }.ElseIf(#isStartProcessing#==0){
+                            Div(text-center){
+                                Button(Body: $@1processing$, Class: btn btn-primary, Page: #this_page#, PageParams: "notific_id=#notific_id#", Contract: @1NotificationsProcess, Params: "notific_id=#notific_id#")
+                            }
+                        }
                     }
                 }.Else{
                     Div(panel-body){

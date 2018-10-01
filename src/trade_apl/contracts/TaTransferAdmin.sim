@@ -19,10 +19,9 @@ contract TaTransferAdmin {
             warning LangRes("@1app_not_found", "en")
         }
         $roleAplManager = getRoleId("role_sale_apl_manager")
-        var role int
-        role = getRoleId("role_sale_apl_admin")
-        if !RoleAccess(role){
-            warning "this action allowed only for role id #" + role
+        $currentRole = getRoleId("role_sale_apl_admin")
+        if !RoleAccess($currentRole){
+            warning "this action allowed only for role id #" + $currentRole
         }
 
         $wallet = DBFind("wallets").Where({id:$WalletId}).Row()
@@ -36,7 +35,7 @@ contract TaTransferAdmin {
 
     action {
         var sale map saleId int
-        sale["buyer_key_id"] = $wallet["buyer_key_id"]
+        sale["key_id_buyer"] = $wallet["key_id_buyer"]
         sale["currency_type"] = $CurrencyType
         sale["amount"] = $Amount
         sale["amount_apl"] = $AmountApl
@@ -50,7 +49,7 @@ contract TaTransferAdmin {
         title = Sprintf("Check sale id %v", saleId)
         page = "ta_transfer_manager"
         params["sale_id"] = saleId
-        @1NotificationsSend("rid,sender,text_header,page_name,params_map,closure_type", $roleAplManager, 2, title, page, params, 1)
+        @1NotificationsSend("rid,sender,text_header,page_name,params_map,closure_type,current_role_id", $roleAplManager, 2, title, page, params, 1, $currentRole)
 
     }
 }
