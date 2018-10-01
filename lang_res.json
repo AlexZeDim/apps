@@ -1383,6 +1383,11 @@
             "Type": "languages"
         },
         {
+            "Name": "investor_added_already",
+            "Trans": "{\"en\": \"This investor was already added\", \"ru\": \"Этот инвестор уже добавлен\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "investor_role_not_found_or_removed",
             "Trans": "{\"en\": \"Investor role is not found or has been removed\", \"ru\": \"Роль Investor не найдена или была удалена\"}",
             "Type": "languages"
@@ -2035,6 +2040,11 @@
         {
             "Name": "pub_key",
             "Trans": "{\"en\": \"Public key\", \"ru\": \"Публичный ключ\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "public_key_empty",
+            "Trans": "{\"en\": \"Public key is empty\", \"ru\": \"Публичный ключ не задан\"}",
             "Type": "languages"
         },
         {
@@ -2705,6 +2715,11 @@
         {
             "Name": "ta_key_check",
             "Trans": "{\"en\": \"Registration key from SnapSwap\", \"ru\": \"Регистрация ключа от SnapSwap\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "ta_public_key_input_des",
+            "Trans": "{\"en\": \"Enter public key provided by SnapSwap user in the field below and press the Send button\", \"ru\": \"Вставьте публичный ключ пользователя SnapSwap в поле ниже и нажмите кнопку Отправить\"}",
             "Type": "languages"
         },
         {
@@ -3625,6 +3640,11 @@
         {
             "Name": "want_accept_document",
             "Trans": "{\"en\": \"Are you sure you want to accept document?\", \"ru\": \"Вы уверены, что хотите принять документ?\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "want_add_investor",
+            "Trans": "{\"en\": \"Are you sure you want to add investor with this public key?\", \"ru\": \"Вы уверены, что хотите добавить инвестора с этим публичным ключом?\"}",
             "Type": "languages"
         },
         {
