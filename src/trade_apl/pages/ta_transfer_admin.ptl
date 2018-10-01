@@ -10,6 +10,31 @@ SetTitle($@1ta_transfer_admin$)
 Div(content-wrapper){
     Div(row mt-sm){
         Div(col-lg-10 col-lg-offset-1){
+            DBFind(sales, sales).Order({id:-1}).Count(sales_count).Custom(_btat){
+                If(#buyer_transferred_at#>0){
+                    DateTime(#buyer_transferred_at#, Format: YYYY-MM-DD HH:MI:SS)
+                }
+            }.Custom(_mrat){
+                If(#manager_rejected_at#>0){
+                    DateTime(#manager_rejected_at#, Format: YYYY-MM-DD HH:MI:SS)
+                }
+            }.Custom(_srat){
+                If(#seller_rejected_at#>0){
+                    DateTime(#seller_rejected_at#, Format: YYYY-MM-DD HH:MI:SS)
+                }
+            }.Custom(_stat){
+                If(#seller_transferred_at#>0){
+                    DateTime(#seller_transferred_at#, Format: YYYY-MM-DD HH:MI:SS)
+                }
+            }.Custom(_cat){
+                If(#created_at#>0){
+                    DateTime(#created_at#, Format: YYYY-MM-DD HH:MI:SS)
+                }
+            }.Custom(_apl){
+                Money(#amount_apl#)
+            }.Custom(_currency){
+                AppParam(App:#application_id#, Name:ta_currency_type, Ecosystem: #ecosystem_id#, Index: #currency_type#)
+            }
             Form(panel panel-primary){
                 If(And(#needed_role_id#>0,#role_id#==#needed_role_id#)){
                     DBFind(wallets, wallets).Where({key_id_buyer:{$neq:0}, key_id_signer:{$neq:0}, rejected_at:0}).Count(wallets_count).Custom(_name){
@@ -52,6 +77,21 @@ Div(content-wrapper){
                                 Input(Name:AmountApl, Type:number)
                             }
                         }
+                        Div(#row#){
+                            Div(#col_left#){
+                                $@1buyer_transferred_at$
+                            }
+                            Div(#col_right#){
+                                Div(row){
+                                    Div(col-sm-6){
+                                        Input(Name:TransferredDate, Type:date)
+                                    }
+                                    Div(col-sm-6){
+                                        Input(Name:TransferredTime, Type:time)
+                                    }
+                                }
+                            }
+                        }
                     }
                     Div(panel-footer text-center){
                         If(#wallets_count#==0){
@@ -80,6 +120,11 @@ Div(content-wrapper){
                     }
                 }
             }
+        }
+    }
+    If(#sales_count#>0){
+        Div(table-responsive){
+            Table(sales,"$@1id$=id,$@1key_id_buyer$=key_id_buyer,$@1amount$=amount,$@1currency_type$=_currency,$@1buyer_transferred_at$=_btat,$@1amount_apl$=_apl,$@1key_id_sale_apl_admin$=key_id_sale_apl_admin,$@1key_id_sale_apl_manager$=key_id_sale_apl_manager,$@1manager_reject_comment$=manager_reject_comment,$@1manager_rejected_at$=_mrat,$@1key_id_seller$=key_id_seller,$@1seller_reject_comment$=seller_reject_comment,$@1seller_rejected_at$=_srat,$@1seller_transferred_at$=_stat,$@1created_at$=_cat")
         }
     }
 }

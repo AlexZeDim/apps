@@ -52,7 +52,15 @@ Div(content-wrapper){
                                 $@1amount_apl$
                             }
                             Div(#col_right#){
-                                #sale_amount_apl#
+                                Money(#sale_amount_apl#)
+                            }
+                        }
+                        Div(#row# text-muted){
+                            Div(#col_left#){
+                                $@1buyer_transferred_at$
+                            }
+                            Div(#col_right#){
+                                DateTime(#sale_buyer_transferred_at#, Format: YYYY-MM-DD HH:MI:SS)
                             }
                         }
                         Div(#row# text-muted){

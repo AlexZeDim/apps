@@ -1,9 +1,11 @@
 contract TaTransferAdmin {
     data {
         WalletId int
-        Amount int
+        Amount money
         CurrencyType int
         AmountApl money
+        TransferredDate string
+        TransferredTime string
     }
     func getRoleId(name string) int{
         var rid int
@@ -13,7 +15,32 @@ contract TaTransferAdmin {
         }
         return rid
     }
+    func trimZeroTime(s string) string {
+        if Contains(s, "T00:00:00Z") {
+            s = s Replace(s, "T00:00:00Z", "")
+        }
+        return s
+    }
+    func dateAddTime(d, t string) string {
+        var dt string
+        if Size(t) == 5 {
+            dt = Sprintf("%v %v:00", trimZeroTime(d), t)
+        }
+        return dt
+    }
     conditions{
+        if $AmountApl <= 0{
+            warning "invalid amount APL"
+        }
+        if $Amount <= 0{
+            warning "invalid amount"
+        }
+        $AmountApl = $AmountApl * Money(1000000000000000000)
+
+        $transferredAt = UnixDateTime(dateAddTime($TransferredDate, $TransferredTime))
+        if $transferredAt == 0 {
+            warning "invalid transfer datetime"
+        }
         $appId = Int(DBFind("@1applications").Where({ecosystem:$ecosystem_id, name:"Trade APL"}).One("id"))
         if $appId == 0{
             warning LangRes("@1app_not_found", "en")
@@ -41,6 +68,7 @@ contract TaTransferAdmin {
         sale["amount_apl"] = $AmountApl
         sale["key_id_sale_apl_admin"] = $key_id
         sale["created_at"] = $time
+        sale["buyer_transferred_at"] = $transferredAt
 
         saleId = DBInsert("sales", sale)
 

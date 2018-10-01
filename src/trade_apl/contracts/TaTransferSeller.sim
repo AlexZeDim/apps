@@ -34,9 +34,9 @@ contract TaTransferSeller {
         s["seller_transferred_at"] = $time
         DBUpdate("sales", Int($sale["id"]), s)
 
-        transfer["Amount"] = $sale["amount_apl"]
+        transfer["Amount"] = Money($sale["amount_apl"])
         transfer["Sender_AccountId"] = $key_id
-        transfer["Recipient_AccountId"] = $sale["key_id_buyer"]
+        transfer["Recipient_AccountId"] = Int($sale["key_id_buyer"])
         CallContract("@1TokensTransfer", transfer)
     }
 }
