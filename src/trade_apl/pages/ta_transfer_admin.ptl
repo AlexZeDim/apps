@@ -1,9 +1,9 @@
 DBFind(@1applications).Where({ecosystem:#ecosystem_id#, name:"Trade APL"}).Columns("id").Vars(application)
 
 SetVar(this_page, ta_transfer_admin)
-SetVar(role_param, role_sale_apl_admin)
 SetVar(row,"row mt-sm").(col_left,"col-sm-4 text-right").(col_right,"col-sm-8 text-left")
-SetVar(needed_role_id, AppParam(App:#application_id#, Name:#role_param#, Ecosystem: #ecosystem_id#))
+SetVar(admin_role_id, AppParam(App:#application_id#, Name:role_sale_apl_admin, Ecosystem: #ecosystem_id#))
+SetVar(snapswap_role_id, AppParam(App:#application_id#, Name:role_snapswap, Ecosystem: #ecosystem_id#))
 
 AppParam(App:#application_id#, Name:ta_currency_type, Ecosystem: #ecosystem_id#, Source:currency_type)
 SetTitle($@1ta_transfer_admin$)
@@ -35,8 +35,12 @@ Div(content-wrapper){
             }.Custom(_currency){
                 AppParam(App:#application_id#, Name:ta_currency_type, Ecosystem: #ecosystem_id#, Index: #currency_type#)
             }
-            Form(panel panel-primary){
-                If(And(#needed_role_id#>0,#role_id#==#needed_role_id#)){
+            If(And(#snapswap_role_id#>0,#role_id#==#snapswap_role_id#)){
+                AddToolButton(Title:$@1ta_key_check$, Page: @1ta_key_check, Icon: icon-wallet).Popup(Header: $@1ta_key_check$, Width: "50")
+            }
+
+            If(And(#admin_role_id#>0,#role_id#==#admin_role_id#)){
+                Form(panel panel-primary){
                     DBFind(wallets, wallets).Where({key_id_buyer:{$neq:0}, key_id_signer:{$neq:0}, rejected_at:0}).Count(wallets_count).Custom(_name){
                         Address(#key_id_buyer#)
                     }
@@ -98,24 +102,6 @@ Div(content-wrapper){
                             Button(Body: $@1send_to_check$, Class: btn btn-primary disabled, Page: #this_page#)
                         }.Else{
                             Button(Body: $@1send_to_check$, Class: btn btn-primary, Page: #this_page#, Contract: TaTransferAdmin)
-                        }
-                    }
-                }.Else{
-                    Div(panel-body text-center){
-                        If(#needed_role_id#>0){
-                            If(#needed_role_id#!=#role_id#){
-                                DBFind(@1app_params).Where({ecosystem:#ecosystem_id#, app_id:#application_id#, name:#role_param#}).Vars(param)
-                                Div(h4){
-                                    this page only for role from parameter LinkPage(Page: @1app_params_edit, PageParams: "id=#param_id#,back_page=#this_page#", Body:#role_param#)
-                                }
-                            }
-                        }.Else{
-                            Div(h4){
-                                #role_param# not setted
-                            }
-                            Div(h4){
-                                LinkPage(Body:$@1ta_settings$, Page:ta_settings)
-                            }
                         }
                     }
                 }
