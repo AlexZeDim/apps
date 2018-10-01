@@ -5,15 +5,20 @@ SetVar(role_admin, AppParam(App:#application_id#, Name:role_sale_apl_admin, Ecos
 SetVar(role_manager, AppParam(App:#application_id#, Name:role_sale_apl_manager, Ecosystem: #ecosystem_id#))
 SetVar(role_seller, AppParam(App:#application_id#, Name:role_seller_apl, Ecosystem: #ecosystem_id#))
 
-DBFind(@1roles,src_roles).Where({ecosystem:#ecosystem_id#, deleted:0}).Columns("role_name,id")
+DBFind(@1roles,src_roles).Where({ecosystem:#ecosystem_id#, deleted:0}).Columns("role_name,id").Limit(100)
 
-SetVar(row,"row mt-sm").(col_left,"col-sm-4 text-right").(col_right,"col-sm-8 text-left")
-
+SetVar(row,"row mt-sm").(col_left,"col-sm-4 text-right mt-sm").(col_right,"col-sm-8 text-left")
+SetTitle($@1ta_settings$)
 Div(content-wrapper){
     Div(row mt-sm){
         Div(col-lg-10 col-lg-offset-1){
             Form(panel panel-primary){
                 Div(panel-body){
+                    Div(#row#){
+                        Div(col-sm-12 text-center text-muted){
+                            $@1ta_settings_description$
+                        }
+                    }
                     Div(#row#){
                         Div(#col_left#){
                             $@1role_sale_apl_admin$

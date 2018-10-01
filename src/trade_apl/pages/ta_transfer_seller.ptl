@@ -1,13 +1,13 @@
 DBFind(@1applications).Where({ecosystem:#ecosystem_id#, name:"Trade APL"}).Columns("id").Vars(application)
 
 SetVar(this_page, ta_transfer_seller)
-SetVar(role_param, role_seller_apl))
+SetVar(role_param, role_seller_apl)
 SetVar(row,"row mt-sm").(col_left,"col-sm-4 text-right").(col_right,"col-sm-8 text-left")
 SetVar(needed_role_id, AppParam(App:#application_id#, Name:#role_param#, Ecosystem: #ecosystem_id#))
 
-TODO: this page
 AppParam(App:#application_id#, Name:ta_currency_type, Ecosystem: #ecosystem_id#, Source:currency_type)
 
+SetTitle($@1ta_transfer_seller$)
 Div(content-wrapper){
     Div(row mt-sm){
         Div(col-lg-10 col-lg-offset-1){

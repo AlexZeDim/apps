@@ -148,6 +148,11 @@
             "Type": "languages"
         },
         {
+            "Name": "amount_apl",
+            "Trans": "{\"en\": \"Amount APL\", \"ru\": \"Количество АПЛ\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "amount_invalid",
             "Trans": "{\"en\": \"Amount is not valid\", \"ru\": \"Сумма задана неверно\"}",
             "Type": "languages"
@@ -588,6 +593,11 @@
             "Type": "languages"
         },
         {
+            "Name": "checked_by",
+            "Trans": "{\"en\": \"Checked by\", \"ru\": \"Проверено\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "close",
             "Trans": "{\"en\": \"Close\", \"ru\": \"Закрыть\"}",
             "Type": "languages"
@@ -823,8 +833,23 @@
             "Type": "languages"
         },
         {
+            "Name": "created_at",
+            "Trans": "{\"en\": \"Сreated at\", \"ru\": \"Создано в\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "created_by",
+            "Trans": "{\"en\": \"Сreated by\", \"ru\": \"Создано\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "creator",
             "Trans": "{\"en\": \"Creator\", \"ru\": \"Создатель\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "currency_type",
+            "Trans": "{\"en\": \"Сurrency type\", \"ru\": \"Тип валюты\"}",
             "Type": "languages"
         },
         {
@@ -2023,6 +2048,11 @@
             "Type": "languages"
         },
         {
+            "Name": "readed",
+            "Trans": "{\"en\": \"Readed\", \"ru\": \"Ознакомлен\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "reading",
             "Trans": "{\"en\": \"Read\", \"ru\": \"Чтение\"}",
             "Type": "languages"
@@ -2255,6 +2285,21 @@
         {
             "Name": "role_participant_not_found",
             "Trans": "{\"en\": \"Role participant is not found\", \"ru\": \"Участник роли не найден\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "role_sale_apl_admin",
+            "Trans": "{\"en\": \"Sale APL admin\", \"ru\": \"Администратор продажи АПЛ\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "role_sale_apl_manager",
+            "Trans": "{\"en\": \"Sale APL manager\", \"ru\": \"Менеджер продажи АПЛ\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "role_seller_apl",
+            "Trans": "{\"en\": \"Seller APL\", \"ru\": \"Продавец АПЛ\"}",
             "Type": "languages"
         },
         {
@@ -2630,6 +2675,31 @@
         {
             "Name": "system_voting_can_not_start_from_x",
             "Trans": "{\"en\": \"Votings with type 'System' is not allowed to start from %v\", \"ru\": \"Системное голосование не может быть запущено из %v\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "ta_settings",
+            "Trans": "{\"en\": \"Settings 'Trade APl'\", \"ru\": \"Настройки 'Trade APl'\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "ta_settings_description",
+            "Trans": "{\"en\": \"Compliance application roles 'Trade APl' and the roles of ecosystem\", \"ru\": \"Соответствие ролей приложения 'Trade APl' и ролями экосистемы\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "ta_transfer_admin",
+            "Trans": "{\"en\": \"Trade APL\", \"ru\": \"Продажа APL\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "ta_transfer_manager",
+            "Trans": "{\"en\": \"The audit of the sale of APL\", \"ru\": \"Проверка продажи АПЛ\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "ta_transfer_seller",
+            "Trans": "{\"en\": \"Selling APL: the transfer of funds\", \"ru\": \"Продажа APL: перевод средств\"}",
             "Type": "languages"
         },
         {

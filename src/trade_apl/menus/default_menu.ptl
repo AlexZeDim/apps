@@ -1,4 +1,1 @@
-SetVar(sale_apl_admin_id, AppParam(App:#application_id#, Name:role_sale_apl_admin, Ecosystem: #ecosystem_id#))
-If(#role_id#==#sale_apl_admin_id#){
-    MenuItem(Title:$@1ta_transfer_admin$, Page:ta_transfer_admin, Icon:"icon-wallet")
-}
+MenuItem(Title:$@1ta_transfer_admin$, Page:ta_transfer_admin, Icon:"icon-wallet")

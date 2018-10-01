@@ -1,18 +1,16 @@
 DBFind(@1applications).Where({ecosystem:#ecosystem_id#, name:"Trade APL"}).Columns("id").Vars(application)
 
 SetVar(this_page, ta_transfer_manager)
-SetVar(role_param, role_sale_apl_manager))
+SetVar(role_param, role_sale_apl_manager)
 SetVar(row,"row mt-sm").(col_left,"col-sm-4 text-right").(col_right,"col-sm-8 text-left")
 SetVar(needed_role_id, AppParam(App:#application_id#, Name:#role_param#, Ecosystem: #ecosystem_id#))
-
-TODO: this page
 
 DBFind(@1notifications).Where({ecosystem:#ecosystem_id#, id:#notific_id#}).Columns("page_params->sale_id").Vars(note)
 SetVar(sale_id,0)
 If(#note_id_page_params_sale_id#>0){
     DBFind(sales).Where({id:#note_id_page_params_sale_id#}).Vars(sale)
 }
-
+SetTitle($@1ta_transfer_manager$)
 Div(content-wrapper){
     Div(row mt-sm){
         Div(col-lg-10 col-lg-offset-1){

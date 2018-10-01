@@ -1,12 +1,12 @@
 DBFind(@1applications).Where({ecosystem:#ecosystem_id#, name:"Trade APL"}).Columns("id").Vars(application)
 
 SetVar(this_page, ta_transfer_admin)
-SetVar(role_param, role_sale_apl_admin))
+SetVar(role_param, role_sale_apl_admin)
 SetVar(row,"row mt-sm").(col_left,"col-sm-4 text-right").(col_right,"col-sm-8 text-left")
 SetVar(needed_role_id, AppParam(App:#application_id#, Name:#role_param#, Ecosystem: #ecosystem_id#))
 
 AppParam(App:#application_id#, Name:ta_currency_type, Ecosystem: #ecosystem_id#, Source:currency_type)
-
+SetTitle($@1ta_transfer_admin$)
 Div(content-wrapper){
     Div(row mt-sm){
         Div(col-lg-10 col-lg-offset-1){
@@ -53,13 +53,20 @@ Div(content-wrapper){
                         Button(Body: $@1send_to_check$, Class: btn btn-primary, Page: #this_page#, Contract: TaTransferAdmin)
                     }
                 }.Else{
-                    Div(panel-body){
+                    Div(panel-body text-center){
                         If(#needed_role_id#>0){
                             If(#needed_role_id#!=#role_id#){
-                                this page only for role from parameter #role_param#
+                                Div(h4){
+                                    this page only for role from parameter #role_param#
+                                }
                             }
                         }.Else{
-                            #role_param# not setted
+                            Div(h4){
+                                #role_param# not setted
+                            }
+                            Div(h4){
+                                LinkPage(Body:$@1ta_settings$, Page:ta_settings)
+                            }
                         }
                     }
                 }
