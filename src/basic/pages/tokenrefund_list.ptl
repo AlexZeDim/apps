@@ -13,7 +13,7 @@ If(GetVar(search)){
     SetVar(Where,{}).(search,)
 }
 
-DBFind(@1tokenrefund,tokenrefunds).Where(#Where#).Order({id:"-1"}).Count(refund_count).Custom(_status){
+DBFind(@1tokens_refund, tokenrefunds).Where(#Where#).Order({id:"-1"}).Count(refund_count).Custom(_status){
     If(#status#>0){
         SetVar(sta,AppParam(Ecosystem:1, App:#application_id#, Name: tokenrefund_status, Index: #status#))
         LangRes(#sta#)

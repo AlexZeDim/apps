@@ -1,6 +1,6 @@
 digraph G {
 fontsize="24";
-label="basic\nMonday, 01-Oct-18 19:27:47 +10";
+label="basic\nMonday, 01-Oct-18 19:39:53 +10";
 nojustify=true;
 ordering=out;
 rankdir=LR;
@@ -131,14 +131,14 @@ size="30";
 "sysparams_voting\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "tokenrefund_accept\npage" -> "@1TokensRefundAccept\ncontract"  [ color=red ]
 "1notifications\ntable" -> "tokenrefund_accept\npage"
-"1tokenrefund\ntable" -> "tokenrefund_accept\npage"
+"1tokens_refund\ntable" -> "tokenrefund_accept\npage"
 "tokenrefund_accept\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "tokenrefund_create\npage" -> "@1VotingTokensRefundCreate\ncontract"  [ color=red ]
 "tokenrefund_create\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "1applications\ntable" -> "tokenrefund_list\npage"
 "1voting_templates\ntable" -> "tokenrefund_list\npage"
 "1roles\ntable" -> "tokenrefund_list\npage"
-"1tokenrefund\ntable" -> "tokenrefund_list\npage"
+"1tokens_refund\ntable" -> "tokenrefund_list\npage"
 "tokenrefund_list\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "tokens_transfer\npage" -> "@1TokensSend\ncontract"  [ color=red ]
 "tokens_transfer\npage" [color=green, fontcolor=green, group=pages, shape=record];
