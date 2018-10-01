@@ -1,6 +1,6 @@
 digraph G {
 fontsize="24";
-label="basic\nMonday, 01-Oct-18 17:26:23 +10";
+label="basic\nMonday, 01-Oct-18 18:49:08 +10";
 nojustify=true;
 ordering=out;
 rankdir=LR;
@@ -540,7 +540,6 @@ size="30";
 "sysparams_candidate\ntable" -> "VotingValidatorInit\ncontract"
 "VotingValidatorInit\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "catalog_ecosystems\ntable" [color="", fontcolor="", group=tables, shape=""];
-"power_of_attorney\ntable" [color="", fontcolor="", group=tables, shape=""];
 "sysparams_candidate\ntable" [color="", fontcolor="", group=tables, shape=""];
 "tokenrefund\ntable" [color="", fontcolor="", group=tables, shape=""];
 "voting_templates\ntable" [color="", fontcolor="", group=tables, shape=""];
