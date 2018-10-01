@@ -197,10 +197,6 @@
             "Conditions": "ContractConditions(\"MainCondition\")"
         },
         {
-            "Name": "CatalogAddEcosystem",
-            "Conditions": "ContractConditions(\"MainCondition\")"
-        },
-        {
             "Name": "DelegateRefresh",
             "Conditions": "ContractConditions(\"MainCondition\")"
         },
@@ -447,21 +443,6 @@
             "Menu": "default_menu"
         },
         {
-            "Name": "catalog_ecosystems_create",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "catalog_ecosystems_list",
-            "Conditions": "ContractConditions(\"MainCondition\")",
-            "Menu": "default_menu"
-        },
-        {
-            "Name": "catalog_ecosystems_view",
-            "Conditions": "ContractAccess(\"@1EditPage\")",
-            "Menu": "default_menu"
-        },
-        {
             "Name": "ecosystem_new",
             "Conditions": "ContractAccess(\"@1EditPage\")",
             "Menu": "default_menu"
@@ -547,10 +528,6 @@
         },
         {
             "Name": "votings_subject",
-            "Permissions": "{\"insert\": \"true\", \"update\": \"true\", \"new_column\": \"true\"}"
-        },
-        {
-            "Name": "catalog_ecosystems",
             "Permissions": "{\"insert\": \"true\", \"update\": \"true\", \"new_column\": \"true\"}"
         },
         {

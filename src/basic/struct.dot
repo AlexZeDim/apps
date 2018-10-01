@@ -1,23 +1,12 @@
 digraph G {
 fontsize="24";
-label="basic\nMonday, 01-Oct-18 18:49:08 +10";
+label="basic\nMonday, 01-Oct-18 19:03:52 +10";
 nojustify=true;
 ordering=out;
 rankdir=LR;
 size="30";
 "admin_menu\nmenu" [color=blue, fontcolor=blue, group=menus, shape=record];
 "default_menu\nmenu" [color=blue, fontcolor=blue, group=menus, shape=record];
-"catalog_ecosystems_create\npage" -> "@1CatalogAddEcosystem\ncontract"  [ color=red ]
-"1applications\ntable" -> "catalog_ecosystems_create\npage"
-"1ecosystems\ntable" -> "catalog_ecosystems_create\npage"
-"catalog_ecosystems_create\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"1applications\ntable" -> "catalog_ecosystems_list\npage"
-"catalog_ecosystems\ntable" -> "catalog_ecosystems_list\npage"
-"catalog_ecosystems_list\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"1applications\ntable" -> "catalog_ecosystems_view\npage"
-"catalog_ecosystems\ntable" -> "catalog_ecosystems_view\npage"
-"1binaries\ntable" -> "catalog_ecosystems_view\npage"
-"catalog_ecosystems_view\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "ecosystem_new\npage" -> "@1NewEcosystem\ncontract"  [ color=red ]
 "ecosystem_new\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "ecosystems_list\npage" -> "@1VotingTemplateRun\ncontract"  [ color=red ]
@@ -245,9 +234,6 @@ size="30";
 "1keys\ntable" -> "CandidateValidatorRequest\ncontract"
 "1roles\ntable" -> "CandidateValidatorRequest\ncontract"
 "CandidateValidatorRequest\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"CatalogAddEcosystem\ncontract" -> "catalog_ecosystems\ntable"  [ color="" ]
-"1parameters\ntable" -> "CatalogAddEcosystem\ncontract"
-"CatalogAddEcosystem\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "DelegateRefresh\ncontract" -> "RolesAssign\ncontract"  [ color=red ]
 "DelegateRefresh\ncontract" -> "RolesUnassign\ncontract"  [ color=red ]
 "1applications\ntable" -> "DelegateRefresh\ncontract"
@@ -539,7 +525,6 @@ size="30";
 "1roles_participants\ntable" -> "VotingValidatorInit\ncontract"
 "sysparams_candidate\ntable" -> "VotingValidatorInit\ncontract"
 "VotingValidatorInit\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"catalog_ecosystems\ntable" [color="", fontcolor="", group=tables, shape=""];
 "sysparams_candidate\ntable" [color="", fontcolor="", group=tables, shape=""];
 "tokenrefund\ntable" [color="", fontcolor="", group=tables, shape=""];
 "voting_templates\ntable" [color="", fontcolor="", group=tables, shape=""];
