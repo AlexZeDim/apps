@@ -3,6 +3,7 @@ contract TaSettings {
         RoleAdmin int
         RoleManager int
         RoleSeller int
+        RoleSnapswap int
     }
     conditions{
         MainCondition()
@@ -11,31 +12,20 @@ contract TaSettings {
             warning LangRes("@1app_not_found", "en")
         }
     }
+    func updateParam(name string, id int){
+        if id > 0{
+            var params paramsNew map
+            params = DBFind("@1app_params").Where({app_id:$appId, name:name, ecosystem:$ecosystem_id}).Row()
+            paramsNew["Id"] = Int(params["id"])
+            paramsNew["Value"] = Str(id)
+            paramsNew["Conditions"] = params["conditions"]
+            CallContract("@1EditAppParam", paramsNew)
+        }
+    }
     action {
-        var params paramsNew map name string
-        if $RoleAdmin > 0{
-            name = "role_sale_apl_admin"
-            params = DBFind("@1app_params").Where({app_id:$appId, name:name, ecosystem:$ecosystem_id}).Row()
-            paramsNew["Id"] = Int(params["id"])
-            paramsNew["Value"] = Str($RoleAdmin)
-            paramsNew["Conditions"] = params["conditions"]
-            CallContract("@1EditAppParam", paramsNew)
-        }
-        if $RoleManager > 0{
-            name = "role_sale_apl_manager"
-            params = DBFind("@1app_params").Where({app_id:$appId, name:name, ecosystem:$ecosystem_id}).Row()
-            paramsNew["Id"] = Int(params["id"])
-            paramsNew["Value"] = Str($RoleManager)
-            paramsNew["Conditions"] = params["conditions"]
-            CallContract("@1EditAppParam", paramsNew)
-        }
-        if $RoleSeller > 0{
-            name = "role_seller_apl"
-            params = DBFind("@1app_params").Where({app_id:$appId, name:name, ecosystem:$ecosystem_id}).Row()
-            paramsNew["Id"] = Int(params["id"])
-            paramsNew["Value"] = Str($RoleSeller)
-            paramsNew["Conditions"] = params["conditions"]
-            CallContract("@1EditAppParam", paramsNew)
-        }
+        updateParam("role_sale_apl_admin", $RoleAdmin)
+        updateParam("role_sale_apl_manager", $RoleManager)
+        updateParam("role_seller_apl", $RoleSeller)
+        updateParam("role_snapswap", $RoleSnapswap)
     }
 }

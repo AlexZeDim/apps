@@ -4,6 +4,7 @@ SetVar(this_page, ta_settings).(role_admin,0).(role_manager,0).(role_seller,0)
 SetVar(role_admin, AppParam(App:#application_id#, Name:role_sale_apl_admin, Ecosystem: #ecosystem_id#))
 SetVar(role_manager, AppParam(App:#application_id#, Name:role_sale_apl_manager, Ecosystem: #ecosystem_id#))
 SetVar(role_seller, AppParam(App:#application_id#, Name:role_seller_apl, Ecosystem: #ecosystem_id#))
+SetVar(role_snapswap, AppParam(App:#application_id#, Name:role_snapswap, Ecosystem: #ecosystem_id#))
 
 DBFind(@1roles,src_roles).Where({ecosystem:#ecosystem_id#, deleted:0}).Columns("role_name,id").Limit(100)
 
@@ -41,6 +42,14 @@ Div(content-wrapper){
                         }
                         Div(#col_right#){
                             Select(Name:RoleSeller, Source:src_roles, NameColumn: role_name, ValueColumn: id, Value:#role_seller#)
+                        }
+                    }
+                    Div(#row#){
+                        Div(#col_left#){
+                            $@1role_snapswap$
+                        }
+                        Div(#col_right#){
+                            Select(Name:RoleSnapswap, Source:src_roles, NameColumn: role_name, ValueColumn: id, Value:#role_snapswap#)
                         }
                     }
                 }

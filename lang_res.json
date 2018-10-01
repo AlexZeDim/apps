@@ -2318,6 +2318,11 @@
             "Type": "languages"
         },
         {
+            "Name": "role_snapswap",
+            "Trans": "{\"en\": \"SnapSwap employee\", \"ru\": \"Сотрудник SnapSwap\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "role_you_added_already",
             "Trans": "{\"en\": \"You have been added to the role already\", \"ru\": \"Вы уже являетесь членом этой роли\"}",
             "Type": "languages"
