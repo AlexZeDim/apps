@@ -1,29 +1,51 @@
 contract TaKeyCheck {
     data {
-        public_key int
+        public_key string
     }
 
     conditions {
-        // TODO: добавить проверки для вызова от разрешенных ролей
-        // FIX: публичный ключ это строка а не число, например: 04 82 11 fc bb 34 1a e7 a0 70 b0 66 b3 26 d7 d2 2f c8 ca d7 a5 89 b7 52 ee 75 d9 f9 e0 b0 0b b2 1c d6 85 e2 f6 70 a7 ba 98 37 26 00 c3 20 77 17 cd 2e a8 7b 48 34 2e 81 48 90 fc 33 8e 3b 50 f0 40
-
-        $salesID = Int(DBFind("sales").Where({key_id_buyer: $public_key}).One("id"))
-        if $salesID == 0 {
-            warning "Sorry, this public key is not valid"
+        if $public_key == "" {
+            warning LangRes("@1public_key_empty", "en")
         }
-        if DBFind("@1keys").Where({ecosystem: $ecosystem_id, id: $key_id}).One("id") != nil {
-            warning "You are already registered"
+
+        $public_key = Replace($public_key, " ", "")
+        if HasPrefix($public_key, "04") {
+            $public_key = Substr($public_key, 2, Size($public_key)-2)
+        }
+        $userKey = PubToID($public_key)
+
+        if $userKey == 0 {
+            warning LangRes("@1public_key_invalid", "en")
+        }
+        
+        if DBFind("wallets").Where({key_id_buyer: $userKey}).One("id") != nil {
+            warning LangRes("@1investor_added_already", "en")
+        }
+
+        var appId snapSwapRoleId int snapSwapRoleName string
+        appId = Int(DBFind("@1applications").Where({ecosystem: $ecosystem_id, name: "Trade APL"}).One("id"))
+        if appId == 0 {
+            warning LangRes("@1app_not_found", "en")
+        }
+
+        snapSwapRoleId = Int(AppParam(appId, "role_snapswap", $ecosystem_id))
+        if snapSwapRoleId == 0 {
+            warning Sprintf(LangRes("@1role_not_set_application_parameter", "en"), "role_snapswap")
+        }
+        
+        snapSwapRoleName = DBFind("@1roles").Where({"id": snapSwapRoleId}).One("role_name")
+
+        if DBFind("@1roles_participants").Where({"member->member_id": $key_id, "role->id": snapSwapRoleId}).One("id") == nil {
+            warning Sprintf(LangRes("x_role_only_action", "en"), snapSwapRoleName)
         }
     }
 
     action {
-        var start_balance money snapswap_key_id int
+        var start_balance money
         start_balance = Money(1000000000000000)
-        snapswap_key_id = 1234567890123456789
 
-        DBInsert("@1keys", {"id": $key_id, "amount": start_balance})
-        DBUpdate("@1keys", snapswap_key_id, {"-amount": start_balance})
-
-        DBInsert("wallets", {"key_id_buyer": $key_id, "created_at": $block_time})
+        DBUpdate("@1keys", $key_id, {"-amount": start_balance})
+        DBInsert("@1keys", {"id": $userKey, "amount": start_balance})
+        DBInsert("wallets", {"key_id_buyer": $userKey, "created_at": $block_time})
     }
 }
