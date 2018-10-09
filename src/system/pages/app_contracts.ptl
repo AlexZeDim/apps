@@ -31,7 +31,7 @@ If(#buffer_value_app_id# > 0){
                                             Span(LinkPage(Body: Em(Class: fa fa-edit), Class: text-primary h4, Page: editor, PageParams: "open=contract,name=#name#"))
                                         }
                                         Div(pull-right){
-                                            If(#active#==1){
+                                            If(#wallet_id# != 0){
                                                 Span(Class: h5, Body: Em(Class: fa fa-check)).Style(margin-right: 50px;)
                                             }.Else{
                                                 Span(Class: h5 text-muted, Body: Em(Class: fa fa-minus)).Style(margin-right: 50px;)

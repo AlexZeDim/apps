@@ -733,6 +733,16 @@
             "Type": "languages"
         },
         {
+            "Name": "contract_binding_accept",
+            "Trans": "{\"en\":\"Bind contract\",\"ru\":\"Привязать контракт\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "contract_binding_des",
+            "Trans": "{\"en\":\"New offer for binding contract to your wallet from user\",\"ru\":\"Новое предложение привязать контракт к вашему кошельку от пользователя\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "contract_chain_distorted",
             "Trans": "{\"en\": \"Contract chain is distorted\", \"ru\": \"Искажена цепочка контрактов\"}",
             "Type": "languages"
@@ -2238,6 +2248,11 @@
             "Type": "languages"
         },
         {
+            "Name": "request_contract_binding",
+            "Trans": "{\"en\": \"Contract binding request\", \"ru\": \"Запрос на привязку кошелька к контракту\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "request_info",
             "Trans": "{\"en\": \"Request info\", \"ru\": \"Информация о запросе\"}",
             "Type": "languages"
@@ -2260,6 +2275,11 @@
         {
             "Name": "request_refund",
             "Trans": "{\"en\": \"Request a refund\", \"ru\": \"Запросить возмещение средств\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "request_reject",
+            "Trans": "{\"en\": \"Reject request\", \"ru\": \"Отклонить запрос\"}",
             "Type": "languages"
         },
         {
@@ -2659,17 +2679,17 @@
         },
         {
             "Name": "single",
-            "Trans": "{\"en\": \"Single\", \"ru\": \"Одиночные\"}",
+            "Trans": "{\"en\": \"Single\", \"ru\": \"Персональные\"}",
             "Type": "languages"
         },
         {
             "Name": "single_and_role",
-            "Trans": "{\"en\": \"Single and Role\", \"ru\": \"Одиночные и ролевые\"}",
+            "Trans": "{\"en\": \"Single and Role\", \"ru\": \"Персональные и ролевые\"}",
             "Type": "languages"
         },
         {
             "Name": "single_notifics",
-            "Trans": "{\"en\": \"Single notifications\", \"ru\": \"Одиночные уведомления\"}",
+            "Trans": "{\"en\": \"Single notifications\", \"ru\": \"Персональные уведомления\"}",
             "Type": "languages"
         },
         {
@@ -3848,6 +3868,11 @@
             "Type": "languages"
         },
         {
+            "Name": "want_bind_contract",
+            "Trans": "{\"en\": \"Do you want to bind contract to this wallet?\", \"ru\": \"Вы хотите привязать контракт к этому кошельку?\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "want_change_status",
             "Trans": "{\"en\": \"Do you want to change the status of this member?\", \"ru\": \"Вы хотите изменить статус этого члена?\"}",
             "Type": "languages"
@@ -4015,6 +4040,11 @@
         {
             "Name": "want_start_processing_notification",
             "Trans": "{\"en\": \"Do you want to start processing the notification?\", \"ru\": \"Вы хотите начать обработку уведомления?\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "want_unbind_contract",
+            "Trans": "{\"en\": \"Do you really want to unbind this contract?\", \"ru\": \"Вы действительно хотите отвязать этот контракт?\"}",
             "Type": "languages"
         },
         {

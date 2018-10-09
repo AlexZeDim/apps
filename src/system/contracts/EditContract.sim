@@ -26,7 +26,7 @@ contract EditContract {
             if $recipient == 0 {
                 error Sprintf(LangRes("@1template_new_owner_invalid", "en"), $WalletId)
             }
-            if Int($cur["active"]) == 1 {
+            if Int($cur["wallet_id"]) != 0 {
                 error LangRes("@1contract_must_deactivated", "en")
             }
         } else {

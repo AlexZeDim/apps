@@ -1,0 +1,22 @@
+contract UnbindContract {
+	data {
+		Id int
+	}
+	conditions {
+		$cur = DBFind("@1contracts").Columns("id,conditions,wallet_id").Where({id: $Id, ecosystem: $ecosystem_id}).Row()
+		if !$cur {
+			error Sprintf("Contract %d does not exist", $Id)
+		}
+		if Int($cur["wallet_id"]) == 0 {
+			error Sprintf("The contract %d has been already unbinded", $Id)
+		}
+	}
+	action {
+		DBUpdate("@1contracts", $Id, {"wallet_id": 0})
+	}
+	func rollback() {
+		var previous_id int
+		previous_id = Int($cur["wallet_id"])
+		DBUpdate("@1contracts", $Id, {"wallet_id": previous_id})
+	}
+}
