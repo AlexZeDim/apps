@@ -28,7 +28,7 @@ If(And(GetVar(Restore),GetVar(Table),GetVar(Id))){
         }
     }.Else{
         Data(tables, "Table,Cols,Page,Name"){
-            @1contracts,"id,app_id,name,active",editor,$@1contracts$
+            @1contracts,"id,app_id,name,wallet_id",editor,$@1contracts$
             @1pages,"id,app_id,name",editor,$@1pages$
             @1blocks,"id,app_id,name",editor, $@1blocks$
             @1tables,"id,app_id,name",@1table_create,$@1tables$
