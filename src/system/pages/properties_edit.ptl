@@ -10,7 +10,7 @@ Div(Class: content-wrapper){
                 DBFind(@1menu, src_menus).Where({"ecosystem":#ecosystem_id#})
             }
             If(#type# == contract){
-                DBFind(Name: @1contracts, Source: src_contract).Columns("id,name,value,wallet_id,token_id,conditions,app_id,confirmation,confirmation->title,confirmation->params").Where({"id":#edit_property_id#,"ecosystem":#ecosystem_id#}).Vars(item)
+				DBFind(Name: @1contracts, Source: src_contract).Columns("id,name,value,wallet_id,token_id,conditions,app_id").Where({"id":#edit_property_id#,"ecosystem":#ecosystem_id#}).Vars(item)
                 LinkPage($@1contracts$, @1app_contracts)
                 Span(/).Style(margin-right: 10px; margin-left: 10px;)
                 Span($@1edit_contract$, text-muted)
@@ -60,7 +60,7 @@ Div(Class: content-wrapper){
 						SetVar(current_id, Address())
 						If(#item_wallet_id# == 0){
 							Input(Name: Wallet, Value: #current_id#, Placeholder: #current_id#)
-							Span(Body: "In case you want to bind contract to someone's wallet, contract binding request will be send to its owner", Class: m0 text-muted)
+							Span(Body: $@1contract_binding_another_user_desc$, Class: m0 text-muted)
 						}.Else{
 							Input(Name: Wallet, Value: #address_item_wallet_id#, Disabled: "true")
 						}

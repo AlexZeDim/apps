@@ -738,6 +738,11 @@
             "Type": "languages"
         },
         {
+            "Name": "contract_binding_another_user_desc",
+            "Trans": "{\"en\": \"In case you want to bind contract to someone's wallet, contract binding request will be send to its owner\", \"ru\": \"В случае, если вы хотите привязать контракт к кошельку другого пользователя, этому пользователю будет отправлен запрос на привязку контракта\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "contract_binding_des",
             "Trans": "{\"en\":\"New offer for binding contract to your wallet from user\",\"ru\":\"Новое предложение привязать контракт к вашему кошельку от пользователя\"}",
             "Type": "languages"
@@ -805,6 +810,21 @@
         {
             "Name": "contract_unknown",
             "Trans": "{\"en\": \"Unknown contract\", \"ru\": \"Неизвестный контракт\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "contract_x_binded_already",
+            "Trans": "{\"en\": \"The contract %d has been already binded\", \"ru\": \"Контракт %d уже был привязан ранее\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "contract_x_not_exist",
+            "Trans": "{\"en\": \"Contract %d does not exist\", \"ru\": \"Контракта %d не существует\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "contract_x_unbinded_already",
+            "Trans": "{\"en\": \"The contract %d has been already unbinded\", \"ru\": \"Контракт %d уже был отвязан ранее\"}",
             "Type": "languages"
         },
         {
@@ -1928,6 +1948,11 @@
             "Type": "languages"
         },
         {
+            "Name": "notifications_install_needed",
+            "Trans": "{\"en\": \"You should install application which contain contract for sending notifications first\", \"ru\": \"Необходимо установить приложение, содержащее контракт для отправки уведомлений\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "notifications_sent_already",
             "Trans": "{\"en\": \"Notifications has already been sent\", \"ru\": \"Уведомления были отправлены ранее\"}",
             "Type": "languages"
@@ -2973,16 +2998,6 @@
             "Type": "languages"
         },
         {
-            "Name": "template_contract_already_activated",
-            "Trans": "{\"en\": \"The contract %d has been already activated\", \"ru\": \"Контракт %d уже активирован\"}",
-            "Type": "languages"
-        },
-        {
-            "Name": "template_contract_already_deactivated",
-            "Trans": "{\"en\": \"The contract %d has been already deactivated\", \"ru\": \"Контракт %d уже отключен\"}",
-            "Type": "languages"
-        },
-        {
             "Name": "template_contract_not_exist",
             "Trans": "{\"en\": \"Contract %d does not exist\", \"ru\": \"Контракт %d не существует\"}",
             "Type": "languages"
@@ -3084,7 +3099,7 @@
         },
         {
             "Name": "template_unknown_contract",
-            "Trans": "{\"en\": \"Unknown contract %v\", \"ru\": \"Неизвествый контракт %v\"}",
+            "Trans": "{\"en\": \"Unknown contract %v\", \"ru\": \"Неизвестный контракт %v\"}",
             "Type": "languages"
         },
         {
@@ -3095,16 +3110,6 @@
         {
             "Name": "template_user_not_found",
             "Trans": "{\"en\": \"User '%v' is not found\", \"ru\": \"Пользователь %v не найден\"}",
-            "Type": "languages"
-        },
-        {
-            "Name": "template_wallet_cannot_activate_contract",
-            "Trans": "{\"en\": \"Wallet %v cannot activate the contract\", \"ru\": \"Кошелёк %v не может активировать контракт\"}",
-            "Type": "languages"
-        },
-        {
-            "Name": "template_wallet_cannot_deactivate_contract",
-            "Trans": "{\"en\": \"Wallet %d cannot deactivate the contract\", \"ru\": \"Кошелёк %d не может деактивировать контракт\"}",
             "Type": "languages"
         },
         {
@@ -3835,6 +3840,11 @@
         {
             "Name": "wallet_address",
             "Trans": "{\"en\": \"Wallet Address\", \"ru\": \"Адрес кошелька\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "wallet_not_found",
+            "Trans": "{\"en\": \"Wallet is not found\", \"ru\": \"Адрес кошелька не найден\"}",
             "Type": "languages"
         },
         {
