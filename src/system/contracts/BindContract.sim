@@ -48,8 +48,4 @@ contract BindContract {
 			}
 		}
 	}
-	func rollback() {
-		DBUpdate("@1contracts", $Id, {"wallet_id": 0})
-	}
-
 }

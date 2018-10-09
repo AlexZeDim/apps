@@ -14,9 +14,4 @@ contract UnbindContract {
 	action {
 		DBUpdate("@1contracts", $Id, {"wallet_id": 0})
 	}
-	func rollback() {
-		var previous_id int
-		previous_id = Int($cur["wallet_id"])
-		DBUpdate("@1contracts", $Id, {"wallet_id": previous_id})
-	}
 }
