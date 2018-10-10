@@ -1,4 +1,4 @@
-contract BindContract {
+contract BindWallet {
 	data {
 		Id  int
         NotificId int "optional"
@@ -24,7 +24,7 @@ contract BindContract {
 	}
 	action {
 		if $WalletId == "" || AddressToId($WalletId) == $key_id {
-			BindWallet($Id, $ecosystem_id)
+			BndWallet($Id, $ecosystem_id)
             if $NotificId != 0 {        
                 var close_params map
                 close_params["notific_id"] = $NotificId

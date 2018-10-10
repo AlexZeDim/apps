@@ -60,16 +60,16 @@ Div(Class: content-wrapper){
 						SetVar(current_id, Address())
 						If(#item_wallet_id# == 0){
 							Input(Name: Wallet, Value: #current_id#, Placeholder: #current_id#)
-							Span(Body: $@1contract_binding_another_user_desc$, Class: m0 text-muted)
+							Span(Body: "$@1contract_binding_another_user_desc$", Class: m0 text-muted)
 						}.Else{
 							Input(Name: Wallet, Value: #address_item_wallet_id#, Disabled: "true")
 						}
 					}
 					Div(col-md-2){
 						If(#item_wallet_id# == 0){
-							Button(Body: $@1bind$, Class: btn btn-primary btn-block, Contract: @1BindContract, Params: "Id=#edit_property_id#,WalletId=Val(Wallet)", Page: @1properties_edit, PageParams: "edit_property_id=#edit_property_id#,type=#type#").Alert(Text: $@1want_bind_contract$, ConfirmButton: $@1yes$, CancelButton: $@1no$, Icon: question)
+							Button(Body: $@1bind$, Class: btn btn-primary btn-block, Contract: @1BindWallet, Params: "Id=#edit_property_id#,WalletId=Val(Wallet)", Page: @1properties_edit, PageParams: "edit_property_id=#edit_property_id#,type=#type#").Alert(Text: $@1want_bind_contract$, ConfirmButton: $@1yes$, CancelButton: $@1no$, Icon: question)
 						}.Else{
-							Button(Body: $@1unbind$, Class: btn btn-primary btn-block, Contract: @1UnbindContract, Params: "Id=#edit_property_id#", Page: @1properties_edit, PageParams: "edit_property_id=#edit_property_id#,type=#type#").Alert(Text: $@1want_unbind_contract$, ConfirmButton: $@1yes$, CancelButton: $@1no$, Icon: question)
+							Button(Body: $@1unbind$, Class: btn btn-primary btn-block, Contract: @1UnbindWallet, Params: "Id=#edit_property_id#", Page: @1properties_edit, PageParams: "edit_property_id=#edit_property_id#,type=#type#").Alert(Text: $@1want_unbind_contract$, ConfirmButton: $@1yes$, CancelButton: $@1no$, Icon: question)
 						}
 					}
 				}

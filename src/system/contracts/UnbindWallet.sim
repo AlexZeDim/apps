@@ -1,4 +1,4 @@
-contract UnbindContract {
+contract UnbindWallet {
 	data {
 		Id int
 	}
@@ -10,8 +10,12 @@ contract UnbindContract {
 		if Int($cur["wallet_id"]) == 0 {
 			error Sprintf(LangRes("@1contract_x_unbinded_already", "en"), $Id)
 		}
+		Eval($cur["conditions"])
+		if $key_id != Int($cur["wallet_id"]) {
+			error LangRes("@1contract_cannot_unbind", "en")
+		}
 	}
 	action {
-		UnbindWallet($Id, $ecosystem_id)
+		UnbndWallet($Id, $ecosystem_id)
 	}
 }

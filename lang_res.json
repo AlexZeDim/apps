@@ -753,6 +753,11 @@
             "Type": "languages"
         },
         {
+            "Name": "contract_cannot_unbind",
+            "Trans": "{\"en\": \"You cannot unbind this contract\", \"ru\": \"Вы не можете отвязать этот контракт\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "contract_chain_distorted",
             "Trans": "{\"en\": \"Contract chain is distorted\", \"ru\": \"Искажена цепочка контрактов\"}",
             "Type": "languages"
