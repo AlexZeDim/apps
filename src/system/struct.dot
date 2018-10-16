@@ -1,6 +1,6 @@
 digraph G {
 fontsize="24";
-label="system\nMonday, 08-Oct-18 21:48:40 +10";
+label="system\nTuesday, 16-Oct-18 21:47:35 +10";
 nojustify=true;
 ordering=out;
 rankdir=LR;
@@ -146,8 +146,8 @@ size="30";
 "params_list\npage" -> "@1pager\nblock"  [ color=green, label=include ]
 "params_list\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "properties_edit\npage" -> "@1EditPage\ncontract"  [ color=red ]
-"properties_edit\npage" -> "@1ActivateContract\ncontract"  [ color=red ]
-"properties_edit\npage" -> "@1DeactivateContract\ncontract"  [ color=red ]
+"properties_edit\npage" -> "@1UnbindWallet\ncontract"  [ color=red ]
+"properties_edit\npage" -> "@1BindWallet\ncontract"  [ color=red ]
 "properties_edit\npage" -> "@1EditContract\ncontract"  [ color=red ]
 "properties_edit\npage" -> "@1EditBlock\ncontract"  [ color=red ]
 "properties_edit\npage" -> "@1EditMenu\ncontract"  [ color=red ]
@@ -199,17 +199,16 @@ size="30";
 "pager\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
 "pager_header\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
 "search_body\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
-"1contracts\ntable" -> "ActivateContract\ncontract"
-"ActivateContract\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "1menu\ntable" -> "AppendMenu\ncontract"
 "AppendMenu\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "1pages\ntable" -> "AppendPage\ncontract"
 "AppendPage\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"1notifications\ntable" -> "BindWallet\ncontract"
+"1contracts\ntable" -> "BindWallet\ncontract"
+"BindWallet\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "1delayed_contracts\ntable" -> "CallDelayedContract\ncontract"
 "CallDelayedContract\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "CheckNodesBan\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"1contracts\ntable" -> "DeactivateContract\ncontract"
-"DeactivateContract\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "1applications\ntable" -> "DelApplication\ncontract"
 "DelApplication\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "1app_params\ntable" -> "EditAppParam\ncontract"
@@ -323,9 +322,12 @@ size="30";
 "1applications\ntable" -> "SelectApp\ncontract"
 "1buffer_data\ntable" -> "SelectApp\ncontract"
 "SelectApp\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"1contracts\ntable" -> "UnbindWallet\ncontract"
+"UnbindWallet\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "UpdateMetrics\ncontract" -> "MainCondition\ncontract"  [ color=red ]
 "1metrics\ntable" -> "UpdateMetrics\ncontract"
 "UpdateMetrics\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"1votings\ntable" -> "UpdateSysParam\ncontract"
 "UpdateSysParam\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "1binaries\ntable" -> "UploadBinary\ncontract"
 "UploadBinary\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
