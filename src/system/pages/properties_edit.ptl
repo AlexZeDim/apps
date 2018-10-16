@@ -55,14 +55,17 @@ Div(Class: content-wrapper){
 						If(#item_wallet_id# == 0){
 							Input(Name: WalletV, Value: 0, Disabled: "true")
 						}.Else{
-							Div(input-group){
-								SetVar(address_item_wallet_id, Address(#item_wallet_id#))
-								Input(Name: WalletV, Value: #address_item_wallet_id#, Disabled: "true")
-								If(#item_wallet_id#==#key_id#)
+							If(#item_wallet_id#==#key_id#){
+								Div(input-group){
+									SetVar(address_item_wallet_id, Address(#item_wallet_id#))
+									Input(Name: WalletV, Value: #address_item_wallet_id#, Disabled: "true")
 									Div(input-group-btn){
 										Button(Body: $@1unbind$, Class: btn btn-default, Contract: @1UnbindWallet, Params: "Id=#edit_property_id#", Page: @1properties_edit, PageParams: "edit_property_id=#edit_property_id#,type=#type#").Alert(Text: $@1want_unbind_contract$, ConfirmButton: $@1yes$, CancelButton: $@1no$, Icon: question)
 									}
 								}
+							}.Else{
+								SetVar(address_item_wallet_id, Address(#item_wallet_id#))
+								Input(Name: WalletV, Value: #address_item_wallet_id#, Disabled: "true")
 							}
 						}
 					}
