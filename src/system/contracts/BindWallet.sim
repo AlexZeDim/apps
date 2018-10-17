@@ -35,7 +35,9 @@ contract BindWallet {
             var i int r map
             while i < Len($request) {
                 r = $request[i]
-                @1NotificationsClose("notific_id", Int(r["id"]))
+                var notific_params map
+                notific_params["notific_id"] = Int(r["id"])
+                CallContract("@1NotificationsClose", notific_params)
                 i = i + 1
             }    
         }
