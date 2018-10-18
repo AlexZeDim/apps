@@ -27,6 +27,13 @@ contract RolesCreate {
         if $role_type == 3 {
             warning LangRes("@1system_role_can_not_create", "en")
         }
+        // sysparam access check
+        $creators = Int(EcosysParam("role_creation_role"))
+        if $creators != 0 {
+            if !RoleAccess($creators) {
+                warning LangRes("@1access_denied", "en")
+            }
+        }
     }
 
     action {
