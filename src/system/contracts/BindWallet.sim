@@ -51,7 +51,7 @@ contract BindWallet {
         if $WalletId != "" && AddressToId($WalletId) == 0 {
             error LangRes("@1wallet_not_found", "en")
         }
-        Eval($cur["conditions"])
+        RowConditions("@1contracts", $Id, false)
     }
 
     action {

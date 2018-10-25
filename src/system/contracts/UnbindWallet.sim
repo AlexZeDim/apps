@@ -14,7 +14,7 @@ contract UnbindWallet {
         if $key_id != Int($cur["wallet_id"]) {
             error LangRes("@1contract_cannot_unbind", "en")
         }
-        Eval($cur["conditions"])
+        RowConditions("@1contracts", $Id, false)
     }
     
     action {
