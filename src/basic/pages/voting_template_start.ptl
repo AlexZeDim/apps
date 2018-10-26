@@ -21,7 +21,7 @@ If(#TemplateId#>0){
 }
 Div(content-wrapper){
     Div(breadcrumb){
-        LinkPage(Body: $@1voting$, Page: @1voting_list)
+        LinkPage(Body: $@1votings$, Page: @1voting_list)
         Span(/, mh)
         LinkPage(Body: $@1voting_templates$, Page: @1voting_templates_list)
         Span(/,mh)

@@ -1,16 +1,25 @@
-Div(content-wrapper){
+SetVar(this_page,"@1members_list")
+
+If(GetVar(Search)){
+    SetVar(pager_where,"{ecosystem:#ecosystem_id#, id:#Search#}")
+}.Else{
+    SetVar(pager_where,"{ecosystem:#ecosystem_id#, id:{$neq:0}}").(Search,)
+}
+
+Div(fullscreen){
     SetTitle($@1ecosystem_members$)
+    Div(breadcrumb){
+        Span(Class: text-muted, Body: $@1ecosystem_members_list_desc$)
+    }
     If(And(#role_id# == EcosysParam(role_admin),#ecosystem_id# != 1)){
-        AddToolButton(Title: Add members, Page:@1ecosystem_add_members, Icon: icon-plus).Popup(50, $@1ecosystem_add_members$)
+        AddToolButton(Title: $@1members_add$, Page:@1ecosystem_add_members, Icon: icon-plus).Popup(50, $@1ecosystem_add_members$)
     }
 
-    If(GetVar(Search)){
-        SetVar(Where,{ecosystem:#ecosystem_id#, id:#Search#})
-    }.Else{
-        SetVar(Where,{ecosystem:#ecosystem_id#, id:{"$neq":0}}).(Search,)
-    }
+    Include(@1search_body)
+    SetVar(pager_table, @1keys).(pager_page, @1members_list).(pager_limit, 20)
+    Include(@1pager_header)
 
-    DBFind(@1keys,src_member).Columns("id").Custom(custom_id){
+    DBFind(#pager_table#, src_members).Limit(#pager_limit#).Where(#pager_where#).Order(id).Offset(#pager_offset#).Columns("id").Custom(custom_id){
         SetVar(Name: style_text, Value: "text-normal")
         SetVar(Name: style_link, Value: "text-primary")
         Span(Class: h5, Body: #id#)
@@ -37,37 +46,37 @@ Div(content-wrapper){
                 }.Style(display:flex; align-items:center;)
             }
         }
-    }.Where(#Where#).Order("id")
+    }.Count(count)
 
-    Form(panel panel-primary){
-        Div(panel-body){
-            Div(row){
-                Div(col-md-12){
-                    Div(input-group){
-                        Div(input-group-addon){
-                            LangRes(@1id)
-                        }
-                        Input(Name: Search, Type:number, Value: #Search#)
-                        Div(input-group-btn){
-                            Button(Class: btn btn-default fa fa-search, Page: @1members_list, PageParams: "Search=Val(Search)")
-                        }
-                    }
-                }
+    If(#count# != 0){
+        Div(table-responsive){
+            Table(Source: src_members, Columns: "$@1name$=custom_username,$@1id$=custom_id,$@1wallet_address$=custom_member_id")
+        }.Style(
+            tbody > tr:nth-of-type(odd) {
+                background-color: #ffffff;
             }
-            Div(row){
-                Div(col-md-12){
-                    Table(Source: src_member, Columns: "$@1name$=custom_username,$@1id$=custom_id,$@1wallet_address$=custom_member_id")
-                }
+            tbody > tr > td {
+                word-break: break-all;
+                font-weight: 400;
+                font-size: 13px;
+                color: #666;
+                border-top: 1px solid #eee;
+                vertical-align: middle;
             }
-            If(GetVar(Search)){
-                Div(row){
-                    Div(col-md-12 mt-lg){
-                        Div(text-center){
-                            Button(Body: $@1view_all$, Class: btn btn-primary, Page: @1members_list)
-                        }
-                    }
-                }
+            tr > *:first-child {
+                padding-left:20px;
             }
-        }
+            tr > *:last-child {
+                padding-right:30px;
+                text-align:right;
+                width: 100px;
+            }
+            thead {
+                background-color: #f6f7fa;
+            }
+        )
+    }.Else{
+        Span(Class: h4 text-center, Body: "$@1members$ $@1not_founded$")
     }
 }
+Include(@1pager)

@@ -1,27 +1,31 @@
+SetVar(this_page,"@1voting_list")
 DBFind(@1applications).Where({ecosystem:1, name:"Basic"}).Columns("name,id").Vars(application)
-SetTitle($@1voting_list$)
+SetVar(WAITING,1).(VALID,2).(STARTED,3).(FINISHED,4).(INVALID,5)
 
 If(GetVar(Search)){
-    SetVar(Where,{ecosystem:#ecosystem_id#, "voting->name":{"$like":#Search#}, deleted:0})
+    SetVar(pager_where,"{ecosystem:#ecosystem_id#, voting->name:{$like:#Search#}, deleted:0}")
 }.Else{
-    SetVar(Where,{ecosystem:#ecosystem_id#, deleted:0}).(Search,)
+    SetVar(pager_where,"{ecosystem:#ecosystem_id#, deleted:0}").(Search,)
 }
 
-SetVar(WAITING,1).(VALID,2).(STARTED,3).(FINISHED,4).(INVALID,5)
-SetVar(this_page,"@1voting_list")
-
-AddToolButton(Title: $@1templates_list$, Page: @1voting_templates_list, Icon: fa icon-pin)
-AddToolButton(Title: $@1create$, Page: @1voting_create, Icon: icon-plus).Popup(50, $@1new_voting$)
-
-Div(content-wrapper){
+Div(fullscreen){
+    SetTitle($@1voting_list$)
+    Div(brd){
+        Span(Class: text-muted, Body: $@1votings_list_desc$)
+    }
     If(EcosysParam(Name:founder_account)==#key_id#){
-        Button(Body: $@1update_votings_statuses$, Class: btn btn-default, Page: #this_page#, Contract: @1VotingStatusUpdate)
+        Div(btn-group){
+            Button(Body: $@1update_votings_statuses$, Class: btn btn-default ml mb, Page: #this_page#, Contract: @1VotingStatusUpdate)
+        }
     }
-    SetVar(table,"@1votings").(per_page,20)
-    Div(mt){
-        Include(@1basic_paginator)
-    }
-    DBFind(#table#,src_voting).Where(#Where#).Order({id:-1}).Offset(#paginator_offset#).Limit(#per_page#).Columns("id,voting->name,voting->type,voting->type_decision,voting->type_participants,flags->success,flags->decision,flags->full_data,progress->percent_success,progress->number_participants,creator->member_id,creator->member_name,date_started,date_ended,deleted,status,voting->count_type_voters,voting->volume,progress->number_voters").Count(count_votings).Custom(_id){
+    AddToolButton(Title: $@1templates_list$, Page: @1voting_templates_list, Icon: fa icon-pin)
+    AddToolButton(Title: $@1create$, Page: @1voting_create, Icon: icon-plus).Popup(50, $@1new_voting$)
+
+    Include(@1search_body)
+    SetVar(pager_table, @1votings).(pager_page, @1voting_list).(pager_limit, 20)
+    Include(@1pager_header)
+
+    DBFind(#pager_table#, src_votings).Limit(#pager_limit#).Where(#pager_where#).Order({id:-1}).Offset(#pager_offset#).Columns("id,voting->name,voting->type,voting->type_decision,voting->type_participants,flags->success,flags->decision,flags->full_data,progress->percent_success,progress->number_participants,creator->member_id,creator->member_name,date_started,date_ended,deleted,status,voting->count_type_voters,voting->volume,progress->number_voters").Custom(_id){
         Span(Class: h5, Body: #id#)
     }.Custom(_name){
         LinkPage(Page: @1voting_view, PageParams: "vID=#id#"){
@@ -116,43 +120,44 @@ Div(content-wrapper){
                 Button(Class: fa fa-trash btn btn-default, Contract: @1VotingDelete, Params: "votingID=#id#", Page: #this_page#).Alert(Text: "$@1want_delete_voting$", ConfirmButton: $@1yes$, CancelButton: $@1no$, Icon: question)
             }
         }
-    }
+    }.Count(count)
 
-    Form(panel panel-primary){
-        Div(panel-body){
-            Div(row){
-                Div(col-md-12){
-                    Div(input-group){
-                        Div(input-group-addon){
-                            LangRes(@1voting)
-                        }
-                        Input(Name: Search, Value: #Search#)
-                        Div(input-group-btn){
-                            Button(Body: Em(Class: fa fa-search), Class: btn btn-default, Page: #this_page#, PageParams: "Search=Val(Search)")
-                        }
-                    }
-                }
-                Div(col-md-12){
-                    If(#count_votings#>0){
-                        Div(table-responsive){
-                            Table(src_voting, "$@1voting$=_name,$@1type$=_type,$@1subject_voting$=_subject,$@1participants$=_participants,$@1date_start$ / $@1date_end$=_date,$@1creator$=_creator,$@1progress$=_progress,$@1decision$=_decision,$@1status$=_status,=_actions")
-                        }
-                    }.Else{
-                        Div(text-center h3 text-muted){
-                            $@1votings_not_found$
-                        }
-                    }
-                }
+    If(#count# != 0){
+        Div(table-responsive){
+            Table(src_votings, "$@1voting$=_name,$@1type$=_type,$@1subject_voting$=_subject,$@1participants$=_participants,$@1date_start$ / $@1date_end$=_date,$@1creator$=_creator,$@1progress$=_progress,$@1decision$=_decision,$@1status$=_status,=_actions")
+        }.Style(
+            tbody > tr:nth-of-type(odd) {
+                background-color: #ffffff;
             }
-            If(GetVar(Search)){
-                Div(row){
-                    Div(col-md-12 mt-lg){
-                        Div(text-center){
-                            Button(Body: $@1view_all$, Class: btn btn-default, Page: #this_page#)
-                        }
-                    }
-                }
+            tbody > tr > td {
+                word-break: break-all;
+                font-weight: 400;
+                font-size: 13px;
+                color: #666;
+                border-top: 1px solid #eee;
+                vertical-align: middle;
             }
-        }
+            tr > *:first-child {
+                padding-left:20px;
+            }
+            tr > *:last-child {
+                padding-right:30px;
+                text-align:right;
+                width: 100px;
+            }
+            thead {
+                background-color: #f6f7fa;
+            }
+        )
+    }.Else{
+        Span(Class: h4 text-center, Body: "$@1votings_not_found$")
     }
-}
+}.Style(
+    .brd{
+        font-weight: 400;
+        color: #909fa7;
+        padding: 10px 20px;
+        list-style: none;
+    }
+)
+Include(@1pager)

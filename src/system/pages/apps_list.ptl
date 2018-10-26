@@ -68,4 +68,4 @@ Div(fullscreen){
         Span(Class: h4 text-center, Body: "$@1applications$ $@1not_founded$")
     }
 }
- Include(@1pager)
+Include(@1pager)

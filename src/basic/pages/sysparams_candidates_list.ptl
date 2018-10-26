@@ -1,15 +1,25 @@
-Div(content-wrapper){
-    DBFind(@1applications).Where({ecosystem:1, name:"Basic"}).Columns("name,id").Vars(application)
-    SetVar(template_id, AppParam(Ecosystem:1, App:#application_id#, Name: voting_validators_template_id))
-    SetTitle($@1sysparams_candidates$)
+SetVar(this_page,"@1sysparams_candidates_list")
+DBFind(@1applications).Where({ecosystem:1, name:"Basic"}).Columns("name,id").Vars(application)
+SetVar(template_id, AppParam(Ecosystem:1, App:#application_id#, Name: voting_validators_template_id))
 
-    If(GetVar(search)){
-        SetVar(where,{host_ip:#search#,"deleted":0})
-    }.Else{
-        SetVar(where,{"deleted":0}).(search,)
+If(GetVar(Search)){
+    SetVar(pager_where,"{host_ip:#search#, deleted:0}")
+}.Else{
+    SetVar(pager_where,"{deleted:0}").(Search,)
+}
+
+Div(fullscreen){
+    SetTitle($@1sysparams_candidates$)
+    Div(breadcrumb){
+        Span(Class: text-muted, Body: $@1sysparams_candidates_list_desc$)
     }
-    
-    DBFind(@1sysparams_candidate,src_candidates).Where(#where#).Custom(_actions){
+    AddToolButton(Title: $@1create_request$, Icon: icon-plus, Page: @1sysparams_candidate_validators_create).Popup(50, $@1create_request$)
+
+    Include(@1search_body)
+    SetVar(pager_table, @1sysparams_candidate).(pager_page, @1sysparams_candidates_list).(pager_limit, 20)
+    Include(@1pager_header)
+   
+    DBFind(#pager_table#, src_candidates).Limit(#pager_limit#).Where(#pager_where#).Order(id).Offset(#pager_offset#).Custom(_actions){
         If(#template_id#>0){
             Form(btn-group pull-right){
                 Input(Name:KeyId, Type: hidden, Value: #candidate_key_id#)
@@ -19,7 +29,7 @@ Div(content-wrapper){
             Span($@1voting_template_not_found$,text-muted)
         }
     }.Custom(_date){
-        DateTime(DateTime: #date_created#, Format: YYYY-MM-DD HH:MI)
+        DateTime(#date_created#, YYYY-MM-DD HH:MI)
     }.Custom(_addr){
         Address(#commission_address#)
     }.Custom(custom_username){
@@ -37,49 +47,35 @@ Div(content-wrapper){
         }
     }.Count(count)
 
-    AddToolButton(Title: $@1create_request$, Icon: icon-plus, Page: @1sysparams_candidate_validators_create).Popup(50, $@1create_request$)
-
-    Div(panel panel-primary){
-        Form(){
-            If(#count#>0){
-                Div(panel-body){
-                    Div(row){
-                        Div(col-md-12){
-                            Div(input-group){
-                                Div(input-group-addon mt-sm){
-                                    IP
-                                }
-                                Input(Name: search,Value: #search#)
-                                Div(input-group-btn){
-                                    Button(Body: Em(Class: fa fa-search), Class: btn btn-default, Page: @1sysparams_candidates_list, PageParams: "search=Val(search)")
-                                }
-                            }
-                        }
-                    }
-                    Div(table-responsive){
-                        Table(Source: src_candidates, Columns: "$@1host_ip$=host_ip,$@1name$=custom_username,$@1id$=commission_address,$@1commission_address$=_addr,$@1description_equipment$=description,$@1comment$=comment,$@1date_created$=_date,$@1voting$=_actions")
-                    }
-                }
-                If(GetVar(search)){
-                    Div(row){
-                        Div(col-md-12 mt-lg text-center){
-                            Button(Body: $@1view_all$, Class: btn btn-primary, Page: @1sysparams_candidates_list)
-                        }
-                    }.Style(padding-bottom:10px;)
-                }
-            }.Else{
-                Div(h3 text-muted text-center){
-                    $@1candidates_404$
-                }
-                If(GetVar(search)){
-                    Div(row){
-                        Div(col-md-12 mt-lg text-center){
-                            Button(Body: $@1view_all$, Class: btn btn-primary, Page: @1sysparams_candidates_list)
-                        }
-                    }.Style(padding-bottom:10px;)
-                }
+    If(#count# != 0){
+        Div(table-responsive){
+            Table(src_candidates, Columns: "$@1host_ip$=host_ip,$@1name$=custom_username,$@1id$=commission_address,$@1commission_address$=_addr,$@1description_equipment$=description,$@1comment$=comment,$@1date_created$=_date,$@1voting$=_actions")
+        }.Style(
+            tbody > tr:nth-of-type(odd) {
+                background-color: #ffffff;
             }
-        }
+            tbody > tr > td {
+                word-break: break-all;
+                font-weight: 400;
+                font-size: 13px;
+                color: #666;
+                border-top: 1px solid #eee;
+                vertical-align: middle;
+            }
+            tr > *:first-child {
+                padding-left:20px;
+            }
+            tr > *:last-child {
+                padding-right:30px;
+                text-align:right;
+                width: 100px;
+            }
+            thead {
+                background-color: #f6f7fa;
+            }
+        )
+    }.Else{
+        Span(Class: h4 text-center, Body: "$@1candidates_404$")
     }
 }
-  
+Include(@1pager)
