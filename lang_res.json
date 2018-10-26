@@ -229,7 +229,7 @@
         },
         {
             "Name": "application_lang_res",
-            "Trans": "{\"en\": \"This page is used to manage the language resources\", \"ru\": \"Эта страница используется для управления языковыми ресурсами\"}",
+            "Trans": "{\"en\": \"This page is used to manage language resources\", \"ru\": \"Эта страница используется для управления языковыми ресурсами\"}",
             "Type": "languages"
         },
         {
@@ -1043,6 +1043,11 @@
             "Type": "languages"
         },
         {
+            "Name": "ecosystem_members_list_desc",
+            "Trans": "{\"en\": \"А complete list of all ecosystem members\", \"ru\": \"Полный список всех членов экосистемы\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "ecosystem_name",
             "Trans": "{\"en\": \"Ecosystem name\", \"ru\": \"Имя экосистемы\"}",
             "Type": "languages"
@@ -1085,6 +1090,11 @@
         {
             "Name": "ecosystems_list",
             "Trans": "{\"en\": \"Ecosystems list\", \"ru\": \"Список экосистем\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "ecosystems_list_desc",
+            "Trans": "{\"en\": \"А complete list of all ecosystems\", \"ru\": \"Полный список всех экосистем\"}",
             "Type": "languages"
         },
         {
@@ -1724,7 +1734,7 @@
         },
         {
             "Name": "menu_section",
-            "Trans": "{\"en\": \"This page is used to manage the menus\", \"ru\": \"Эта страница используется для управления меню\"}",
+            "Trans": "{\"en\": \"This page is used to manage menus\", \"ru\": \"Эта страница используется для управления меню\"}",
             "Type": "languages"
         },
         {
@@ -1884,12 +1894,12 @@
         },
         {
             "Name": "not_found",
-            "Trans": "{\"en\": \"is not found\", \"ru\": \"Не найдено\"}",
+            "Trans": "{\"en\": \"is not found\", \"ru\": \"не найдено\"}",
             "Type": "languages"
         },
         {
             "Name": "not_founded",
-            "Trans": "{\"en\": \"is not found\", \"ru\": \"не найдены\"}",
+            "Trans": "{\"en\": \"are not found\", \"ru\": \"не найдены\"}",
             "Type": "languages"
         },
         {
@@ -1975,6 +1985,11 @@
         {
             "Name": "notifications_broadcast",
             "Trans": "{\"en\": \"Notifications broadcast\", \"ru\": \"Широковещательная рассылка\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "notifications_list_desc",
+            "Trans": "{\"en\": \"This page is used to create and manage notifications\", \"ru\": \"Эта страница используется для создания и управления уведомлениями\"}",
             "Type": "languages"
         },
         {
@@ -2598,6 +2613,11 @@
             "Type": "languages"
         },
         {
+            "Name": "roles_list_desc",
+            "Trans": "{\"en\": \"This page is used to manage roles\", \"ru\": \"Эта страница используется для управления ролями\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "roles_managers",
             "Trans": "{\"en\": \"Roles Managers\"}",
             "Type": "languages"
@@ -2684,7 +2704,7 @@
         },
         {
             "Name": "sections_manage_page",
-            "Trans": "{\"en\": \"This page is used to manage the sections\", \"ru\": \"Эта страница используется для управления секциями\"}",
+            "Trans": "{\"en\": \"This page is used to manage sections\", \"ru\": \"Эта страница используется для управления секциями\"}",
             "Type": "languages"
         },
         {
@@ -2863,6 +2883,11 @@
             "Type": "languages"
         },
         {
+            "Name": "started_by",
+            "Trans": "{\"en\": \"Started by\", \"ru\": \"Начато\"}",
+            "Type": "languages"
+        },
+        {
             "Name": "started_voting_not_found",
             "Trans": "{\"en\": \"Started voting is not found\", \"ru\": \"Начавшееся голосование не найдено\"}",
             "Type": "languages"
@@ -2935,6 +2960,11 @@
         {
             "Name": "sysparams_candidates",
             "Trans": "{\"en\": \"Candidates for the validators\", \"ru\": \"Кандидаты в валидаторы\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "sysparams_candidates_list_desc",
+            "Trans": "{\"en\": \"This page is used to create and manage candidate for the validators requests\", \"ru\": \"Эта страница используется для создания и управления запросами кандидатов в валидаторы\"}",
             "Type": "languages"
         },
         {
@@ -3295,6 +3325,11 @@
         {
             "Name": "tokens_refunds_list_allowed_role",
             "Trans": "{\"en\": \"Creating the tokens refund request is allowed only for the role members of \", \"ru\": \"Создание запроса на возмещение средств разрешено только для пользователей роли \"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "tokens_refunds_list_desc",
+            "Trans": "{\"en\": \"This page is used to create and manage tokens refunds requests\", \"ru\": \"Эта страница используется для создания и управления запросами на возврат средств\"}",
             "Type": "languages"
         },
         {
@@ -3965,6 +4000,11 @@
         {
             "Name": "votings",
             "Trans": "{\"en\": \"Votings\", \"ru\": \"Голосования\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "votings_list_desc",
+            "Trans": "{\"en\": \"This page is used to manage votings\", \"ru\": \"Эта страница используется для управления голосованиями\"}",
             "Type": "languages"
         },
         {
