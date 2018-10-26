@@ -1,0 +1,18 @@
+contract Bench_JSONEncodeIndent {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var mydata map
+        mydata["key"] = 1
+        var s string
+        while i < $n{
+            s = JSONEncodeIndent(mydata, "\t")
+            i = i + 1
+        }
+    }
+}

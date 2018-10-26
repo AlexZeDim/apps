@@ -1,0 +1,16 @@
+contract Bench_Float {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s float
+        while i < $n{
+            s = Float("567.989") + Float(232)
+            i = i + 1
+        }
+    }
+}

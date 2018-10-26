@@ -1,0 +1,262 @@
+{
+    "blocks": null,
+    "contracts": [
+        {
+            "Conditions": "true",
+            "Name": "Bench_AddressToId"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_AppParam"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_Append"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_BlockTime"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_BytesToString"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_CallContract"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_Contains"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_ContractAccess"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_ContractConditions"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_ContractName"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_DBCollectMetrics"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_DBSelectMetrics"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_DBUpdateSysParam"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_DateTime"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_DecodeBase64"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_EcosysParam"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_EncodeBase64"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_Float"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_FormatMoney"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_GetBlock"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_GetColumnType"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_GetContractById"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_GetContractByName"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_GetHistory"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_GetHistoryRow"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_GetMapKeys"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_GetType"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_HasPrefix"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_Hash"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_HexToBytes"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_IdToAddress"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_Int"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_IsObject"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_JSONDecode"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_JSONEncode"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_JSONEncodeIndent"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_Join"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_LangRes"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_Len"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_MemoryUsage"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_Money"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_PubToID"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_Random"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_Replace"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_RoleAccess"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_RowConditions"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_Sha256"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_Size"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_SortedKeys"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_Split"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_Str"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_StringToBytes"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_Substr"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_SysFuel"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_SysParamInt"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_SysParamString"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_ToLower"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_ToUpper"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_TransactionInfo"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_TrimSpace"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_UnixDateTime"
+        },
+        {
+            "Conditions": "true",
+            "Name": "Bench_UpdateRolesNotifications"
+        },
+        {
+            "Conditions": "true",
+            "Name": "empty_Cont"
+        }
+    ],
+    "menus": null,
+    "pages": null,
+    "tables": null,
+    "parameters": null,
+    "name": "bench"
+}

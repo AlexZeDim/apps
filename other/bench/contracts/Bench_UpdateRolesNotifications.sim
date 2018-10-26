@@ -1,0 +1,14 @@
+contract Bench_UpdateRolesNotifications {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            while (i < $n) {
+                UpdateRolesNotifications(1, 1, 2)
+                i = i + 1
+        }
+    }
+}

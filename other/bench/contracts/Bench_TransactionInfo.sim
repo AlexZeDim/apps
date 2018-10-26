@@ -1,0 +1,16 @@
+contract Bench_TransactionInfo {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s map
+        while i < $n{
+            s = TransactionInfo("c41734f3dd4f0956113248a21f6a087a")
+            i = i + 1
+        }
+    }
+}

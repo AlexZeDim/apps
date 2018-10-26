@@ -1,0 +1,18 @@
+contract Bench_SortedKeys {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var val map
+            var arr array
+            val["k1"] = "v1"
+            val["k2"] = "v2"
+            while (i < $n) {
+                arr = SortedKeys(val)
+                i = i + 1
+        }
+    }
+}

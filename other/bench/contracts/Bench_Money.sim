@@ -1,0 +1,16 @@
+contract Bench_Money {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s money
+        while i < $n{
+            s = Money(250)
+            i = i + 1
+        }
+    }
+}

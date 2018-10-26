@@ -1,0 +1,16 @@
+contract Bench_PubToID {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s int
+        while i < $n{
+            s = PubToID("123123")
+            i = i + 1
+        }
+    }
+}

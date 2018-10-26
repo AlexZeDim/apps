@@ -1,0 +1,15 @@
+contract Bench_Split {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var myarr array
+            while (i < $n) {
+                myarr = Split("first,second,third", ",")
+                i = i + 1
+        }
+    }
+}

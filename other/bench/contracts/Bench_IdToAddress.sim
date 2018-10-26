@@ -1,0 +1,16 @@
+contract Bench_IdToAddress {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s string
+        while i < $n{
+            s = IdToAddress(123)
+             i = i + 1
+        }
+    }
+}

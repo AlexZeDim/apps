@@ -1,0 +1,15 @@
+contract Bench_Hash {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var s string
+            while (i < $n) {
+                s = Hash("Test message")
+                i = i + 1
+        }
+    }
+}

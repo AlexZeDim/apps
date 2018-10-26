@@ -1,0 +1,14 @@
+contract Bench_RoleAccess {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            while (i < $n) {
+                RoleAccess(1)
+                i = i + 1
+        }
+    }
+}

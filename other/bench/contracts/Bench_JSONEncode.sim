@@ -1,0 +1,19 @@
+contract Bench_JSONEncode {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var a array, m map
+            m["k1"] = 1
+            m["k2"] = 2
+            a[0] = m
+            a[1] = m
+            while (i < $n) {
+                JSONEncode(a)
+                i = i + 1
+        }
+    }
+}

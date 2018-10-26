@@ -1,0 +1,15 @@
+contract Bench_EncodeBase64 {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var s string
+            while (i < $n) {
+                s = EncodeBase64("Hello")
+                i = i + 1
+        }
+    }
+}

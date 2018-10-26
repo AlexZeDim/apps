@@ -1,0 +1,17 @@
+contract Bench_GetMapKeys {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var val map
+            var arr array
+            val["key"] = "hello" 
+            while (i < $n) {
+                arr = GetMapKeys(val)
+                i = i + 1
+        }
+    }
+}

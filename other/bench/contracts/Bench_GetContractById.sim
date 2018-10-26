@@ -1,0 +1,16 @@
+contract Bench_GetContractById {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s string
+        while i < $n{
+            s = GetContractById(11)
+            i = i + 1
+        }
+    }
+}

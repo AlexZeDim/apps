@@ -1,0 +1,16 @@
+contract Bench_GetHistory {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s array
+        while i < $n{
+            s = GetHistory("blocks", 1)
+            i = i + 1
+        }
+    }
+}

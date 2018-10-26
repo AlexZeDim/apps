@@ -1,0 +1,15 @@
+contract Bench_Random {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var v int
+            while (i < $n) {
+                v = Random(5,6)
+                i = i + 1
+        }
+    }
+}

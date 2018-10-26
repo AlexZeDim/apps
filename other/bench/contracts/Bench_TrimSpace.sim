@@ -1,0 +1,15 @@
+contract Bench_TrimSpace {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var s string
+            while (i < $n) {
+                s = TrimSpace(" Hello! ")
+                i = i + 1
+        }
+    }
+}

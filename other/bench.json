@@ -1,0 +1,389 @@
+{
+    "conditions": "true",
+    "data": [
+       {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_AddressToId {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s int\n        while i < $n{\n            s = AddressToId(\"123\")\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_AddressToId"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_AppParam {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s string\n        while i < $n{\n            s = AppParam(1, \"system\", 1)\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_AppParam"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_Append {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s string\n        var list array\n        while i < $n{\n            s = Append(list, \"new_val\")\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_Append"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_BlockTime {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            while (i < $n) {\n                BlockTime()\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_BlockTime"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_BytesToString {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var s string\n            var b bytes\n            b = StringToBytes(\"Hello\")\n            while (i < $n) {\n                s = BytesToString(b)\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_BytesToString"
+        },
+		        {
+            "Name": "test",
+            "Trans": "{\"en\": \"test_en\", \"ru\": \"тест\"}",
+            "Type": "languages"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_CallContract {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            while (i < $n) {\n                var par map\n                CallContract(\"empty_Cont\", par)\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_CallContract"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_Contains {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s bool\n        while i < $n{\n            s = Contains(\"test\", \"tst\")\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_Contains"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_ContractAccess {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            while (i < $n) {\n                ContractAccess(\"empty_Cont\")\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_ContractAccess"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_ContractConditions {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            while (i < $n) {\n                ContractConditions(\"@1MainCondition\")\n                i = i + 1\n        }\n    }\n}\n",
+            "Name": "Bench_ContractConditions"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_ContractName {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s string\n        while i < $n{\n            s = ContractName(\"test\") \n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_ContractName"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_DBCollectMetrics {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s array\n        while i < $n{\n            s = DBCollectMetrics() \n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_DBCollectMetrics"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_DBSelectMetrics {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var a array\n            while (i < $n) {\n                a = DBSelectMetrics(\"ecosystem_tx\", \"1 month\", \"min\")\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_DBSelectMetrics"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_DBUpdateSysParam {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            while (i < $n) {\n                DBUpdateSysParam(`fuel_rate`, `400000000000`, ``)\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_DBUpdateSysParam"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_DateTime {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s string\n        while i < $n{\n            s = DateTime(1532325250)\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_DateTime"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_DecodeBase64 {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var s string\n            while (i < $n) {\n                s = DecodeBase64(\"SGVsbG8h\")\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_DecodeBase64"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_EcosysParam {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s string\n        while i < $n{\n            s = EcosysParam(\"founder_account\")\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_EcosysParam"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_EncodeBase64 {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var s string\n            while (i < $n) {\n                s = EncodeBase64(\"Hello\")\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_EncodeBase64"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_Float {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s float\n        while i < $n{\n            s = Float(\"567.989\") + Float(232)\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_Float"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_FormatMoney {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var s string\n            while (i < $n) {\n                s = FormatMoney(\"123456723722323332\", 0)\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_FormatMoney"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_GetBlock {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var m map\n            while (i < $n) {\n                m = GetBlock(1)\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_GetBlock"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_GetColumnType {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var s string\n            while (i < $n) {\n                s = GetColumnType(\"contracts\", \"id\")\n                i = i + 1\n        }\n    }\n}\n",
+            "Name": "Bench_GetColumnType"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_GetContractById {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s string\n        while i < $n{\n            s = GetContractById(11)\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_GetContractById"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_GetContractByName {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s int\n        while i < $n{\n            s = GetContractByName(\"MainCondition\")\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_GetContractByName"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_GetHistory {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s array\n        while i < $n{\n            s = GetHistory(\"blocks\", 1)\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_GetHistory"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_GetHistoryRow {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var m map\n            while (i < $n) {\n                m = GetHistoryRow(\"contracts\", 1, 1)\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_GetHistoryRow"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_GetMapKeys {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var val map\n            var arr array\n            val[\"key\"] = \"hello\" \n            while (i < $n) {\n                arr = GetMapKeys(val)\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_GetMapKeys"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_GetType {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s string\n        while i < $n{\n            s = GetType(\"test\")\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_GetType"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_HasPrefix {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s bool\n        while i < $n{\n            s = HasPrefix(`test`, `v`)\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_HasPrefix"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_Hash {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var s string\n            while (i < $n) {\n                s = Hash(\"Test message\")\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_Hash"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_HexToBytes {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s bytes\n        while i < $n{\n            s = HexToBytes(\"34fe4501a4d80094\")\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_HexToBytes"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_IdToAddress {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s string\n        while i < $n{\n            s = IdToAddress(123)\n             i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_IdToAddress"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_Int {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var v int\n            while (i < $n) {\n                v = Int(\"-37763499007332\")\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_Int"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_IsObject {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s bool\n        while i < $n{\n            s = IsObject(\"MainCondition\", 1) \n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_IsObject"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_JSONDecode {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var s string\n            s = \"[{\\\"k1\\\":\\\"1\\\"},{\\\"k2\\\":\\\"2\\\"}]\"\n            while (i < $n) {\n                JSONDecode(s)\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_JSONDecode"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_JSONEncode {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var a array, m map\n            m[\"k1\"] = 1\n            m[\"k2\"] = 2\n            a[0] = m\n            a[1] = m\n            while (i < $n) {\n                JSONEncode(a)\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_JSONEncode"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_JSONEncodeIndent {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var mydata map\n        mydata[\"key\"] = 1\n        var s string\n        while i < $n{\n            s = JSONEncodeIndent(mydata, \"\\t\")\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_JSONEncodeIndent"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_Join {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s string, myarr array\n        myarr[0] = \"first\"\n        myarr[1] = 10\n        while i < $n{\n            s = Join(myarr, \",\")\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_Join"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_LangRes {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var s string\n            while (i < $n) {\n                s = LangRes(\"test\", \"de\")\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_LangRes"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_Len {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s int\n        var test array\n        while i < $n{\n            s = Len(test)\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_Len"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_MemoryUsage {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s int\n        while i < $n{\n            s = MemoryUsage()\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_MemoryUsage"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_Money {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s money\n        while i < $n{\n            s = Money(250)\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_Money"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_PubToID {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s int\n        while i < $n{\n            s = PubToID(\"123123\")\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_PubToID"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_Random {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var v int\n            while (i < $n) {\n                v = Random(5,6)\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_Random"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_Replace {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s string\n        while i < $n{\n            s = Replace(\"test\", `me`, `you`)\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_Replace"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_RoleAccess {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            while (i < $n) {\n                RoleAccess(1)\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_RoleAccess"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_RowConditions {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s int\n        while i < $n{\n            s = RowConditions(\"@1parameters\", 1, false)\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_RowConditions"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_Sha256 {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s string\n        while i < $n{\n            s = Sha256(\"test\")\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_Sha256"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_Size {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s int\n        while i < $n{\n            s = Size(`test`)\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_Size"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_SortedKeys {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var val map\n            var arr array\n            val[\"k1\"] = \"v1\"\n            val[\"k2\"] = \"v2\"\n            while (i < $n) {\n                arr = SortedKeys(val)\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_SortedKeys"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_Split {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var myarr array\n            while (i < $n) {\n                myarr = Split(\"first,second,third\", \",\")\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_Split"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_Str {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var s string\n            while (i < $n) {\n                s = Str(5)\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_Str"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_StringToBytes {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var b bytes\n            while (i < $n) {\n                b = StringToBytes(\"Hello!\")\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_StringToBytes"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_Substr {\n    data {\n    n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s string\n        while i < $n{\n            s = Substr(\"string\", 1, 10)\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_Substr"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_SysFuel {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s string\n        while i < $n{\n            s = SysFuel(1)\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_SysFuel"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_SysParamInt {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s string\n        while i < $n{\n            s = SysParamInt(\"founder_account\")\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_SysParamInt"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_SysParamString {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s string\n        while i < $n{\n            s = SysParamString(\"founder_account\")\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_SysParamString"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_ToLower {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var s string\n            while (i < $n) {\n                s = ToLower(\"GGHFG\")\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_ToLower"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_ToUpper {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s string\n        while i < $n{\n            s = ToUpper(\"test\")\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_ToUpper"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_TransactionInfo {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s map\n        while i < $n{\n            s = TransactionInfo(\"c41734f3dd4f0956113248a21f6a087a\")\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_TransactionInfo"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_TrimSpace {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            var s string\n            while (i < $n) {\n                s = TrimSpace(\" Hello! \")\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_TrimSpace"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_UnixDateTime {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s int\n        while i < $n{\n            s = UnixDateTime(\"2018-07-20 14:23:10\")\n            i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_UnixDateTime"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_UpdateRolesNotifications {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            while (i < $n) {\n                UpdateRolesNotifications(1, 1, 2)\n                i = i + 1\n        }\n    }\n}",
+            "Name": "Bench_UpdateRolesNotifications"
+        },
+        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract empty_Cont {\n    data {\n\n    }\n    conditions {\n\n    }\n    action {\n\n    }\n}",
+            "Name": "empty_Cont"
+        }
+    ],
+    "name": "bench"
+}

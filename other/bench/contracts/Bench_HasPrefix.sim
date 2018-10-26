@@ -1,0 +1,16 @@
+contract Bench_HasPrefix {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s bool
+        while i < $n{
+            s = HasPrefix(`test`, `v`)
+            i = i + 1
+        }
+    }
+}

@@ -1,0 +1,15 @@
+contract Bench_DecodeBase64 {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var s string
+            while (i < $n) {
+                s = DecodeBase64("SGVsbG8h")
+                i = i + 1
+        }
+    }
+}

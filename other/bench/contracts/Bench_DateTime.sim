@@ -1,0 +1,16 @@
+contract Bench_DateTime {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s string
+        while i < $n{
+            s = DateTime(1532325250)
+            i = i + 1
+        }
+    }
+}

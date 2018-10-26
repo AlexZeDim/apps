@@ -1,0 +1,16 @@
+contract Bench_HexToBytes {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s bytes
+        while i < $n{
+            s = HexToBytes("34fe4501a4d80094")
+            i = i + 1
+        }
+    }
+}

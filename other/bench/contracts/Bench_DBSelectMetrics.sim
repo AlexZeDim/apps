@@ -1,0 +1,15 @@
+contract Bench_DBSelectMetrics {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var a array
+            while (i < $n) {
+                a = DBSelectMetrics("ecosystem_tx", "1 month", "min")
+                i = i + 1
+        }
+    }
+}

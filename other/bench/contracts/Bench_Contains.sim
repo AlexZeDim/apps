@@ -1,0 +1,16 @@
+contract Bench_Contains {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s bool
+        while i < $n{
+            s = Contains("test", "tst")
+            i = i + 1
+        }
+    }
+}

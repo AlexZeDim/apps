@@ -1,0 +1,16 @@
+contract Bench_Sha256 {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s string
+        while i < $n{
+            s = Sha256("test")
+            i = i + 1
+        }
+    }
+}

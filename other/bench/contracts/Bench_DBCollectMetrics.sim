@@ -1,0 +1,16 @@
+contract Bench_DBCollectMetrics {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s array
+        while i < $n{
+            s = DBCollectMetrics() 
+            i = i + 1
+        }
+    }
+}

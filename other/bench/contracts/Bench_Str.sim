@@ -1,0 +1,15 @@
+contract Bench_Str {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var s string
+            while (i < $n) {
+                s = Str(5)
+                i = i + 1
+        }
+    }
+}

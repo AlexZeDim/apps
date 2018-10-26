@@ -1,0 +1,15 @@
+contract Bench_CallContract {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            while (i < $n) {
+                var par map
+                CallContract("empty_Cont", par)
+                i = i + 1
+        }
+    }
+}

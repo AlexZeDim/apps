@@ -1,0 +1,16 @@
+contract Bench_ContractName {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s string
+        while i < $n{
+            s = ContractName("test") 
+            i = i + 1
+        }
+    }
+}

@@ -1,0 +1,16 @@
+contract Bench_UnixDateTime {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s int
+        while i < $n{
+            s = UnixDateTime("2018-07-20 14:23:10")
+            i = i + 1
+        }
+    }
+}

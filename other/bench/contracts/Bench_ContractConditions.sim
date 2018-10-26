@@ -1,0 +1,14 @@
+contract Bench_ContractConditions {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            while (i < $n) {
+                ContractConditions("@1MainCondition")
+                i = i + 1
+        }
+    }
+}

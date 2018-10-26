@@ -1,0 +1,15 @@
+contract Bench_GetColumnType {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var s string
+            while (i < $n) {
+                s = GetColumnType("contracts", "id")
+                i = i + 1
+        }
+    }
+}

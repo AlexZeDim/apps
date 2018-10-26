@@ -1,0 +1,14 @@
+contract Bench_BlockTime {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            while (i < $n) {
+                BlockTime()
+                i = i + 1
+        }
+    }
+}

@@ -1,0 +1,17 @@
+contract Bench_Append {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s string
+        var list array
+        while i < $n{
+            s = Append(list, "new_val")
+            i = i + 1
+        }
+    }
+}

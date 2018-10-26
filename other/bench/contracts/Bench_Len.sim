@@ -1,0 +1,17 @@
+contract Bench_Len {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s int
+        var test array
+        while i < $n{
+            s = Len(test)
+            i = i + 1
+        }
+    }
+}

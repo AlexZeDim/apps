@@ -1,0 +1,17 @@
+contract Bench_BytesToString {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var s string
+            var b bytes
+            b = StringToBytes("Hello")
+            while (i < $n) {
+                s = BytesToString(b)
+                i = i + 1
+        }
+    }
+}

@@ -1,0 +1,15 @@
+contract Bench_Int {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var v int
+            while (i < $n) {
+                v = Int("-37763499007332")
+                i = i + 1
+        }
+    }
+}

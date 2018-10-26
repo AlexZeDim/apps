@@ -1,0 +1,16 @@
+contract Bench_ToUpper {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s string
+        while i < $n{
+            s = ToUpper("test")
+            i = i + 1
+        }
+    }
+}

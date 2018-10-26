@@ -1,0 +1,15 @@
+contract Bench_GetBlock {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var m map
+            while (i < $n) {
+                m = GetBlock(1)
+                i = i + 1
+        }
+    }
+}

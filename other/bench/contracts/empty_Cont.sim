@@ -1,0 +1,11 @@
+contract empty_Cont {
+    data {
+
+    }
+    conditions {
+
+    }
+    action {
+
+    }
+}

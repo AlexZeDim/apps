@@ -1,0 +1,14 @@
+contract Bench_ContractAccess {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            while (i < $n) {
+                ContractAccess("empty_Cont")
+                i = i + 1
+        }
+    }
+}

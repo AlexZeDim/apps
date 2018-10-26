@@ -1,0 +1,16 @@
+contract Bench_EcosysParam {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s string
+        while i < $n{
+            s = EcosysParam("founder_account")
+            i = i + 1
+        }
+    }
+}

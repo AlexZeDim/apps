@@ -1,0 +1,16 @@
+contract Bench_AppParam {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s string
+        while i < $n{
+            s = AppParam(1, "system", 1)
+            i = i + 1
+        }
+    }
+}

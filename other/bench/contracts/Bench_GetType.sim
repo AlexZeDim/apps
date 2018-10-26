@@ -1,0 +1,16 @@
+contract Bench_GetType {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s string
+        while i < $n{
+            s = GetType("test")
+            i = i + 1
+        }
+    }
+}

@@ -1,0 +1,16 @@
+contract Bench_Replace {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s string
+        while i < $n{
+            s = Replace("test", `me`, `you`)
+            i = i + 1
+        }
+    }
+}

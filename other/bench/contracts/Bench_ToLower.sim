@@ -1,0 +1,15 @@
+contract Bench_ToLower {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var s string
+            while (i < $n) {
+                s = ToLower("GGHFG")
+                i = i + 1
+        }
+    }
+}

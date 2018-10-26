@@ -1,0 +1,16 @@
+contract Bench_MemoryUsage {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s int
+        while i < $n{
+            s = MemoryUsage()
+            i = i + 1
+        }
+    }
+}

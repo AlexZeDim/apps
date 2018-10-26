@@ -1,0 +1,15 @@
+contract Bench_FormatMoney {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var s string
+            while (i < $n) {
+                s = FormatMoney("123456723722323332", 0)
+                i = i + 1
+        }
+    }
+}

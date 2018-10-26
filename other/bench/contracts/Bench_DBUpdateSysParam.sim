@@ -1,0 +1,14 @@
+contract Bench_DBUpdateSysParam {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            while (i < $n) {
+                DBUpdateSysParam(`fuel_rate`, `400000000000`, ``)
+                i = i + 1
+        }
+    }
+}

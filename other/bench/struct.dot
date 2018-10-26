@@ -1,0 +1,78 @@
+digraph G {
+graph [
+  fontsize="24";
+  label="bench\nFriday, 26-Oct-18 15:17:27 +09";
+  nojustify=true;
+  ordering=out;
+  rankdir=LR;
+  size="30";
+];
+"Bench_AddressToId\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_AppParam\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_Append\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_BlockTime\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_BytesToString\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_CallContract\ncontract" -> "empty_Cont\ncontract"  [ color=red ]
+"Bench_CallContract\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_Contains\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_ContractAccess\ncontract" -> "empty_Cont\ncontract"  [ color=red ]
+"Bench_ContractAccess\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_ContractConditions\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_ContractName\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_DBCollectMetrics\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_DBSelectMetrics\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_DBUpdateSysParam\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_DateTime\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_DecodeBase64\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_EcosysParam\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_EncodeBase64\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_Float\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_FormatMoney\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_GetBlock\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_GetColumnType\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_GetContractById\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_GetContractByName\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_GetHistory\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_GetHistoryRow\ncontract" -> "Bench_GetHistory\ncontract"  [ color=red ]
+"Bench_GetHistoryRow\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_GetMapKeys\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_GetType\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_HasPrefix\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_Hash\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_HexToBytes\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_IdToAddress\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_Int\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_IsObject\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_JSONDecode\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_JSONEncode\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_JSONEncodeIndent\ncontract" -> "Bench_JSONEncode\ncontract"  [ color=red ]
+"Bench_JSONEncodeIndent\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_Join\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_LangRes\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_Len\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_MemoryUsage\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_Money\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_PubToID\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_Random\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_Replace\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_RoleAccess\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_RowConditions\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_Sha256\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_Size\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_SortedKeys\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_Split\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_Str\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_StringToBytes\ncontract" -> "Bench_Str\ncontract"  [ color=red ]
+"Bench_StringToBytes\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_Substr\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_SysFuel\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_SysParamInt\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_SysParamString\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_ToLower\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_ToUpper\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_TransactionInfo\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_TrimSpace\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_UnixDateTime\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"Bench_UpdateRolesNotifications\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"empty_Cont\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+}

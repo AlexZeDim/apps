@@ -1,0 +1,16 @@
+contract Bench_JSONDecode {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            var s string
+            s = "[{\"k1\":\"1\"},{\"k2\":\"2\"}]"
+            while (i < $n) {
+                JSONDecode(s)
+                i = i + 1
+        }
+    }
+}

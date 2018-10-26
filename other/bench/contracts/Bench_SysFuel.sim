@@ -1,0 +1,16 @@
+contract Bench_SysFuel {
+    data {
+        n int
+    }
+    conditions {
+
+    }
+    action {
+        var i int
+        var s string
+        while i < $n{
+            s = SysFuel(1)
+            i = i + 1
+        }
+    }
+}
