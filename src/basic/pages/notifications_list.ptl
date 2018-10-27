@@ -1,32 +1,34 @@
-Div(content-wrapper){
-    If(Or(#type#==0,#type#==1)){
-    }.Else{
-        SetVar(Name: type, Value: 0)
+SetVar(this_page, @1notifications_list)
+SetVar(pager_table, @1notifications).(pager_page, #this_page#).(pager_limit, 25)
+Include(@1pager_header)
+
+If(GetVar(params)){
+    SetVar(type,#params#)
+}
+If(And(#type#!=0,#type#!=1)){
+    SetVar(type,0).(params,0)
+}.Else{
+    SetVar(params,#type#)
+}
+
+Span(Class: ml-sm){
+    P(Class: text-muted h6 m0 ml-lg mb, Body: $@1notifications_list_desc$)
+}
+Div(btn-group ml-sm){
+    If(#type#==0){
+        Span(Button(Body: Em(Class: fa fa-bell-o) $@1single_notifics$, Page: @1notifications_list, PageParams: "type=0,params=0", Class: btn bg-gray-lighter ml-lg))
+        Span(Button(Body: Em(Class: fa fa-bullhorn) $@1role_notifics$, Page: @1notifications_list, PageParams: "type=1,params=1", Class: btn bg-gray ml-sm))
+    }.ElseIf(#type#==1){
+        Span(Button(Body: Em(Class: fa fa-bell-o) $@1single_notifics$, Page: @1notifications_list, PageParams: "type=0,params=0", Class: btn bg-gray ml-lg))
+        Span(Button(Body: Em(Class: fa fa-bullhorn) $@1role_notifics$, Page: @1notifications_list, PageParams: "type=1,params=1", Class: btn bg-gray-lighter ml-sm))
     }
-    Div(row){
-        Div(col-md-12){
-            Div(btn-group){
-                If(#type#==0){
-                    Span(Button(Body: Em(Class: fa fa-bell-o) $@1single_notifics$, Page: @1notifications_list, PageParams: "type=0", Class: btn bg-gray-lighter)).Style(margin-left:5px;)
-                }.Else{
-                    Span(Button(Body: Em(Class: fa fa-bell-o) $@1single_notifics$, Page: @1notifications_list, PageParams: "type=0", Class: btn bg-gray)).Style(margin-left:5px;)
-                }
-                If(#type#==1){
-                    Span(Button(Body: Em(Class: fa fa-bullhorn) $@1role_notifics$, Page: @1notifications_list, PageParams: "type=1", Class: btn bg-gray-lighter)).Style(margin-left:5px;)
-                }.Else{
-                    Span(Button(Body: Em(Class: fa fa-bullhorn) $@1role_notifics$, Page: @1notifications_list, PageParams: "type=1", Class: btn bg-gray)).Style(margin-left:5px;)
-                }
-            }
-        }
-    }
-    Div(row){
-        Div(col-md-12){
-            If(#type#==0){
-                Include(@1notifications_single)
-            }
-            If(#type#==1){
-                Include(@1notifications_roles)
-            }
-        }
-    }
+}
+
+If(#type#==0){
+    Include(@1notifications_single)
+}.ElseIf(#type#==1){
+    Include(@1notifications_roles)
+}
+Div(mt-sm ml-lg mr-sm mb-sm){
+    Include(@1pager)
 }

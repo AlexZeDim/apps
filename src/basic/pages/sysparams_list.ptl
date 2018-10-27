@@ -4,7 +4,7 @@ Include(@1pager_header)
 
 SetTitle($@1platform_parameters$)
 Span(Class: ml-sm){
-    P(Class:text-muted h6 m0 ml-lg mb-lg, Body: $@1platform_params_desc$)
+    P(Class: text-muted h6 m0 ml-lg mb, Body: $@1platform_params_desc$)
 }
 SetVar(role_validator, EcosysParam(Ecosystem:1, Name: role_validator))
 DBFind(@1roles_participants).Where({ecosystem:#ecosystem_id#, "member->member_id":#key_id#, "role->id":#role_validator#, deleted:0}).Columns("id").Vars(validator)
@@ -18,7 +18,7 @@ If(GetVar(Search)!=""){
     SetVar(pager_where,"{id:{$gt:0}}").(Search,)
 }
 
-Div(list-group-item ml-lg mr-lg){
+Div(list-group-item ml-lg mr-lg pt-lg){
     SetVar(search_name, LangRes(@1name))
     Include(@1search_body2)
 }

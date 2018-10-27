@@ -41,9 +41,9 @@ If(#pager_limit# < #records_count#){
                 Button(Body: Em(Class: fa fa-angle-double-left), Class: btn bg-gray-lighter disabled)
             }.Else{
                 If(GetVar(Search)!=""){
-                    Button(Body: Em(Class: fa fa-angle-double-left), Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=1,sort=#sort#,width=#width#,page_params=#page_params#,Search=#Search#")
+                    Button(Body: Em(Class: fa fa-angle-double-left), Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=1,sort=#sort#,width=#width#,params=#params#,page_params=#page_params#,Search=#Search#")
                 }.Else{
-                    Button(Body: Em(Class: fa fa-angle-double-left), Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=1,sort=#sort#,width=#width#,page_params=#page_params#")
+                    Button(Body: Em(Class: fa fa-angle-double-left), Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=1,sort=#sort#,width=#width#,params=#params#,page_params=#page_params#")
                 }
             }
         }
@@ -52,9 +52,9 @@ If(#pager_limit# < #records_count#){
                 Button(Body: Em(Class: fa fa-angle-left), Class: btn bg-gray-lighter disabled)
             }.Else{
                 If(GetVar(Search)!=""){
-                    Button(Body: Em(Class: fa fa-angle-left), Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=#previous_page#,sort=#sort#,width=#width#,page_params=#page_params#,Search=#Search#")
+                    Button(Body: Em(Class: fa fa-angle-left), Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=#previous_page#,sort=#sort#,width=#width#,params=#params#,page_params=#page_params#,Search=#Search#")
                 }.Else{
-                    Button(Body: Em(Class: fa fa-angle-left), Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=#previous_page#,sort=#sort#,width=#width#,page_params=#page_params#")
+                    Button(Body: Em(Class: fa fa-angle-left), Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=#previous_page#,sort=#sort#,width=#width#,params=#params#,page_params=#page_params#")
                 }
             }
         }
@@ -62,12 +62,12 @@ If(#pager_limit# < #records_count#){
             ForList(src_pages){
                 Span(){
                     If(#id# == #current_page#){
-                        Button(Body: #id#, Class: btn bg-primary-light, Page: #pager_page#, PageParams: "current_page=#id#,sort=#sort#,width=#width#,page_params=#page_params#")
+                        Button(Body: #id#, Class: btn bg-primary-light, Page: #pager_page#, PageParams: "current_page=#id#,sort=#sort#,width=#width#,params=#params#,page_params=#page_params#")
                     }.Else{
                         If(GetVar(Search)!=""){
-                            Button(Body: #id#, Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=#id#,sort=#sort#,width=#width#,page_params=#page_params#,Search=#Search#")
+                            Button(Body: #id#, Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=#id#,sort=#sort#,width=#width#,params=#params#,page_params=#page_params#,Search=#Search#")
                         }.Else{
-                            Button(Body: #id#, Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=#id#,sort=#sort#,width=#width#,page_params=#page_params#")
+                            Button(Body: #id#, Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=#id#,sort=#sort#,width=#width#,params=#params#,page_params=#page_params#")
                         }
                     }
                 }
@@ -78,9 +78,9 @@ If(#pager_limit# < #records_count#){
                 Button(Body: Em(Class: fa fa-angle-right), Class: btn bg-gray-lighter disabled)
             }.Else{
                 If(GetVar(Search)!=""){
-                    Button(Body: Em(Class: fa fa-angle-right), Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=#next_page#,sort=#sort#,width=#width#,page_params=#page_params#,Search=#Search#")
+                    Button(Body: Em(Class: fa fa-angle-right), Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=#next_page#,sort=#sort#,width=#width#,params=#params#,page_params=#page_params#,Search=#Search#")
                 }.Else{
-                    Button(Body: Em(Class: fa fa-angle-right), Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=#next_page#,sort=#sort#,width=#width#,page_params=#page_params#")
+                    Button(Body: Em(Class: fa fa-angle-right), Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=#next_page#,sort=#sort#,width=#width#,params=#params#,page_params=#page_params#")
                 }
             }
         }
@@ -89,9 +89,9 @@ If(#pager_limit# < #records_count#){
                 Button(Body: Em(Class: fa fa-angle-double-right), Class: btn bg-gray-lighter disabled)
             }.Else{
                 If(GetVar(Search)!=""){
-                    Button(Body: Em(Class: fa fa-angle-double-right), Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=#last_page#,sort=#sort#,width=#width#,page_params=#page_params#,Search=#Search#")
+                    Button(Body: Em(Class: fa fa-angle-double-right), Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=#last_page#,sort=#sort#,width=#width#,params=#params#,page_params=#page_params#,Search=#Search#")
                 }.Else{
-                    Button(Body: Em(Class: fa fa-angle-double-right), Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=#last_page#,sort=#sort#,width=#width#,page_params=#page_params#")
+                    Button(Body: Em(Class: fa fa-angle-double-right), Class: btn bg-gray-lighter, Page: #pager_page#, PageParams: "current_page=#last_page#,sort=#sort#,width=#width#,params=#params#,page_params=#page_params#")
                 }
             }
         }

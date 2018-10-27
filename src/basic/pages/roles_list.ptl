@@ -1,16 +1,28 @@
+SetVar(this_page, @1roles_list)
+SetVar(pager_table, @1roles).(pager_page, #this_page#).(pager_limit, 25)
+Include(@1pager_header)
+
 SetTitle($@1roles$)
+Span(Class: ml-sm){
+    P(Class: text-muted h6 m0 ml-lg mb, Body: $@1roles_list_desc$)
+}
+DBFind(@1applications).Where({name:"Basic", ecosystem:1}).Columns("name,id").Vars(application)
 AddToolButton(Page: @1roles_create, Icon: icon-plus, Title: $@1create$).Popup(50, $@1new_role$)
 
-Div(content-wrapper){
-    DBFind(@1applications).Where({name:"Basic", ecosystem:1}).Columns("name,id").Vars(application)
+If(GetVar(Search)!=""){
+    SetVar(pager_where,"{ecosystem:#ecosystem_id#, role_name:{$like:#Search#}}")
+}.Else{
+    SetVar(pager_where,"{ecosystem:#ecosystem_id#, id:{$neq:0}}").(Search,)
+}
 
-    If(GetVar(search)){
-        SetVar(where,{role_name:{"$like":#search#}, ecosystem:#ecosystem_id#})
-    }.Else{
-        SetVar(where,{id:{"$neq":0}, ecosystem:#ecosystem_id#}).(search,)
+DBFind(#pager_table#, src_roles).Count(all_roles)
+If(#all_roles#>0){
+    Div(list-group-item ml-lg mr-lg pt-lg){
+        SetVar(search_name, LangRes(@1role))
+        Include(@1search_body2)
     }
 
-    DBFind(@1roles,src_roles).Where(#where#).Order({deleted:"1", id:"1"}).Count(roles_count).Columns("id,role_name,role_type,image_id,creator->member_id,creator->member_name,date_created,date_deleted,deleted,roles_access").Custom(_id){
+    DBFind(#pager_table#, src_roles).Where(#pager_where#).Order({deleted:"1", id:"1"}).Limit(#pager_limit#).Offset(#pager_offset#).Columns("id,role_name,role_type,image_id,creator->member_id,creator->member_name,date_created,date_deleted,deleted,roles_access").Custom(_id){
         If(#deleted# == 0){
             SetVar(style_text,).(style_link,"text-primary")
         }.Else{
@@ -58,7 +70,7 @@ Div(content-wrapper){
 
         If(And(#roles_access#!="NULL",#roles_access#!="",#roles_access#!="[]")){
             DBFind(@1roles,src_roles_list).Where({id:{"$in":#roles_access#}}).Columns("id,role_name").Count(access_count).Order(role_name)
-            Div(#style_text# breaker){
+            Div(#style_text#){
                 ForList(src_roles_list){
                     If(And(#role_id#==#id#)){
                         SetVar(access,done)
@@ -70,7 +82,7 @@ Div(content-wrapper){
                         #role_name#
                     }
                 }
-            }
+            }.Style(word-break: break-all;)
         }
     }.Custom(_actions){
         Div(text-right button-group text-nowrap){
@@ -83,41 +95,29 @@ Div(content-wrapper){
                 Button(Class: fa fa-edit btn btn-default mh-sm, PageParams: "rid=#id#", Page: @1roles_create).Popup(50, $@1edit_role$)
             }
         }
-    }
-    Form(panel panel-primary){
-        If(#roles_count#>0){
-            Div(panel-body){
-                Div(row){
-                    Div(col-md-12){
-                        Div(input-group){
-                            Div(input-group-addon mt-sm){
-                                LangRes(@1role)
-                            }
-                            Input(Name: search, Value: #search#)
-                            Div(input-group-btn){
-                                Button(Body: Em(Class: fa fa-search), Class: btn btn-default, Page: @1roles_list, PageParams: "search=Val(search)")
-                            }
-                        }
-                    }
-                }
-                Div(table-responsive){
+    }.Count(count)
+
+    Div(fullscreen){
+        Div(table-responsive ml-lg mr-lg){
+            Div(list-group-item){
+                If(#count# > 0){
                     Table(src_roles,"$@1role$=_name,$@1type$=_type,$@1creator$=_creator,$@1role_created_deleted$=_date,$@1status$=_status,$@1roles_access$=_access,=_actions")
+                }.Else{
+                    Div(Class: text-center h4 text-muted, Body: "$@1roles$ $@1not_founded$")
                 }
-            }
-            If(GetVar(search)){
-                Div(row){
-                    Div(col-md-12 mt-lg text-center){
-                        Button(Body: $@1view_all$, Class: btn btn-primary, Page: @1roles_list)
-                    }
+            }.Style(
+                margin-top:-15px;
+                tbody > tr:nth-of-type(odd) {
+                    background-color: #f8f9fc;
                 }
-            }
-        }.Else{
-            Div(panel-body text-center h3){
-                Button(Body: $@1install_default_roles$, Class: btn btn-primary, Page: @1roles_list, Contract: @1RolesInstall)
-            }
+            )
         }
     }
-}.Style(
-    .inline {display:inline-block;}
-    .breaker {word-break: break-all;}
-)
+    Div(mt-sm ml-lg mr-sm mb-sm){
+        Include(@1pager)
+    }
+}.Else{
+    Div(list-group-item text-center ml-lg mr-lg pt-lg pb-lg){
+        Button(Body: $@1install_default_roles$, Class: btn btn-primary, Page: @1roles_list, Contract: @1RolesInstall)
+    }
+}
