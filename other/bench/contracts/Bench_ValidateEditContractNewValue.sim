@@ -1,0 +1,14 @@
+contract Bench_ValidateEditContractNewValue {
+    data {
+    n int
+    }
+    conditions {
+    }
+    action {
+            var i int
+            while (i < $n) {
+                ValidateEditContractNewValue("123","123")
+                i = i + 1
+        }
+    }
+}

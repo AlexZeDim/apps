@@ -47,6 +47,11 @@
             "Type": "contracts",
             "Value": "contract Bench_Contains {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s bool\n        while i < $n{\n            s = Contains(\"test\", \"tst\")\n            i = i + 1\n        }\n    }\n}",
             "Name": "Bench_Contains"
+        },        {
+            "Conditions": "true",
+            "Type": "contracts",
+            "Value": "contract Bench_ValidateEditContractNewValue {\n    data {\n    n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            while (i < $n) {\n                ValidateEditContractNewValue(\"123\",\"123\")\n                i = i + 1\n        }\n    }\n}"
+            "Name": "Bench_ValidateEditContractNewValue",
         },
         {
             "Conditions": "true",
