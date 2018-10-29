@@ -284,7 +284,7 @@
         {
             "Conditions": "true",
             "Type": "contracts",
-            "Value": "contract Bench_RowConditions {\n    data {\n        n int\n    }\n    conditions {\n\n    }\n    action {\n        var i int\n        var s int\n        while i < $n{\n            s = RowConditions(\"@1parameters\", 1, false)\n            i = i + 1\n        }\n    }\n}",
+            "Value": "contract Bench_RowConditions {\n    data {\n        n int\n    }\n    conditions {\n    }\n    action {\n            var i int\n            while (i < $n) {\n                RowConditions(\"@1contracts\", 1, false)\n                i = i + 1\n        }\n    }\n}"
             "Name": "Bench_RowConditions"
         },
         {

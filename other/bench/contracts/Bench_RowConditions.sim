@@ -1,16 +1,15 @@
 contract Bench_RowConditions {
     data {
-        n int
+		n int
     }
     conditions {
-
+	
     }
     action {
-        var i int
-        var s int
-        while i < $n{
-            s = RowConditions("@1parameters", 1, false)
-            i = i + 1
+		var i int
+		while (i < $n) {
+			RowConditions("@1contracts", 1, false)
+			i = i + 1
         }
     }
 }
