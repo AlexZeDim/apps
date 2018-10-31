@@ -1,0 +1,21 @@
+contract Bench_CreateColumn {
+    data {
+
+ n int   }
+    conditions {
+
+    }
+    action {
+            var permissions map
+            var name, jsperm string
+            var i int
+            permissions["update"] = "true"
+            permissions["read"] = "true"
+            jsperm = JSONEncode(permissions)
+            while (i < $n) {
+                name = "tab" + Str(Random(10,5000))
+                CreateColumn("test", name, "varchar", jsperm)
+                i = i + 1
+        }
+    }
+}

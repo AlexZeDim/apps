@@ -1,0 +1,15 @@
+contract Bench_EditEcosysName {
+    data {
+
+ n int   }
+    conditions {
+
+    }
+    action {
+            var i int
+            while (i < $n) {
+                EditEcosysName(1, "ecos" + Str(i))
+                i = i + 1
+        }
+    }
+}

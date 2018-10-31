@@ -388,6 +388,96 @@
             "Type": "contracts",
             "Value": "contract empty_Cont {\n    data {\n\n    }\n    conditions {\n\n    }\n    action {\n\n    }\n}",
             "Name": "empty_Cont"
+        },
+		            "Type": "contracts",
+            "Name": "Bench_CreateColumn",
+            "Value": "contract Bench_CreateColumn {\n    data {\n\n n int   }\n    conditions {\n\n    }\n    action {\n            var permissions map\n            var name, jsperm string\n            var i int\n            permissions[\"update\"] = \"true\"\n            permissions[\"read\"] = \"true\"\n            jsperm = JSONEncode(permissions)\n            while (i < $n) {\n                name = \"tab\" + Str(Random(10,5000))\n                CreateColumn(\"test\", name, \"varchar\", jsperm)\n                i = i + 1\n        }\n    }\n}",
+            "Conditions": "true"
+        },
+        {
+            "Type": "contracts",
+            "Name": "Bench_CreateEcosystem",
+            "Value": "contract Bench_CreateEcosystem {\n    data {\n\n n int   }\n    conditions {\n\n    }\n    action {\n        var i int\n        var name string\n        while (i < $n) {\n            name = \"eco_\" + Str(Random(10, 50000))\n            CreateEcosystem($key_id, name)\n            i = i + 1\n        }\n        \n    }\n}",
+            "Conditions": "true"
+        },
+        {
+            "Type": "contracts",
+            "Name": "Bench_CreateTable",
+            "Value": "contract Bench_CreateTable {\n    data {\n\n n int   }\n    conditions {\n\n    }\n    action {\n            var i int\n            var name, perms, columns string\n            perms = \"{'insert': 'false', 'update': 'true', 'new_column': 'true'}\"\n            columns = \"[{'name': 'MyName', 'type':'varchar', 'index': '1', 'conditions': 'true'}]\" \n            while (i < $n) {\n                name = \"tab_\" + Str(i)\n                CreateTable(name, columns, perms, 1)\n                i = i + 1\n        }\n    }\n}",
+            "Conditions": "true"
+        },
+        {
+            "Type": "contracts",
+            "Name": "Bench_ColumnCondition",
+            "Value": "contract Bench_ColumnCondition {\n    data {\n\n  n int  }\n    conditions {\n\n    }\n    action {\n            var i int\n            var permissions map\n            permissions[\"update\"] = \"true\"\n            permissions[\"read\"] = \"true\"\n            var perms string\n            perms = JSONEncode(permissions)\n            while (i < $n) {\n                ColumnCondition(\"test\", \"test\" + Str(i), \"varchar\", perms)\n                i = i + 1\n        }\n    \n    }\n}",
+            "Conditions": "true"
+        },
+        {
+            "Type": "contracts",
+            "Name": "Bench_PermColumn",
+            "Value": "contract Bench_PermColumn {\n    data {\n\n n int   }\n    conditions {\n\n    }\n    action {\n            var i int\n            var permissions map\n            permissions[\"update\"] = \"true\"\n            permissions[\"read\"] = \"true\"\n            var perms string\n            perms = JSONEncode(permissions)\n            while (i < $n) {\n                PermColumn(\"test\", \"test\", perms)\n                i = i + 1\n        }\n    \n    }\n}",
+            "Conditions": "true"
+        },
+        {
+            "Type": "contracts",
+            "Name": "Bench_TableConditions",
+            "Value": "contract Bench_TableConditions {\n    data {\n\n n int   }\n    conditions {\n\n    }\n    action {\n            var perms, cols string\n            var i int\n            perms = \"{\\\"insert\\\": \\\"false\\\", \\\"update\\\": \\\"true\\\", \\\"new_column\\\": \\\"true\\\"}\"\n            cols = \"[{\\\"name\\\": \\\"MyName\\\", \\\"type\\\":\\\"varchar\\\", \\\"index\\\": \\\"1\\\", \\\"conditions\\\": \\\"true\\\"}]\"\n            while (i < $n) {\n                TableConditions(\"tab\" + Str(i), cols, perms)\n                i = i + 1\n        }\n\n    }\n}",
+            "Conditions": "true"
+        },
+        {
+            "Type": "contracts",
+            "Name": "Bench_PermTable",
+            "Value": "contract Bench_PermTable {\n    data {\n\n n int   }\n    conditions {\n\n    }\n    action {\n            var i int\n            var name, perms string\n            var permissions map\n            permissions[\"insert\"] = \"true\"\n            permissions[\"update\"] = \"true\"\n            permissions[\"read\"] = \"true\"\n            permissions[\"new_column\"] = \"true\"\n            perms = JSONEncode(permissions)\n            while (i < $n) {\n                name = \"Tab_\" + Str(i)\n                PermTable(\"test\", perms)\n                i = i + 1\n        }\n\n    }\n}",
+            "Conditions": "true"
+        },
+        {
+            "Type": "contracts",
+            "Name": "Bench_NewMoney",
+            "Value": "contract Bench_NewMoney {\n    data {\n\n  n int  }\n    conditions {\n    \n    }\n    action {\n            var i int\n            var s string\n            var id int\n            id = \"1886259760380815173\"\n            while (i < $n) {\n                id = id + i\n                NewMoney(\"1886259760380815173\", \"1000000\", \"New user deposit\")\n                i = i + 1\n        }\n    }\n}",
+            "Conditions": "true"
+        },
+        {
+            "Type": "contracts",
+            "Name": "Bench_EditEcosysName",
+            "Value": "contract Bench_EditEcosysName {\n    data {\n\n n int   }\n    conditions {\n\n    }\n    action {\n            var i int\n            while (i < $n) {\n                EditEcosysName(1, \"ecos\" + Str(i))\n                i = i + 1\n        }\n    }\n}",
+            "Conditions": "true"
+        },
+        {
+            "Type": "contracts",
+            "Name": "Bench_CreateContract",
+            "Value": "contract Bench_CreateContract {\n    data {\n\n n int   }\n    conditions {\n\n    }\n    action {\n            var i int\n            var name string\n            while (i < $n) {\n                name = \"Cont\" + Str(i)\n                CreateContract(name, \"contract \" + name + \"{data { }    conditions {    }    action {    }    }\", \"true\", 1, 1)\n                i = i + 1\n        }\n    }\n}",
+            "Conditions": "true"
+        },
+        {
+            "Type": "contracts",
+            "Name": "Bench_EditLanguage",
+            "Value": "contract Bench_EditLanguage {\n    data {\n\n  n int  }\n    conditions {\n    $lang = DBFind(\"@1languages\").Where({id: 1, ecosystem: 1}).Row()\n    }\n    action {\n            var i int\n            var p1, p2 string\n            p1 = \"{'en': 'false\"\n            p2 = \"', 'ru' : 'true'}\"\n            while (i < $n) {\n                EditLanguage(1, $lang[\"name\"], p1 + Str(i) + p2)\n                i = i + 1\n        }\n    }\n}",
+            "Conditions": "true"
+        },
+        {
+            "Type": "contracts",
+            "Name": "Bench_CreateLanguage",
+            "Value": "contract Bench_CreateLanguage {\n    data {\n\n  n int  }\n    conditions {\n\n    }\n    action {\n            var i int\n            var s string\n            while (i < $n) {\n                CreateLanguage(\"lang\" + Str(i), \"{'en': 'false', 'ru' : 'true'}\")\n                i = i + 1\n        }\n    \n\n    }\n}",
+            "Conditions": "true"
+        },
+        {
+            "Type": "contracts",
+            "Name": "Bench_UpdateContract",
+            "Value": "contract Bench_UpdateContract {\n    data {\n\n  n int  }\n    conditions {\n    $cur = DBFind(\"@1contracts\").Columns(\"id,value,conditions,wallet_id,token_id\").Where({id: 4, ecosystem: 1}).Row()\n    }\n    action {\n            var i int\n            var wall int\n            wall = Int($cur[\"wallet_id\"])\n            while (i < $n) {\n                UpdateContract(4, $cur[\"value\"], \"true\", wall, $cur[\"token_id\"])\n                i = i + 1\n        }\n    }\n}\n",
+            "Conditions": "true"
+        },
+        {
+            "Type": "contracts",
+            "Name": "Bench_SetPubKey",
+            "Value": "contract Bench_SetPubKey {\n    data {\n\n n int   }\n    conditions {\n\n    }\n    action {\n            var i int\n            var pub string\n            pub = PubToID(\"167f20a17ad675f4bc52df188c3934403d2602dd8354d16980f7ba8218411c16\")\n            while (i < $n) {\n                SetPubKey(Str(1000000000000000000 + i), StringToBytes(pub))\n                i = i + 1\n        }\n\n    }\n}",
+            "Conditions": "true"
+        },
+        {
+            "Type": "tables",
+            "Name": "test",
+            "Conditions": "ContractAccess(\"@1EditTable\")",
+            "Columns": "[{\"name\":\"test\",\"conditions\":\"{\\\"update\\\":\\\"true\\\",\\\"read\\\":\\\"true\\\"}\",\"type\":\"varchar\"}]",
+            "Permissions": "{\"read\": \"true\", \"insert\": \"true\", \"update\": \"true\", \"new_column\": \"true\"}"
         }
     ],
     "name": "bench"

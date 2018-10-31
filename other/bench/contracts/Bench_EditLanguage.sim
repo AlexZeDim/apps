@@ -1,0 +1,18 @@
+contract Bench_EditLanguage {
+    data {
+
+  n int  }
+    conditions {
+    $lang = DBFind("@1languages").Where({id: 1, ecosystem: 1}).Row()
+    }
+    action {
+            var i int
+            var p1, p2 string
+            p1 = "{'en': 'false"
+            p2 = "', 'ru' : 'true'}"
+            while (i < $n) {
+                EditLanguage(1, $lang["name"], p1 + Str(i) + p2)
+                i = i + 1
+        }
+    }
+}

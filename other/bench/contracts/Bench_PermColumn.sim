@@ -1,0 +1,21 @@
+contract Bench_PermColumn {
+    data {
+
+ n int   }
+    conditions {
+
+    }
+    action {
+            var i int
+            var permissions map
+            permissions["update"] = "true"
+            permissions["read"] = "true"
+            var perms string
+            perms = JSONEncode(permissions)
+            while (i < $n) {
+                PermColumn("test", "test", perms)
+                i = i + 1
+        }
+    
+    }
+}

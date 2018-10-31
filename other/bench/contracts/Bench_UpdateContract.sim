@@ -1,0 +1,17 @@
+contract Bench_UpdateContract {
+    data {
+
+  n int  }
+    conditions {
+    $cur = DBFind("@1contracts").Columns("id,value,conditions,wallet_id,token_id").Where({id: 4, ecosystem: 1}).Row()
+    }
+    action {
+            var i int
+            var wall int
+            wall = Int($cur["wallet_id"])
+            while (i < $n) {
+                UpdateContract(4, $cur["value"], "true", wall, $cur["token_id"])
+                i = i + 1
+        }
+    }
+}

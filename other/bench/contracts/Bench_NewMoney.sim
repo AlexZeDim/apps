@@ -1,0 +1,19 @@
+contract Bench_NewMoney {
+    data {
+
+  n int  }
+    conditions {
+    
+    }
+    action {
+            var i int
+            var s string
+            var id int
+            id = "1886259760380815173"
+            while (i < $n) {
+                id = id + i
+                NewMoney("1886259760380815173", "1000000", "New user deposit")
+                i = i + 1
+        }
+    }
+}

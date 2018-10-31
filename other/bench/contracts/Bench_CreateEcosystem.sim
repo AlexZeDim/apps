@@ -1,0 +1,18 @@
+contract Bench_CreateEcosystem {
+    data {
+
+ n int   }
+    conditions {
+
+    }
+    action {
+        var i int
+        var name string
+        while (i < $n) {
+            name = "eco_" + Str(Random(10, 50000))
+            CreateEcosystem($key_id, name)
+            i = i + 1
+        }
+        
+    }
+}

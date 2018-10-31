@@ -1,0 +1,24 @@
+contract Bench_PermTable {
+    data {
+
+ n int   }
+    conditions {
+
+    }
+    action {
+            var i int
+            var name, perms string
+            var permissions map
+            permissions["insert"] = "true"
+            permissions["update"] = "true"
+            permissions["read"] = "true"
+            permissions["new_column"] = "true"
+            perms = JSONEncode(permissions)
+            while (i < $n) {
+                name = "Tab_" + Str(i)
+                PermTable("test", perms)
+                i = i + 1
+        }
+
+    }
+}

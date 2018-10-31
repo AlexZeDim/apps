@@ -1,0 +1,19 @@
+contract Bench_CreateTable {
+    data {
+
+ n int   }
+    conditions {
+
+    }
+    action {
+            var i int
+            var name, perms, columns string
+            perms = "{'insert': 'false', 'update': 'true', 'new_column': 'true'}"
+            columns = "[{'name': 'MyName', 'type':'varchar', 'index': '1', 'conditions': 'true'}]" 
+            while (i < $n) {
+                name = "tab_" + Str(i)
+                CreateTable(name, columns, perms, 1)
+                i = i + 1
+        }
+    }
+}

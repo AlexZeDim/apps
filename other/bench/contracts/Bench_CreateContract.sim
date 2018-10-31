@@ -1,0 +1,17 @@
+contract Bench_CreateContract {
+    data {
+
+ n int   }
+    conditions {
+
+    }
+    action {
+            var i int
+            var name string
+            while (i < $n) {
+                name = "Cont" + Str(i)
+                CreateContract(name, "contract " + name + "{data { }    conditions {    }    action {    }    }", "true", 1, 1)
+                i = i + 1
+        }
+    }
+}

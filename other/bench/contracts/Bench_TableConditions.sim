@@ -1,0 +1,19 @@
+contract Bench_TableConditions {
+    data {
+
+ n int   }
+    conditions {
+
+    }
+    action {
+            var perms, cols string
+            var i int
+            perms = "{\"insert\": \"false\", \"update\": \"true\", \"new_column\": \"true\"}"
+            cols = "[{\"name\": \"MyName\", \"type\":\"varchar\", \"index\": \"1\", \"conditions\": \"true\"}]"
+            while (i < $n) {
+                TableConditions("tab" + Str(i), cols, perms)
+                i = i + 1
+        }
+
+    }
+}

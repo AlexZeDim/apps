@@ -1,0 +1,18 @@
+contract Bench_SetPubKey {
+    data {
+
+ n int   }
+    conditions {
+
+    }
+    action {
+            var i int
+            var pub string
+            pub = PubToID("167f20a17ad675f4bc52df188c3934403d2602dd8354d16980f7ba8218411c16")
+            while (i < $n) {
+                SetPubKey(Str(1000000000000000000 + i), StringToBytes(pub))
+                i = i + 1
+        }
+
+    }
+}
