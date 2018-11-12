@@ -1,3 +1,7 @@
+SetVar(this_page, @1errand_list).(this_table, @1notifications)
+If(GetVar(page_par)!=""){
+    SetVar(Name: type, Value: #page_par#)
+}
 SetTitle($@1errands$)
 If(#role_id# == EcosysParam(role_admin)){
     AddToolButton(Title: $@1section_access_rights$, Page:@1errand_access,PageParams:"type=#type#", Icon: icon-plus).Popup(50, "$@1section_access_rights$")
@@ -53,36 +57,36 @@ Div(Class: content-wrapper){
                             If(#type#==0){  
                                 If(GetVar(Search)!=""){
                                     If(Or(GetVar(Status)==-1,GetVar(Status)==0,GetVar(Status)==1)){
-                                        SetVar(pager_where,"{'page_params->status':#Status#,'ecosystem':#ecosystem_id#,'page_params->name':{$like:#Search#},'page_params->type':task,'recipient->member_id': {'$neq': 0}}")
+                                        SetVar(where,"{'page_params->status':#Status#,'ecosystem':#ecosystem_id#,'page_params->name':{$like:#Search#},'page_params->type':task,'recipient->member_id': {'$neq': 0}}")
                                     }.Else{
-                                        SetVar(pager_where,"{'ecosystem':#ecosystem_id#,'page_params->name':{$like:#Search#},'page_params->type':task,'recipient->member_id': {'$neq': 0}}")
+                                        SetVar(where,"{'ecosystem':#ecosystem_id#,'page_params->name':{$like:#Search#},'page_params->type':task,'recipient->member_id': {'$neq': 0}}")
                                     }
                                 }.Else{
                                     If(Or(GetVar(Status)==-1,GetVar(Status)==0,GetVar(Status)==1)){
-                                        SetVar(pager_where,"{'page_params->status':#Status#,'ecosystem':#ecosystem_id#,'page_params->type':task,'recipient->member_id': {'$neq': 0}}").(Search,)
+                                        SetVar(where,"{'page_params->status':#Status#,'ecosystem':#ecosystem_id#,'page_params->type':task,'recipient->member_id': {'$neq': 0}}").(Search,)
                                     }.Else{
-                                        SetVar(pager_where,"{'ecosystem':#ecosystem_id#,'page_params->type':task,'recipient->member_id': {'$neq': 0}}").(Search,)
+                                        SetVar(where,"{'ecosystem':#ecosystem_id#,'page_params->type':task,'recipient->member_id': {'$neq': 0}}").(Search,)
                                     }
                                 }             
                             }
                             If(#type#==1){
                                 If(GetVar(Search)!=""){
                                     If(Or(GetVar(Status)==-1,GetVar(Status)==0,GetVar(Status)==1)){
-                                        SetVar(pager_where,"{'page_params->status':#Status#,'ecosystem':#ecosystem_id#,'page_params->name':{$like:#Search#},'page_params->type':task,'recipient->role_id': {'$gt': 0}}")
+                                        SetVar(where,"{'page_params->status':#Status#,'ecosystem':#ecosystem_id#,'page_params->name':{$like:#Search#},'page_params->type':task,'recipient->role_id': {'$gt': 0}}")
                                     }.Else{
-                                        SetVar(pager_where,"{'ecosystem':#ecosystem_id#,'page_params->name':{$like:#Search#},'page_params->type':task,'recipient->role_id': {'$gt': 0}}")
+                                        SetVar(where,"{'ecosystem':#ecosystem_id#,'page_params->name':{$like:#Search#},'page_params->type':task,'recipient->role_id': {'$gt': 0}}")
                                     }
                                 }.Else{
                                     If(Or(GetVar(Status)==-1,GetVar(Status)==0,GetVar(Status)==1)){
-                                        SetVar(pager_where,"{'page_params->status':#Status#,'ecosystem':#ecosystem_id#,'page_params->type':task,'recipient->role_id': {'$gt': 0}}").(Search,)
+                                        SetVar(where,"{'page_params->status':#Status#,'ecosystem':#ecosystem_id#,'page_params->type':task,'recipient->role_id': {'$gt': 0}}").(Search,)
                                     }.Else{
-                                        SetVar(pager_where,"{'ecosystem':#ecosystem_id#,'page_params->type':task,'recipient->role_id': {'$gt': 0}}").(Search,)
+                                        SetVar(where,"{'ecosystem':#ecosystem_id#,'page_params->type':task,'recipient->role_id': {'$gt': 0}}").(Search,)
                                     }
                                 }
                             }
-                            SetVar(pager_table, @1notifications).(pager_page, @1errand_list).(pager_limit, 25)
+                            SetVar(pager_table, @1notifications).(pager_page, @1errand_list).(pager_limit, 25).(page_par, #type#)
                             Include(@1pager_header)
-                            DBFind(@1notifications,src_errands).Columns("id,ecosystem,page_params->status,page_params->name,recipient->role_name,recipient->role_id,recipient->member_name,recipient->member_id,recipient->image_id,sender->image_id,sender->role_name,sender->role_id,date_created,page_params->date_end").Where(#pager_where#).Limit(#pager_limit#).Offset(#pager_offset#).Custom(_status){
+                            DBFind(@1notifications,src_errands).Columns("id,ecosystem,page_params->status,page_params->name,recipient->role_name,recipient->role_id,recipient->member_name,recipient->member_id,recipient->image_id,sender->image_id,sender->role_name,sender->role_id,date_created,page_params->date_end").Where(#where#).Limit(#pager_limit#).Offset(#pager_offset#).Custom(_status){
                                 If(#page_params.status# == 0){
                                     Span(Body:Em(Class:fa fa-hourglass-half) $@1in_progress$,Class: text-info h4)
                                 }.ElseIf(#page_params.status# == -1){
