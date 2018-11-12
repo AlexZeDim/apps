@@ -86,7 +86,7 @@ Div(Class: content-wrapper){
                                 If(#page_params.status# == 0){
                                     Span(Body:Em(Class:fa fa-hourglass-half) $@1in_progress$,Class: text-info h4)
                                 }.ElseIf(#page_params.status# == -1){
-                                    Span(Body:Em(Class:fa fa-times) $@1not_achieved$,Class: text-danger h4)
+                                    Span(Body:Em(Class:fa fa-times) $@1expired$,Class: text-danger h4)
                                 }.ElseIf(#page_params.status# == 1){
                                     Span(Body:Em(Class:fa fa-hourglass-end) $@1done$,Class: text-success h4)
                                 }
