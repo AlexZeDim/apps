@@ -1,0 +1,31 @@
+{
+    "name": "Register of members",
+    "conditions": "ContractConditions(\"DeveloperCondition\")",
+    "blocks": null,
+    "contracts": [
+        {
+            "Name": "RomAdd",
+            "Conditions": "ContractConditions(\"DeveloperCondition\")"
+        }
+    ],
+    "menus": [
+        {
+            "Name": "default_menu",
+            "Conditions": "ContractConditions(\"DeveloperCondition\")"
+        }
+    ],
+    "pages": [
+        {
+            "Name": "rom_member_add",
+            "Conditions": "ContractConditions(\"DeveloperCondition\")",
+            "Menu": "default_menu"
+        },
+        {
+            "Name": "rom_members",
+            "Conditions": "ContractConditions(\"DeveloperCondition\")",
+            "Menu": "default_menu"
+        }
+    ],
+    "tables": null,
+    "parameters": null
+}

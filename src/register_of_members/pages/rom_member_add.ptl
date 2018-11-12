@@ -1,0 +1,76 @@
+SetVar(back_page, rom_members)
+
+SetVar(volunteer_role_id, EcosysParam(Name:role_volunteer))
+SetVar(donor_role_id, EcosysParam(Name:role_donor))
+SetVar(member_role_id, EcosysParam(Name:role_member))
+SetVar(regional_role_id, EcosysParam(Name:role_regional))
+SetVar(federal_role_id, EcosysParam(Name:role_federal))
+SetVar(admin_role_id, EcosysParam(Name:role_admin))
+
+Form(){
+    If(#role_id#>0){
+        Data(roles, "id,name"){}
+        If(#role_id#==#regional_role_id#){
+            Data(roles, "id,name"){
+                #volunteer_role_id#,"Волонтер"
+            }
+        }.ElseIf(#role_id#==#federal_role_id#){
+            Data(roles, "id,name"){
+                #donor_role_id#,"Донор"
+                #member_role_id#,"Член партии"
+                #regional_role_id#,"Сотрудник регионального штаба"
+            }
+        }.ElseIf(#role_id#==#admin_role_id#){
+            Data(roles, "id,name"){
+                #federal_role_id#,"Сотрудник федерального штаба"
+            }
+        }
+        Div(row){
+            Div(col-md-3 mt-lg text-right){
+                Label(For: Pub){
+                    "Публичный ключ"
+                }
+                Span(*,text-danger)
+            }
+            Div(col-md-9){
+                Input(Name: Pub, Type: textarea)
+            }
+        }
+        Div(row mt){
+            Div(col-md-3 mt-lg text-right){
+                Label(For: Role){
+                    "Роль"
+                }
+                Span(*,text-danger)
+            }
+            Div(col-md-9){
+                Select(Name: Role, Source: roles, NameColumn: name, ValueColumn: id)
+            }
+        }
+        Div(row mt){
+            Div(col-md-3 text-right){
+                Label(For: Date){
+                    "Дата вступления в роль"
+                }
+            }
+            Div(col-md-9){
+                Div(row){
+                    Div(col-md-6){
+                        Input(Name: Date, Type: date)
+                    }
+                    Div(col-md-6){
+                        Input(Name: Time, Type: time)
+                    }
+                }
+            }
+        }
+        Div(mt pull-right){
+            Button(Body: LangRes(@1back), Class: btn btn-default, Page: #back_page#)
+            If(Or(#role_id#==#regional_role_id#,#role_id#==#federal_role_id#,#role_id#==#admin_role_id#)){
+                Button(Body: LangRes(@1add), Class: btn btn-primary, Page: #back_page#, Contract: RomAdd)
+            }
+        }
+    }.Else{
+        Button(Body: LangRes(@1back), Class: btn btn-default, Page: #back_page#)
+    }
+}
