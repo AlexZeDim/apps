@@ -2042,10 +2042,6 @@
             "Type": "languages"
         },
         {
-            "Name": "not_achieved",
-            "Type": "languages"
-        },
-        {
             "Name": "not_enough_votes",
             "Trans": "{\"en\": \"Not enough votes\", \"ru\": \"Недостаточно голосов\"}",
             "Type": "languages"
@@ -3743,6 +3739,11 @@
         {
             "Name": "update_metrics",
             "Trans": "{\"en\": \"Update metrics\", \"ru\": \"Обновить метрики\"}",
+            "Type": "languages"
+        },
+        {
+            "Name": "update_statuses",
+            "Trans": "{\"en\": \"Update statuses\", \"ru\": \"Обновить статусы\"}\r\n",
             "Type": "languages"
         },
         {
