@@ -1,4 +1,4 @@
-SetVar(this_page, rom_members).(this_table, @1members)
+SetVar(this_page, rom_members).(this_table, @1keys)
 Include(@1pager_header)
 
 SetVar(volunteer_role_id, EcosysParam(Name:role_volunteer))
@@ -8,17 +8,19 @@ SetVar(regional_role_id, EcosysParam(Name:role_regional))
 SetVar(federal_role_id, EcosysParam(Name:role_federal))
 SetVar(admin_role_id, EcosysParam(Name:role_admin))
 
+SetVar(isManager,0)
+
 SetTitle("Реестр членов партии")
 If(#role_id#>0){
     If(Or(#regional_role_id#==#role_id#,#federal_role_id#==#role_id#,#admin_role_id#==#role_id#)){
-        AddToolButton(Title: "Добавить", Page: rom_member_add, Icon: icon-wallet).Popup(Header: "Добавление нового члена партии", Width: "50")
+        SetVar(isManager,1)
     }
 }
 
 If(GetVar(search)!=""){
-    SetVar(where, {ecosystem:#ecosystem_id#, id:{$like:#search#}})
+    SetVar(where, {ecosystem:#ecosystem_id#, id:{$like:#search#}, id:{$neq:#guest_key#}})
 }.Else{
-    SetVar(where, {ecosystem:#ecosystem_id#}).(search,)
+    SetVar(where, {ecosystem:#ecosystem_id#, id:{$neq:#guest_key#}}).(search,)
 }
 
 Div(list-group-item ml-lg mr-lg pt-lg){
@@ -33,9 +35,12 @@ DBFind(#this_table#, src).Order({"id": -1}).Where(#where#).Limit(#pager_limit#).
     DBFind(@1roles_participants,roles).Where({ecosystem:#ecosystem_id#, "member->member_id":#id#, deleted:0}).Columns("role->id,role->name").Order("id").Count(roles_count)
     If(#roles_count#>0){
         ForList(roles){
-            Span(){
+            Span(Class:mh-sm){
                 LinkPage(Class: h6 m0 text-primary, Page: @1roles_view, PageParams: "v_role_id=#role.id#", Body: "#role.name#")
-            }.Style(margin-right: 5px; margin-left: 5px;)
+            }
+            If(And(#isManager#==1,#roles_count#==#roles_index#)){
+                Button(Class: btn btn-link m0 p0 icon-plus, Page: rom_member_role, PageParams: "Id=#id#").Popup(Header: "Присвоить роль члену партии", Width: "50")
+            }
         }
     }
 }

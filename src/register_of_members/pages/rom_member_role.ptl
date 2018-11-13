@@ -1,0 +1,42 @@
+SetVar(back_page, rom_members)
+
+SetVar(volunteer_role_id, EcosysParam(Name:role_volunteer))
+SetVar(donor_role_id, EcosysParam(Name:role_donor))
+SetVar(member_role_id, EcosysParam(Name:role_member))
+SetVar(regional_role_id, EcosysParam(Name:role_regional))
+SetVar(federal_role_id, EcosysParam(Name:role_federal))
+SetVar(admin_role_id, EcosysParam(Name:role_admin))
+
+Form(){
+    If(And(#role_id#>0,Or(#Id#>0,#Id#<0))){
+        If(#role_id#==#regional_role_id#){
+            DBFind(@1roles, roles).Where({id:{$in:[#volunteer_role_id#]}}).Columns("role_name,id")
+
+        }.ElseIf(#role_id#==#federal_role_id#){
+            DBFind(@1roles, roles).Where({id:{$in:[#donor_role_id#, #member_role_id#, #regional_role_id#]}}).Columns("role_name,id")
+        
+        }.ElseIf(#role_id#==#admin_role_id#){
+            DBFind(@1roles, roles).Where({id:{$in:[#federal_role_id#]}}).Columns("role_name,id")
+        }
+        
+        Div(row mt){
+            Div(col-md-3 mt-sm text-right){
+                Label(For: Role){
+                    "Роль"
+                }
+                Span(*,text-danger)
+            }
+            Div(col-md-9){
+                Select(Name: Role, Source: roles, NameColumn: role_name, ValueColumn: id)
+            }
+        }
+        Div(mt pull-right){
+            Button(Body: LangRes(@1back), Class: btn btn-default, Page: #back_page#)
+            If(Or(#role_id#==#regional_role_id#,#role_id#==#federal_role_id#,#role_id#==#admin_role_id#)){
+                Button(Body: LangRes(@1assign), Class: btn btn-primary, Page: #back_page#, Contract: @1RomRoleAssign, Params: "Id=#Id#")
+            }
+        }
+    }.Else{
+        Button(Body: LangRes(@1back), Class: btn btn-default, Page: #back_page#)
+    }
+}

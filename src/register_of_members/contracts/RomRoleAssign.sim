@@ -1,0 +1,53 @@
+contract RomRoleAssign {
+    data {
+        Id int
+        Role int
+    }
+    func checkAssign(roles...){
+        var i rid int
+        while i < Len(roles){
+            rid = roles[i]
+            if rid == $Role {
+                return
+            }
+            i = i + 1
+        }
+        error LangRes("@1access_denied", "en")
+    }
+    conditions{
+        if ($ecosystem_id == 1) {
+            error LangRes("@1impossible_for_platform_ecosystem", "en")
+        }
+        var volunteerId donorId memberId regionalId federalId adminId int
+
+        volunteerId = Int(EcosysParam("role_volunteer"))
+        donorId = Int(EcosysParam("role_donor"))
+        memberId = Int(EcosysParam("role_member"))
+
+        regionalId = Int(EcosysParam("role_regional"))
+        federalId = Int(EcosysParam("role_federal"))
+        adminId = Int(EcosysParam("role_admin"))
+        
+        if RoleAccess(regionalId){
+            checkAssign(volunteerId)
+
+        }elif RoleAccess(federalId){
+            checkAssign(donorId, memberId, regionalId)
+
+        }elif RoleAccess(adminId){
+            checkAssign(federalId)
+        }else{
+            error LangRes("@1access_denied", "en")
+        }
+
+        $role = DBFind("@1roles").Where({ecosystem:$ecosystem_id, id:$Role}).Columns("role_name,id").Row()
+        if !$role{
+            error LangRes("@1role_not_found", "en")
+        }
+
+    }
+
+    action {
+        @1RolesAssign("rid,member_id", $Role, $Id)
+    }
+}

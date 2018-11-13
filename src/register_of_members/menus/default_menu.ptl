@@ -1,1 +1,3 @@
-MenuItem(Title: "Реестр членов партии", Page: rom_members, Icon:"icon-list")
+If(#ecosystem_id#>1){
+    MenuItem(Title: "Реестр членов партии", Page: rom_members, Icon:"icon-list")
+}
