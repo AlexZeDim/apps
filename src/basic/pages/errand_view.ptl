@@ -10,7 +10,7 @@ Div(content-wrapper){
         SetVar(errand_id,#errand_id#)
     }
 
-    DBFind(@1notifications).Where({ecosystem:#ecosystem_id#, id:#errand_id#}).Columns("id,page_params->name,sender->role_id,sender->role_name,sender->image_id,recipient->role_id,recipient->role_name,recipient->image_id,recipient->member_id,recipient->member_name,page_params->status,page_params->date_end,date_created,page_params->text,page_params->answer,processing_info,processing_info->member_id,processing_info->member_name,processing_info->image_id").Vars(prefix)
+    DBFind(@1notifications).Where({ecosystem:#ecosystem_id#, id:#errand_id#}).Columns("id,page_params->name,sender->role_id,sender->role_name,sender->image_id,recipient->role_id,recipient->role_name,recipient->image_id,recipient->member_id,recipient->member_name,page_params->status,page_params->date_end,date_created,page_params->text,page_params->answer,processing_info,processing_info->member_id,processing_info->member_name,processing_info->image_id,closed").Vars(prefix)
     
     Div(row){
         Div(col-md-6 col-md-offset-3){
@@ -170,18 +170,19 @@ Div(content-wrapper){
                                     Button($@1start_process$,Class: pull-right btn btn-info ml-sm,Page: @1errand_view,PageParams: "notific_id=#errand_id#",Contract: @1NotificationsProcess, Params: "notific_id=#errand_id#")
                                 }
                             }.ElseIf(#errand_id# > 0){
-                                Button($@1back$,Class: pull-left btn bg-gray ml-sm,Page: @1errand_list,PageParams: "type=#type#")
+                                DBFind(@1notifications).Where({ecosystem:#ecosystem_id#, id:#notific_id#}).Vars(cl)
+                                If(#cl_closed# == 0){
+                                    If(#cl_processing_info# ==""){
+                                        Button($@1start_process$,Class: btn btn-info ml-sm,Page: @1errand_view,PageParams: "notific_id=#notific_id#",Contract: @1NotificationsProcess, Params: "notific_id=#notific_id#")
+                                    }.Else{
+                                        Button($@1close$,Class: pull-left btn bg-gray ml-sm,Page: @1notifications_list,Contract: @1NotificationsClose,Params: "notific_id=#notific_id#")
+                                    }
+                                }.Else{
+                                    Button($@1back$,Class: pull-left btn bg-gray ml-sm,Page: @1errand_list,PageParams: "type=#type#")
+                                }
                             }
                         }.Else{
-                            If(And(#notific_id# > 0,#check_decisions_page_params_decision_errand_id# != "")){
-                                If(#check_decisions_processing_info# == "") {
-                                    Button($@1start_process$,Class: pull-left btn btn-info ml-sm,Page: @1errand_view,Contract: @1NotificationsProcess,Params:"notific_id=#notific_id#")
-                                }.Else{
-                                    Button($@1close$,Class: pull-left btn bg-gray ml-sm,Page: @1notifications_list,Contract: @1NotificationsClose,Params:"notific_id=#notific_id#")
-                                }
-                            }.Else{
-                                Button($@1back$,Class: pull-left btn bg-gray ml-sm,Page: @1errand_list,PageParams: "type=#type#")
-                            }
+                            Button($@1back$,Class: pull-left btn bg-gray ml-sm,Page: @1errand_list,PageParams: "type=#type#") 
                         }
                     }
                 }
