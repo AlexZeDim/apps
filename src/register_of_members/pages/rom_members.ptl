@@ -16,16 +16,18 @@ If(#role_id#>0){
         SetVar(isManager,1)
     }
 }
-
 If(GetVar(search)!=""){
-    SetVar(where, {ecosystem:#ecosystem_id#, id:{$like:#search#}, id:{$neq:#guest_key#}})
+    SetVar(addr,AddressToId(#search#))
+    SetVar(where, {ecosystem:#ecosystem_id#, id:{$like:#addr#, $neq:#guest_key#}})
 }.Else{
     SetVar(where, {ecosystem:#ecosystem_id#, id:{$neq:#guest_key#}}).(search,)
 }
 
-Div(list-group-item ml-lg mr-lg pt-lg){
-    SetVar(search_name, LangRes(@1wallet))
-    Include(@1search)
+If("AddressToId"=="worked"){
+    Div(list-group-item ml-lg mr-lg pt-lg){
+        SetVar(search_name, LangRes(@1wallet))
+        Include(@1search)
+    }
 }
 
 DBFind(#this_table#, src).Order({"id": -1}).Where(#where#).Limit(#pager_limit#).Offset(#pager_offset#).Count(count).Custom(_wallet){
