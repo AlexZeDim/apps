@@ -170,7 +170,9 @@ Div(content-wrapper){
                                     Button($@1start_process$,Class: pull-right btn btn-info ml-sm,Page: @1errand_view,PageParams: "notific_id=#errand_id#",Contract: @1NotificationsProcess, Params: "notific_id=#errand_id#")
                                 }
                             }.ElseIf(#errand_id# > 0){
-                                DBFind(@1notifications).Where({ecosystem:#ecosystem_id#, id:#notific_id#}).Vars(cl)
+                                If(#notific_id# > 0){
+                                    DBFind(@1notifications).Where({ecosystem:#ecosystem_id#, id:#notific_id#}).Vars(cl)
+                                }
                                 If(#cl_closed# == 0){
                                     If(#cl_processing_info# ==""){
                                         Button($@1start_process$,Class: btn btn-info ml-sm,Page: @1errand_view,PageParams: "notific_id=#notific_id#",Contract: @1NotificationsProcess, Params: "notific_id=#notific_id#")
