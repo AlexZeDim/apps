@@ -184,7 +184,18 @@ Div(content-wrapper){
                                 }
                             }
                         }.Else{
-                            Button($@1back$,Class: pull-left btn bg-gray ml-sm,Page: @1errand_list,PageParams: "type=#type#") 
+                            If(#notific_id# > 0){
+                                DBFind(@1notifications).Where({ecosystem:#ecosystem_id#, id:#notific_id#}).Vars(cl)
+                            }
+                            If(#cl_closed# == 0){
+                                If(#cl_processing_info# ==""){
+                                    Button($@1start_process$,Class: btn btn-info ml-sm,Page: @1errand_view,PageParams: "notific_id=#notific_id#",Contract: @1NotificationsProcess, Params: "notific_id=#notific_id#")
+                                }.Else{
+                                    Button($@1close$,Class: pull-left btn bg-gray ml-sm,Page: @1notifications_list,Contract: @1NotificationsClose,Params: "notific_id=#notific_id#")
+                                }
+                            }.Else{
+                                Button($@1back$,Class: pull-left btn bg-gray ml-sm,Page: @1errand_list,PageParams: "type=#type#") 
+                            }
                         }
                     }
                 }

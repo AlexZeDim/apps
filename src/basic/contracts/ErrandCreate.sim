@@ -73,7 +73,7 @@ contract ErrandCreate {
                 info LangRes("@1empty_wallet", "en")
             }
             $member_id = AddressToId($member_id)
-            $check_member = DBFind("members").Where({id:$member_id,ecosystem:$ecosystem_id}).One("id")
+            $check_member = DBFind("@1members").Where({id:$member_id,ecosystem:$ecosystem_id}).One("id")
             if (Int($check_member) == 0){
                 error LangRes("@1member_not_fount", "en")
             }
@@ -94,7 +94,6 @@ contract ErrandCreate {
         if $errand_type == 1 {
             info_errand["recipient_type"] = 1
         }
-        
         
         if $errand_type == 0 {
             @1NotificationsSend("current_role_id,rid,sender,icon_name,text_header,text_body,page_name,params_map,closure_type,eco_id",$send_role_id,$rec_role_id, 2, "icon icon-envelope-open", "New Errand", LangRes("@1details_view", "en"), "@1errand_view",info_errand,1,$ecosystem_id)
