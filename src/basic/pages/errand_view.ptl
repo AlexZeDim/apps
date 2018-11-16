@@ -1,6 +1,6 @@
 Div(content-wrapper){
     If(#notific_id#>0){
-        DBFind(@1notifications).WhereId(#notific_id#).Columns("id,page_params->decision_errand_id,page_params->type,processing_info").Vars(check_decisions)
+        DBFind(@1notifications).WhereId(#notific_id#).Columns("id,page_params->decision_errand_id,page_params->type,processing_info,closed").Vars(check_decisions)
         If(And(#check_decisions_page_params_type# == task_decision,#check_decisions_page_params_decision_errand_id# != "")){
             SetVar(errand_id,#check_decisions_page_params_decision_errand_id#)
         }.Else{
@@ -184,17 +184,18 @@ Div(content-wrapper){
                                 }
                             }
                         }.Else{
-                            If(#notific_id# > 0){
-                                DBFind(@1notifications).Where({ecosystem:#ecosystem_id#, id:#notific_id#}).Vars(cl)
-                            }
-                            If(#cl_closed# == 0){
-                                If(#cl_processing_info# ==""){
+                            If(#check_decisions_closed# == 0){
+                                If(#check_decisions_processing_info# ==""){
                                     Button($@1start_process$,Class: btn btn-info ml-sm,Page: @1errand_view,PageParams: "notific_id=#notific_id#",Contract: @1NotificationsProcess, Params: "notific_id=#notific_id#")
                                 }.Else{
                                     Button($@1close$,Class: pull-left btn bg-gray ml-sm,Page: @1notifications_list,Contract: @1NotificationsClose,Params: "notific_id=#notific_id#")
                                 }
                             }.Else{
-                                Button($@1back$,Class: pull-left btn bg-gray ml-sm,Page: @1errand_list,PageParams: "type=#type#") 
+                                If(#notific_id# > 0){
+                                    Button($@1back$,Class: pull-left btn bg-gray ml-sm,Page: @1notifications_list,PageParams: "type=#type#") 
+                                }.Else{
+                                    Button($@1back$,Class: pull-left btn bg-gray ml-sm,Page: @1errand_list,PageParams: "type=#type#") 
+                                }
                             }
                         }
                     }

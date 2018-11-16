@@ -64,7 +64,8 @@ contract ErrandCreate {
             info LangRes("@1empty_text", "en")
         }
         if $errand_type == 0 {
-            if $rec_role_id == 0 {
+            $valid_role = DBFind("roles").Where({ecosystem:$ecosystem_id,id:$rec_role_id,deleted:0}).One("id")
+            if $valid_role == 0 {
                 info LangRes("@1role_not_found", "en")
             }
         }
@@ -94,6 +95,7 @@ contract ErrandCreate {
         if $errand_type == 1 {
             info_errand["recipient_type"] = 1
         }
+        
         
         if $errand_type == 0 {
             @1NotificationsSend("current_role_id,rid,sender,icon_name,text_header,text_body,page_name,params_map,closure_type,eco_id",$send_role_id,$rec_role_id, 2, "icon icon-envelope-open", "New Errand", LangRes("@1details_view", "en"), "@1errand_view",info_errand,1,$ecosystem_id)
