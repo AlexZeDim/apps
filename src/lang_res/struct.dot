@@ -1,7 +1,7 @@
 digraph G {
 graph [
   fontsize="24";
-  label="lang_res\nMonday, 12-Nov-18 04:41:12 MSK";
+  label="lang_res\nFriday, 16-Nov-18 05:34:45 MSK";
   nojustify=true;
   ordering=out;
   rankdir=LR;
