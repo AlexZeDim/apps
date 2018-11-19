@@ -49,6 +49,8 @@ contract VotingTemplateRun {
         $decision = Int($template["type_decision"])
         $vacancies = Int($template["vacancies"])
         $countTypeVoters = Int($template["count_type_voters"])
+        
+        $poll = Int($template["poll"])
 
         $desc = Sprintf(LangRes("@1template", "en") + " #%v", $TemplateId)
         if $type_voting < 1 || $type_voting > 2 {
@@ -149,7 +151,7 @@ contract VotingTemplateRun {
         }
 
         var votingId int
-        votingId = @1VotingCreate("voting_name,voting_type,description,type_participants,type_decision,volume,quorum,interval,count_type_voters", $votingName, $type_voting, $desc, $participants, $decision, $volume, $quorum, $Duration, $countTypeVoters)
+        votingId = @1VotingCreate("poll,voting_name,voting_type,description,type_participants,type_decision,volume,quorum,interval,count_type_voters", $poll,$votingName, $type_voting, $desc, $participants, $decision, $volume, $quorum, $Duration, $countTypeVoters)
 
         if votingId == 0 {
             warning LangRes("@1voting_creation_error", "en")
@@ -192,6 +194,9 @@ contract VotingTemplateRun {
         }
         if $participants == 1 {
             // if the participants are "all", the invite has already occurred in "@1VotingCreate"
+        }
+        if $poll == 1 {
+           @1VotingStatusUpdate()
         }
     }
 }

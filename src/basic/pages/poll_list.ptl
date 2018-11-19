@@ -1,19 +1,19 @@
-SetVar(this_page, @1voting_templates_list).(this_table, @1voting_templates)
+SetVar(this_page, @1poll_list).(this_table, @1voting_templates)
 Include(@1pager_header)
 
-SetTitle("$@1voting_templates$")
+SetTitle(Polls Template)
 Span(Class: h5 m0 mb ml-lg){
-    LinkPage(Class: ml-sm, Body: $@1votings$, Page: @1voting_list)
+    LinkPage(Class: ml-sm, Body: Polls, Page: @1poll, PageParams: "type=0" )
     Span(Class: text-muted mh, Body: /)
-    Span(Class: text-muted, Body: $@1voting_templates$)
+    Span(Class: text-muted, Body: Polls Template)
 }.Style(
     display: inline-block;
 )
 
 If(GetVar(search)){
-    SetVar(where,{ecosystem:#ecosystem_id#, "title":{"$like":#search#}, poll:0})
+    SetVar(where,{ecosystem:#ecosystem_id#, "title":{"$like":#search#}})
 }.Else{
-    SetVar(where,{ecosystem:#ecosystem_id#, "id":{"$gt":0}, poll:0}).(search,)
+    SetVar(where,{ecosystem:#ecosystem_id#, "id":{"$gt":0}, poll:1}).(Search,)
 }
 
 Div(list-group-item ml-lg mr-lg pt-lg){
@@ -31,7 +31,7 @@ DBFind(#this_table#, src).Where(#where#).Order({"id": 1}).Limit(#pager_limit#).O
     AppParam(Ecosystem:1, App:#application_id#, Name:type_voting, Index: #type_voting#)
 }.Custom(_actions){
     Div(text-right){
-        Button(Class: btn btn-default fa fa-eye, Page: @1voting_template_start, PageParams: "TemplateId=#id#")
+        Button(Class: btn btn-default fa fa-eye, Page: @1poll_create_start, PageParams: "TemplateId=#id#")
     }
 }.Custom(_contracts){
     If(And(#init_contract#!="",#init_contract#!="NULL")){
@@ -51,8 +51,10 @@ DBFind(#this_table#, src).Where(#where#).Order({"id": 1}).Limit(#pager_limit#).O
     }
 }.Count(count)
 
-If(Or(#count#>0,#ecosystem_id#>1)){
-    AddToolButton(Title: $@1create$, Page: @1voting_template_create, Icon: icon-plus).Popup(50, $@1voting_template_create$)
+If(EcosysParam(Ecosystem:1, Name: role_admin) == #role_id#){
+    If(Or(#count#>0,#ecosystem_id#>1,)){
+        AddToolButton(Title: Create Poll, Page: @1poll_create, Icon: icon-plus).Popup(40, Create new poll)
+    }
 }
 
 Div(fullscreen){

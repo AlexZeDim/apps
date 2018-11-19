@@ -12,9 +12,9 @@ If(EcosysParam(Name:founder_account)==#key_id#){
 }
 
 If(GetVar(search)){
-    SetVar(where, {ecosystem:#ecosystem_id#, "voting->name":{"$like":#search#}, deleted:0})
+    SetVar(where, {ecosystem:#ecosystem_id#, "voting->name":{"$like":#search#}, deleted:0, poll:0})
 }.Else{
-    SetVar(where, {ecosystem:#ecosystem_id#, deleted:0}).(search,)
+    SetVar(where, {ecosystem:#ecosystem_id#, deleted:0, poll:0}).(search,)
 }
 
 Div(list-group-item ml-lg mr-lg pt-lg){

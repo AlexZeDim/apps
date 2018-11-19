@@ -16,6 +16,7 @@ contract VotingTemplateCreate {
         ContractReject string "optional"
         ParamsReject string "optional"
         CountTypeVoters int
+        Poll int
     }
 
     conditions {
@@ -79,6 +80,7 @@ contract VotingTemplateCreate {
         m["reject_params"] = $ParamsReject
         m["ecosystem"] = $ecosystem_id
         m["count_type_voters"] = $CountTypeVoters
+        m["poll"] = $Poll
         $result = DBInsert("@1voting_templates", m)
     }
 }

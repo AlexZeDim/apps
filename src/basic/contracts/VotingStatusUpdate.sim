@@ -23,14 +23,22 @@ contract VotingStatusUpdate {
         } else {
             title = voting["voting.name"]
             id = Int(voting["id"])
-            voters = DBFind("@1votings_participants").Columns("member->member_id").Where({ecosystem:$ecosystem_id, voting_id:id, decision:0})
+            voters = DBFind("@1votings_participants").Columns("member->member_id,voting_id").Where({ecosystem:$ecosystem_id, voting_id:id, decision:0})
             lenVoters = Len(voters)
             while i < lenVoters {
                 var voter memberId params map
                 voter = voters[i]
+                var check int
+                check = Int(voter["voting_id"])
+                $check_voting_id = DBFind("@1votings").Where({id:check}).Columns("id,poll").One("poll")
                 memberId = Int(voter["member.member_id"])
                 params["voting_id"] = id
-                @1NotificationsSend("member_id,sender,icon_name,text_header,text_body,page_name,params_map", memberId, 1, "fa-check", LangRes("@1voting", "en"), title, "@1voting_view", params)
+                if(Int($check_voting_id) == 0){
+                    @1NotificationsSend("member_id,sender,icon_name,text_header,text_body,page_name,params_map", memberId, 1, "fa-check", LangRes("@1voting", "en"), title, "@1voting_view", params)
+                }
+                else{
+                    @1NotificationsSend("member_id,sender,icon_name,text_header,text_body,page_name,params_map", memberId, 1, "fa-check", LangRes("@1voting", "en"), title, "@1poll_view", params)
+                }
                 i = i + 1
             }
         }

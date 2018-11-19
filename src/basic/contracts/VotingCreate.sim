@@ -15,6 +15,7 @@ contract VotingCreate {
         start_time string "optional"
         end_date string "optional"
         end_time string "optional"
+        poll int "optional"
     }
     
     func trimZeroTime(s string) string {
@@ -147,6 +148,7 @@ contract VotingCreate {
         m["flags"] = flags
         m["creator"] = creator
         m["status"] = 1
+        m["poll"] = $poll
         m["date_started"] = $date_started
         m["date_ended"] = $date_ended
         m["ecosystem"] = $ecosystem_id,
