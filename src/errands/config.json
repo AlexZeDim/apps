@@ -1,0 +1,58 @@
+{
+    "blocks": null,
+    "contracts": [
+        {
+            "Conditions": "ContractConditions(\"MainCondition\")",
+            "Name": "ErrandAccess"
+        },
+        {
+            "Conditions": "ContractConditions(\"MainCondition\")",
+            "Name": "ErrandStatusUpdate"
+        },
+        {
+            "Conditions": "ContractConditions(\"MainCondition\")",
+            "Name": "ErrandCreate"
+        },
+        {
+            "Conditions": "ContractConditions(\"MainCondition\")",
+            "Name": "ErrandDecision"
+        }
+    ],
+    "menus": [
+        {
+            "Name": "default_menu",
+            "Conditions": "ContractConditions(\"@1DeveloperCondition\")"
+        }
+    ],
+    "pages": [
+        {
+            "Conditions": "ContractConditions(\"MainCondition\")",
+            "Name": "errand_access",
+            "Menu": "default_menu"
+        },
+        {
+            "Conditions": "ContractConditions(\"MainCondition\")",
+            "Name": "errand_create",
+            "Menu": "default_menu"
+        },
+        {
+            "Conditions": "ContractConditions(\"MainCondition\")",
+            "Name": "errand_list",
+            "Menu": "default_menu"
+        },
+        {
+            "Conditions": "ContractConditions(\"MainCondition\")",
+            "Name": "errand_view",
+            "Menu": "default_menu"
+        }
+    ],
+    "tables": [
+        {
+            "Conditions": "ContractAccess(\"@1EditTable\")",
+            "Name": "errand_access",
+            "Permissions": "{\"insert\": \"ContractAccess(\\\"@1ErrandAccess\\\")\", \"update\": \"ContractAccess(\\\"@1ErrandAccess\\\")\", \"new_column\": \"ContractConditions(\\\"@1AdminCondition\\\")\"}"
+        }
+    ],
+    "parameters": null,
+    "name": "Errand"
+}
