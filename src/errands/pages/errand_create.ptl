@@ -1,7 +1,15 @@
 SetVar(this_page,"@1errand_create")
 
+If(GetVar(EcosystemId) == #ecosystem_id#){
+    SetVar(errand_type,1)
+}
+
 If(GetVar(errand_type)==""){
     SetVar(errand_type,0)
+}
+
+If(GetVar(MemberId) == ""){
+    SetVar(MemberId, 0)
 }
 
 Form(){
@@ -42,7 +50,20 @@ Form(){
                     DBFind(@1roles, src_roles).Where({ecosystem:#ecosystem_id#, deleted:0}).Columns("id,role_name")
                     Select(Name: rec_role_id, Source: src_roles, NameColumn: role_name, ValueColumn: id)
                 }.ElseIf(GetVar(errand_type)==1){
-                    Input(member_id,Placeholder: "0000-0000-0000-0000-000")
+                    Input(Name: member_id, Type:hidden, Value: #MemberId#)
+                    Div(input-group){
+                        If(#MemberId# != 0){
+                            SetVar(AddressMemberId, Address(#MemberId#))
+                            Input(Name: m_name, Disabled: 1, Value: #AddressMemberId#)
+                        }.Else{
+                            Input(Name: m_name, Disabled: 1, Value: "xxxx-xxxx-xxxx-xxxx-xxxx")
+                        }
+                        Div(input-group-btn){
+                            Button(Class: btn bg-gray-lighter fa fa-caret-down mtl buttons, Page: @1select_wallet, PageParams:"back_page=#this_page#,back_header=$@1send$,EcosystemId=#ecosystem_id#").Popup(Header: $@1member$, Width: "50")
+                        }.Style(
+                            .buttons{border: 1px solid #dde6e9;}
+                        )
+                    }
                 }
             }
         }
