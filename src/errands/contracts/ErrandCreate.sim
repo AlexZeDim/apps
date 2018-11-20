@@ -64,7 +64,7 @@ contract ErrandCreate {
             info LangRes("@1empty_text", "en")
         }
         if $errand_type == 0 {
-            $valid_role = DBFind("roles").Where({ecosystem:$ecosystem_id,id:$rec_role_id,deleted:0}).One("id")
+            $valid_role = DBFind("@1roles").Where({ecosystem:$ecosystem_id,id:$rec_role_id,deleted:0}).One("id")
             if $valid_role == 0 {
                 info LangRes("@1role_not_found", "en")
             }
