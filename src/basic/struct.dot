@@ -1,12 +1,10 @@
 digraph G {
-graph [
-  fontsize="24";
-  label="basic\nFriday, 16-Nov-18 05:38:06 MSK";
-  nojustify=true;
-  ordering=out;
-  rankdir=LR;
-  size="30";
-];
+fontsize="24";
+label="basic\nSunday, 18-Nov-18 20:22:00 +10";
+nojustify=true;
+ordering=out;
+rankdir=LR;
+size="30";
 "admin_menu\nmenu" [color=blue, fontcolor=blue, group=menus, shape=record];
 "default_menu\nmenu" [color=blue, fontcolor=blue, group=menus, shape=record];
 "contract_bind_request\npage" -> "NotificationsClose\ncontract"  [ color=red ]
@@ -23,36 +21,15 @@ graph [
 "ecosystem_new\npage" -> "@1NewEcosystem\ncontract"  [ color=red ]
 "ecosystem_new\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "ecosystems_list\npage" -> "@1VotingVesCreate\ncontract"  [ color=red ]
-"ecosystems_list\npage" -> "@1MembershipRequest\ncontract"  [ color=red ]
-"1applications\ntable" -> "ecosystems_list\npage"
 "1buffer_data\ntable" -> "ecosystems_list\npage"
+"1applications\ntable" -> "ecosystems_list\npage"
 "src\ntable" -> "ecosystems_list\npage"
-"1notifications\ntable" -> "ecosystems_list\npage"
-"1keys\ntable" -> "ecosystems_list\npage"
 "ecosystems_list\npage" -> "@1pager_header\nblock"  [ color=green, label=include ]
 "ecosystems_list\npage" -> "@1search\nblock"  [ color=green, label=include ]
 "ecosystems_list\npage" -> "@1pager\nblock"  [ color=green, label=include ]
 "ecosystems_list\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "ecosystems_metrics_update\npage" -> "@1MetricsUpdate\ncontract"  [ color=red ]
 "ecosystems_metrics_update\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"errand_access\npage" -> "@1ErrandAccess\ncontract"  [ color=red ]
-"1roles\ntable" -> "errand_access\npage"
-"1errand_access\ntable" -> "errand_access\npage"
-"errand_access\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"errand_create\npage" -> "@1ErrandCreate\ncontract"  [ color=red ]
-"1roles\ntable" -> "errand_create\npage"
-"errand_create\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"errand_list\npage" -> "@1ErrandStatusUpdate\ncontract"  [ color=red ]
-"1errand_access\ntable" -> "errand_list\npage"
-"1notifications\ntable" -> "errand_list\npage"
-"errand_list\npage" -> "@1pager_header\nblock"  [ color=green, label=include ]
-"errand_list\npage" -> "@1pager\nblock"  [ color=green, label=include ]
-"errand_list\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"errand_view\npage" -> "@1ErrandDecision\ncontract"  [ color=red ]
-"errand_view\npage" -> "@1NotificationsProcess\ncontract"  [ color=red ]
-"errand_view\npage" -> "@1NotificationsClose\ncontract"  [ color=red ]
-"1notifications\ntable" -> "errand_view\npage"
-"errand_view\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "src\ntable" -> "members_list\npage"
 "1members\ntable" -> "members_list\npage"
 "members_list\npage" -> "@1pager_header\nblock"  [ color=green, label=include ]
@@ -110,8 +87,6 @@ graph [
 "notifications_single_send\npage" -> "@1NotificationsSend\ncontract"  [ color=red ]
 "1applications\ntable" -> "notifications_single_send\npage"
 "1ecosystems\ntable" -> "notifications_single_send\npage"
-"1keys\ntable" -> "notifications_single_send\npage"
-"1members\ntable" -> "notifications_single_send\npage"
 "notifications_single_send\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "notifications_testpage\npage" -> "@1NotificationsClose\ncontract"  [ color=red ]
 "notifications_testpage\npage" -> "@1NotificationsProcess\ncontract"  [ color=red ]
@@ -175,8 +150,14 @@ graph [
 "roles_view\npage" -> "@1search\nblock"  [ color=green, label=include ]
 "roles_view\npage" -> "@1pager\nblock"  [ color=green, label=include ]
 "roles_view\npage" [color=green, fontcolor=green, group=pages, shape=record];
-"1ecosystems\ntable" -> "select_page\npage"
-"select_page\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"1ecosystems\ntable" -> "select_ecosystem\npage"
+"1parameters\ntable" -> "select_ecosystem\npage"
+"select_ecosystem\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"src\ntable" -> "select_wallet\npage"
+"1members\ntable" -> "select_wallet\npage"
+"select_wallet\npage" -> "@1pager_header\nblock"  [ color=green, label=include ]
+"select_wallet\npage" -> "@1pager_for_popup\nblock"  [ color=green, label=include ]
+"select_wallet\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "sysparams_candidate_validators_create\npage" -> "@1CandidateValidatorRequest\ncontract"  [ color=red ]
 "sysparams_candidate_validators_create\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "sysparams_candidates_list\npage" -> "@1VotingValidatorCreate\ncontract"  [ color=red ]
@@ -219,6 +200,8 @@ graph [
 "tokenrefund_list\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "tokens_send\npage" -> "@1TokensSend\ncontract"  [ color=red ]
 "tokens_send\npage" [color=green, fontcolor=green, group=pages, shape=record];
+"upload_page\npage" -> "@1BufferFileUpload\ncontract"  [ color=red ]
+"upload_page\npage" [color=green, fontcolor=green, group=pages, shape=record];
 "voting_create\npage" -> "@1VotingCreate\ncontract"  [ color=red ]
 "1applications\ntable" -> "voting_create\npage"
 "voting_create\npage" [color=green, fontcolor=green, group=pages, shape=record];
@@ -313,6 +296,9 @@ graph [
 "welcome\nblock" [color=green, fontcolor=green, group=blocks, shape=record];
 "BlockMember\ncontract" -> "TokensLockoutMember\ncontract"  [ color=red ]
 "BlockMember\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"BufferFileUpload\ncontract" -> "BufferManager\ncontract"  [ color=red ]
+"1applications\ntable" -> "BufferFileUpload\ncontract"
+"BufferFileUpload\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "1buffer_data\ntable" -> "BufferManager\ncontract"
 "BufferManager\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "CandidateValidatorDelete\ncontract" -> "RolesUnassign\ncontract"  [ color=red ]
@@ -333,20 +319,8 @@ graph [
 "DelegateRefresh\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "1keys\ntable" -> "DeleteMember\ncontract"
 "DeleteMember\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"1roles\ntable" -> "ErrandAccess\ncontract"
-"1errand_access\ntable" -> "ErrandAccess\ncontract"
-"ErrandAccess\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"ErrandCreate\ncontract" -> "NotificationsSend\ncontract"  [ color=red ]
-"1errand_access\ntable" -> "ErrandCreate\ncontract"
-"roles\ntable" -> "ErrandCreate\ncontract"
-"1members\ntable" -> "ErrandCreate\ncontract"
-"ErrandCreate\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"ErrandDecision\ncontract" -> "NotificationsClose\ncontract"  [ color=red ]
-"ErrandDecision\ncontract" -> "NotificationsSend\ncontract"  [ color=red ]
-"1notifications\ntable" -> "ErrandDecision\ncontract"
-"ErrandDecision\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"1notifications\ntable" -> "ErrandStatusUpdate\ncontract"
-"ErrandStatusUpdate\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
+"FormStateSave\ncontract" -> "BufferManager\ncontract"  [ color=red ]
+"FormStateSave\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
 "InvestorRefresh\ncontract" -> "RolesAssign\ncontract"  [ color=red ]
 "InvestorRefresh\ncontract" -> "RolesUnassign\ncontract"  [ color=red ]
 "1applications\ntable" -> "InvestorRefresh\ncontract"
@@ -659,7 +633,6 @@ graph [
 "VotingVesCreate\ncontract" -> "VotingTemplateRun\ncontract"  [ color=red ]
 "1applications\ntable" -> "VotingVesCreate\ncontract"
 "VotingVesCreate\ncontract" [color=red, fontcolor=red, group=contracts, shape=record];
-"errand_access\ntable" [color="", fontcolor="", group=tables, shape=""];
 "sysparams_candidate\ntable" [color="", fontcolor="", group=tables, shape=""];
 "tokens_refund\ntable" [color="", fontcolor="", group=tables, shape=""];
 "voting_templates\ntable" [color="", fontcolor="", group=tables, shape=""];

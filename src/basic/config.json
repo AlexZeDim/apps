@@ -25,6 +25,10 @@
     ],
     "contracts": [
         {
+            "Name": "BufferFileUpload",
+            "Conditions": "ContractConditions(\"@1DeveloperCondition\")"
+        },
+		{
             "Name": "BufferManager",
             "Conditions": "ContractConditions(\"@1DeveloperCondition\")"
         },
@@ -38,6 +42,10 @@
         },
         {
             "Name": "DelegateRefresh",
+            "Conditions": "ContractConditions(\"@1DeveloperCondition\")"
+        },
+		{
+            "Name": "FormStateSave",
             "Conditions": "ContractConditions(\"@1DeveloperCondition\")"
         },
         {
@@ -290,7 +298,7 @@
         {
             "Name": "ecosystem_new",
             "Conditions": "ContractConditions(\"@1DeveloperCondition\")",
-            "Menu": "admin_menu"
+            "Menu": "default_menu"
         },
         {
             "Name": "ecosystems_list",
@@ -438,7 +446,12 @@
             "Menu": "admin_menu"
         },
         {
-            "Name": "select_page",
+            "Name": "select_ecosystem",
+            "Conditions": "ContractConditions(\"@1DeveloperCondition\")",
+            "Menu": "default_menu"
+        },
+        {
+            "Name": "select_wallet",
             "Conditions": "ContractConditions(\"@1DeveloperCondition\")",
             "Menu": "default_menu"
         },
@@ -484,6 +497,11 @@
         },
         {
             "Name": "tokens_send",
+            "Conditions": "ContractConditions(\"@1DeveloperCondition\")",
+            "Menu": "default_menu"
+        },
+		{
+            "Name": "upload_page",
             "Conditions": "ContractConditions(\"@1DeveloperCondition\")",
             "Menu": "default_menu"
         },
@@ -573,22 +591,9 @@
         {
             "Name": "tokens_refund",
             "Permissions": "{\"insert\": \"ContractAccess(\\\"@1VotingTokensRefundCreate\\\")\", \"update\": \"ContractAccess(\\\"@1TokensRefundAccept\\\",\\\"@1TokensRefundReject\\\")\", \"new_column\": \"ContractConditions(\\\"@1AdminCondition\\\")\"}"
-        },
-        {
-            "Name": "errand_access",
-            "Conditions": "ContractAccess(\"@1EditTable\")",
-            "Permissions": "{\"insert\": \"ContractAccess(\\\"@1ErrandAccess\\\")\", \"update\": \"ContractAccess(\\\"@1ErrandAccess\\\")\", \"new_column\": \"ContractConditions(\\\"@1AdminCondition\\\")\"}"
         }
     ],
     "parameters": [
-        {
-            "Name": "catalog_ecosystems_freetype",
-            "Conditions": "ContractConditions(\"@1DeveloperCondition\")"
-        },
-        {
-            "Name": "catalog_ecosystems_type",
-            "Conditions": "ContractConditions(\"@1DeveloperCondition\")"
-        },
         {
             "Name": "first_node",
             "Conditions": "ContractConditions(\"@1DeveloperCondition\")"
